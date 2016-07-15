@@ -4,16 +4,17 @@ require 'active_support/core_ext/string/indent'
 
 require_relative "./build_method"
 
-class BuildResource
-  attr_reader :resource, :schema
+class BuildRepo
+  attr_reader :resource, :schema, :namespace
 
-  def initialize(resource, schema)
+  def initialize(namespace, resource, schema)
+    @namespace = namespace
     @resource = resource
     @schema = schema
   end
 
   def build
-    File.open("./lib/dato/repo/#{resource}.rb", "w") do |file|
+    File.open("./lib/dato/#{namespace}/repo/#{resource}.rb", "w") do |file|
       file.write content
     end
   end
@@ -23,7 +24,7 @@ class BuildResource
   end
 
   def template
-    File.read("./build/templates/resource.rb.erb")
+    File.read("./build/templates/repo.rb.erb")
   end
 
   def class_name

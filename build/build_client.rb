@@ -1,22 +1,21 @@
 require "json"
 require "json_schema"
-require_relative "./build_resource"
+require_relative "./build_repo"
 
 class BuildClient
-  BLACKLISTED_RESOURCES = %w(session item)
+  attr_reader :schema, :namespace, :blacklisted_resources
 
-  attr_reader :schema
-
-  def initialize(schema)
+  def initialize(schema, namespace, blacklisted_resources)
+    @namespace = namespace
+    @blacklisted_resources = blacklisted_resources
     @schema = JsonSchema.parse!(JSON.parse(schema))
     @schema.expand_references!
   end
 
   def build
     schema.properties.each do |resource, resource_schema|
-      if !BLACKLISTED_RESOURCES.include?(resource) && resource_schema.links.any?
-        puts resource
-        BuildResource.new(resource, resource_schema).build
+      if !blacklisted_resources.include?(resource) && resource_schema.links.any?
+        BuildRepo.new(namespace, resource, resource_schema).build
       end
     end
   end

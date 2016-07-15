@@ -5,17 +5,24 @@ require "zip"
 class DownloadSchema
   BASE_URL = "https://gitlab.cantierecreativo.net/api/v3"
 
-  def schema
+  attr_reader :project_id, :token
+
+  def initialize(token, project_id)
+    @token = token
+    @project_id = project_id
+  end
+
+  def schema(file)
     response = connection.get(
-      "#{BASE_URL}/projects/182/builds/#{build_id}/artifacts",
-      private_token: "y32upcTKLupUjXiC9nFW"
+      "#{BASE_URL}/projects/#{project_id}/builds/#{build_id}/artifacts",
+      private_token: token
     )
 
     File.open("build.zip", "wb") { |fp| fp.write(response.body) }
     File.delete("lib/schema.json") if File.exist? "lib/schema.json"
 
     Zip::File.open("build.zip") do |zip_file|
-      zip_file.glob("**/backend-hyperschema.json").first.extract("schema.json")
+      zip_file.glob("**/#{file}").first.extract("schema.json")
     end
 
     schema = File.read("schema.json")
@@ -28,8 +35,8 @@ class DownloadSchema
 
   def build_id
     connection.get(
-      "#{BASE_URL}/projects/182/builds?scope=success",
-      private_token: "y32upcTKLupUjXiC9nFW"
+      "#{BASE_URL}/projects/#{project_id}/builds?scope=success",
+      private_token: token
     ).body.first["id"]
   end
 

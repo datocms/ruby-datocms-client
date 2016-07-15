@@ -1,5 +1,7 @@
 require "dato/version"
-require "dato/client"
+
+require "dato/site/client"
+require "dato/account/client"
 
 module Dato
 end
