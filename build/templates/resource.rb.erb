@@ -1,0 +1,13 @@
+require 'dato/repo/base'
+
+module Dato
+  module Repo
+    class <%= class_name %> < Base
+
+      <%- methods.each do |method| -%>
+<%= method.method_body.indent(6) -%>
+
+      <%- end -%>
+    end
+  end
+end
