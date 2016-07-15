@@ -11,7 +11,6 @@ module Dato
             attributes: %i(label position),
             relationships: {:item_type=>{:collection=>false, :type=>:item_type}, :parent=>{:collection=>false, :type=>:menu_item}},
             required_attributes: %i(label position),
-            required_relationships: %i(item_type),
           ).serialize(resource_attributes)
 
           post_request "/menu-items", body
