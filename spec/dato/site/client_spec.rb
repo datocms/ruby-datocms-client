@@ -2,10 +2,10 @@ require 'spec_helper'
 
 module Dato
   module Site
-    describe Client do
+    describe Client, :vcr do
       let(:account_client) do
         Dato::Account::Client.new(
-          "7afb9e8e8d822c7d2cff7ea0d69fd5353d66adc00eeb2da05d",
+          "XXXYYY",
           domain: "http://account-api.lvh.me:3001"
         )
       end
@@ -188,7 +188,7 @@ module Dato
           expect(client.users.all.size).to eq 1
 
           client.users.update(new_user[:id], is_admin: true)
-          expect(client.items.find(new_user[:id])[:is_admin]).to be_truthy
+          expect(client.users.find(new_user[:id])[:is_admin]).to be_truthy
 
           client.users.destroy(new_user[:id])
           expect(client.users.all.size).to eq 0

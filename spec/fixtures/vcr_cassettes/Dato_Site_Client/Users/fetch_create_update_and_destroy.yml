@@ -1,0 +1,427 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://account-api.lvh.me:3001/sites
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"site","attributes":{"name":"Test site"}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer dfbf65d331869796024da2e4bc70802e19712d8d5a3f619b38
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: 'Created '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"cc9db0bcb005756f22a5eca41e119f96"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 5d21b4be-f9f6-4482-8255-5f2b6ede5612
+      X-Runtime:
+      - '0.020024'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:00 GMT
+      Content-Length:
+      - '279'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"206","type":"site","attributes":{"name":"Test site","theme_hue":224,"domain":null,"internal_domain":"broken-butterfly-9719.admin.datocms.com","last_data_change_at":null,"notes":null,"readwrite_token":"d7b060c51958657e9d98045834f70ab81a9136ddff809a2c59","readonly_token":"af195352637ba14f620dad20ae4c6c7178872be9be61b4b083","webhook_token":"aa1b8481d34a19c47a34"}}}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:00 GMT
+- request:
+    method: post
+    uri: http://site-api.lvh.me:3001/users
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"user","attributes":{"email":"foo@bar.it","first_name":"Foo","last_name":"Bar"}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer d7b060c51958657e9d98045834f70ab81a9136ddff809a2c59
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: 'Created '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"08fc509b73e7122bbeabebf6d4f8d9df"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8bd962c9-92d7-41b4-9e3e-8493483ea0ae
+      X-Runtime:
+      - '0.036260'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:00 GMT
+      Content-Length:
+      - '149'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"201","type":"user","attributes":{"first_name":"Foo","last_name":"Bar","email":"foo@bar.it","state":"INVITATION_PENDING","is_admin":false}}}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:00 GMT
+- request:
+    method: get
+    uri: http://site-api.lvh.me:3001/users
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer d7b060c51958657e9d98045834f70ab81a9136ddff809a2c59
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"b83f404935b66d0e69467a584ff426a7"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c0cf458e-a497-4bfe-8bbc-b9b4ae55b10d
+      X-Runtime:
+      - '0.010406'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:00 GMT
+      Content-Length:
+      - '153'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":"201","type":"user","attributes":{"first_name":"Foo","last_name":"Bar","email":"foo@bar.it","state":"INVITATION_PENDING","is_admin":false}}]}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:00 GMT
+- request:
+    method: put
+    uri: http://site-api.lvh.me:3001/users/201
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"201","type":"user","attributes":{"is_admin":true}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer d7b060c51958657e9d98045834f70ab81a9136ddff809a2c59
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"357a3c31d1df5952f668c136c6c849b8"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 74ca8c5f-9433-45aa-bfe9-b43751fc3c96
+      X-Runtime:
+      - '0.017583'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:00 GMT
+      Content-Length:
+      - '148'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"201","type":"user","attributes":{"first_name":"Foo","last_name":"Bar","email":"foo@bar.it","state":"INVITATION_PENDING","is_admin":true}}}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:00 GMT
+- request:
+    method: get
+    uri: http://site-api.lvh.me:3001/users/201
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer d7b060c51958657e9d98045834f70ab81a9136ddff809a2c59
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"357a3c31d1df5952f668c136c6c849b8"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0be65215-57ca-4885-bfe4-7444210a9af8
+      X-Runtime:
+      - '0.010766'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:00 GMT
+      Content-Length:
+      - '148'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"201","type":"user","attributes":{"first_name":"Foo","last_name":"Bar","email":"foo@bar.it","state":"INVITATION_PENDING","is_admin":true}}}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:00 GMT
+- request:
+    method: delete
+    uri: http://site-api.lvh.me:3001/users/201
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer d7b060c51958657e9d98045834f70ab81a9136ddff809a2c59
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"357a3c31d1df5952f668c136c6c849b8"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 408837e6-2a87-485a-8e2e-214f8c8b67b7
+      X-Runtime:
+      - '0.019713'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:00 GMT
+      Content-Length:
+      - '148'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"201","type":"user","attributes":{"first_name":"Foo","last_name":"Bar","email":"foo@bar.it","state":"INVITATION_PENDING","is_admin":true}}}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:00 GMT
+- request:
+    method: get
+    uri: http://site-api.lvh.me:3001/users
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer d7b060c51958657e9d98045834f70ab81a9136ddff809a2c59
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"69988f553f1419535ad75e958a2f1bb8"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f3e26d40-b740-4ada-a164-dc05b2e5dd67
+      X-Runtime:
+      - '0.014964'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:00 GMT
+      Content-Length:
+      - '37'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[]}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:00 GMT
+- request:
+    method: delete
+    uri: http://account-api.lvh.me:3001/sites/206
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer dfbf65d331869796024da2e4bc70802e19712d8d5a3f619b38
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"cc9db0bcb005756f22a5eca41e119f96"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c8b4bcbd-d5b8-44fc-a000-2915e79d0575
+      X-Runtime:
+      - '0.020432'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:00 GMT
+      Content-Length:
+      - '279'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"206","type":"site","attributes":{"name":"Test site","theme_hue":224,"domain":null,"internal_domain":"broken-butterfly-9719.admin.datocms.com","last_data_change_at":null,"notes":null,"readwrite_token":"d7b060c51958657e9d98045834f70ab81a9136ddff809a2c59","readonly_token":"af195352637ba14f620dad20ae4c6c7178872be9be61b4b083","webhook_token":"aa1b8481d34a19c47a34"}}}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:00 GMT
+recorded_with: VCR 3.0.3

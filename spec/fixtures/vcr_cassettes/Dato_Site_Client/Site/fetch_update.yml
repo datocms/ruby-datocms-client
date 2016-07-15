@@ -1,0 +1,269 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://account-api.lvh.me:3001/sites
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"site","attributes":{"name":"Test site"}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer dfbf65d331869796024da2e4bc70802e19712d8d5a3f619b38
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: 'Created '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"087c5b19d8295063f7be3035fc8abd27"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c338d907-3728-4825-8eff-faeee9c3f171
+      X-Runtime:
+      - '0.026314'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:01 GMT
+      Content-Length:
+      - '278'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"207","type":"site","attributes":{"name":"Test site","theme_hue":224,"domain":null,"internal_domain":"throbbing-shape-2557.admin.datocms.com","last_data_change_at":null,"notes":null,"readwrite_token":"9185693d14290f29dda9d4f07d6f1a345880a6a2984830a6da","readonly_token":"cec158c88a8b506c43e44804e2c680e93d3411ed017b7eeeda","webhook_token":"af87401504b889010461"}}}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:01 GMT
+- request:
+    method: get
+    uri: http://site-api.lvh.me:3001/site
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 9185693d14290f29dda9d4f07d6f1a345880a6a2984830a6da
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"4bbfa29ff64bc204763657fa52ea3ddc"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1e56f6b2-b6f8-4911-b7cb-8f43dba0e28d
+      X-Runtime:
+      - '0.011129'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:01 GMT
+      Content-Length:
+      - '448'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"207","type":"site","attributes":{"name":"Test site","locales":["en"],"theme_hue":224,"domain":null,"internal_domain":"throbbing-shape-2557.admin.datocms.com","global_seo":null,"favicon":null,"no_index":false,"last_data_change_at":null,"last_deploy_at":null,"deployable":false,"deploy_status":"unstarted","readonly_token":"cec158c88a8b506c43e44804e2c680e93d3411ed017b7eeeda","readwrite_token":"9185693d14290f29dda9d4f07d6f1a345880a6a2984830a6da","webhook_url":"http://webhooks.lvh.me/af87401504b889010461/deploy-results","deploy_adapter":null,"deploy_settings":null,"timezone":"Europe/Rome"},"relationships":{"account":{"data":{"id":"14","type":"account"}},"menu_items":{"data":[]},"item_types":{"data":[]}}}}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:01 GMT
+- request:
+    method: put
+    uri: http://site-api.lvh.me:3001/site
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"207","type":"site","attributes":{"deploy_adapter":null,"deploy_settings":null,"favicon":null,"global_seo":null,"locales":["en"],"name":"My
+        Blog","no_index":false,"theme_hue":224,"timezone":"Europe/Rome"}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 9185693d14290f29dda9d4f07d6f1a345880a6a2984830a6da
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"bb6c406cea1353eeb548131a704e850b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 3c878030-f584-428d-81d7-ada26f5ae47b
+      X-Runtime:
+      - '0.079694'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:01 GMT
+      Content-Length:
+      - '470'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"207","type":"site","attributes":{"name":"My Blog","locales":["en"],"theme_hue":224,"domain":null,"internal_domain":"throbbing-shape-2557.admin.datocms.com","global_seo":null,"favicon":null,"no_index":false,"last_data_change_at":"2016-07-15T10:47:01.121Z","last_deploy_at":null,"deployable":false,"deploy_status":"unstarted","readonly_token":"cec158c88a8b506c43e44804e2c680e93d3411ed017b7eeeda","readwrite_token":"9185693d14290f29dda9d4f07d6f1a345880a6a2984830a6da","webhook_url":"http://webhooks.lvh.me/af87401504b889010461/deploy-results","deploy_adapter":null,"deploy_settings":null,"timezone":"Europe/Rome"},"relationships":{"account":{"data":{"id":"14","type":"account"}},"menu_items":{"data":[]},"item_types":{"data":[]}}}}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:01 GMT
+- request:
+    method: get
+    uri: http://site-api.lvh.me:3001/site
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 9185693d14290f29dda9d4f07d6f1a345880a6a2984830a6da
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"bb6c406cea1353eeb548131a704e850b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 5a6508ad-d21b-414f-a98b-fb758c475adc
+      X-Runtime:
+      - '0.018591'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:01 GMT
+      Content-Length:
+      - '470'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"207","type":"site","attributes":{"name":"My Blog","locales":["en"],"theme_hue":224,"domain":null,"internal_domain":"throbbing-shape-2557.admin.datocms.com","global_seo":null,"favicon":null,"no_index":false,"last_data_change_at":"2016-07-15T10:47:01.121Z","last_deploy_at":null,"deployable":false,"deploy_status":"unstarted","readonly_token":"cec158c88a8b506c43e44804e2c680e93d3411ed017b7eeeda","readwrite_token":"9185693d14290f29dda9d4f07d6f1a345880a6a2984830a6da","webhook_url":"http://webhooks.lvh.me/af87401504b889010461/deploy-results","deploy_adapter":null,"deploy_settings":null,"timezone":"Europe/Rome"},"relationships":{"account":{"data":{"id":"14","type":"account"}},"menu_items":{"data":[]},"item_types":{"data":[]}}}}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:01 GMT
+- request:
+    method: delete
+    uri: http://account-api.lvh.me:3001/sites/207
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer dfbf65d331869796024da2e4bc70802e19712d8d5a3f619b38
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"3c6918c9c6e6b6e8e83702fce1803a54"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1189c5c8-5586-4cc9-942e-f580c06fab1c
+      X-Runtime:
+      - '0.014527'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Fri, 15 Jul 2016 10:47:01 GMT
+      Content-Length:
+      - '301'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"207","type":"site","attributes":{"name":"My Blog","theme_hue":224,"domain":null,"internal_domain":"throbbing-shape-2557.admin.datocms.com","last_data_change_at":"2016-07-15T10:47:01.121Z","notes":null,"readwrite_token":"9185693d14290f29dda9d4f07d6f1a345880a6a2984830a6da","readonly_token":"cec158c88a8b506c43e44804e2c680e93d3411ed017b7eeeda","webhook_token":"af87401504b889010461"}}}'
+    http_version: 
+  recorded_at: Fri, 15 Jul 2016 10:47:01 GMT
+recorded_with: VCR 3.0.3

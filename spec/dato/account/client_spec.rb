@@ -2,10 +2,10 @@ require 'spec_helper'
 
 module Dato
   module Account
-    describe Client do
+    describe Client, :vcr do
       let(:client) do
         Dato::Account::Client.new(
-          "7afb9e8e8d822c7d2cff7ea0d69fd5353d66adc00eeb2da05d",
+          "XXXYYY",
           domain: "http://account-api.lvh.me:3001"
         )
       end
