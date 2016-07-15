@@ -6,7 +6,7 @@ describe Dato do
   end
 
   it 'creates a module for each API resource' do
-    client = Dato::Client.new(ENV.fetch["SITE_TOKEN"])
+    client = Dato::Client.new(ENV.fetch("SITE_TOKEN"))
     creation = client.item_types.all.last
     items = client.items.all({ "filter[type]" => 74 })
     menu_item = client.menu_items.all.last
