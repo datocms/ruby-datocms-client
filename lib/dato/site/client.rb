@@ -26,7 +26,7 @@ module Dato
 
       attr_reader :token, :domain, :schema
 
-      def initialize(token, domain: 'http://site-api.datocms.com')
+      def initialize(token, domain: 'https://site-api.datocms.com')
         @domain = domain
         @token = token
       end
@@ -67,6 +67,7 @@ module Dato
           c.request :json
           c.response :json, content_type: /\bjson$/
           c.response :raise_error
+          c.use FaradayMiddleware::FollowRedirects
           c.adapter :net_http
         end
       end
