@@ -9,7 +9,7 @@ RSpec::Core::RakeTask.new(:spec)
 task :default => :spec
 
 task :build_repos do
-  downloader = DownloadSchema.new("y32upcTKLupUjXiC9nFW", "182")
+  downloader = DownloadSchema.new(ENV.fetch("TOKEN"), ENV.fetch("PROJECT_ID"))
 
   BuildClient.new(
     downloader.schema("backend-hyperschema.json"),
