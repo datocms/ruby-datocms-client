@@ -16,7 +16,7 @@ module Dato
         def create(resource_attributes)
           body = JsonApiSerializer.new(
             type: :site,
-            attributes: %i(domain name notes),
+            attributes: %i(domain name notes template),
           ).serialize(resource_attributes)
 
           post_request "/sites", body
@@ -33,6 +33,15 @@ module Dato
 
         def destroy(site_id)
           delete_request "/sites/#{site_id}"
+        end
+
+        def duplicate(site_id, resource_attributes)
+          body = JsonApiSerializer.new(
+            type: :site,
+            attributes: %i(name),
+          ).serialize(resource_attributes)
+
+          post_request "/sites/#{site_id}/duplicate", body
         end
 
       end
