@@ -24,7 +24,46 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+client = Dato::Site::Client.new("YOUR_SITE_API_TOKEN")
+
+article_type = client.item_types.create(
+  name: "Article",
+  singleton: false,
+  sortable: false,
+  api_key: "article"
+)
+
+client.fields.create(
+  article_type[:id],
+  api_key: "title",
+  field_type: "string",
+  appeareance: { type: "title" },
+  label: "Title",
+  localized: false,
+  position: 99,
+  hint: "",
+  validators: { required: {} },
+)
+
+client.fields.create(
+  article_type[:id],
+  api_key: "image",
+  field_type: "image",
+  appeareance: nil,
+  label: "Image",
+  localized: false,
+  position: 99,
+  hint: "",
+  validators: { required: {} },
+)
+
+client.items.create(
+  item_type: article_type[:id],
+  title: "First post!",
+  image: client.upload_image("http://i.giphy.com/NXOF5rlaSXdAc.gif")
+)
+```
 
 ## Development
 
