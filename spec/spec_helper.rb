@@ -6,6 +6,9 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'vcr'
 require 'dato'
+require 'i18n'
+
+I18n.available_locales = [:it, :en, :ru]
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
