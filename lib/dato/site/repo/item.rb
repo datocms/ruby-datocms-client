@@ -35,7 +35,7 @@ module Dato
           put_request "/items/#{item_id}", body
         end
 
-        def all(filters)
+        def all(filters = {})
           get_request "/items", filters
         end
 
