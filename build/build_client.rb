@@ -1,6 +1,7 @@
-require "json"
-require "json_schema"
-require_relative "./build_repo"
+# frozen_string_literal: true
+require 'json'
+require 'json_schema'
+require_relative './build_repo'
 
 class BuildClient
   attr_reader :schema, :namespace, :blacklisted_resources

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 module Dato
@@ -5,19 +6,19 @@ module Dato
     describe Client, :vcr do
       let(:account_client) do
         Dato::Account::Client.new(
-          "XXXYYY",
-          base_url: "http://account-api.lvh.me:3001"
+          'XXXYYY',
+          base_url: 'http://account-api.lvh.me:3001'
         )
       end
 
       let(:site) do
-        account_client.sites.create(name: "Test site")
+        account_client.sites.create(name: 'Test site')
       end
 
       subject(:client) do
         Dato::Site::Client.new(
           site[:readwrite_token],
-          base_url: "http://site-api.lvh.me:3001"
+          base_url: 'http://site-api.lvh.me:3001'
         )
       end
 
@@ -33,16 +34,16 @@ module Dato
       describe 'Menu items' do
         let(:item_type) do
           client.item_types.create(
-            name: "Article",
+            name: 'Article',
             singleton: false,
             sortable: false,
-            api_key: "article"
+            api_key: 'article'
           )
         end
 
         let(:parent_menu_item) do
           client.menu_items.create(
-            label: "Parent",
+            label: 'Parent',
             position: 99,
             item_type: nil
           )
@@ -50,7 +51,7 @@ module Dato
 
         it 'fetch, create, update and destroy' do
           new_menu_item = client.menu_items.create(
-            label: "Articles",
+            label: 'Articles',
             position: 99,
             parent: parent_menu_item[:id],
             item_type: item_type[:id]
@@ -58,11 +59,11 @@ module Dato
 
           client.menu_items.update(
             new_menu_item[:id],
-            new_menu_item.merge(label: "Manage articles")
+            new_menu_item.merge(label: 'Manage articles')
           )
 
           expect(client.menu_items.all.size).to eq 3
-          expect(client.menu_items.find(new_menu_item[:id])[:label]).to eq "Manage articles"
+          expect(client.menu_items.find(new_menu_item[:id])[:label]).to eq 'Manage articles'
 
           client.menu_items.destroy(new_menu_item[:id])
           expect(client.menu_items.all.size).to eq 2
@@ -72,20 +73,20 @@ module Dato
       describe 'Item types' do
         it 'fetch, create, update and destroy' do
           new_item_type = client.item_types.create(
-            name: "Article",
+            name: 'Article',
             singleton: false,
             sortable: false,
-            api_key: "article"
+            api_key: 'article'
           )
 
           expect(client.item_types.all.size).to eq 1
 
           client.item_types.update(
             new_item_type[:id],
-            new_item_type.merge(name: "Post", api_key: "post")
+            new_item_type.merge(name: 'Post', api_key: 'post')
           )
 
-          expect(client.item_types.find(new_item_type[:id])[:api_key]).to eq "post"
+          expect(client.item_types.find(new_item_type[:id])[:api_key]).to eq 'post'
 
           client.item_types.destroy(new_item_type[:id])
           expect(client.item_types.all.size).to eq 0
@@ -95,34 +96,34 @@ module Dato
       describe 'Fields' do
         let(:item_type) do
           client.item_types.create(
-            name: "Article",
+            name: 'Article',
             singleton: false,
             sortable: false,
-            api_key: "article"
+            api_key: 'article'
           )
         end
 
         it 'fetch, create, update and destroy' do
           new_field = client.fields.create(
             item_type[:id],
-            api_key: "title",
-            field_type: "string",
-            appeareance: { type: "title" },
-            label: "Title",
+            api_key: 'title',
+            field_type: 'string',
+            appeareance: { type: 'title' },
+            label: 'Title',
             localized: false,
             position: 99,
-            hint: "",
-            validators: { required: {} },
+            hint: '',
+            validators: { required: {} }
           )
 
           expect(client.fields.all(item_type[:id]).size).to eq 1
 
           client.fields.update(
             new_field[:id],
-            new_field.merge(label: "Article title")
+            new_field.merge(label: 'Article title')
           )
 
-          expect(client.fields.find(new_field[:id])[:label]).to eq "Article title"
+          expect(client.fields.find(new_field[:id])[:label]).to eq 'Article title'
 
           client.fields.destroy(new_field[:id])
           expect(client.fields.all(item_type[:id]).size).to eq 0
@@ -132,52 +133,52 @@ module Dato
       describe 'Items' do
         let(:item_type) do
           client.item_types.create(
-            name: "Article",
+            name: 'Article',
             singleton: false,
             sortable: false,
-            api_key: "article"
+            api_key: 'article'
           )
         end
 
         let(:text_field) do
           client.fields.create(
             item_type[:id],
-            api_key: "title",
-            field_type: "string",
-            appeareance: { type: "title" },
-            label: "Title",
+            api_key: 'title',
+            field_type: 'string',
+            appeareance: { type: 'title' },
+            label: 'Title',
             localized: false,
             position: 99,
-            hint: "",
-            validators: { required: {} },
+            hint: '',
+            validators: { required: {} }
           )
         end
 
         let(:image_field) do
           client.fields.create(
             item_type[:id],
-            api_key: "image",
-            field_type: "image",
+            api_key: 'image',
+            field_type: 'image',
             appeareance: nil,
-            label: "Image",
+            label: 'Image',
             localized: false,
             position: 99,
-            hint: "",
-            validators: { required: {} },
+            hint: '',
+            validators: { required: {} }
           )
         end
 
         let(:file_field) do
           client.fields.create(
             item_type[:id],
-            api_key: "file",
-            field_type: "file",
+            api_key: 'file',
+            field_type: 'file',
             appeareance: nil,
-            label: "File",
+            label: 'File',
             localized: false,
             position: 99,
-            hint: "",
-            validators: { required: {} },
+            hint: '',
+            validators: { required: {} }
           )
         end
 
@@ -190,31 +191,31 @@ module Dato
         it 'fetch, create, update and destroy' do
           new_item = client.items.create(
             item_type: item_type[:id],
-            title: "First post",
-            image: client.upload_image("https://www.datocms.com/icons/apple-touch-icon-57x57.png"),
-            file: client.upload_file("./spec/fixtures/file.txt")
+            title: 'First post',
+            image: client.upload_image('https://www.datocms.com/icons/apple-touch-icon-57x57.png'),
+            file: client.upload_file('./spec/fixtures/file.txt')
           )
 
-          expect(client.items.all("filter[type]" => item_type[:id]).size).to eq 1
+          expect(client.items.all('filter[type]' => item_type[:id]).size).to eq 1
 
           client.items.update(
             new_item[:id],
-            new_item.merge(title: "Welcome!")
+            new_item.merge(title: 'Welcome!')
           )
 
-          expect(client.items.find(new_item[:id])[:title]).to eq "Welcome!"
+          expect(client.items.find(new_item[:id])[:title]).to eq 'Welcome!'
 
           client.items.destroy(new_item[:id])
-          expect(client.items.all("filter[type]" => item_type[:id]).size).to eq 0
+          expect(client.items.all('filter[type]' => item_type[:id]).size).to eq 0
         end
       end
 
       describe 'Users' do
         it 'fetch, create, update and destroy' do
           new_user = client.users.create(
-            email: "foo@bar.it",
-            first_name: "Foo",
-            last_name: "Bar"
+            email: 'foo@bar.it',
+            first_name: 'Foo',
+            last_name: 'Bar'
           )
 
           expect(client.users.all.size).to eq 1
@@ -230,8 +231,8 @@ module Dato
       describe 'Site' do
         it 'fetch, update' do
           site = client.site.find
-          client.site.update(site.merge(name: "My Blog"))
-          expect(client.site.find[:name]).to eq "My Blog"
+          client.site.update(site.merge(name: 'My Blog'))
+          expect(client.site.find[:name]).to eq 'My Blog'
         end
       end
     end

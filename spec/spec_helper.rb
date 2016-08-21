@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'simplecov'
 SimpleCov.start
 
@@ -7,7 +8,7 @@ require 'vcr'
 require 'dato'
 
 VCR.configure do |config|
-  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
   config.preserve_exact_body_bytes do |http_message|
     http_message.body.encoding.name == 'ASCII-8BIT' ||

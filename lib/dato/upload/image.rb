@@ -1,5 +1,6 @@
-require "dato/upload/file"
-require "fastimage"
+# frozen_string_literal: true
+require 'dato/upload/file'
+require 'fastimage'
 
 module Dato
   module Upload
@@ -16,4 +17,3 @@ module Dato
     end
   end
 end
-

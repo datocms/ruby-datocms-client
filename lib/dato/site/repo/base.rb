@@ -1,5 +1,6 @@
-require "dato/json_api_serializer"
-require "dato/json_api_deserializer"
+# frozen_string_literal: true
+require 'dato/json_api_serializer'
+require 'dato/json_api_deserializer'
 
 module Dato
   module Site

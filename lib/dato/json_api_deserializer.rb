@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Dato
   class JsonApiDeserializer
     def deserialize(data)
@@ -17,14 +18,12 @@ module Dato
       relationships = data.delete(:relationships)
 
       if relationships
-        relationships.each do |key, data|
-          data = data["data"]
-          value = if data.is_a? Array
-                    data.map { |ref| ref["id"] }
-                  elsif data.is_a? Hash
-                    data[:id]
-                  else
-                    nil
+        relationships.each do |key, handle|
+          handle_data = handle['data']
+          value = if handle_data.is_a? Array
+                    handle_data.map { |ref| ref['id'] }
+                  elsif handle_data.is_a? Hash
+                    handle_data[:id]
                   end
           result[key] = value
         end
@@ -34,4 +33,3 @@ module Dato
     end
   end
 end
-

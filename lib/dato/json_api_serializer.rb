@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Dato
   class JsonApiSerializer
     attr_reader :type, :attributes, :relationships
@@ -21,9 +22,7 @@ module Dato
       resource = resource.with_indifferent_access
       data = {}
 
-      if id || resource[:id]
-        data[:id] = id || resource[:id]
-      end
+      data[:id] = id || resource[:id] if id || resource[:id]
 
       data[:type] = type
       data[:attributes] = serialized_attributes(resource)
@@ -39,7 +38,7 @@ module Dato
       result = {}
 
       attributes.each do |attribute|
-        if resource.has_key? attribute
+        if resource.key? attribute
           result[attribute] = resource[attribute]
         elsif required_attributes.include? attribute
           throw "Required attribute: #{attribute}"
@@ -53,7 +52,7 @@ module Dato
       result = {}
 
       relationships.each do |relationship, meta|
-        if resource.has_key? relationship
+        if resource.key? relationship
           value = resource[relationship]
 
           data = if value

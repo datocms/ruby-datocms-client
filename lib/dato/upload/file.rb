@@ -1,7 +1,8 @@
-require "downloadr"
-require "tempfile"
-require "addressable"
-require "net/http"
+# frozen_string_literal: true
+require 'downloadr'
+require 'tempfile'
+require 'addressable'
+require 'net/http'
 
 module Dato
   module Upload
@@ -25,7 +26,7 @@ module Dato
 
       def http_source?
         uri = Addressable::URI.parse(source)
-        uri.scheme == "http" || uri.scheme == "https"
+        uri.scheme == 'http' || uri.scheme == 'https'
       rescue Addressable::URI::InvalidURIError
         false
       end

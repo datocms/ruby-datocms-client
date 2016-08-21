@@ -1,0 +1,1038 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://account-api.lvh.me:3001/sites
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"site","attributes":{"name":"Test site"}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer XXXYYY
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: 'Created '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"5ec0a3ef02a70ee01b39bdda455259c4"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7a53389a-315c-4fed-9637-dc80ebc257ed
+      X-Runtime:
+      - '0.022610'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Sun, 21 Aug 2016 19:48:26 GMT
+      Content-Length:
+      - '398'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiMTExIiwidHlwZSI6InNpdGUiLCJhdHRyaWJ1dGVz
+        Ijp7Im5hbWUiOiJUZXN0IHNpdGUiLCJ0aGVtZV9odWUiOjIyNCwiZG9tYWlu
+        IjpudWxsLCJpbnRlcm5hbF9kb21haW4iOiJmcmFncmFudC1zdW4tMjMwOC5h
+        ZG1pbi5kYXRvY21zLmNvbSIsImxhc3RfZGF0YV9jaGFuZ2VfYXQiOm51bGws
+        Im5vdGVzIjpudWxsLCJyZWFkd3JpdGVfdG9rZW4iOiI5MTFjMTBhYmI0OGVh
+        ZWI5NDU4NzBhYWM5YmIwN2JmYjJiZDFjM2RjMjc5OGEyMzkwNyIsInJlYWRv
+        bmx5X3Rva2VuIjoiYzU5ZmEwYzI1YzM3ZWQ3NThhNjdjMWI2MTgzMGY3ZDUw
+        Y2U2MTFkMTA4Y2Q3MDBkZTYiLCJ3ZWJob29rX3Rva2VuIjoiYTY2NTg4ZDli
+        ZjdiOTg5YTQ5NWUiLCJhY2Nlc3NfdG9rZW4iOiJleUowZVhBaU9pSktWMVFp
+        TENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKemFYUmxYMmxrSWpveE1URXNJbUZq
+        WTI5MWJuUWlPblJ5ZFdWOS44dmUtcTdSUmR6VTR2ZC0xbEd0V0d3cUh3RTNs
+        aWpNdkdUOUhWODBGRERFIn19fQ==
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:26 GMT
+- request:
+    method: post
+    uri: http://site-api.lvh.me:3001/item-types
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"item_type","attributes":{"api_key":"article","name":"Article","singleton":false,"sortable":false}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 911c10abb48eaeb945870aac9bb07bfb2bd1c3dc2798a23907
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: 'Created '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"9a3cbf61031c4fdae4b9aa6bf624701e"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 9fcc3df1-d635-4488-9fb9-b418adbd9e17
+      X-Runtime:
+      - '0.027649'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Sun, 21 Aug 2016 19:48:26 GMT
+      Content-Length:
+      - '152'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiNjgiLCJ0eXBlIjoiaXRlbV90eXBlIiwiYXR0cmli
+        dXRlcyI6eyJuYW1lIjoiQXJ0aWNsZSIsInNpbmdsZXRvbiI6ZmFsc2UsInNv
+        cnRhYmxlIjpmYWxzZSwiYXBpX2tleSI6ImFydGljbGUifSwicmVsYXRpb25z
+        aGlwcyI6eyJmaWVsZHMiOnsiZGF0YSI6W119LCJzaW5nbGV0b25faXRlbSI6
+        eyJkYXRhIjpudWxsfX19fQ==
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:26 GMT
+- request:
+    method: post
+    uri: http://site-api.lvh.me:3001/item-types/68/fields
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"field","attributes":{"api_key":"title","appeareance":{"type":"title"},"field_type":"string","hint":"","label":"Title","localized":false,"position":99,"validators":{"required":{}}}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 911c10abb48eaeb945870aac9bb07bfb2bd1c3dc2798a23907
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: 'Created '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"845aba1de1c70c11966878838eb44711"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8cfdb493-bedd-4786-8634-ba16979990d3
+      X-Runtime:
+      - '0.045128'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Sun, 21 Aug 2016 19:48:26 GMT
+      Content-Length:
+      - '190'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiODIiLCJ0eXBlIjoiZmllbGQiLCJhdHRyaWJ1dGVz
+        Ijp7ImxhYmVsIjoiVGl0bGUiLCJmaWVsZF90eXBlIjoic3RyaW5nIiwiYXBp
+        X2tleSI6InRpdGxlIiwiaGludCI6bnVsbCwibG9jYWxpemVkIjpmYWxzZSwi
+        dmFsaWRhdG9ycyI6eyJyZXF1aXJlZCI6e319LCJwb3NpdGlvbiI6MSwiYXBw
+        ZWFyZWFuY2UiOnsidHlwZSI6InRpdGxlIn19LCJyZWxhdGlvbnNoaXBzIjp7
+        Iml0ZW1fdHlwZSI6eyJkYXRhIjp7ImlkIjoiNjgiLCJ0eXBlIjoiaXRlbV90
+        eXBlIn19fX19
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:26 GMT
+- request:
+    method: post
+    uri: http://site-api.lvh.me:3001/item-types/68/fields
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"field","attributes":{"api_key":"image","appeareance":null,"field_type":"image","hint":"","label":"Image","localized":false,"position":99,"validators":{"required":{}}}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 911c10abb48eaeb945870aac9bb07bfb2bd1c3dc2798a23907
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: 'Created '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"9ef09bd57e51b7e2b8c6a9e68fc52b34"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 27e75cb2-6d94-4ff8-81b9-4e8971e3575f
+      X-Runtime:
+      - '0.047396'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Sun, 21 Aug 2016 19:48:27 GMT
+      Content-Length:
+      - '185'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiODMiLCJ0eXBlIjoiZmllbGQiLCJhdHRyaWJ1dGVz
+        Ijp7ImxhYmVsIjoiSW1hZ2UiLCJmaWVsZF90eXBlIjoiaW1hZ2UiLCJhcGlf
+        a2V5IjoiaW1hZ2UiLCJoaW50IjpudWxsLCJsb2NhbGl6ZWQiOmZhbHNlLCJ2
+        YWxpZGF0b3JzIjp7InJlcXVpcmVkIjp7fX0sInBvc2l0aW9uIjoyLCJhcHBl
+        YXJlYW5jZSI6bnVsbH0sInJlbGF0aW9uc2hpcHMiOnsiaXRlbV90eXBlIjp7
+        ImRhdGEiOnsiaWQiOiI2OCIsInR5cGUiOiJpdGVtX3R5cGUifX19fX0=
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:27 GMT
+- request:
+    method: post
+    uri: http://site-api.lvh.me:3001/item-types/68/fields
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"field","attributes":{"api_key":"file","appeareance":null,"field_type":"file","hint":"","label":"File","localized":false,"position":99,"validators":{"required":{}}}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 911c10abb48eaeb945870aac9bb07bfb2bd1c3dc2798a23907
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: 'Created '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"ada67af0c2b740c74906a561ee1a7270"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 58cffc1c-6d57-410e-ba6b-aa35ca890fcb
+      X-Runtime:
+      - '0.049140'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Sun, 21 Aug 2016 19:48:27 GMT
+      Content-Length:
+      - '182'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiODQiLCJ0eXBlIjoiZmllbGQiLCJhdHRyaWJ1dGVz
+        Ijp7ImxhYmVsIjoiRmlsZSIsImZpZWxkX3R5cGUiOiJmaWxlIiwiYXBpX2tl
+        eSI6ImZpbGUiLCJoaW50IjpudWxsLCJsb2NhbGl6ZWQiOmZhbHNlLCJ2YWxp
+        ZGF0b3JzIjp7InJlcXVpcmVkIjp7fX0sInBvc2l0aW9uIjozLCJhcHBlYXJl
+        YW5jZSI6bnVsbH0sInJlbGF0aW9uc2hpcHMiOnsiaXRlbV90eXBlIjp7ImRh
+        dGEiOnsiaWQiOiI2OCIsInR5cGUiOiJpdGVtX3R5cGUifX19fX0=
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:27 GMT
+- request:
+    method: post
+    uri: http://site-api.lvh.me:3001/upload-requests
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"upload_request","attributes":{"filename":"apple-touch-icon-57x57.png"}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 911c10abb48eaeb945870aac9bb07bfb2bd1c3dc2798a23907
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: 'Created '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"3cbd6fc4c283e1fd5e3b457a402643a9"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 35372f5b-05d8-4b8b-9e5c-f88c3dba1d8e
+      X-Runtime:
+      - '0.016238'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Sun, 21 Aug 2016 19:48:27 GMT
+      Content-Length:
+      - '355'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiLzExMS8xNDcxODA4OTA3LWFwcGxlLXRvdWNoLWlj
+        b24tNTd4NTcucG5nIiwidHlwZSI6InVwbG9hZF9yZXF1ZXN0IiwiYXR0cmli
+        dXRlcyI6eyJ1cmwiOiJodHRwczovL2RhdG8taW1hZ2VzLnMzLWV1LXdlc3Qt
+        MS5hbWF6b25hd3MuY29tLzExMS8xNDcxODA4OTA3LWFwcGxlLXRvdWNoLWlj
+        b24tNTd4NTcucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2
+        XHUwMDI2WC1BbXotQ3JlZGVudGlhbD1BS0lBSU5YUVgyWk5YTkVCQ1ZKQSUy
+        RjIwMTYwODIxJTJGZXUtd2VzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3RcdTAw
+        MjZYLUFtei1EYXRlPTIwMTYwODIxVDE5NDgyN1pcdTAwMjZYLUFtei1FeHBp
+        cmVzPTkwMFx1MDAyNlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCUzQngtYW16
+        LWFjbFx1MDAyNlgtQW16LVNpZ25hdHVyZT00MzYwZWYyN2FhMTZlM2Y2NTM5
+        ZTg0ODk4Y2Y5MDhlMzExYmRjZGI3MDYwZWRhYjg0OWQ4ZDliMmNjMmZhNDk0
+        In19fQ==
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:27 GMT
+- request:
+    method: get
+    uri: https://www.datocms.com/icons/apple-touch-icon-57x57.png
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - public, max-age=0, must-revalidate
+      Content-Length:
+      - '2971'
+      Content-Type:
+      - image/png
+      Date:
+      - Sun, 21 Aug 2016 11:27:24 GMT
+      Etag:
+      - '"efb2fab81d64c7bb78299ecf1fb58c72c3322e37-ssl"'
+      Strict-Transport-Security:
+      - max-age=31536000
+      Age:
+      - '30063'
+      Connection:
+      - keep-alive
+      Server:
+      - BitBalloon
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        iVBORw0KGgoAAAANSUhEUgAAADkAAAA5CAYAAACMGIOFAAALYklEQVRogd1a
+        W2xcRxn+/rPnbNa7dnyrYze204SQixsqNQlNWxFRKXIaUZIihFAlkNqXAqrC
+        KxIS4ok3XlGpUAXiiaI2QjQJl0qF0kRtGqGqjVJCSGkutZP4Vudie71Ze/fn
+        4czlnzlz1i7pA2Ks4zO3/zr//P9/ZodeevYK4/+8RLrSStL/RS18Gn5jBpte
+        BgBSFXKh2GubQl5faF4IZ2hOaIyQKxGHYAL8xiS5JImRBGMKijS0J6VpCuwk
+        ONR9rGiwL11IywHcUhMOLx6MpqXacaoR9silojPBfYNSPYDACjkJvGm/K79V
+        oWDS9Kd4FDUw6V6Nn1XdYd+KbHiBgbPqIyNPzMwCkG1NVZd4CTO1MdSaVXwW
+        JUKEAiVoK7SjPelGMSo5dO1/nye3vrp2WmJS5mP0THqlGe9+8hpOTh1BrbFw
+        l6LBtSr1JiJ0JD0YaPsc7qvcj8+v3YXOpC9dA7LWHYINoc4jRS89e4W1UAQy
+        Zn565hjemPhNOjHPaUAw8l8IGcI5WN6KXT2jGOl8BBElQb/mmK9WhkdKTowB
+        Tn2BIkpgVBtzODl5xCqMXOWRhyzEQIYhyixAEGa8egHj1Qt4c/JlfLn/m9jR
+        tRcRkSOErxtXydp72IkxQMY8tdmOLZzHcvNOS8TBPu1QODwnuOIcxn27Po3j
+        Yz/He7N/wROD30VvadDztFagEDUW9UgT0boiALVGNQRn2xQYk8vrz1mNOfu4
+        VPvqwr/w63//CB/cOGFYJ/Pn1yH6bDtiSkOEMT2tbjVD+j0ZYFk81lkpXOzB
+        cRZGwmo6oTEGUOcajo+/gL9N/hYMhubZwJE7X8rEJNK6lbTsmxpp0xQEDM9i
+        zOwNcscy+PQY2RWAwMtgvDN9FK9d+5XRoqQLuTheYI1J7MWQZzB7jARhOd7C
+        8zpwwRCSA+fTFwjfm30dpUIFj/U/BcrhV8uiYaPwxlol6ZC7vJuSwRf2VKem
+        X8W5W28ZEDd50HBkcqZITrITJJHQEnI+D3dT/KCYq0XGn6/+ErP1SbgC+Uyl
+        9XRPkvJJ3mZgZuM4Mm9d1wRY10nUYdtEbp96IGElXiYwawHSusR9p1HDn66+
+        CGOXakMbGcQTk9aYSY5hCNtNQyJDCW0md7WJbNIcgXBveTPWl7eiq9iHmBLU
+        mzXM1q9jbOE8ZmpXLW3yEnzhpTMOBsCVhXM4f+sdjHQ96nPjlNg1VumaPI9i
+        nIaPIut5GEBCRey+53F8sfcAOpLeYFbCDEzVPsbpmWM4d/NtNLVUBIA5FTqU
+        N4pPthOTr2Bb5x5EFDn4WaQDsSToM0IaH2yss8QFw56cQ+UtODR0GN1r+oNK
+        MJAE9LdtwKGhw9jZM4qjY8/jVn3GDXoyWEslqb5P6tdx4fa72N75kKFjKco9
+        adt2WMY/QhorlO27/a4M29fuwbc2/Rhda9YFBcswCwIRYbiyDc9s/gn62zbY
+        BCGwv7J0Ge/Pvi6ULnGnnZHxSCIrkW9bd/esHbQzN1RG8OTw91GIEgFrPZ/7
+        SI+YlkrShac2/hBrk54wrWAhXJ7/B6qN2wH+UxqR6QjstXCU8mmks0pRGU8O
+        HxYCUnZuTtFCA0Al6cbBoedAK4goR5to4qO59zP0jPML6zndkSY78pbXZDDi
+        eaTvEDqSngCuFR7O9t1X2YFtax9yhfGX3ev7eP5cLs5IIyLWooW1Reqf42TV
+        k0RF7OrdL7YKee9P8SgHuOeeJxx5ZAw3u03kKhOLlywOcnkwaV3ItOTXg674
+        gQYMbGp/AKVCxagjiyvjxcQqWO4ZZKQZLG9FR9JjFiXEg+TzRn0SDW4YfPLg
+        LNJM2DUkg4y8t5GYlcZV31BlmwNr/rPAF/yMcW3FaRFhqLzVXWG2dc2D5m+p
+        WUdteUHwbrHFedoJpvg5pbvYv/KknHCZH0WB7uIAQM5hpvUTgXetsYBK0pnB
+        GQMszov1MgN5x9OSmK4XC22qT5yTqqRBZxN6fjWKUW4uQ02xwqqNLjdPMSoB
+        bM9PvZCcKQ1eMtyxYDBmd4cJafxTzPyy1KhZaxapk4UnQ7it2XAYsHuYLbwC
+        qTdrYHJDmb+qUgERxXaH6Aqz+mgWKKzLdnXmCyxHb9anXA3LJSLA5oYBhCS8
+        irO0KV6w5VC+/VVlAKVCBZQxD/jeVYARg8xud+v+M169YFmQaZ+vFlLbwZyP
+        IP2cEg5XOyQGcLX6IUjR9h9Nm1U7iRK0xe1WfFLrRISYhYo4mwBa/0OUakkf
+        aYu4enH+DO40aukeksbHYjMEf44QCidRB+P64kXcWpoW9qm1oHhQ/ZqnruI6
+        RCjY0MGWVkTMzuGRNVfAZsiCSdOvUTCWGjWcmf1rNqjbNWzxsDNft/8+80eh
+        BU1f8KC3geJtoG1TLo1IayVrrnmPDFhpPAMBb0//HgvLt114aO1ZcVd2ZoTx
+        6of4561TLfgQAVI9w5URoRN2RLEJulCaoz29cuYgU1E2/emcxeU5HB9/Ac30
+        09eevTLMMYrkWqNiuI6l2pjDsfHnwdwUfOTRhgoxETZ37BRKlEcn5lMrpFCy
+        PBnetMNgoVGCTsUuzp/BH8Z/gSaaPjLLgIiZEjmDUGss4JXLP029qqEvrCHT
+        l/IwXBlBe9wlaFn9AIRYJ+Z63H5x2LhlGMqEBo1KATLhgxsnML98AweHnkNH
+        3APtnAJadPonapfw6tjPMFu75hEgq9TMr9xpebBnn8EWohVL/tOFEdoCC1ak
+        nVvCKRs2gAPA5fmzePHCD/Bw30Hs7BlFudBhKTqhkHGzPoXTM8dxZvYNNLHs
+        eT5fUClg2tdV7Mf2zoczgknomKX5waZ1xhGJEOIW7XX9vCFt1JpVvDnxMt6a
+        +h2GKyMYLG9BV9KHOCriTnMRN+5MYGzhPK4tfgRzOUPSyNANj+1d9w2V6bg/
+        vctpcQ7r7izZppxxOSbqy81lXJo7i0tzZzML47ylJfpy5eAeKm/Bjq69jmj5
+        5qqmZSa01IDXDtVDFP2xlXDk1BMq4iuD30FEkbtl4OpKeVfrzP0JDlSeG24V
+        +EK2478lfo+Osz3FmwCMrn8afaVhyPPVEPk0GYDJORzUGd7zMIUc3soRP4xH
+        vlmg8Wjv7j2AB7v3mUGpmxArsZ+D5MliILSjkxElZMbBDKM1zuC+9PB+oWsv
+        Ru99WvkjfxXDqxqbYUaaogU4cg6a1dtph8pq92urPeqB7erZj/3rn0G0ih82
+        pY+xH802IqRImZ3bYisavl+Xbd8TUIu5PhwBMSXYN/Bt7O49APO55ojvtVm/
+        0krs5wkEwppCm0PQQaMTHATWPKffMW2PPY1SN0xioxr9pY346tD3MNC2KQCZ
+        0ya3EusdLmPxcHkbCpRgmZeC+BxBvHH25vpC+Cbvo9fwlUInvrTu69jZO4oC
+        FXzMLYuPNzZcCxupJJ14tO9rODl1xIEiaNNVS5NnfqGMTO9jc9syPL+vNIxd
+        vaN4oPsxJFHJRHB70VCD6Awn+4bXju3pHMxtSTBUuhTh1NRRLKFmtaxtfbWJ
+        gYYxQsnshFAqVDBQ2oQN7fdjS8du9JWGxe0tN8nULY1G88veeGZ+ej1b2itb
+        bSP9/JlYvITlZh2fVSEqoK1QwdqkF+W4M+AtQ94qNKbbWrCQ8ZMNIRkaylBK
+        hQo2VnYgm6DnI21lu/J+q+d6PKZlPeSO7Xg263EVZE4G5EKnX/W2146xY0As
+        /mDg0pDs31O1OMnBwqz7LJzFJ2lJsxT3AZUw1kBZXaKAwRRDHWT5upFaIeft
+        13WXwGPuZqo9we48BOiRP8bIz2qcRXXHyRE+LVHwWhRlKl7M0JoMpCnynrm5
+        j27nOfHWeOpQXcyB6IcYQ2BcbDU9bn7VcmCcr2B9NmPv6zh8m2lkGfXkzszT
+        8UhfsBCHzfIsx/6UBzPfKFkJExpPZSUz/h/7oZuO3r7qJwAAAABJRU5ErkJg
+        gg==
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:27 GMT
+- request:
+    method: put
+    uri: https://dato-images.s3-eu-west-1.amazonaws.com/111/1471808907-apple-touch-icon-57x57.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAINXQX2ZNXNEBCVJA/20160821/eu-west-1/s3/aws4_request&X-Amz-Date=20160821T194827Z&X-Amz-Expires=900&X-Amz-Signature=4360ef27aa16e3f6539e84898cf908e311bdcdb7060edab849d8d9b2cc2fa494&X-Amz-SignedHeaders=host%3Bx-amz-acl
+    body:
+      encoding: UTF-8
+      base64_string: |
+        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
+        gg==
+    headers:
+      X-Amz-Acl:
+      - public-read
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - gEJMK56M2onCRp2UerlO7iBMUD4Q547fcBe485Ls5p+t4M+nQSLLmqo+B7926FojfnVCrKtEWjw=
+      X-Amz-Request-Id:
+      - D73806F438AADF69
+      Date:
+      - Sun, 21 Aug 2016 19:48:29 GMT
+      Etag:
+      - '"3a18a238709ab82d96dd377b6080e0a5"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:28 GMT
+- request:
+    method: post
+    uri: http://site-api.lvh.me:3001/upload-requests
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"upload_request","attributes":{"filename":"file.txt"}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 911c10abb48eaeb945870aac9bb07bfb2bd1c3dc2798a23907
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: 'Created '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"250d0730e05a1b2f4ef5ff44c4742354"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2499196d-21ec-479d-81b3-9eb3d99efe74
+      X-Runtime:
+      - '0.013758'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Sun, 21 Aug 2016 19:48:28 GMT
+      Content-Length:
+      - '340'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiLzExMS8xNDcxODA4OTA4LWZpbGUudHh0IiwidHlw
+        ZSI6InVwbG9hZF9yZXF1ZXN0IiwiYXR0cmlidXRlcyI6eyJ1cmwiOiJodHRw
+        czovL2RhdG8taW1hZ2VzLnMzLWV1LXdlc3QtMS5hbWF6b25hd3MuY29tLzEx
+        MS8xNDcxODA4OTA4LWZpbGUudHh0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhN
+        QUMtU0hBMjU2XHUwMDI2WC1BbXotQ3JlZGVudGlhbD1BS0lBSU5YUVgyWk5Y
+        TkVCQ1ZKQSUyRjIwMTYwODIxJTJGZXUtd2VzdC0xJTJGczMlMkZhd3M0X3Jl
+        cXVlc3RcdTAwMjZYLUFtei1EYXRlPTIwMTYwODIxVDE5NDgyOFpcdTAwMjZY
+        LUFtei1FeHBpcmVzPTkwMFx1MDAyNlgtQW16LVNpZ25lZEhlYWRlcnM9aG9z
+        dCUzQngtYW16LWFjbFx1MDAyNlgtQW16LVNpZ25hdHVyZT0xNWE2NjVkYjBh
+        MTkzZWEzZGVjZDdkMGIwMGJmYzY0NWIzNzhjYmU2MTRiY2E5ODUxNWEyZDlj
+        OTEzNTQzNWE3In19fQ==
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:28 GMT
+- request:
+    method: put
+    uri: https://dato-images.s3-eu-west-1.amazonaws.com/111/1471808908-file.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAINXQX2ZNXNEBCVJA/20160821/eu-west-1/s3/aws4_request&X-Amz-Date=20160821T194828Z&X-Amz-Expires=900&X-Amz-Signature=15a665db0a193ea3decd7d0b00bfc645b378cbe614bca98515a2d9c9135435a7&X-Amz-SignedHeaders=host%3Bx-amz-acl
+    body:
+      encoding: UTF-8
+      string: 'Hi there!
+
+'
+    headers:
+      X-Amz-Acl:
+      - public-read
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - Ufr363AR38gTiXyyiMCaw91OUUTMODwnqLk3L56voUkLUnNK17161bheRXt0IlkQ3SgQSxSDcQk=
+      X-Amz-Request-Id:
+      - 2212F60256B928F4
+      Date:
+      - Sun, 21 Aug 2016 19:48:29 GMT
+      Etag:
+      - '"2b87e29fca6ee7f1df6c1a76cb58e101"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:28 GMT
+- request:
+    method: post
+    uri: http://site-api.lvh.me:3001/items
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"item","attributes":{"title":"First post","image":{"path":"/111/1471808907-apple-touch-icon-57x57.png","size":2971,"format":"png","width":57,"height":57},"file":{"path":"/111/1471808908-file.txt","size":10,"format":"txt"}},"relationships":{"item_type":{"data":{"type":"item_type","id":"68"}}}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 911c10abb48eaeb945870aac9bb07bfb2bd1c3dc2798a23907
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: 'Created '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"29525cb1ce012e085093f33574391ee4"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e23a2d21-ef9c-4fd4-a78e-1c1a978d6539
+      X-Runtime:
+      - '0.061109'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Sun, 21 Aug 2016 19:48:28 GMT
+      Content-Length:
+      - '349'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiMTIiLCJ0eXBlIjoiaXRlbSIsImF0dHJpYnV0ZXMi
+        OnsidXBkYXRlZF9hdCI6IjIwMTYtMDgtMjFUMTk6NDg6MjguNjkyWiIsImlz
+        X3ZhbGlkIjp0cnVlLCJ0aXRsZSI6IkZpcnN0IHBvc3QiLCJpbWFnZSI6eyJw
+        YXRoIjoiLzExMS8xNDcxODA4OTA3LWFwcGxlLXRvdWNoLWljb24tNTd4NTcu
+        cG5nIiwid2lkdGgiOjU3LCJoZWlnaHQiOjU3LCJmb3JtYXQiOiJwbmciLCJz
+        aXplIjoyOTcxfSwiZmlsZSI6eyJwYXRoIjoiLzExMS8xNDcxODA4OTA4LWZp
+        bGUudHh0IiwiZm9ybWF0IjoidHh0Iiwic2l6ZSI6MTB9fSwicmVsYXRpb25z
+        aGlwcyI6eyJpdGVtX3R5cGUiOnsiZGF0YSI6eyJpZCI6IjY4IiwidHlwZSI6
+        Iml0ZW1fdHlwZSJ9fX19LCJpbmNsdWRlZCI6W3siaWQiOiI2OCIsInR5cGUi
+        OiJpdGVtX3R5cGUiLCJhdHRyaWJ1dGVzIjp7Im5hbWUiOiJBcnRpY2xlIiwi
+        c2luZ2xldG9uIjpmYWxzZSwic29ydGFibGUiOmZhbHNlLCJhcGlfa2V5Ijoi
+        YXJ0aWNsZSJ9LCJyZWxhdGlvbnNoaXBzIjp7ImZpZWxkcyI6eyJkYXRhIjpb
+        eyJpZCI6IjgyIiwidHlwZSI6ImZpZWxkIn0seyJpZCI6IjgzIiwidHlwZSI6
+        ImZpZWxkIn0seyJpZCI6Ijg0IiwidHlwZSI6ImZpZWxkIn1dfSwic2luZ2xl
+        dG9uX2l0ZW0iOnsiZGF0YSI6bnVsbH19fV19
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:28 GMT
+- request:
+    method: get
+    uri: http://site-api.lvh.me:3001/site?include%5B%5D=item_types&include%5B%5D=item_types.fields
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 911c10abb48eaeb945870aac9bb07bfb2bd1c3dc2798a23907
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"7c7f7e3e336ad2e88f36d40ca6774409"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 91e85dfc-fef6-4e7d-ad46-e011022d604e
+      X-Runtime:
+      - '0.034354'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Sun, 21 Aug 2016 19:48:28 GMT
+      Content-Length:
+      - '710'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiMTExIiwidHlwZSI6InNpdGUiLCJhdHRyaWJ1dGVz
+        Ijp7Im5hbWUiOiJUZXN0IHNpdGUiLCJsb2NhbGVzIjpbImVuIl0sInRoZW1l
+        X2h1ZSI6MjI0LCJkb21haW4iOm51bGwsImludGVybmFsX2RvbWFpbiI6ImZy
+        YWdyYW50LXN1bi0yMzA4LmFkbWluLmRhdG9jbXMuY29tIiwiZ2xvYmFsX3Nl
+        byI6bnVsbCwiZmF2aWNvbiI6bnVsbCwibm9faW5kZXgiOmZhbHNlLCJsYXN0
+        X2RhdGFfY2hhbmdlX2F0IjoiMjAxNi0wOC0yMVQxOTo0ODoyOC42OTdaIiwi
+        bGFzdF9kZXBsb3lfYXQiOm51bGwsImRlcGxveWFibGUiOmZhbHNlLCJkZXBs
+        b3lfc3RhdHVzIjoidW5zdGFydGVkIiwicmVhZG9ubHlfdG9rZW4iOiJjNTlm
+        YTBjMjVjMzdlZDc1OGE2N2MxYjYxODMwZjdkNTBjZTYxMWQxMDhjZDcwMGRl
+        NiIsInJlYWR3cml0ZV90b2tlbiI6IjkxMWMxMGFiYjQ4ZWFlYjk0NTg3MGFh
+        YzliYjA3YmZiMmJkMWMzZGMyNzk4YTIzOTA3Iiwid2ViaG9va191cmwiOiJo
+        dHRwczovL3dlYmhvb2tzLmx2aC5tZS9hNjY1ODhkOWJmN2I5ODlhNDk1ZS9k
+        ZXBsb3ktcmVzdWx0cyIsImRlcGxveV9hZGFwdGVyIjpudWxsLCJkZXBsb3lf
+        c2V0dGluZ3MiOm51bGwsInRpbWV6b25lIjoiRXVyb3BlL0xvbmRvbiJ9LCJy
+        ZWxhdGlvbnNoaXBzIjp7ImFjY291bnQiOnsiZGF0YSI6eyJpZCI6IjEiLCJ0
+        eXBlIjoiYWNjb3VudCJ9fSwibWVudV9pdGVtcyI6eyJkYXRhIjpbeyJpZCI6
+        Ijk4IiwidHlwZSI6Im1lbnVfaXRlbSJ9XX0sIml0ZW1fdHlwZXMiOnsiZGF0
+        YSI6W3siaWQiOiI2OCIsInR5cGUiOiJpdGVtX3R5cGUifV19fX0sImluY2x1
+        ZGVkIjpbeyJpZCI6IjY4IiwidHlwZSI6Iml0ZW1fdHlwZSIsImF0dHJpYnV0
+        ZXMiOnsibmFtZSI6IkFydGljbGUiLCJzaW5nbGV0b24iOmZhbHNlLCJzb3J0
+        YWJsZSI6ZmFsc2UsImFwaV9rZXkiOiJhcnRpY2xlIn0sInJlbGF0aW9uc2hp
+        cHMiOnsiZmllbGRzIjp7ImRhdGEiOlt7ImlkIjoiODIiLCJ0eXBlIjoiZmll
+        bGQifSx7ImlkIjoiODMiLCJ0eXBlIjoiZmllbGQifSx7ImlkIjoiODQiLCJ0
+        eXBlIjoiZmllbGQifV19LCJzaW5nbGV0b25faXRlbSI6eyJkYXRhIjpudWxs
+        fX19LHsiaWQiOiI4MiIsInR5cGUiOiJmaWVsZCIsImF0dHJpYnV0ZXMiOnsi
+        bGFiZWwiOiJUaXRsZSIsImZpZWxkX3R5cGUiOiJzdHJpbmciLCJhcGlfa2V5
+        IjoidGl0bGUiLCJoaW50IjpudWxsLCJsb2NhbGl6ZWQiOmZhbHNlLCJ2YWxp
+        ZGF0b3JzIjp7InJlcXVpcmVkIjp7fX0sInBvc2l0aW9uIjoxLCJhcHBlYXJl
+        YW5jZSI6eyJ0eXBlIjoidGl0bGUifX0sInJlbGF0aW9uc2hpcHMiOnsiaXRl
+        bV90eXBlIjp7ImRhdGEiOnsiaWQiOiI2OCIsInR5cGUiOiJpdGVtX3R5cGUi
+        fX19fSx7ImlkIjoiODMiLCJ0eXBlIjoiZmllbGQiLCJhdHRyaWJ1dGVzIjp7
+        ImxhYmVsIjoiSW1hZ2UiLCJmaWVsZF90eXBlIjoiaW1hZ2UiLCJhcGlfa2V5
+        IjoiaW1hZ2UiLCJoaW50IjpudWxsLCJsb2NhbGl6ZWQiOmZhbHNlLCJ2YWxp
+        ZGF0b3JzIjp7InJlcXVpcmVkIjp7fX0sInBvc2l0aW9uIjoyLCJhcHBlYXJl
+        YW5jZSI6bnVsbH0sInJlbGF0aW9uc2hpcHMiOnsiaXRlbV90eXBlIjp7ImRh
+        dGEiOnsiaWQiOiI2OCIsInR5cGUiOiJpdGVtX3R5cGUifX19fSx7ImlkIjoi
+        ODQiLCJ0eXBlIjoiZmllbGQiLCJhdHRyaWJ1dGVzIjp7ImxhYmVsIjoiRmls
+        ZSIsImZpZWxkX3R5cGUiOiJmaWxlIiwiYXBpX2tleSI6ImZpbGUiLCJoaW50
+        IjpudWxsLCJsb2NhbGl6ZWQiOmZhbHNlLCJ2YWxpZGF0b3JzIjp7InJlcXVp
+        cmVkIjp7fX0sInBvc2l0aW9uIjozLCJhcHBlYXJlYW5jZSI6bnVsbH0sInJl
+        bGF0aW9uc2hpcHMiOnsiaXRlbV90eXBlIjp7ImRhdGEiOnsiaWQiOiI2OCIs
+        InR5cGUiOiJpdGVtX3R5cGUifX19fV19
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:28 GMT
+- request:
+    method: get
+    uri: http://site-api.lvh.me:3001/items?page%5Blimit%5D=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 911c10abb48eaeb945870aac9bb07bfb2bd1c3dc2798a23907
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"7da41532b6341f8c71e773ec7fc65240"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 9e56b252-a95c-4b5b-be5b-c781ff0e60fb
+      X-Runtime:
+      - '0.022889'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Sun, 21 Aug 2016 19:48:28 GMT
+      Content-Length:
+      - '276'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjpbeyJpZCI6IjEyIiwidHlwZSI6Iml0ZW0iLCJhdHRyaWJ1dGVz
+        Ijp7InVwZGF0ZWRfYXQiOiIyMDE2LTA4LTIxVDE5OjQ4OjI4LjY5MloiLCJp
+        c192YWxpZCI6dHJ1ZSwidGl0bGUiOiJGaXJzdCBwb3N0IiwiaW1hZ2UiOnsi
+        cGF0aCI6Ii8xMTEvMTQ3MTgwODkwNy1hcHBsZS10b3VjaC1pY29uLTU3eDU3
+        LnBuZyIsInNpemUiOjI5NzEsIndpZHRoIjo1NywiZm9ybWF0IjoicG5nIiwi
+        aGVpZ2h0Ijo1N30sImZpbGUiOnsicGF0aCI6Ii8xMTEvMTQ3MTgwODkwOC1m
+        aWxlLnR4dCIsInNpemUiOjEwLCJmb3JtYXQiOiJ0eHQifX0sInJlbGF0aW9u
+        c2hpcHMiOnsiaXRlbV90eXBlIjp7ImRhdGEiOnsiaWQiOiI2OCIsInR5cGUi
+        OiJpdGVtX3R5cGUifX19fV0sIm1ldGEiOnsidG90YWxfY291bnQiOjF9fQ==
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:28 GMT
+- request:
+    method: get
+    uri: http://site-api.lvh.me:3001/items?page%5Blimit%5D=500&page%5Boffset%5D=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 911c10abb48eaeb945870aac9bb07bfb2bd1c3dc2798a23907
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"7da41532b6341f8c71e773ec7fc65240"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - ff10ba34-7439-4f43-a4d7-df7a1acc740a
+      X-Runtime:
+      - '0.026618'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Sun, 21 Aug 2016 19:48:28 GMT
+      Content-Length:
+      - '276'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjpbeyJpZCI6IjEyIiwidHlwZSI6Iml0ZW0iLCJhdHRyaWJ1dGVz
+        Ijp7InVwZGF0ZWRfYXQiOiIyMDE2LTA4LTIxVDE5OjQ4OjI4LjY5MloiLCJp
+        c192YWxpZCI6dHJ1ZSwidGl0bGUiOiJGaXJzdCBwb3N0IiwiaW1hZ2UiOnsi
+        cGF0aCI6Ii8xMTEvMTQ3MTgwODkwNy1hcHBsZS10b3VjaC1pY29uLTU3eDU3
+        LnBuZyIsInNpemUiOjI5NzEsIndpZHRoIjo1NywiZm9ybWF0IjoicG5nIiwi
+        aGVpZ2h0Ijo1N30sImZpbGUiOnsicGF0aCI6Ii8xMTEvMTQ3MTgwODkwOC1m
+        aWxlLnR4dCIsInNpemUiOjEwLCJmb3JtYXQiOiJ0eHQifX0sInJlbGF0aW9u
+        c2hpcHMiOnsiaXRlbV90eXBlIjp7ImRhdGEiOnsiaWQiOiI2OCIsInR5cGUi
+        OiJpdGVtX3R5cGUifX19fV0sIm1ldGEiOnsidG90YWxfY291bnQiOjF9fQ==
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:28 GMT
+- request:
+    method: delete
+    uri: http://account-api.lvh.me:3001/sites/111
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer XXXYYY
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"f5762de45af2819d151f6b247642f308"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 9efe3b05-0462-4d6a-b497-f5371aefc45b
+      X-Runtime:
+      - '0.036393'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Sun, 21 Aug 2016 19:48:28 GMT
+      Content-Length:
+      - '419'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiMTExIiwidHlwZSI6InNpdGUiLCJhdHRyaWJ1dGVz
+        Ijp7Im5hbWUiOiJUZXN0IHNpdGUiLCJ0aGVtZV9odWUiOjIyNCwiZG9tYWlu
+        IjpudWxsLCJpbnRlcm5hbF9kb21haW4iOiJmcmFncmFudC1zdW4tMjMwOC5h
+        ZG1pbi5kYXRvY21zLmNvbSIsImxhc3RfZGF0YV9jaGFuZ2VfYXQiOiIyMDE2
+        LTA4LTIxVDE5OjQ4OjI4LjY5N1oiLCJub3RlcyI6bnVsbCwicmVhZHdyaXRl
+        X3Rva2VuIjoiOTExYzEwYWJiNDhlYWViOTQ1ODcwYWFjOWJiMDdiZmIyYmQx
+        YzNkYzI3OThhMjM5MDciLCJyZWFkb25seV90b2tlbiI6ImM1OWZhMGMyNWMz
+        N2VkNzU4YTY3YzFiNjE4MzBmN2Q1MGNlNjExZDEwOGNkNzAwZGU2Iiwid2Vi
+        aG9va190b2tlbiI6ImE2NjU4OGQ5YmY3Yjk4OWE0OTVlIiwiYWNjZXNzX3Rv
+        a2VuIjoiZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5
+        SnphWFJsWDJsa0lqb3hNVEVzSW1GalkyOTFiblFpT25SeWRXVjkuOHZlLXE3
+        UlJkelU0dmQtMWxHdFdHd3FId0UzbGlqTXZHVDlIVjgwRkRERSJ9fX0=
+    http_version: 
+  recorded_at: Sun, 21 Aug 2016 19:48:28 GMT
+recorded_with: VCR 3.0.3

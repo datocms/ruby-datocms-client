@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'faraday'
 require 'faraday_middleware'
 require 'json'
@@ -12,8 +13,8 @@ module Dato
     class Client
       REPOS = {
         account: Repo::Account,
-        sites: Repo::Site,
-      }
+        sites: Repo::Site
+      }.freeze
 
       attr_reader :token, :base_url, :schema
 
@@ -35,7 +36,7 @@ module Dato
       def request(*args)
         connection.send(*args).body.with_indifferent_access
       rescue Faraday::ClientError => e
-        raise ApiError.new(e)
+        raise ApiError, e
       end
 
       private
@@ -44,8 +45,8 @@ module Dato
         options = {
           url: base_url,
           headers: {
-            'Accept' => "application/json",
-            'Content-Type' => "application/json",
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
             'Authorization' => "Bearer #{@token}"
           }
         }

@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 require 'erb'
 require 'active_support/core_ext/string/inflections'
 require 'active_support/core_ext/string/indent'
 
-require_relative "./build_method"
+require_relative './build_method'
 
 class BuildRepo
   attr_reader :resource, :schema, :namespace
@@ -14,7 +15,7 @@ class BuildRepo
   end
 
   def build
-    File.open("./lib/dato/#{namespace}/repo/#{resource}.rb", "w") do |file|
+    File.open("./lib/dato/#{namespace}/repo/#{resource}.rb", 'w') do |file|
       file.write content
     end
   end
@@ -24,7 +25,7 @@ class BuildRepo
   end
 
   def template
-    File.read("./build/templates/repo.rb.erb")
+    File.read('./build/templates/repo.rb.erb')
   end
 
   def class_name
