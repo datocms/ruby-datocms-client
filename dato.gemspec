@@ -31,4 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "faraday", [">= 0.9.0"]
   spec.add_runtime_dependency "faraday_middleware", [">= 0.9.0"]
   spec.add_runtime_dependency "activesupport"
+  spec.add_runtime_dependency "fastimage"
+  spec.add_runtime_dependency "downloadr"
+  spec.add_runtime_dependency "addressable"
 end

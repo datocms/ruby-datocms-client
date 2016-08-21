@@ -12,7 +12,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer dfbf65d331869796024da2e4bc70802e19712d8d5a3f619b38
+      - Bearer XXXYYY
       User-Agent:
       - Faraday v0.9.2
       Accept-Encoding:
@@ -33,26 +33,38 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"c48b670784ada10587e9242cd3bff29f"
+      - W/"342c2a31733793eb4b764113779a9765"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2ce31321-0367-4e09-bc9a-103a290b48e2
+      - 36a56feb-390b-4c64-9661-270b4e1546ff
       X-Runtime:
-      - '0.023497'
+      - '0.021753'
       Server:
       - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
       Date:
-      - Fri, 15 Jul 2016 10:46:59 GMT
+      - Sun, 21 Aug 2016 12:07:51 GMT
       Content-Length:
-      - '275'
+      - '401'
       Connection:
       - Keep-Alive
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"201","type":"site","attributes":{"name":"Test site","theme_hue":224,"domain":null,"internal_domain":"green-fire-4581.admin.datocms.com","last_data_change_at":null,"notes":null,"readwrite_token":"2cf2209d929aa6d5321b74bfacddf47d72c2b9988e2eaa6a2d","readonly_token":"678f15085d20fc42ad8874743119298596b4bf3c14282bcfae","webhook_token":"6d1b0d1d5db4c3240f9a"}}}'
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiMTAxIiwidHlwZSI6InNpdGUiLCJhdHRyaWJ1dGVz
+        Ijp7Im5hbWUiOiJUZXN0IHNpdGUiLCJ0aGVtZV9odWUiOjIyNCwiZG9tYWlu
+        IjpudWxsLCJpbnRlcm5hbF9kb21haW4iOiJsaW5nZXJpbmctZmVhdGhlci0y
+        NDkxLmFkbWluLmRhdG9jbXMuY29tIiwibGFzdF9kYXRhX2NoYW5nZV9hdCI6
+        bnVsbCwibm90ZXMiOm51bGwsInJlYWR3cml0ZV90b2tlbiI6IjJlNDVjMmNm
+        NmYwZjA1ZDRhODM2ZTcwYzU2YWY0M2Y5ZmYwMTc5ZjI2NTk0N2Q1ZjA4Iiwi
+        cmVhZG9ubHlfdG9rZW4iOiIyMzU1NzU2MDVjZGEzY2EzYjVmNjFhYjQxMjU3
+        YTIzYWYzNzU4ZmViOTVlYjU4MWE4NSIsIndlYmhvb2tfdG9rZW4iOiJmMjQw
+        MzczNmM5N2Q2NjRmMmYzMyIsImFjY2Vzc190b2tlbiI6ImV5SjBlWEFpT2lK
+        S1YxUWlMQ0poYkdjaU9pSklVekkxTmlKOS5leUp6YVhSbFgybGtJam94TURF
+        c0ltRmpZMjkxYm5RaU9uUnlkV1Y5Lnk5aDRLajd1WGpCblFlZFkxTkFtNXNF
+        aTdrWWZLckFvcG5wajlyajVhMTQifX19
     http_version: 
-  recorded_at: Fri, 15 Jul 2016 10:46:59 GMT
+  recorded_at: Sun, 21 Aug 2016 12:07:51 GMT
 - request:
     method: get
     uri: http://site-api.lvh.me:3001/item-types/44
@@ -65,7 +77,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 2cf2209d929aa6d5321b74bfacddf47d72c2b9988e2eaa6a2d
+      - Bearer 2e45c2cf6f0f05d4a836e70c56af43f9ff0179f265947d5f08
       User-Agent:
       - Faraday v0.9.2
       Accept-Encoding:
@@ -88,25 +100,27 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - cea8a45c-f885-472e-b4fb-ffa11be49b73
+      - 93e62b6a-3039-4270-8bc9-73c64ca1feb0
       X-Runtime:
-      - '0.010920'
+      - '0.011247'
       Server:
       - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
       Date:
-      - Fri, 15 Jul 2016 10:46:59 GMT
+      - Sun, 21 Aug 2016 12:07:51 GMT
       Content-Length:
       - '98'
       Connection:
       - Keep-Alive
     body:
       encoding: ASCII-8BIT
-      string: '{"data":[{"id":"NOT_FOUND","type":"api_error","attributes":{"details":{}}}]}'
+      base64_string: |
+        eyJkYXRhIjpbeyJpZCI6Ik5PVF9GT1VORCIsInR5cGUiOiJhcGlfZXJyb3Ii
+        LCJhdHRyaWJ1dGVzIjp7ImRldGFpbHMiOnt9fX1dfQ==
     http_version: 
-  recorded_at: Fri, 15 Jul 2016 10:46:59 GMT
+  recorded_at: Sun, 21 Aug 2016 12:07:51 GMT
 - request:
     method: delete
-    uri: http://account-api.lvh.me:3001/sites/201
+    uri: http://account-api.lvh.me:3001/sites/101
     body:
       encoding: US-ASCII
       string: ''
@@ -116,7 +130,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer dfbf65d331869796024da2e4bc70802e19712d8d5a3f619b38
+      - Bearer XXXYYY
       User-Agent:
       - Faraday v0.9.2
       Accept-Encoding:
@@ -137,24 +151,36 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"c48b670784ada10587e9242cd3bff29f"
+      - W/"342c2a31733793eb4b764113779a9765"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d48ea473-e49e-4442-b67f-0e4bcf73e5d5
+      - ecae37ba-dfbc-46b2-a586-5dd0cc2da751
       X-Runtime:
-      - '0.016886'
+      - '0.016594'
       Server:
       - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
       Date:
-      - Fri, 15 Jul 2016 10:46:59 GMT
+      - Sun, 21 Aug 2016 12:07:51 GMT
       Content-Length:
-      - '275'
+      - '401'
       Connection:
       - Keep-Alive
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"201","type":"site","attributes":{"name":"Test site","theme_hue":224,"domain":null,"internal_domain":"green-fire-4581.admin.datocms.com","last_data_change_at":null,"notes":null,"readwrite_token":"2cf2209d929aa6d5321b74bfacddf47d72c2b9988e2eaa6a2d","readonly_token":"678f15085d20fc42ad8874743119298596b4bf3c14282bcfae","webhook_token":"6d1b0d1d5db4c3240f9a"}}}'
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiMTAxIiwidHlwZSI6InNpdGUiLCJhdHRyaWJ1dGVz
+        Ijp7Im5hbWUiOiJUZXN0IHNpdGUiLCJ0aGVtZV9odWUiOjIyNCwiZG9tYWlu
+        IjpudWxsLCJpbnRlcm5hbF9kb21haW4iOiJsaW5nZXJpbmctZmVhdGhlci0y
+        NDkxLmFkbWluLmRhdG9jbXMuY29tIiwibGFzdF9kYXRhX2NoYW5nZV9hdCI6
+        bnVsbCwibm90ZXMiOm51bGwsInJlYWR3cml0ZV90b2tlbiI6IjJlNDVjMmNm
+        NmYwZjA1ZDRhODM2ZTcwYzU2YWY0M2Y5ZmYwMTc5ZjI2NTk0N2Q1ZjA4Iiwi
+        cmVhZG9ubHlfdG9rZW4iOiIyMzU1NzU2MDVjZGEzY2EzYjVmNjFhYjQxMjU3
+        YTIzYWYzNzU4ZmViOTVlYjU4MWE4NSIsIndlYmhvb2tfdG9rZW4iOiJmMjQw
+        MzczNmM5N2Q2NjRmMmYzMyIsImFjY2Vzc190b2tlbiI6ImV5SjBlWEFpT2lK
+        S1YxUWlMQ0poYkdjaU9pSklVekkxTmlKOS5leUp6YVhSbFgybGtJam94TURF
+        c0ltRmpZMjkxYm5RaU9uUnlkV1Y5Lnk5aDRLajd1WGpCblFlZFkxTkFtNXNF
+        aTdrWWZLckFvcG5wajlyajVhMTQifX19
     http_version: 
-  recorded_at: Fri, 15 Jul 2016 10:46:59 GMT
+  recorded_at: Sun, 21 Aug 2016 12:07:51 GMT
 recorded_with: VCR 3.0.3

@@ -6,7 +6,7 @@ module Dato
       let(:account_client) do
         Dato::Account::Client.new(
           "XXXYYY",
-          domain: "http://account-api.lvh.me:3001"
+          base_url: "http://account-api.lvh.me:3001"
         )
       end
 
@@ -17,7 +17,7 @@ module Dato
       subject(:client) do
         Dato::Site::Client.new(
           site[:readwrite_token],
-          domain: "http://site-api.lvh.me:3001"
+          base_url: "http://site-api.lvh.me:3001"
         )
       end
 
@@ -25,8 +25,8 @@ module Dato
       after { account_client.sites.destroy(site[:id]) }
 
       describe 'Not found' do
-        it 'raises Faraday::ClientError' do
-          expect { client.item_types.find(44) }.to raise_error Faraday::ClientError
+        it 'raises Dato::ApiError' do
+          expect { client.item_types.find(44) }.to raise_error Dato::ApiError
         end
       end
 
@@ -139,7 +139,7 @@ module Dato
           )
         end
 
-        let(:field) do
+        let(:text_field) do
           client.fields.create(
             item_type[:id],
             api_key: "title",
@@ -153,14 +153,46 @@ module Dato
           )
         end
 
+        let(:image_field) do
+          client.fields.create(
+            item_type[:id],
+            api_key: "image",
+            field_type: "image",
+            appeareance: nil,
+            label: "Image",
+            localized: false,
+            position: 99,
+            hint: "",
+            validators: { required: {} },
+          )
+        end
+
+        let(:file_field) do
+          client.fields.create(
+            item_type[:id],
+            api_key: "file",
+            field_type: "file",
+            appeareance: nil,
+            label: "File",
+            localized: false,
+            position: 99,
+            hint: "",
+            validators: { required: {} },
+          )
+        end
+
         before do
-          field
+          text_field
+          image_field
+          file_field
         end
 
         it 'fetch, create, update and destroy' do
           new_item = client.items.create(
             item_type: item_type[:id],
-            title: "First post"
+            title: "First post",
+            image: client.upload_image("https://www.datocms.com/icons/apple-touch-icon-57x57.png"),
+            file: client.upload_file("./spec/fixtures/file.txt")
           )
 
           expect(client.items.all("filter[type]" => item_type[:id]).size).to eq 1

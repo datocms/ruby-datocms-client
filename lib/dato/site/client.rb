@@ -11,6 +11,10 @@ require 'dato/site/repo/upload_request'
 require 'dato/site/repo/user'
 require 'dato/site/repo/item'
 
+require 'dato/upload/file'
+require 'dato/upload/image'
+require 'dato/api_error'
+
 module Dato
   module Site
     class Client
@@ -24,11 +28,21 @@ module Dato
         items: Repo::Item,
       }
 
-      attr_reader :token, :domain, :schema
+      attr_reader :token, :base_url, :schema
 
-      def initialize(token, domain: 'https://site-api.datocms.com')
-        @domain = domain
+      def initialize(token, base_url: 'https://site-api.datocms.com')
+        @base_url = base_url
         @token = token
+      end
+
+      def upload_file(path_or_url)
+        file = Upload::File.new(self, path_or_url)
+        file.upload
+      end
+
+      def upload_image(path_or_url)
+        file = Upload::Image.new(self, path_or_url)
+        file.upload
       end
 
       REPOS.each do |method_name, repo_klass|
@@ -42,20 +56,16 @@ module Dato
       end
 
       def request(*args)
-        begin
-          connection.send(*args).body.with_indifferent_access
-        rescue Faraday::ClientError => e
-          body = JSON.parse(e.response[:body])
-          puts JSON.pretty_generate(body)
-          raise e
-        end
+        connection.send(*args).body.with_indifferent_access
+      rescue Faraday::ClientError => e
+        raise ApiError.new(e)
       end
 
       private
 
       def connection
         options = {
-          url: domain,
+          url: base_url,
           headers: {
             'Accept' => "application/json",
             'Content-Type' => "application/json",

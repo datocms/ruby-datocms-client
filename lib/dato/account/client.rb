@@ -5,6 +5,7 @@ require 'active_support/core_ext/hash/indifferent_access'
 
 require 'dato/account/repo/account'
 require 'dato/account/repo/site'
+require 'dato/api_error'
 
 module Dato
   module Account
@@ -14,10 +15,10 @@ module Dato
         sites: Repo::Site,
       }
 
-      attr_reader :token, :domain, :schema
+      attr_reader :token, :base_url, :schema
 
-      def initialize(token, domain: 'https://account-api.datocms.com')
-        @domain = domain
+      def initialize(token, base_url: 'https://account-api.datocms.com')
+        @base_url = base_url
         @token = token
       end
 
@@ -32,21 +33,16 @@ module Dato
       end
 
       def request(*args)
-        begin
-          connection.send(*args).body.with_indifferent_access
-        rescue Faraday::ClientError => e
-          puts e.response
-          body = JSON.parse(e.response[:body])
-          puts JSON.pretty_generate(body)
-          raise e
-        end
+        connection.send(*args).body.with_indifferent_access
+      rescue Faraday::ClientError => e
+        raise ApiError.new(e)
       end
 
       private
 
       def connection
         options = {
-          url: domain,
+          url: base_url,
           headers: {
             'Accept' => "application/json",
             'Content-Type' => "application/json",

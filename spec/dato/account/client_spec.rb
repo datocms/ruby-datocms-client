@@ -6,13 +6,13 @@ module Dato
       let(:client) do
         Dato::Account::Client.new(
           "XXXYYY",
-          domain: "http://account-api.lvh.me:3001"
+          base_url: "http://account-api.lvh.me:3001"
         )
       end
 
       describe 'Not found' do
-        it 'raises Faraday::ClientError' do
-          expect { client.sites.find(9999) }.to raise_error Faraday::ClientError
+        it 'raises Dato::ApiError' do
+          expect { client.sites.find(9999) }.to raise_error Dato::ApiError
         end
       end
 
