@@ -71,6 +71,12 @@ module Dato
             expect(item.slug).to eq '14-my-title-with-accents'
           end
         end
+
+        context 'non singleton, title field, without prefix' do
+          it 'returns the title' do
+            expect(item.slug(prefix_with_id: false)).to eq 'my-title-with-accents'
+          end
+        end
       end
 
       describe '#attributes' do

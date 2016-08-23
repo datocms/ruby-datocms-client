@@ -24,13 +24,15 @@ module Dato
         other.is_a?(Item) && other.id == id
       end
 
-      def slug
+      def slug(prefix_with_id: true)
         return item_type.api_key.humanize.parameterize if singleton?
         return id.to_s unless title_attribute
 
         title = send(title_attribute)
-        if title
+        if title && prefix_with_id
           "#{id}-#{title.parameterize[0..50]}"
+        elsif title
+          title.parameterize[0..50]
         else
           id.to_s
         end
