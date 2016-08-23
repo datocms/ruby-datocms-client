@@ -36,7 +36,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'fastimage'
   spec.add_runtime_dependency 'downloadr'
   spec.add_runtime_dependency 'addressable'
-  spec.add_runtime_dependency('imgix', ['>= 0.3.1'])
-  spec.add_runtime_dependency('video_embed')
-  spec.add_runtime_dependency('semantic')
+  spec.add_runtime_dependency 'thor'
+  spec.add_runtime_dependency 'imgix', ['>= 0.3.1']
+  spec.add_runtime_dependency 'video_embed'
+  spec.add_runtime_dependency 'toml'
 end

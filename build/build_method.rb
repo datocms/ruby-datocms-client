@@ -97,7 +97,7 @@ class BuildMethod
                      end
 
         type = definition.properties['type']
-                         .pattern.source.gsub(/(^\^|\$$)/, '')
+               .pattern.source.gsub(/(^\^|\$$)/, '')
 
         [
           relationship.to_sym,
