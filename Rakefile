@@ -10,7 +10,7 @@ RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 desc 'Regenerates the client starting from the JSON Hyperschema'
-task :build_repos do
+task :regenerate do
   BuildClient.new(
     open('https://site-api.datocms.com/docs/site-api-hyperschema.json').read,
     'site',
