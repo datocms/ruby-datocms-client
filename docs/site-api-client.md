@@ -5,7 +5,7 @@ With this gem, you can easily create, edit and destroy any object within a DatoC
 * Item types
 * Fields
 * Items
-* MenuItems
+* Menu items
 * Users
 
 ## Installation
@@ -111,7 +111,8 @@ client.menu_items.destroy(menu_item_id)
 client.site.find
 client.site.update(resource_attributes)
 
-client.upload_requests.create(resource_attributes)
+client.upload_image(path_or_url)
+client.upload_file(path_or_url)
 
 client.users.create(resource_attributes)
 client.users.update(user_id, resource_attributes)
