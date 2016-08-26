@@ -7,7 +7,7 @@ module Dato
     module Format
       module Yaml
         def self.dump(value)
-          YAML.dump(value).chomp.gsub(/^\-+\n/, '')
+          YAML.dump(value.deep_stringify_keys).chomp.gsub(/^\-+\n/, '')
         end
 
         def self.frontmatter_dump(value)
