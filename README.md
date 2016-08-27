@@ -8,7 +8,7 @@ Ruby client for the DatoCMS API.
 
 1. Use your favorite static website generator (Middleman, Hugo, Jekyll, and many others);
 2. Let your clients publish new content independently;
-3. Let your site build with any Continuous Deployment service (Netlify, Gitlab, CircleCI, etc.);
+3. Connect and build your site with any Continuous Deployment service (Netlify, Gitlab, CircleCI, etc.);
 4. Host the site anywhere you like (Amazon S3, Netlify, Surge.sh, etc.)
 
 ## Usage
