@@ -221,6 +221,14 @@ article.cover_image.file.width(500).fit('crop').to_url
 article.video.iframe_embed(800, 600)
 ```
 
+### Examples
+
+To help you with your first integration, here's a list of sample websites integrated with DatoCMS we built:
+
+* [Middleman](https://github.com/datocms/middleman-example)
+* [Jekyll](https://github.com/datocms/jekyll-example)
+
 ### Need more help?
 
-Just ask! Send us an email to [support@datocms.com](mailto:support@datocms.com) and we'll be happy to guide you.
+Just ask! Send us an email to [support@datocms.com](mailto:support@datocms.com) and we'll be happy to answer any question!
+
