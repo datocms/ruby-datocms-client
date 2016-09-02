@@ -27,6 +27,10 @@ module Dato
             secure: true
           ).path(path)
         end
+
+        def url(*args)
+          file.to_url(*args)
+        end
       end
     end
   end

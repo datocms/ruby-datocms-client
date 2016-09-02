@@ -217,7 +217,7 @@ Complex field types (ie. `image`, `file`, `video`, `seo`) implement specific met
 ```
 article = dato.articles.first
 
-article.cover_image.file.width(500).fit('crop').to_url
+article.cover_image.url(w: 500, fit: 'crop')
 article.video.iframe_embed(800, 600)
 ```
 
