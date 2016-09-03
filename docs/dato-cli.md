@@ -227,6 +227,7 @@ To help you with your first integration, here's a list of sample websites integr
 
 * [Middleman](https://github.com/datocms/middleman-example)
 * [Jekyll](https://github.com/datocms/jekyll-example)
+* [Hugo](https://github.com/datocms/hugo-example)
 
 ### Need more help?
 
