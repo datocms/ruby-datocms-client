@@ -4,6 +4,8 @@ require 'faraday_middleware'
 require 'json'
 require 'active_support/core_ext/hash/indifferent_access'
 
+require 'dato/version'
+
 require 'dato/site/repo/field'
 require 'dato/site/repo/item_type'
 require 'dato/site/repo/menu_item'
