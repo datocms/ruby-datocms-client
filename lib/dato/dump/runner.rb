@@ -14,13 +14,14 @@ module Dato
       end
 
       def run
+        site.load
+
         Dsl::Root.new(
           File.read(config_path),
           site.items_repo,
           operation
         )
 
-        site.load
         operation.perform
       end
 
