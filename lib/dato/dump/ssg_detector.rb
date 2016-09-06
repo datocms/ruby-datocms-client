@@ -85,8 +85,8 @@ module Dato
 
       def hugo
         HUGO.any? do |option|
-          path = File.join(path, option[:file])
-          config = option[:loader].call(File.read(path))
+          config_path = File.join(path, option[:file])
+          config = option[:loader].call(File.read(config_path))
           config.key? 'baseurl'
         end && 'hugo'
       rescue JSON::ParserError
