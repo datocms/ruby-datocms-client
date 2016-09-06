@@ -7,11 +7,10 @@ module Dato
       RSpec.describe Yaml do
         describe '.dump' do
           it 'dumps into Yaml stringifying symbols' do
-            expect(Yaml.dump([{ foo: "bar" }])).to eq "- foo: bar"
+            expect(Yaml.dump([{ foo: 'bar' }])).to eq '- foo: bar'
           end
         end
       end
     end
   end
 end
-

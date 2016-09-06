@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require 'dato/dump/dsl/root'
 require 'dato/dump/operation/root'
+require 'dato/dump/ssg_detector'
 
 module Dato
   module Dump
@@ -13,17 +14,18 @@ module Dato
       end
 
       def run
-        site.load
-
-        root = Operation::Root.new(Dir.pwd)
-
         Dsl::Root.new(
           File.read(config_path),
           site.items_repo,
-          root
+          operation
         )
 
-        root.perform
+        site.load
+        operation.perform
+      end
+
+      def operation
+        @operation ||= Operation::Root.new(Dir.pwd)
       end
 
       def site
@@ -31,7 +33,17 @@ module Dato
       end
 
       def client
-        @client ||= Dato::Site::Client.new(api_token)
+        @client ||= Dato::Site::Client.new(
+          api_token,
+          extra_headers: {
+            'X-Reason' => 'dump',
+            'X-SSG' => generator
+          }
+        )
+      end
+
+      def generator
+        SsgDetector.new(Dir.pwd).detect
       end
     end
   end

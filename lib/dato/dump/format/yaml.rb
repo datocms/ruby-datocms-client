@@ -4,15 +4,15 @@ require 'yaml'
 
 class Array
   def deep_stringify_keys
-    inject([]) { |accum, value|
-      if (value.is_a?(Hash) or value.is_a?(Array))
+    each_with_object([]) do |value, accum|
+      if value.is_a?(Hash) || value.is_a?(Array)
         new_val = value.deep_stringify_keys
         accum.push new_val
       else
         accum.push value
       end
       accum
-    }
+    end
   end
 end
 

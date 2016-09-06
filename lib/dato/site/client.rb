@@ -29,11 +29,16 @@ module Dato
         items: Repo::Item
       }.freeze
 
-      attr_reader :token, :base_url, :schema
+      attr_reader :token, :base_url, :schema, :extra_headers
 
-      def initialize(token, base_url: 'https://site-api.datocms.com')
+      def initialize(
+        token,
+        base_url: 'https://site-api.datocms.com',
+        extra_headers: {}
+      )
         @base_url = base_url
         @token = token
+        @extra_headers = extra_headers
       end
 
       def upload_file(path_or_url)
@@ -67,11 +72,12 @@ module Dato
       def connection
         options = {
           url: base_url,
-          headers: {
+          headers: extra_headers.merge(
             'Accept' => 'application/json',
             'Content-Type' => 'application/json',
-            'Authorization' => "Bearer #{@token}"
-          }
+            'Authorization' => "Bearer #{@token}",
+            'User-Agent' => "ruby-client v#{Dato::VERSION}"
+          )
         }
 
         @connection ||= Faraday.new(options) do |c|

@@ -7,7 +7,8 @@ module Dato
       let(:account_client) do
         Dato::Account::Client.new(
           'XXXYYY',
-          base_url: 'http://account-api.lvh.me:3001'
+          base_url: 'http://account-api.lvh.me:3001',
+          extra_headers: { 'X-Foo' => 'Bar' }
         )
       end
 
