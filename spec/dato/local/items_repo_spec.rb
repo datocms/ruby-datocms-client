@@ -73,6 +73,36 @@ module Dato
             expect { repo.foobars }.to raise_error NoMethodError
           end
         end
+
+        describe 'non-singleton that clashes with singleton' do
+          let(:item_type) do
+            double('Dato::Local::JsonApiEntity', api_key: 'post', singleton: false)
+          end
+
+          let(:singleton_item_type) do
+            double('Dato::Local::JsonApiEntity', api_key: 'posts', singleton: true)
+          end
+
+          it 'responds to XXX_instance and XXX_collection method' do
+            expect(repo.posts_collection).to eq [item]
+            expect(repo.posts_instance).to eq singleton_item
+          end
+        end
+
+        describe 'singleton that clashes with non-singleton' do
+          let(:item_type) do
+            double('Dato::Local::JsonApiEntity', api_key: 'posts', singleton: false)
+          end
+
+          let(:singleton_item_type) do
+            double('Dato::Local::JsonApiEntity', api_key: 'posts', singleton: true)
+          end
+
+          it 'responds to XXX_instance and XXX_collection method' do
+            expect(repo.posts_collection).to eq [item]
+            expect(repo.posts_instance).to eq singleton_item
+          end
+        end
       end
 
       describe ItemsRepo::ItemCollection do

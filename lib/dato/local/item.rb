@@ -117,6 +117,14 @@ module Dato
         else
           super
         end
+      rescue NoMethodError
+        message = []
+        message << "Undefined method `#{method}`"
+        message << 'Available fields for this DatoCMS item:'
+        message += fields.map do |f|
+          "* .#{f.api_key}"
+        end
+        raise NoMethodError, message.join("\n")
       end
     end
   end
