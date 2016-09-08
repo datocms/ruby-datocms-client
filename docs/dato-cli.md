@@ -47,7 +47,7 @@ DatoCMS commands:
 
 Great! Now the easiest way to dump all the remote data into local files is to create a `dato.config.rb` file into your project root directory with the following content:
 
-```
+```ruby
 # dato.config.rb
 dato.available_locales.each do |locale|
   directory "content/#{locale}" do
