@@ -45,11 +45,36 @@ DatoCMS commands:
   dato help [COMMAND]      # Describe available commands or one specific command
 ```
 
-Hurray!!
+Great! Now the easiest way to dump all the remote data into local files is to create a `dato.config.rb` file into your project root directory with the following content:
 
-## Step-by-step integration guide
+```
+# dato.config.rb
+dato.available_locales.each do |locale|
+  directory "content/#{locale}" do
+    I18n.with_locale(locale) do
+      create_data_file "site.yml", :yaml, dato.site.to_hash
+      dato.item_types.each do |item_type|
+        create_data_file "#{item_type.api_key}.yml", :yaml, 
+          dato.items_of_type(item_type).map(&:to_hash)
+      end
+    end
+  end
+end
+```
 
-Now, just to make things more down-to-heart, suppose we're working with a Hugo website with the following structure:
+And run the following command:
+
+```
+$ bundle exec dato dump --token=SITE_READONLY_TOKEN 
+```
+
+Hurray! A new `content` directory should have been generated with a Yaml file for each item type and the site itself!
+
+## Hugo step-by-step integration guide
+
+That's just the beginning: it probably makes more sense if you generate local files following the precise guidelines of the static site generator you're using. You can easily configure the `dato.config.rb` file to achieve that.
+
+Just to make things more down-to-heart, suppose we're working with a Hugo website with the following structure:
 
 ```
 .
@@ -71,7 +96,7 @@ Now, just to make things more down-to-heart, suppose we're working with a Hugo w
     └── ...
 ```
 
-Our job is to generate the Markdown files in the `content` directory from the data contained in our DatoCMS site. Also the Toml files contained in the in the `data` directory need the same treatment.
+Our job is to generate the Markdown files in the `content` directory from the data contained in our DatoCMS site. The Toml files contained in the in the `data` directory need to be generated as well.
 
 ### Set up the site
 
@@ -92,9 +117,7 @@ Using the DatoCMS web interface, we first create the following Item types:
 
 ### Writing the config file
 
-We then define how content stored in DatoCMS needs to be translated into local files using a config file placed in your project root folder called `dato.config.rb`.
-
-Let's start with posts:
+We then define how content stored in DatoCMS needs to be translated into local files inside the `dato.config.rb` config file. Let's start with posts:
 
 ```ruby
 directory "content/post" do
