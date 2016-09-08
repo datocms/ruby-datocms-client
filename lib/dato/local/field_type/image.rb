@@ -26,6 +26,13 @@ module Dato
         def file
           super.ch('DPR', 'Width').auto('compress', 'format')
         end
+
+        def to_hash
+          super.merge(
+            width: width,
+            height: height
+          )
+        end
       end
     end
   end

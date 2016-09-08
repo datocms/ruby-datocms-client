@@ -1,56 +1,60 @@
 # frozen_string_literal: true
-require 'dato/local/entities_repo'
-require 'dato/local/items_repo'
+require 'forwardable'
+require 'active_support/inflector/transliterate'
+require 'active_support/hash_with_indifferent_access'
 
 module Dato
   module Local
     class Site
-      attr_reader :client
-      attr_reader :entities_repo
-      attr_reader :items_repo
+      extend Forwardable
 
-      def initialize(client)
-        @client = client
-        @entities_repo = EntitiesRepo.new
-        @items_repo = ItemsRepo.new(@entities_repo)
+      attr_reader :entity
+      def_delegators :entity, :id, :name, :locales, :theme_hue, :domain,
+                     :internal_domain, :no_index
+
+      def initialize(entity)
+        @entity = entity
       end
 
-      def load
-        @entities_repo = EntitiesRepo.new(site, all_items)
-        @items_repo = ItemsRepo.new(@entities_repo)
+      def global_seo
+        read_attribute(:global_seo, FieldType::GlobalSeo, locales.size > 1)
       end
 
-      def entity
-        @entities_repo.find_entities_of_type('site').first
+      def favicon
+        read_attribute(:favicon, FieldType::Image, false)
+      end
+
+      def to_s
+        "#<Site id=#{id} site_name=#{site_name}>"
+      end
+      alias inspect to_s
+
+      def to_hash
+        attributes = [
+          :id, :name, :locales, :theme_hue, :domain, :internal_domain,
+          :no_index, :global_seo, :favicon
+        ]
+
+        attributes.each_with_object({}) do |attribute, result|
+          value = send(attribute)
+          result[attribute] = if value.respond_to?(:to_hash)
+                                value.to_hash
+                              else
+                                value
+                              end
+        end
       end
 
       private
 
-      def site
-        include = [
-          'item_types',
-          'item_types.fields'
-        ]
-        client.request(:get, '/site', include: include)
-      end
+      def read_attribute(method, type_klass, localized)
+        value = if localized
+                  (entity.send(method) || {})[I18n.locale]
+                else
+                  entity.send(method)
+                end
 
-      def all_items
-        items_per_page = 500
-        base_response = client.request(:get, '/items', 'page[limit]' => 1)
-
-        pages = (base_response[:meta][:total_count] / items_per_page.to_f).ceil
-        base_response[:data] = []
-
-        pages.times do |page|
-          base_response[:data] += client.request(
-            :get,
-            '/items',
-            'page[offset]' => items_per_page * page,
-            'page[limit]' => items_per_page
-          )[:data]
-        end
-
-        base_response
+        value && type_klass.parse(value, @items_repo)
       end
     end
   end

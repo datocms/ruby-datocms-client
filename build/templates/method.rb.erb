@@ -1,5 +1,5 @@
 def <%= name %>(<%= method_signature %>)
-  <%- if has_schema? && !get_request? -%>
+  <%- if schema? && !get_request? -%>
   body = JsonApiSerializer.new(
     type: :<%= resource %>,
     <%- if attributes.any? -%>

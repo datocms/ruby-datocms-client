@@ -31,6 +31,14 @@ module Dato
         def url(*args)
           file.to_url(*args)
         end
+
+        def to_hash
+          {
+            format: format,
+            size: size,
+            url: url
+          }
+        end
       end
     end
   end

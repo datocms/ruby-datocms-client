@@ -18,6 +18,14 @@ module Dato
         def image
           @image && Image.parse(@image, nil)
         end
+
+        def to_hash
+          {
+            title: title,
+            description: description,
+            image: image && image.to_hash
+          }
+        end
       end
     end
   end

@@ -12,7 +12,16 @@ module Dato
       option :token, default: ENV['DATO_API_TOKEN'], required: true
       def dump
         config_file = File.expand_path(options[:config])
-        Runner.new(config_file, options[:token]).run
+
+        client = Dato::Site::Client.new(
+          options[:token],
+          extra_headers: {
+            'X-Reason' => 'dump',
+            'X-SSG' => SsgDetector.new(Dir.pwd).detect
+          }
+        )
+
+        Runner.new(config_file, client).run
       end
     end
   end

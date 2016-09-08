@@ -2,9 +2,13 @@
 module Dato
   module Local
     module FieldType
-      class Links
+      class Links < Array
         def self.parse(ids, repo)
-          ids.map { |id| repo.find(id) }
+          new(ids.map { |id| repo.find(id) })
+        end
+
+        def to_hash
+          map(&:to_hash)
         end
       end
     end

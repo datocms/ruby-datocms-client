@@ -2,23 +2,25 @@
 require 'dato/dump/dsl/root'
 require 'dato/dump/operation/root'
 require 'dato/dump/ssg_detector'
+require 'dato/local/loader'
 
 module Dato
   module Dump
     class Runner
-      attr_reader :config_path, :api_token
+      attr_reader :config_path, :client, :destination_path
 
-      def initialize(config_path, api_token)
+      def initialize(config_path, client, destination_path = Dir.pwd)
         @config_path = config_path
-        @api_token = api_token
+        @client = client
+        @destination_path = destination_path
       end
 
       def run
-        site.load
+        loader.load
 
         Dsl::Root.new(
           File.read(config_path),
-          site.items_repo,
+          loader.items_repo,
           operation
         )
 
@@ -26,25 +28,11 @@ module Dato
       end
 
       def operation
-        @operation ||= Operation::Root.new(Dir.pwd)
+        @operation ||= Operation::Root.new(destination_path)
       end
 
-      def site
-        @site ||= Dato::Local::Site.new(client)
-      end
-
-      def client
-        @client ||= Dato::Site::Client.new(
-          api_token,
-          extra_headers: {
-            'X-Reason' => 'dump',
-            'X-SSG' => generator
-          }
-        )
-      end
-
-      def generator
-        SsgDetector.new(Dir.pwd).detect
+      def loader
+        @loader ||= Dato::Local::Loader.new(client)
       end
     end
   end

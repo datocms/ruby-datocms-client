@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Dato::Local::Site, :vcr do
+describe Dato::Local::Loader, :vcr do
   let(:account_client) do
     Dato::Account::Client.new(
       'XXXYYY',
@@ -80,7 +80,7 @@ describe Dato::Local::Site, :vcr do
     )
   end
 
-  subject(:local_site) do
+  subject(:loader) do
     described_class.new(client)
   end
 
@@ -91,7 +91,7 @@ describe Dato::Local::Site, :vcr do
     image_field
     file_field
     item
-    local_site.load
+    loader.load
   end
 
   after do
@@ -99,7 +99,7 @@ describe Dato::Local::Site, :vcr do
   end
 
   it 'fetches an entire site' do
-    repo = local_site.items_repo
+    repo = loader.items_repo
     expect(repo.articles.size).to eq 1
     expect(repo.articles.first.title).to eq 'First post'
     expect(repo.articles.first.image.format).to eq 'png'

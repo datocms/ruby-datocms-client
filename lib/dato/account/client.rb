@@ -42,6 +42,8 @@ module Dato
 
       def request(*args)
         connection.send(*args).body.with_indifferent_access
+      rescue Faraday::ConnectionFailed => e
+        raise e
       rescue Faraday::ClientError => e
         raise ApiError, e
       end

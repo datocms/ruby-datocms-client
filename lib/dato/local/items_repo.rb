@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require 'active_support/core_ext/string'
 require 'dato/local/item'
+require 'dato/local/site'
 
 module Dato
   module Local
@@ -28,6 +29,28 @@ module Dato
         end
       end
 
+      def site
+        Site.new(entities_repo.find_entities_of_type('site').first)
+      end
+
+      def available_locales
+        site.locales.map(&:to_sym)
+      end
+
+      def item_types
+        entities_repo.find_entities_of_type('item_type')
+      end
+
+      def items_of_type(item_type)
+        method, singleton = item_type_methods[item_type]
+
+        if singleton
+          [@collections_by_type[method]]
+        else
+          @collections_by_type[method]
+        end
+      end
+
       private
 
       def build_cache!
@@ -38,13 +61,13 @@ module Dato
       def build_item_type_methods!
         @item_type_methods = {}
 
-        singleton_keys = singleton_item_type_entities.map(&:api_key)
-        collection_keys = collection_item_type_entities.map(&:api_key)
-                                                       .map(&:pluralize)
+        singleton_keys = singleton_item_types.map(&:api_key)
+        collection_keys = collection_item_types.map(&:api_key)
+                                               .map(&:pluralize)
 
         clashing_keys = singleton_keys & collection_keys
 
-        item_type_entities.each do |item_type|
+        item_types.each do |item_type|
           singleton = item_type.singleton
           pluralized_api_key = item_type.api_key.pluralize
           method = singleton ? item_type.api_key : pluralized_api_key
@@ -59,14 +82,14 @@ module Dato
       end
 
       def build_collections_by_type!
-        item_type_entities.each do |item_type|
+        item_types.each do |item_type|
           method, singleton = item_type_methods[item_type]
 
           @collections_by_type[method] = if singleton
-                                        nil
-                                      else
-                                        ItemCollection.new
-                                      end
+                                           nil
+                                         else
+                                           ItemCollection.new
+                                         end
         end
 
         item_entities.each do |item_entity|
@@ -83,20 +106,16 @@ module Dato
         end
       end
 
-      def item_type_entities
-        entities_repo.find_entities_of_type('item_type')
-      end
-
       def item_entities
         entities_repo.find_entities_of_type('item')
       end
 
-      def singleton_item_type_entities
-        item_type_entities.select(&:singleton)
+      def singleton_item_types
+        item_types.select(&:singleton)
       end
 
-      def collection_item_type_entities
-        item_type_entities - singleton_item_type_entities
+      def collection_item_types
+        item_types - singleton_item_types
       end
 
       def method_missing(method, *arguments, &block)

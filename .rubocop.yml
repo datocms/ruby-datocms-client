@@ -14,11 +14,16 @@ Metrics/ModuleLength:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 18
+  Max: 20
 
 Metrics/LineLength:
   Exclude:
   - "spec/**/*"
   - "lib/dato/site/repo/*"
   - "lib/dato/account/repo/*"
+  - "lib/dato/account/repo/*"
   - "dato.gemspec"
+
+Metrics/ParameterLists:
+  Exclude:
+  - "lib/dato/local/field_type/*"

@@ -17,6 +17,13 @@ module Dato
         def values
           [latitude, longitude]
         end
+
+        def to_hash
+          {
+            latitude: latitude,
+            longitude: longitude
+          }
+        end
       end
     end
   end

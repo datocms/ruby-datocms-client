@@ -73,20 +73,25 @@ module Dato
       end
       alias inspect to_s
 
-      def title_attribute
-        title_field = fields.find do |field|
-          field.field_type == 'string' &&
-            field.appeareance[:type] == 'title'
-        end
-        title_field && title_field.api_key
-      end
+      def to_hash
+        base = {
+          id: id,
+          item_type: item_type.api_key,
+          slug: slug(prefix_with_id: false),
+          slug_with_prefix: slug,
+          updated_at: updated_at
+        }
 
-      def respond_to_missing?(method, include_private = false)
-        field = fields.find { |f| f.api_key.to_sym == method }
-        if field
-          true
-        else
-          super
+        base[:position] = position if item_type.sortable
+
+        @attributes ||= fields.each_with_object(base) do |field, result|
+          value = send(field.api_key)
+
+          result[field.api_key.to_sym] = if value.respond_to?(:to_hash)
+                                           value.to_hash
+                                         else
+                                           value
+                                         end
         end
       end
 
@@ -125,6 +130,23 @@ module Dato
           "* .#{f.api_key}"
         end
         raise NoMethodError, message.join("\n")
+      end
+
+      def respond_to_missing?(method, include_private = false)
+        field = fields.find { |f| f.api_key.to_sym == method }
+        if field
+          true
+        else
+          super
+        end
+      end
+
+      def title_attribute
+        title_field = fields.find do |field|
+          field.field_type == 'string' &&
+            field.appeareance[:type] == 'title'
+        end
+        title_field && title_field.api_key
       end
     end
   end

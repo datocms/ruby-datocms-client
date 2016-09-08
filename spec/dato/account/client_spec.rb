@@ -6,7 +6,7 @@ module Dato
     describe Client, :vcr do
       let(:client) do
         Dato::Account::Client.new(
-          'XXXYYY',
+          'XYZ',
           base_url: 'http://account-api.lvh.me:3001'
         )
       end
@@ -14,6 +14,18 @@ module Dato
       describe 'Not found' do
         it 'raises Dato::ApiError' do
           expect { client.sites.find(9999) }.to raise_error Dato::ApiError
+        end
+      end
+
+      describe 'Account' do
+        it 'fetch, update' do
+          account = client.account.find
+
+          client.account.update(
+            account.merge(email: 'foo@bar.com')
+          )
+
+          expect(client.account.find[:email]).to eq 'foo@bar.com'
         end
       end
 

@@ -14,10 +14,10 @@ module Dato
       end
 
       def self.converter_for(format)
-        case format
+        case format.to_sym
         when :toml
           Format::Toml
-        when :yaml
+        when :yaml, :yml
           Format::Yaml
         end
       end
