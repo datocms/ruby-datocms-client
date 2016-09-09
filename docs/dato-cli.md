@@ -49,6 +49,9 @@ Great! Now the easiest way to dump all the remote data into local files is to cr
 
 ```ruby
 # dato.config.rb
+
+I18n.enforce_available_locales = false
+
 dato.available_locales.each do |locale|
   directory "content/#{locale}" do
     I18n.with_locale(locale) do
