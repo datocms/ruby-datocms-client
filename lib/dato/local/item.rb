@@ -26,9 +26,9 @@ module Dato
 
       def slug(prefix_with_id: true)
         return item_type.api_key.humanize.parameterize if singleton?
-        return id.to_s unless title_attribute
+        return id.to_s unless title_field_api_key
 
-        title = send(title_attribute)
+        title = send(title_field_api_key)
         if title && prefix_with_id
           "#{id}-#{title.parameterize[0..50]}"
         elsif title
@@ -36,6 +36,14 @@ module Dato
         else
           id.to_s
         end
+      end
+
+      def title_field_api_key
+        title_field = fields.find do |field|
+          field.field_type == 'string' &&
+            field.appeareance[:type] == 'title'
+        end
+        title_field && title_field.api_key
       end
 
       def singleton?
@@ -139,14 +147,6 @@ module Dato
         else
           super
         end
-      end
-
-      def title_attribute
-        title_field = fields.find do |field|
-          field.field_type == 'string' &&
-            field.appeareance[:type] == 'title'
-        end
-        title_field && title_field.api_key
       end
     end
   end
