@@ -24,6 +24,7 @@ module Dato
           operation
         )
 
+        I18n.available_locales = loader.items_repo.available_locales
         operation.perform
       end
 
