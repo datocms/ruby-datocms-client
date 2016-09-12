@@ -72,7 +72,7 @@ module Dato
       end
 
       def updated_at
-        Time.parse(entity.updated_at)
+        Time.parse(entity.updated_at).utc
       end
 
       def to_s
