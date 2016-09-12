@@ -8,6 +8,7 @@ require 'vcr'
 require 'dato'
 require 'i18n'
 
+I18n.enforce_available_locales = false
 I18n.available_locales = [:it, :en, :ru]
 
 VCR.configure do |config|

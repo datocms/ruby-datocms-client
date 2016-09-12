@@ -45,12 +45,10 @@ module Dato
       def request(*args)
         connection.send(*args).body.with_indifferent_access
       rescue Faraday::SSLError => e
-        if ENV['SSL_CERT_FILE'] != Cacert.pem
-          Cacert.set_in_env
-          request(*args)
-        else
-          raise e
-        end
+        raise e if ENV['SSL_CERT_FILE'] == Cacert.pem
+
+        Cacert.set_in_env
+        request(*args)
       rescue Faraday::ConnectionFailed, Faraday::TimeoutError => e
         raise e
       rescue Faraday::ClientError => e
