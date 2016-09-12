@@ -43,4 +43,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'imgix', ['>= 0.3.1']
   spec.add_runtime_dependency 'video_embed'
   spec.add_runtime_dependency 'toml'
+  spec.add_runtime_dependency 'cacert'
 end

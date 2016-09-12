@@ -18,6 +18,8 @@ require 'dato/upload/file'
 require 'dato/upload/image'
 require 'dato/api_error'
 
+require 'cacert'
+
 module Dato
   module Site
     class Client
@@ -65,6 +67,15 @@ module Dato
 
       def request(*args)
         connection.send(*args).body.with_indifferent_access
+      rescue Faraday::SSLError => e
+        if ENV['SSL_CERT_FILE'] != Cacert.pem
+          Cacert.set_in_env
+          request(*args)
+        else
+          raise e
+        end
+      rescue Faraday::ConnectionFailed, Faraday::TimeoutError => e
+        raise e
       rescue Faraday::ClientError => e
         raise ApiError, e
       end
