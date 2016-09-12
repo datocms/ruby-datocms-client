@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'diff_dirs'
+  spec.add_development_dependency 'coveralls'
 
   spec.add_runtime_dependency 'faraday', ['>= 0.9.0']
   spec.add_runtime_dependency 'faraday_middleware', ['>= 0.9.0']
