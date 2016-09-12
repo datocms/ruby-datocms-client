@@ -1,6 +1,6 @@
 # DatoCMS Ruby Client
 
-[![Build Status](https://travis-ci.org/datocms/ruby-datocms-client.svg?branch=master)](https://travis-ci.org/datocms/ruby-datocms-client) [![Gem Version](https://badge.fury.io/rb/dato.svg)](https://badge.fury.io/rb/dato)
+[![Coverage Status](https://coveralls.io/repos/github/datocms/ruby-datocms-client/badge.svg?branch=master)](https://coveralls.io/github/datocms/ruby-datocms-client?branch=master) [![Build Status](https://travis-ci.org/datocms/ruby-datocms-client.svg?branch=master)](https://travis-ci.org/datocms/ruby-datocms-client) [![Gem Version](https://badge.fury.io/rb/dato.svg)](https://badge.fury.io/rb/dato)
 
 Ruby client for the DatoCMS API.
 
