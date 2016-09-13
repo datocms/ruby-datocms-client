@@ -25,6 +25,9 @@ module Dato
       end
 
       def slug(prefix_with_id: true)
+        slug_field = fields.find { |f| f.api_key.to_sym == :slug }
+
+        return read_attribute(:slug, slug_field) if slug_field
         return item_type.api_key.humanize.parameterize if singleton?
         return id.to_s unless title_field_api_key
 
@@ -60,7 +63,7 @@ module Dato
       end
 
       def attributes
-        @attributes ||= fields.each_with_object(
+        fields.each_with_object(
           ActiveSupport::HashWithIndifferentAccess.new
         ) do |field, acc|
           acc[field.api_key.to_sym] = send(field.api_key)
@@ -92,7 +95,7 @@ module Dato
 
         base[:position] = position if item_type.sortable
 
-        @attributes ||= fields.each_with_object(base) do |field, result|
+        fields.each_with_object(base) do |field, result|
           value = send(field.api_key)
 
           result[field.api_key.to_sym] = if value.respond_to?(:to_hash)

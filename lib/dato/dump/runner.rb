@@ -18,13 +18,14 @@ module Dato
       def run
         loader.load
 
+        I18n.available_locales = loader.items_repo.available_locales
+
         Dsl::Root.new(
           File.read(config_path),
           loader.items_repo,
           operation
         )
 
-        I18n.available_locales = loader.items_repo.available_locales
         operation.perform
       end
 
