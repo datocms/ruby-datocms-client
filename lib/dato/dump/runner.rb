@@ -16,6 +16,8 @@ module Dato
       end
 
       def run
+        print "Fetching content from DatoCMS... "
+
         loader.load
 
         I18n.available_locales = loader.items_repo.available_locales
@@ -27,6 +29,8 @@ module Dato
         )
 
         operation.perform
+
+        puts "\e[32m✓\e[0m Done!"
       end
 
       def operation
