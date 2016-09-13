@@ -2,6 +2,18 @@
 require 'active_support/core_ext/hash/keys'
 require 'toml'
 
+class Time
+  def to_toml(path = "")
+    utc.strftime("%Y-%m-%dT%H:%M:%SZ")
+  end
+end
+
+class Date
+  def to_toml(path = "")
+    strftime("%Y-%m-%d")
+  end
+end
+
 module Dato
   module Dump
     module Format
