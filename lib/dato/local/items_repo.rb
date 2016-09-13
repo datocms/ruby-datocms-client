@@ -53,7 +53,7 @@ module Dato
         method, singleton = item_type_methods[item_type]
 
         if singleton
-          [@collections_by_type[method]]
+          Array(@collections_by_type[method])
         else
           @collections_by_type[method]
         end
