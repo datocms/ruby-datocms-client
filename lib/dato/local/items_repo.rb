@@ -41,6 +41,14 @@ module Dato
         entities_repo.find_entities_of_type('item_type')
       end
 
+      def single_instance_item_types
+        item_types.select(&:singleton)
+      end
+
+      def collection_item_types
+        item_types - single_instance_item_types
+      end
+
       def items_of_type(item_type)
         method, singleton = item_type_methods[item_type]
 
@@ -61,7 +69,7 @@ module Dato
       def build_item_type_methods!
         @item_type_methods = {}
 
-        singleton_keys = singleton_item_types.map(&:api_key)
+        singleton_keys = single_instance_item_types.map(&:api_key)
         collection_keys = collection_item_types.map(&:api_key)
                                                .map(&:pluralize)
 
@@ -108,14 +116,6 @@ module Dato
 
       def item_entities
         entities_repo.find_entities_of_type('item')
-      end
-
-      def singleton_item_types
-        item_types.select(&:singleton)
-      end
-
-      def collection_item_types
-        item_types - singleton_item_types
       end
 
       def method_missing(method, *arguments, &block)
