@@ -21,6 +21,7 @@ module Dato
         loader.load
 
         I18n.available_locales = loader.items_repo.available_locales
+        I18n.locale = I18n.available_locales.first
 
         Dsl::Root.new(
           File.read(config_path),
