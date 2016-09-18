@@ -123,9 +123,10 @@ We then define how content stored in DatoCMS needs to be translated into local f
 directory "content/post" do
   dato.posts.each do |item|
     create_post "#{item.slug}.md" do
-      frontmatter :toml,
+      frontmatter :toml, {
         title: item.title,
         date: item.publication_date.to_s
+      }
 
       content item.body
     end
@@ -191,9 +192,10 @@ In fact, this is a more complete version of our `dato.config.rb` file:
 directory "content/post" do
   dato.posts.each do |item|
     create_post "#{item.slug}.md" do
-      frontmatter :toml,
+      frontmatter :toml, {
         title: item.title,
         date: item.publication_date.to_s
+      }
 
       content item.body
     end
@@ -203,9 +205,10 @@ end
 directory "content/quote" do
   dato.quotes.each_with_index do |item, i|
     create_post "#{item.id}.md" do
-      frontmatter :toml,
+      frontmatter :toml, {
         title: "Quote number #{i}",
         weight: i
+      }
 
       content item.content
     end
@@ -214,10 +217,10 @@ end
 
 directory "data/authors" do
   dato.authors.each do |item|
-    create_data_file "#{item.name.slug}.toml", :toml,
+    create_data_file "#{item.name.slug}.toml", :toml, {
       name: item.name,
       bio: item.bio
-    end
+    }
   end
 end
 ```
