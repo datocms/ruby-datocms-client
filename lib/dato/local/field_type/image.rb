@@ -23,7 +23,7 @@ module Dato
           @height = height
         end
 
-        def file
+        def file(host = default_host)
           super.ch('DPR', 'Width').auto('compress', 'format')
         end
 
