@@ -32,16 +32,15 @@ module Dato
 
       def all_items
         items_per_page = 500
-        base_response = client.request(:get, '/items', 'page[limit]' => 1)
+        base_response = client.request(:get, '/items', 'page[limit]' => 500)
 
-        pages = (base_response[:meta][:total_count] / items_per_page.to_f).ceil
-        base_response[:data] = []
+        extra_pages = (base_response[:meta][:total_count] / items_per_page.to_f).ceil - 1
 
-        pages.times do |page|
+        extra_pages.times do |page|
           base_response[:data] += client.request(
             :get,
             '/items',
-            'page[offset]' => items_per_page * page,
+            'page[offset]' => items_per_page * (page + 1),
             'page[limit]' => items_per_page
           )[:data]
         end
