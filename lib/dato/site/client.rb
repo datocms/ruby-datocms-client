@@ -35,14 +35,10 @@ module Dato
 
       attr_reader :token, :base_url, :schema, :extra_headers
 
-      def initialize(
-        token,
-        base_url: 'https://site-api.datocms.com',
-        extra_headers: {}
-      )
-        @base_url = base_url
+      def initialize(token, options = {})
         @token = token
-        @extra_headers = extra_headers
+        @base_url = options[:base_url] || 'https://site-api.datocms.com'
+        @extra_headers = options[:extra_headers] || {}
       end
 
       def upload_file(path_or_url)

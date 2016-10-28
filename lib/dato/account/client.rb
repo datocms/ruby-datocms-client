@@ -22,14 +22,10 @@ module Dato
 
       attr_reader :token, :base_url, :schema, :extra_headers
 
-      def initialize(
-        token,
-        base_url: 'https://account-api.datocms.com',
-        extra_headers: {}
-      )
-        @base_url = base_url
+      def initialize(token, options = {})
         @token = token
-        @extra_headers = extra_headers
+        @base_url = options[:base_url] || 'https://account-api.datocms.com'
+        @extra_headers = options[:extra_headers] || {}
       end
 
       REPOS.each do |method_name, repo_klass|

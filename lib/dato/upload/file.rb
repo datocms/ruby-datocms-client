@@ -16,7 +16,9 @@ module Dato
 
       def file
         @file ||= if http_source?
-                    Tempfile.new('file').tap do |file|
+                    uri = Addressable::URI.parse(source)
+                    ext = ::File.extname(uri.path)
+                    Tempfile.new(['file', ext]).tap do |file|
                       Downloadr::HTTP.new(source, file).download
                     end
                   else
