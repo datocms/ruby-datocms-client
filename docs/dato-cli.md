@@ -103,12 +103,14 @@ Our job is to generate the Markdown files in the `content` directory from the da
 Using the DatoCMS web interface, we first create the following Item types:
 
 * post
-  - title (string, required, title)
+  - title (string, required)
+  - slug (slug, required)
   - publication_date (date, required)
   - body (text, required)
 
 * author
   - name (string, required, title)
+  - slug (slug, required)
   - bio (text, required)
 
 * quote
@@ -217,7 +219,7 @@ end
 
 directory "data/authors" do
   dato.authors.each do |item|
-    create_data_file "#{item.name.slug}.toml", :toml, {
+    create_data_file "#{item.slug}.toml", :toml, {
       name: item.name,
       bio: item.bio
     }
@@ -232,11 +234,6 @@ Using the `dato` method you can access to any item stored in your site grouped b
 If a Item Type is marked as "single instance" (ie. `about_page`) you don't need to pluralize and a call to `dato.about_page` directly returns the item (or `nil`, if still hasn't been created within the CMS).
 
 You can query an item's field value with a method called like the field API identifier.
-
-An item also features a `.slug` method:
-
-* if an item type has a field of type `string` with a "Title" Presentation mode, than the method returns the slugified version of the title itself;
-* otherwise, it just returns the unique identifier of the item;
 
 Complex field types (ie. `image`, `file`, `video`, `seo`) implement specific methods you can use as well within the config file:
 
