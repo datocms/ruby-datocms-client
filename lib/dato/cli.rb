@@ -30,7 +30,6 @@ module Dato
     def migrate_slugs
       client = Dato::Site::Client.new(
         options[:token],
-        base_url: 'http://site-api.lvh.me:3001',
         extra_headers: {
           'X-Reason' => 'migrate-slugs'
         }
