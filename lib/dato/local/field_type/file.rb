@@ -39,13 +39,12 @@ module Dato
             url: url
           }
         end
-        
-      private
-      
+
+        private
+
         def default_host
           'dato-images.imgix.net'
         end
-        
       end
     end
   end

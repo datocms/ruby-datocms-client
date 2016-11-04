@@ -38,13 +38,13 @@ module Dato
       context 'multi language' do
         it 'returns localized data correctly' do
           I18n.with_locale(:it) do
-            expect(repo.articles.first.title).to eq "Titolo"
-            expect(repo.articles.first.to_hash[:title]).to eq "Titolo"
+            expect(repo.articles.first.title).to eq 'Titolo'
+            expect(repo.articles.first.to_hash[:title]).to eq 'Titolo'
           end
 
           I18n.with_locale(:en) do
-            expect(repo.articles.first.title).to eq "Title"
-            expect(repo.articles.first.to_hash[:title]).to eq "Title"
+            expect(repo.articles.first.title).to eq 'Title'
+            expect(repo.articles.first.to_hash[:title]).to eq 'Title'
           end
         end
       end

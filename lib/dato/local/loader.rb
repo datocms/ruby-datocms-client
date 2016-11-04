@@ -34,7 +34,9 @@ module Dato
         items_per_page = 500
         base_response = client.request(:get, '/items', 'page[limit]' => 500)
 
-        extra_pages = (base_response[:meta][:total_count] / items_per_page.to_f).ceil - 1
+        extra_pages = (
+          base_response[:meta][:total_count] / items_per_page.to_f
+        ).ceil - 1
 
         extra_pages.times do |page|
           base_response[:data] += client.request(

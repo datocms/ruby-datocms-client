@@ -26,7 +26,7 @@ module Dato
         },
         {
           file: 'config.json',
-          loader: ->(content) { JSON.load(content) }
+          loader: ->(content) { JSON.parse(content) }
         }
       ].freeze
 
@@ -59,7 +59,7 @@ module Dato
         package_path = File.join(path, 'package.json')
         return unless File.exist?(package_path)
 
-        package = JSON.load(File.read(package_path))
+        package = JSON.parse(File.read(package_path))
 
         deps = package.fetch('dependencies', {})
         dev_deps = package.fetch('devDependencies', {})

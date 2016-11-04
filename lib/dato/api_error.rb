@@ -12,8 +12,12 @@ module Dato
         'DatoCMS API Error',
         "Status: #{faraday_error.response[:status]}",
         'Response:',
-        JSON.pretty_generate(JSON.load(faraday_error.response[:body]))
+        JSON.pretty_generate(body)
       ].join("\n")
+    end
+
+    def body
+      JSON.parse(faraday_error.response[:body])
     end
   end
 end

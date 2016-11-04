@@ -16,7 +16,7 @@ module Dato
       end
 
       def run
-        print "Fetching content from DatoCMS... "
+        print 'Fetching content from DatoCMS... '
 
         loader.load
 
