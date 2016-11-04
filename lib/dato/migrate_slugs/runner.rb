@@ -40,8 +40,10 @@ module Dato
       end
 
       def simple_slugify(item, title, suffix)
-        slug = title.parameterize[0..50].gsub(/(^\-|\-$)/, '')
-        skip_id_prefix ? "#{slug}#{suffix}" : "#{item['id']}-#{slug}#{suffix}"
+        if title
+          slug = title.parameterize[0..50].gsub(/(^\-|\-$)/, '')
+          skip_id_prefix ? "#{slug}#{suffix}" : "#{item['id']}-#{slug}#{suffix}"
+        end
       end
 
       def slugify(item, title, suffix)
