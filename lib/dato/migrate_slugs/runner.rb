@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'dato/json_api_deserializer'
+require 'active_support/inflector/transliterate'
 
 module Dato
   module MigrateSlugs
