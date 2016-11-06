@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require 'thor'
 require 'dato/dump/runner'
+require 'dato/dump/ssg_detector'
 require 'dato/migrate_slugs/runner'
 
 module Dato
@@ -17,7 +18,7 @@ module Dato
         options[:token],
         extra_headers: {
           'X-Reason' => 'dump',
-          'X-SSG' => SsgDetector.new(Dir.pwd).detect
+          'X-SSG' => Dump::SsgDetector.new(Dir.pwd).detect
         }
       )
 
