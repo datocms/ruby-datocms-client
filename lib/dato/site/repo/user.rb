@@ -15,15 +15,6 @@ module Dato
           post_request '/users', body
         end
 
-        def update(user_id, resource_attributes)
-          body = JsonApiSerializer.new(
-            type: :user,
-            attributes: %i(email first_name last_name password)
-          ).serialize(resource_attributes, user_id)
-
-          put_request "/users/#{user_id}", body
-        end
-
         def all
           get_request '/users'
         end
@@ -40,10 +31,6 @@ module Dato
           ).serialize(resource_attributes)
 
           post_request '/users/reset_password', body
-        end
-
-        def destroy(user_id)
-          delete_request "/users/#{user_id}"
         end
       end
     end

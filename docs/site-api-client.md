@@ -115,9 +115,6 @@ client.upload_image(path_or_url)
 client.upload_file(path_or_url)
 
 client.users.create(resource_attributes)
-client.users.update(user_id, resource_attributes)
 client.users.all
 client.users.find(user_id)
-client.users.reset_password(resource_attributes)
-client.users.destroy(user_id)
 ```

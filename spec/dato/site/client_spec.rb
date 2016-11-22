@@ -212,20 +212,14 @@ module Dato
       end
 
       describe 'Users' do
-        it 'fetch, create, update and destroy' do
-          new_user = client.users.create(
+        it 'fetch and create' do
+          client.users.create(
             email: 'foo@bar.it',
             first_name: 'Foo',
             last_name: 'Bar'
           )
 
           expect(client.users.all.size).to eq 1
-
-          client.users.update(new_user[:id], is_admin: true)
-          expect(client.users.find(new_user[:id])[:is_admin]).to be_truthy
-
-          client.users.destroy(new_user[:id])
-          expect(client.users.all.size).to eq 0
         end
       end
 
