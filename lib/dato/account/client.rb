@@ -8,6 +8,7 @@ require 'dato/version'
 
 require 'dato/account/repo/account'
 require 'dato/account/repo/site'
+require 'dato/account/repo/deploy_event'
 require 'dato/api_error'
 
 require 'cacert'
@@ -17,7 +18,8 @@ module Dato
     class Client
       REPOS = {
         account: Repo::Account,
-        sites: Repo::Site
+        sites: Repo::Site,
+        deploy_events: Repo::DeployEvent,
       }.freeze
 
       attr_reader :token, :base_url, :schema, :extra_headers
