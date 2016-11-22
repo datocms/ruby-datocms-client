@@ -117,4 +117,5 @@ client.upload_file(path_or_url)
 client.users.create(resource_attributes)
 client.users.all
 client.users.find(user_id)
+client.users.destroy(user_id)
 ```
