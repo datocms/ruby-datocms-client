@@ -32,6 +32,10 @@ module Dato
 
           post_request '/users/reset_password', body
         end
+
+        def destroy(user_id)
+          delete_request "/users/#{user_id}"
+        end
       end
     end
   end

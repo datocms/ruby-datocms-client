@@ -212,14 +212,19 @@ module Dato
       end
 
       describe 'Users' do
-        it 'fetch and create' do
-          client.users.create(
+        it 'fetch, create and destroy' do
+          user = client.users.create(
             email: 'foo@bar.it',
             first_name: 'Foo',
             last_name: 'Bar'
           )
 
           expect(client.users.all.size).to eq 1
+
+          fetched_user = client.users.find(user[:id])
+          expect(fetched_user[:first_name]).to eq 'Foo'
+
+          client.users.destroy(user[:id])
         end
       end
 
