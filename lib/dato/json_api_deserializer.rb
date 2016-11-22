@@ -17,14 +17,16 @@ module Dato
 
       relationships = data.delete(:relationships)
 
-      relationships&.each do |key, handle|
-        handle_data = handle['data']
-        value = if handle_data.is_a? Array
-                  handle_data.map { |ref| ref['id'] }
-                elsif handle_data.is_a? Hash
-                  handle_data[:id]
-                end
-        result[key] = value
+      if relationships
+        relationships.each do |key, handle|
+          handle_data = handle['data']
+          value = if handle_data.is_a? Array
+                    handle_data.map { |ref| ref['id'] }
+                  elsif handle_data.is_a? Hash
+                    handle_data[:id]
+                  end
+          result[key] = value
+        end
       end
 
       result.with_indifferent_access
