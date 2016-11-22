@@ -19,7 +19,7 @@ module Dato
       REPOS = {
         account: Repo::Account,
         sites: Repo::Site,
-        deploy_events: Repo::DeployEvent,
+        deploy_events: Repo::DeployEvent
       }.freeze
 
       attr_reader :token, :base_url, :schema, :extra_headers
