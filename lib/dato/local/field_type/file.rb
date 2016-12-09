@@ -24,7 +24,8 @@ module Dato
         def file(host = default_host)
           Imgix::Client.new(
             host: host,
-            secure: true
+            secure: true,
+            include_library_param: false
           ).path(path)
         end
 

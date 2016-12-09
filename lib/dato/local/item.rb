@@ -52,6 +52,10 @@ module Dato
         end
       end
 
+      def seo_meta_tags
+        Utils::SeoTagsBuilder.new(self, @items_repo).meta_tags
+      end
+
       def singleton?
         item_type.singleton
       end

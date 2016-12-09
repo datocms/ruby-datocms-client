@@ -25,9 +25,13 @@ module Dato
       end
 
       def to_s
-        "#<Site id=#{id} site_name=#{site_name}>"
+        "#<Site id=#{id} site_name=#{name}>"
       end
       alias inspect to_s
+
+      def favicon_meta_tags(theme_color = nil)
+        Utils::FaviconTagsBuilder.new(self, theme_color).meta_tags
+      end
 
       def to_hash
         attributes = [

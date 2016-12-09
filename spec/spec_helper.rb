@@ -11,6 +11,8 @@ SimpleCov.start
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
+Dir['spec/support/**/*.rb'].each { |f| require_relative '../' + f }
+
 require 'vcr'
 require 'dato'
 require 'i18n'
