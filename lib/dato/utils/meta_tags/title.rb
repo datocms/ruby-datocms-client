@@ -9,7 +9,7 @@ module Dato
           return unless item_title
 
           [
-            content_tag(:title, item_title_with_suffix),
+            content_tag('title', item_title_with_suffix),
             og_tag('og:title', item_title),
             card_tag('twitter:title', item_title)
           ]

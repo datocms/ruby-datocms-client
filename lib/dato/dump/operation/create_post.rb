@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'fileutils'
 require 'dato/dump/format'
 
 module Dato
@@ -16,6 +17,8 @@ module Dato
         end
 
         def perform
+          FileUtils.mkdir_p(File.dirname(path))
+
           File.open(File.join(context.path, path), 'w') do |file|
             file.write Format.frontmatter_dump(
               frontmatter_format,

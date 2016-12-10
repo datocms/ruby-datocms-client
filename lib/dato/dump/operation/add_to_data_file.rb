@@ -16,6 +16,8 @@ module Dato
 
         def perform
           complete_path = File.join(context.path, path)
+          FileUtils.mkdir_p(File.dirname(complete_path))
+
           content_to_add = Format.dump(format, value)
 
           old_content = if File.exist? complete_path

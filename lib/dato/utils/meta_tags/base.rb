@@ -35,11 +35,11 @@ module Dato
         end
 
         def meta_tag(name, content)
-          tag(:meta, name: name, content: content)
+          tag("meta", name: name, content: content)
         end
 
         def og_tag(property, content)
-          tag(:meta, property: property, content: content)
+          tag("meta", property: property, content: content)
         end
 
         def card_tag(name, content)
