@@ -9,12 +9,15 @@ module Dato
         instance_double('Dato::Local::EntitiesRepo')
       end
       let(:item_type) do
-        double('Dato::Local::JsonApiEntity', api_key: 'post', singleton: false)
+        double('Dato::Local::JsonApiEntity', api_key: 'post', singleton: false, sortable: false)
       end
       let(:singleton_item_type) do
         double('Dato::Local::JsonApiEntity', api_key: 'homepage', singleton: true)
       end
       let(:item_entity) do
+        double('Dato::Local::JsonApiEntity', item_type: item_type)
+      end
+      let(:item_2_entity) do
         double('Dato::Local::JsonApiEntity', item_type: item_type)
       end
       let(:singleton_item_entity) do
@@ -23,21 +26,30 @@ module Dato
       let(:item) do
         instance_double('Dato::Local::Item', id: '14')
       end
+      let(:item_2) do
+        instance_double('Dato::Local::Item', id: '15', position: 1)
+      end
       let(:singleton_item) do
         instance_double('Dato::Local::Item', id: '22')
       end
 
       before do
+        allow(singleton_item_type).to receive(:singleton_item) { singleton_item }
+
         allow(entities_repo).to receive(:find_entities_of_type).with('item_type') do
           [item_type, singleton_item_type]
         end
 
         allow(entities_repo).to receive(:find_entities_of_type).with('item') do
-          [item_entity, singleton_item_entity]
+          [item_entity, item_2_entity, singleton_item_entity]
         end
 
         allow(Item).to receive(:new).with(item_entity, anything) do
           item
+        end
+
+        allow(Item).to receive(:new).with(item_2_entity, anything) do
+          item_2
         end
 
         allow(Item).to receive(:new).with(singleton_item_entity, anything) do
@@ -63,7 +75,7 @@ module Dato
         describe 'non-singleton' do
           it 'returns the associated items' do
             expect(repo.respond_to?(:posts)).to be_truthy
-            expect(repo.posts).to eq [item]
+            expect(repo.posts).to eq [item, item_2]
           end
         end
 
@@ -76,7 +88,7 @@ module Dato
 
         describe 'non-singleton that clashes with singleton' do
           let(:item_type) do
-            double('Dato::Local::JsonApiEntity', api_key: 'post', singleton: false)
+            double('Dato::Local::JsonApiEntity', api_key: 'post', singleton: false, sortable: false)
           end
 
           let(:singleton_item_type) do
@@ -84,14 +96,14 @@ module Dato
           end
 
           it 'responds to XXX_instance and XXX_collection method' do
-            expect(repo.posts_collection).to eq [item]
+            expect(repo.posts_collection).to eq [item, item_2]
             expect(repo.posts_instance).to eq singleton_item
           end
         end
 
         describe 'singleton that clashes with non-singleton' do
           let(:item_type) do
-            double('Dato::Local::JsonApiEntity', api_key: 'posts', singleton: false)
+            double('Dato::Local::JsonApiEntity', api_key: 'posts', singleton: false, sortable: false)
           end
 
           let(:singleton_item_type) do
@@ -99,8 +111,24 @@ module Dato
           end
 
           it 'responds to XXX_instance and XXX_collection method' do
-            expect(repo.posts_collection).to eq [item]
+            expect(repo.posts_collection).to eq [item, item_2]
             expect(repo.posts_instance).to eq singleton_item
+          end
+        end
+
+        describe 'sortable collection' do
+          let(:item_type) do
+            double('Dato::Local::JsonApiEntity', api_key: 'post', singleton: false, sortable: true)
+          end
+          let(:item) do
+            instance_double('Dato::Local::Item', id: '14', position: 2)
+          end
+          let(:item_2) do
+            instance_double('Dato::Local::Item', id: '15', position: 1)
+          end
+
+          it 'sorts items by position' do
+            expect(repo.posts).to eq [item_2, item]
           end
         end
       end

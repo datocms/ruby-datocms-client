@@ -50,9 +50,9 @@ module Dato
       end
 
       def items_of_type(item_type)
-        method, singleton = item_type_methods[item_type]
+        method = item_type_methods[item_type]
 
-        if singleton
+        if item_type.singleton
           Array(@collections_by_type[method])
         else
           @collections_by_type[method]
@@ -64,6 +64,7 @@ module Dato
       def build_cache!
         build_item_type_methods!
         build_collections_by_type!
+        build_singletons_by_type!
       end
 
       def build_item_type_methods!
@@ -76,41 +77,56 @@ module Dato
         clashing_keys = singleton_keys & collection_keys
 
         item_types.each do |item_type|
-          singleton = item_type.singleton
           pluralized_api_key = item_type.api_key.pluralize
-          method = singleton ? item_type.api_key : pluralized_api_key
+
+          method = if item_type.singleton
+                     item_type.api_key
+                   else
+                     pluralized_api_key
+                   end
 
           if clashing_keys.include?(pluralized_api_key)
-            suffix = singleton ? 'instance' : 'collection'
+            suffix = item_type.singleton ? 'instance' : 'collection'
             method = "#{method}_#{suffix}"
           end
 
-          @item_type_methods[item_type] = [method.to_sym, singleton]
+          @item_type_methods[item_type] = method.to_sym
         end
       end
 
       def build_collections_by_type!
         item_types.each do |item_type|
-          method, singleton = item_type_methods[item_type]
-
-          @collections_by_type[method] = if singleton
-                                           nil
-                                         else
-                                           ItemCollection.new
-                                         end
+          method = item_type_methods[item_type]
+          unless item_type.singleton
+            @collections_by_type[method] = ItemCollection.new
+          end
         end
 
         item_entities.each do |item_entity|
           item = Item.new(item_entity, self)
-          method, singleton = item_type_methods[item_entity.item_type]
+          method = item_type_methods[item_entity.item_type]
 
-          if singleton
-            @collections_by_type[method] = item
-          else
+          unless item_entity.item_type.singleton
             @collections_by_type[method].push item
           end
 
           @items_by_id[item.id] = item
+        end
+
+        item_types.each do |item_type|
+          method = item_type_methods[item_type]
+          if !item_type.singleton && item_type.sortable
+            @collections_by_type[method].sort_by!(&:position)
+          end
+        end
+      end
+
+      def build_singletons_by_type!
+        item_types.each do |item_type|
+          method = item_type_methods[item_type]
+          if item_type.singleton
+            @collections_by_type[method] = item_type.singleton_item
+          end
         end
       end
 

@@ -74,11 +74,11 @@ module Dato
       end
 
       def meta_tag(name, value)
-        { tag_name: "meta", attributes: { name: name, content: value } }
+        { tag_name: 'meta', attributes: { name: name, content: value } }
       end
 
       def link_tag(rel, href, attrs = {})
-        { tag_name: "link", attributes: attrs.merge(rel: rel, href: href) }
+        { tag_name: 'link', attributes: attrs.merge(rel: rel, href: href) }
       end
     end
   end

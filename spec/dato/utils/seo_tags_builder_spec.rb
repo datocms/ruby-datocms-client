@@ -12,7 +12,7 @@ module Dato
         it 'returns an array of tags' do
           expect(builder.meta_tags).to be_an Array
           expect(builder.meta_tags.first).to be_an Hash
-          expect(builder.meta_tags.first[:tag_name]).to eq :meta
+          expect(builder.meta_tags.first[:tag_name]).to eq 'meta'
         end
       end
     end
