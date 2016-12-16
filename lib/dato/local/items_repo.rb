@@ -125,7 +125,8 @@ module Dato
         item_types.each do |item_type|
           method = item_type_methods[item_type]
           if item_type.singleton
-            @collections_by_type[method] = item_type.singleton_item
+            item = Item.new(item_type.singleton_item, self)
+            @collections_by_type[method] = item
           end
         end
       end
