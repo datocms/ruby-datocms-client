@@ -97,9 +97,11 @@ module Dato
       def build_collections_by_type!
         item_types.each do |item_type|
           method = item_type_methods[item_type]
-          unless item_type.singleton
-            @collections_by_type[method] = ItemCollection.new
-          end
+          @collections_by_type[method] = if item_type.singleton
+                                           nil
+                                         else
+                                           ItemCollection.new
+                                         end
         end
 
         item_entities.each do |item_entity|
