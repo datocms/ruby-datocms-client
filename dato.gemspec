@@ -44,4 +44,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'toml'
   spec.add_runtime_dependency 'cacert'
   spec.add_runtime_dependency 'dotenv'
+  spec.add_runtime_dependency 'pusher-client'
 end
