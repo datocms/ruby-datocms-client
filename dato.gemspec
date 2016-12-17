@@ -43,4 +43,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'video_embed'
   spec.add_runtime_dependency 'toml'
   spec.add_runtime_dependency 'cacert'
+  spec.add_runtime_dependency 'dotenv'
 end
