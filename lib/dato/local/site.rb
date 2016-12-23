@@ -58,7 +58,7 @@ module Dato
                   entity.send(method)
                 end
 
-        value && type_klass.parse(value, @items_repo)
+        type_klass.parse(value, @items_repo)
       end
     end
   end

@@ -126,9 +126,10 @@ module Dato
       def build_singletons_by_type!
         item_types.each do |item_type|
           method = item_type_methods[item_type]
-          if item_type.singleton
-            @collections_by_type[method] = @items_by_id[item_type.singleton_item.id]
-          end
+          next unless item_type.singleton
+          @collections_by_type[method] = @items_by_id[
+            item_type.singleton_item.id
+          ]
         end
       end
 

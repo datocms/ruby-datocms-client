@@ -29,7 +29,10 @@ module Dato
         end
 
         it 'generates directories and files' do
-          diff = DiffDirs.diff_dirs(destination_path, './spec/fixtures/dump')
+          diff = DiffDirs.diff_dirs(
+            destination_path,
+            './spec/fixtures/dump'
+          )
           expect(diff).to be_empty
         end
       end

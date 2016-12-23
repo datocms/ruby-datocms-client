@@ -8,7 +8,7 @@ module Dato
         attr_reader :path, :format, :size
 
         def self.parse(value, _repo)
-          new(
+          value && new(
             value[:path],
             value[:format],
             value[:size]

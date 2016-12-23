@@ -124,7 +124,7 @@ module Dato
                 end
 
         if type_klass
-          value && type_klass.parse(value, @items_repo)
+          type_klass.parse(value, @items_repo)
         else
           warning = [
             "Warning: unrecognized field of type `#{field_type}`",

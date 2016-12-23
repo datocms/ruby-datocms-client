@@ -11,7 +11,7 @@ module Dato
         attr_reader :facebook_page_url
 
         def self.parse(value, _repo)
-          new(
+          value && new(
             value[:site_name],
             value[:title_suffix],
             value[:twitter_account],

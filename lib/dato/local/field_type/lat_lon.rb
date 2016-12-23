@@ -6,7 +6,7 @@ module Dato
         attr_reader :latitude, :longitude
 
         def self.parse(value, _repo)
-          new(value[:latitude], value[:longitude])
+          value && new(value[:latitude], value[:longitude])
         end
 
         def initialize(latitude, longitude)

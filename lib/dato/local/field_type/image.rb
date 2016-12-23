@@ -5,22 +5,26 @@ module Dato
   module Local
     module FieldType
       class Image < Dato::Local::FieldType::File
-        attr_reader :width, :height
+        attr_reader :width, :height, :title, :alt
 
         def self.parse(value, _repo)
-          new(
+          value && new(
             value[:path],
             value[:format],
             value[:size],
             value[:width],
-            value[:height]
+            value[:height],
+            value[:alt],
+            value[:title]
           )
         end
 
-        def initialize(path, format, size, width, height)
+        def initialize(path, format, size, width, height, alt, title)
           super(path, format, size)
           @width = width
           @height = height
+          @alt = alt
+          @title = title
         end
 
         alias raw_file file
@@ -32,7 +36,9 @@ module Dato
         def to_hash
           super.merge(
             width: width,
-            height: height
+            height: height,
+            alt: alt,
+            title: title
           )
         end
       end

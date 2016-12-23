@@ -4,7 +4,7 @@ module Dato
     module FieldType
       class DateTime
         def self.parse(value, _repo)
-          ::Time.parse(value).utc
+          value && ::Time.parse(value).utc
         end
       end
     end

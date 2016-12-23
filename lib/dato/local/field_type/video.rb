@@ -16,7 +16,7 @@ module Dato
         attr_reader :provider_uid
 
         def self.parse(value, _repo)
-          new(
+          value && new(
             value[:url],
             value[:thumbnail_url],
             value[:title],

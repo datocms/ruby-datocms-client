@@ -6,7 +6,7 @@ module Dato
         attr_reader :title, :description
 
         def self.parse(value, _repo)
-          new(value[:title], value[:description], value[:image])
+          value && new(value[:title], value[:description], value[:image])
         end
 
         def initialize(title, description, image)
