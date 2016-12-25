@@ -193,7 +193,7 @@ module Dato
           new_item = client.items.create(
             item_type: item_type[:id],
             title: 'First post',
-            image: client.upload_image('https://www.datocms.com/icons/apple-touch-icon-57x57.png'),
+            image: client.upload_image('https://www.datocms.com/images/logo.png'),
             file: client.upload_file('./spec/fixtures/file.txt')
           )
 
