@@ -21,6 +21,9 @@ module Dato
             },
             mother: {
               data: { type: 'person', id: 'thelma' }
+            },
+            father: {
+              data: nil
             }
           }
         }
@@ -114,11 +117,12 @@ module Dato
         context 'single linkage' do
           it 'returns the JsonApiObject' do
             expect(object.mother).to eq thelma
+            expect(object.father).to eq nil
           end
         end
 
         it 'returns NoMethodError if it does not exist' do
-          expect { object.father }.to raise_error NoMethodError
+          expect { object.xxx }.to raise_error NoMethodError
         end
       end
     end

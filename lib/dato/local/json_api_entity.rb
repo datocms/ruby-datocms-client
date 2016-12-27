@@ -57,7 +57,7 @@ module Dato
           linkage.map do |item|
             data_source.find_entity(item[:type], item[:id])
           end
-        else
+        elsif linkage.is_a? Hash
           data_source.find_entity(linkage[:type], linkage[:id])
         end
       end

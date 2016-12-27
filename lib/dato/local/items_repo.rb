@@ -127,9 +127,12 @@ module Dato
         item_types.each do |item_type|
           method = item_type_methods[item_type]
           next unless item_type.singleton
-          @collections_by_type[method] = @items_by_id[
-            item_type.singleton_item.id
-          ]
+
+          item = if item_type.singleton_item
+                   @items_by_id[item_type.singleton_item.id]
+                 end
+
+          @collections_by_type[method] = item
         end
       end
 
