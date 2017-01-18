@@ -91,7 +91,11 @@ module Dato
       end
       alias inspect to_s
 
-      def to_hash
+      def to_hash(max_depth = 3, current_depth = 0)
+        if current_depth >= max_depth
+          return id
+        end
+
         base = {
           id: id,
           item_type: item_type.api_key,
@@ -104,7 +108,10 @@ module Dato
           value = send(field.api_key)
 
           result[field.api_key.to_sym] = if value.respond_to?(:to_hash)
-                                           value.to_hash
+                                           value.to_hash(
+                                             max_depth,
+                                             current_depth + 1
+                                           )
                                          else
                                            value
                                          end

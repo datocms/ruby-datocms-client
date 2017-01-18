@@ -33,7 +33,7 @@ module Dato
           file(host).to_url(opts)
         end
 
-        def to_hash
+        def to_hash(*args)
           {
             format: format,
             size: size,

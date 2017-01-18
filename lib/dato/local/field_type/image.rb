@@ -33,7 +33,7 @@ module Dato
           super.ch('DPR', 'Width').auto('format')
         end
 
-        def to_hash
+        def to_hash(*args)
           super.merge(
             width: width,
             height: height,

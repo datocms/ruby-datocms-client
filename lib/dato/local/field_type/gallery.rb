@@ -14,8 +14,8 @@ module Dato
           new(images)
         end
 
-        def to_hash
-          map(&:to_hash)
+        def to_hash(max_depth = 3, current_depth = 0)
+          map { |item| item.to_hash(max_depth, current_depth) }
         end
       end
     end

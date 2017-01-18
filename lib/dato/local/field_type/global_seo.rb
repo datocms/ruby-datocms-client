@@ -38,13 +38,13 @@ module Dato
           @fallback_seo && Seo.parse(@fallback_seo, nil)
         end
 
-        def to_hash
+        def to_hash(*args)
           {
             site_name: site_name,
             title_suffix: title_suffix,
             twitter_account: twitter_account,
             facebook_page_url: facebook_page_url,
-            fallback_seo: fallback_seo && fallback_seo.to_hash
+            fallback_seo: fallback_seo && fallback_seo.to_hash(*args)
           }
         end
       end
