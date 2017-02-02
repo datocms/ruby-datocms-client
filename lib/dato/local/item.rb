@@ -92,9 +92,7 @@ module Dato
       alias inspect to_s
 
       def to_hash(max_depth = 3, current_depth = 0)
-        if current_depth >= max_depth
-          return id
-        end
+        return id if current_depth >= max_depth
 
         base = {
           id: id,

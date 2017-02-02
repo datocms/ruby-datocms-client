@@ -18,7 +18,7 @@ module Dato
           [latitude, longitude]
         end
 
-        def to_hash(*args)
+        def to_hash(*_args)
           {
             latitude: latitude,
             longitude: longitude

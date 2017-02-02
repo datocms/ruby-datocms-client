@@ -29,11 +29,11 @@ module Dato
           ).path(path)
         end
 
-        def url(opts)
+        def url(opts = {})
           file.to_url(opts)
         end
 
-        def to_hash(*args)
+        def to_hash(*_args)
           {
             format: format,
             size: size,

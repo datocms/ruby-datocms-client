@@ -23,10 +23,6 @@ module Dato
         it 'responds to url method' do
           expect(file.url(w: 300)).to eq 'https://dato-images.imgix.net/foo.png?w=300'
         end
-
-        it 'allows overriding the host' do
-          expect(file.url(host: 'https://images.example.com', w: 300)).to eq 'https://images.example.com/foo.png?w=300'
-        end
       end
     end
   end

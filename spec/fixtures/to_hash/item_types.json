@@ -1,57 +1,1063 @@
 {
-  "gallery_slide": [
-    {
-      "id": "13680",
-      "item_type": "gallery_slide",
-      "updated_at": "2016-09-03 22:23:39 UTC",
-      "image": {
-        "format": "png",
-        "size": 148541,
-        "url": "https://dato-images.imgix.net/205/1472941398-Screenshot2016-09-0212.16.09.png?ch=DPR%2CWidth&auto=format",
-        "width": 896,
-        "height": 266,
-        "alt": null,
-        "title": null
-      },
-      "caption": "Damn, how I love Let's Encrypt."
-    },
-    {
-      "id": "13678",
-      "item_type": "gallery_slide",
-      "updated_at": "2016-09-03 22:18:43 UTC",
-      "image": {
-        "format": "png",
-        "size": 48834,
-        "url": "https://dato-images.imgix.net/205/1472937693-Screenshot2016-09-0317.07.38.png?ch=DPR%2CWidth&auto=format",
-        "width": 528,
-        "height": 356,
-        "alt": null,
-        "title": null
-      },
-      "caption": "This is the final result for the editor. Isn't it awesome?!"
-    },
-    {
-      "id": "13679",
-      "item_type": "gallery_slide",
-      "updated_at": "2016-09-03 22:18:20 UTC",
-      "image": {
-        "format": "png",
-        "size": 68621,
-        "url": "https://dato-images.imgix.net/205/1472941077-Screenshot2016-09-0400.17.48.png?ch=DPR%2CWidth&auto=format",
-        "width": 721,
-        "height": 586,
-        "alt": null,
-        "title": null
-      },
-      "caption": "Now you can specify multiple Item Types for a single \"Links\" field type"
-    }
-  ],
   "blog_post": [
+    {
+      "id": "22194",
+      "item_type": "blog_post",
+      "updated_at": "2017-01-08 16:32:31 UTC",
+      "title": "Allowing rich-text editing within DatoCMS",
+      "slug": "rich-content-editing",
+      "excerpt": "Image galleries, videos, quotes... learn how to achieve rich-content editing with DatoCMS.",
+      "content": [
+        {
+          "id": "22175",
+          "item_type": "text",
+          "updated_at": "2017-01-19 22:16:28 UTC",
+          "text": "Everyone hates WYSIWYG editors: developers know they produce dirty code, designers fear the introduction of unwanted styling, editors struggle to use them. Sure, DatoCMS features a WYSIWYG editor since day one, but we want to keep it simple and lightweight: no inline images or other potentially dangerous stuff.\n\nIn DatoCMS you can achieve rich-content editing using a specific type of field called  (duh) **Rich text** field. The idea is to give your authors the choice to compose their content by alternating certain blocks (e.g. Text, Image, Video, etc). Authors can choose and populate these blocks and reorder them as needed. This gives authors a lot of freedom to organise their content, much like Medium editor does, while keeping the content clean and structured."
+        },
+        {
+          "id": "22193",
+          "item_type": "image",
+          "updated_at": "2017-01-19 22:15:21 UTC",
+          "image": {
+            "format": "png",
+            "size": 45851,
+            "url": "https://dato-images.imgix.net/205/1484864094-screenshot-2017-01-19-23-14-04-png?ch=DPR%2CWidth&auto=format",
+            "width": 633,
+            "height": 354,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "22197",
+          "item_type": "text",
+          "updated_at": "2017-01-08 16:21:52 UTC",
+          "text": "## How to build a Rich text editor\n\nSuppose we have an \"Article\" item type, and we want to add a Rich text field to manage its content:"
+        },
+        {
+          "id": "27978",
+          "item_type": "image",
+          "updated_at": "2017-01-08 16:05:12 UTC",
+          "image": {
+            "format": "png",
+            "size": 18475,
+            "url": "https://dato-images.imgix.net/205/1483890764-screenshot-2017-01-08-16-33-13-png?ch=DPR%2CWidth&auto=format",
+            "width": 717,
+            "height": 182,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "27979",
+          "item_type": "text",
+          "updated_at": "2017-01-08 16:26:03 UTC",
+          "text": "The first step is to define which are the different kind of basic blocks you want your authors to alternate. In this case, we want our content to be a composition of: \n\n* Text\n* Quotes\n* Videos\n* Images\n\nSeems like a quite flexible layout for an article content, isn't it? \n\nNow, what you need to do is to head over the **Admin** tab of your backend, and create an item type for each one of these blocks. The **Quote** block, for example, will be an item type made of two fields: one containing the actual quote, the other containing the author:"
+        },
+        {
+          "id": "27977",
+          "item_type": "image",
+          "updated_at": "2017-01-08 16:05:12 UTC",
+          "image": {
+            "format": "png",
+            "size": 23294,
+            "url": "https://dato-images.imgix.net/205/1483891306-screenshot-2017-01-08-17-00-30-png?ch=DPR%2CWidth&auto=format",
+            "width": 684,
+            "height": 204,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "27980",
+          "item_type": "text",
+          "updated_at": "2017-01-08 16:21:52 UTC",
+          "text": "Quite easy, right? Now repeat the process for all the other blocks.\n\n### Step 2: add the Rich text to an Item type\n\nNow that the basic blocks are ready, we can finally select the Article item type, and add a **Rich text** field (you'll find it under the Text group):"
+        },
+        {
+          "id": "27981",
+          "item_type": "image",
+          "updated_at": "2017-01-19 22:15:23 UTC",
+          "image": {
+            "format": "png",
+            "size": 45851,
+            "url": "https://dato-images.imgix.net/205/1484864102-screenshot-2017-01-19-23-14-04-png?ch=DPR%2CWidth&auto=format",
+            "width": 633,
+            "height": 354,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "27982",
+          "item_type": "text",
+          "updated_at": "2017-01-08 16:24:21 UTC",
+          "text": "Let's name it \"Content\", and in the \"Validations\" tab, make sure to select the item types you previously created:"
+        },
+        {
+          "id": "27983",
+          "item_type": "image",
+          "updated_at": "2017-01-19 22:15:23 UTC",
+          "image": {
+            "format": "png",
+            "size": 69057,
+            "url": "https://dato-images.imgix.net/205/1484864111-screenshot-2017-01-19-23-14-41-png?ch=DPR%2CWidth&auto=format",
+            "width": 631,
+            "height": 436,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "27984",
+          "item_type": "text",
+          "updated_at": "2017-01-08 16:30:36 UTC",
+          "text": "Now save the field and.. you made it! You just created an awesome rich-text editor for your authors. Just for the sake of being meta, here's me writing this very article in a rich text field!"
+        },
+        {
+          "id": "27985",
+          "item_type": "image",
+          "updated_at": "2017-01-08 16:29:55 UTC",
+          "image": {
+            "format": "png",
+            "size": 78600,
+            "url": "https://dato-images.imgix.net/205/1483892964-screenshot-2017-01-08-17-29-18-png?ch=DPR%2CWidth&auto=format",
+            "width": 701,
+            "height": 576,
+            "alt": null,
+            "title": null
+          }
+        }
+      ],
+      "publication_date": "2016-11-23 12:30:00 UTC",
+      "author": {
+        "id": "13671",
+        "item_type": "author",
+        "updated_at": "2016-12-31 15:36:47 UTC",
+        "avatar": {
+          "format": "jpg",
+          "size": 40007,
+          "url": "https://dato-images.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg?ch=DPR%2CWidth&auto=format",
+          "width": 633,
+          "height": 632,
+          "alt": null,
+          "title": null
+        },
+        "name": "Stefano Verna",
+        "slug": "stefano-verna"
+      },
+      "seo_settings": null
+    },
+    {
+      "id": "25575",
+      "item_type": "blog_post",
+      "updated_at": "2016-12-19 23:59:05 UTC",
+      "title": "Introducing one-click creation of DatoCMS-powered static websites",
+      "slug": "one-click-websites",
+      "excerpt": "We're excited to announce a new, easier and faster way to get started with DatoCMS. Just sign up and connect your Github and Netlify account: we'll take care of the rest. Read more in this article!",
+      "content": [
+        {
+          "id": "25572",
+          "item_type": "text",
+          "updated_at": "2016-12-20 00:09:48 UTC",
+          "text": "Let's be sincere: until this moment, learning how to properly use DatoCMS with your favorite static generator was not an easy task: you had to manually create a new website, integrate it with our plugins, properly configure a deployment method, build an administrative area.. whoa! So much work just to decide if it was even worth it!\n\nThanks to our friends at Netlify, we're finally happy to announce a new, easier and faster way to get started and evaluate DatoCMS. Just sign up and connect your Github and Netlify accounts: in less than 10 seconds we'll prepare and publish a completely working static website editable with DatoCMS.\n\n<figure class=\"blog-post__content__image\">\n<iframe src=\"https://vid.me/e/p6HL?autoplay=1\" width=\"630\" height=\"480\" frameborder=\"0\" allowfullscreen webkitallowfullscreen mozallowfullscreen scrolling=\"no\"></iframe>\n<figcaption>Here's a preview of the new onboarding process that awaits you!</figcaption>\n</figure>\n\n"
+        },
+        {
+          "id": "25687",
+          "item_type": "text",
+          "updated_at": "2016-12-19 23:52:27 UTC",
+          "text": "### Look at all the things you don't have to do!\n\nAfter granting us the authorization to connect to your Github and Netlify accounts, that's the steps we'll perform for you undercover:\n\n1. We'll create a DatoCMS administrative area modeled after a specific template (a designer portfolio website), already filled with some sample data;\n2. We'll add a new public repository on your Github profile containing the actual website — written for the requested static generator — that already use the content coming from the DatoCMS backend, with all the bells and whistles of a modern website: assets bundling, live-reload on development mode, proper SEO management, etc.;\n3. We'll create a new project on your Netlify account, linking it to the just-created Github repository;\n4. We'll tie the 3 services together, creating all the necessary hooks between them so that they can communicate properly;\n\nNetlify in step 3 is already working to publish the website to a randomly-picked domain. Job done, that was easy, wasn't it? :)\n\n### More to come\n\nWe were eager to release and publicly test this improvement over the existing onboarding process, so right now we only offer one template: a clean and responsive creative portfolio website. It might not be exactly what you want, but it will be a great source of faster learning in any case :) \n"
+        },
+        {
+          "id": "25573",
+          "item_type": "image",
+          "updated_at": "2017-01-08 15:29:00 UTC",
+          "image": {
+            "format": "png",
+            "size": 616496,
+            "url": "https://dato-images.imgix.net/205/1482189625-ScreenShot2016-12-20at12.19.40AM.png?ch=DPR%2CWidth&auto=format",
+            "width": 1410,
+            "height": 753,
+            "alt": null,
+            "title": "That's a screenshot of the demo website you'll get.. nice, clean and super-fast :-)"
+          }
+        },
+        {
+          "id": "25574",
+          "item_type": "text",
+          "updated_at": "2016-12-19 23:22:58 UTC",
+          "text": "We'll slowly add more templates for you to choose, to better show the capabilities and the flexibility of DatoCMS for your specific use case (blogs, coming-soon business card website, photography websites, agency websites..). Stay tuned for more!"
+        }
+      ],
+      "publication_date": "2016-12-20 10:00:00 UTC",
+      "author": {
+        "id": "13671",
+        "item_type": "author",
+        "updated_at": "2016-12-31 15:36:47 UTC",
+        "avatar": {
+          "format": "jpg",
+          "size": 40007,
+          "url": "https://dato-images.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg?ch=DPR%2CWidth&auto=format",
+          "width": 633,
+          "height": 632,
+          "alt": null,
+          "title": null
+        },
+        "name": "Stefano Verna",
+        "slug": "stefano-verna"
+      },
+      "seo_settings": {
+        "title": "One click deploy of a CMS-backed static website",
+        "description": "Learn how to publish a static website with your preferred generator in less than 30 seconds!",
+        "image": {
+          "format": "png",
+          "size": 285582,
+          "url": "https://dato-images.imgix.net/205/1482189844-ScreenShot2016-12-20at12.23.50AM.png?ch=DPR%2CWidth&auto=format",
+          "width": 896,
+          "height": 568,
+          "alt": null,
+          "title": null
+        }
+      }
+    },
+    {
+      "id": "21152",
+      "item_type": "blog_post",
+      "updated_at": "2016-11-21 17:07:38 UTC",
+      "title": "DatoCMS with Jekyll: A beginner's guide",
+      "slug": "datocms-with-jekyll-a-beginners-guide",
+      "excerpt": "A quick step-by-step guide to develop your first DatoCMS website with Jekill and Netlify as hosting platform.",
+      "content": [
+        {
+          "id": "21157",
+          "item_type": "text",
+          "updated_at": "2016-11-14 10:45:17 UTC",
+          "text": "### Prerequisite\n\nThis tutorial assumes you have already installed **[Ruby](https://www.ruby-lang.org)**  and **[RubyGems](https://rubygems.org/)**. You can then install **[Jekill](https://jekyllrb.com)** with the following command:\n\n```bash\ngem install jekyll bundler\n```"
+        },
+        {
+          "id": "21161",
+          "item_type": "text",
+          "updated_at": "2016-11-14 18:44:30 UTC",
+          "text": "## Create your first Jekill project\n\nOk, let's create your first Jekill project. In you terminal paste the following command:\n\n```bash\njekill new my_dato_project\n```\n\nOnce finished enter in your project directory:\n\n```bash\ncd my_dato_project\n```\n\n### Create a new blog post\n\nYour new Jekill project is ready to host a Blog and some static pages. By default you have an *index* page, an *about* page and a *blog post* .\nYou can find the `index.md` and `about.md` files in the root folder of the project, and the blog post in `_post/xxxx-xx-xx-welcome-to-jekill.markdown`.\n\nThe way those pages will show up in your website is defined by your theme. In a fresh Jekill installation the default theme is \"[minima](https://github.com/jekyll/minima)\".\n \n Let's create a new blog post copying e modifying the existing post:\n \n ```bash\ncp ./_post/xxxx-xx-xx-welcome-to-jekill.markdown ./_post/2016-11-14-my-second-post.markdown \n```\n\nNow change the content of the new file, and start the preview web-server:\n\n```bash\nbundle exec jekill server\n```\n\nThis will start a local web server running at: [http://localhost:4000/](http://localhost:400/).\n\nYou can create and edit files in the source folder and see the changes reflected on the preview web-server. You can stop the preview server from the command-line using CTRL-C.\n\n### Build a simple catalog\n\nNot everything is a post or a page. Maybe you want to document the various methods in your open source project, members of a team, or talks at a conference. In our case, we want to create a simple product catalog. It would be great if we could avoid hardcoding all the product metadata inside the HTML templates... this way some team members could concentrate on building up the database of content, while another team member could build the structure of the site. [Jekyll collections](https://jekyllrb.com/docs/collections/) allow you to define new types of document that behave like Pages or Posts do normally, but also have their own unique properties and namespace.\n\nOur catalog is a list of products where each product has the following attributes:\n\n* Title\n* Price\n* Descriprion\n\nLet's add a new products collection. Open your site's `_config.yml` file and copy the following lines:\n\n```yaml\ncollections:\n  products:\n    output: true\n    permalink: /products/:path/\n```\n\nThis way we're telling Jekyll that we are going to have a new collection name *products*, and we want to output a page for each element of the collection (our products). Those pages will be reachable at the URL  `products/{product_filename}/index.html`.\n\nCreate a corresponding `_products` folder:\n\n```bash\nmkdir _products\n```\n\nand add a couple of files, one for each product, with some metadata and some markdown description:\n\n```\n# _products/sku-0001.md\n---\nlayout: product\ntitle:  \"Star Wars Chewbacca Slippers\"\nprice:  29.99\n---\n**Slippers** emit two different Wookiee roars when you walk!\n```\n\n```\n# _products/sku-0002.md\n---\nlayout: product\ntitle:  \"Star Wars R2-D2 Coffee Press\"\nprice:  39.99\n---\nHolds 32 ounces of coffee for you (4 cups)\n```\n\nAs you can see, Jekyll will use a layout named `product`. Layout templates live in the `layouts` folder, so let's create it:\n\n```bash\nmkdir layouts\n```\n\nInside this folder add the template file `product.html`, which will render the details of a product:\n\n```\n---\nlayout: default\n---\n<h1>{{ page.title }}</h1>\n<div>\n  <strong>{{ page.price }}</strong>\n</div>\n{{ content }}\n```\n\nIn this case, the `default` layout is inherithed from the \"minima\" theme we are using, and the `page.title` and `page.price` are exactly the metadata we added to the beginning of every product page.\n\nWe also need to create a `products.md` page in the root of our project to iterate through the products and create an index of products reachable at `/products/`\n\n```\n---\nlayout: default\ntitle: \"Products\"\npermalink: /products/\n---\n\n<h1>Catalog</h1>\n<div>\n  {% for product in site.products %}\n    <p>\n      <a href=\"{{ product.url }}\" >{{ product.title }}</a>\n    </p>\n  {% endfor %}\n</div>\n```\n\nWell done! Now try to navigate your homepage at **[http://localhost:4000](http://localhost:4000)** and click one the **[Products]( http://localhost:4000/products/)** link."
+        },
+        {
+          "id": "21176",
+          "item_type": "text",
+          "updated_at": "2016-11-14 18:47:14 UTC",
+          "text": "## Deploy your first Jekill project\n\nOk, now that you have the ugliest (but perfectly working) catalogue in the world, you need to deploy your website somewhere. You can simply run the  command `jekyll build` to build your static website in the `_site` folder, than you can manually copy al the files to your preferred hosting platform. \n\nHaving to manually repeat the same process again and again every time you change a single line of code can be quite frustrating, but you can do much better and automate the deploy process!\n\n### Deploy with Github and Netlify\n\nCreate a new repository on [GitHub](https://github.com/). To avoid errors, do not initialize the new repository with any README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.\n\nFor our purposes, let’s call your new repo `my_dato_project`.\n\nIn your terminal initialize the project directory as a Git repository.\n\n```bash\ngit init\n```\n\nAdd the files in your new local repository. This stages them for the first commit.\n\n```bash\ngit add .\n```\n\nCommit the files that you’ve staged in your local repository.\n\n```bash\ngit commit -m 'First commit'\n```\n\nAt the top of your GitHub repository’s Quick Setup page, click the clipboard icon to copy the remote repository URL. In Terminal, add the URL for the remote repository where your local repository will be pushed.\n\n```bash\ngit remote add origin GITHUB_REPOSITORY_URL\n```\n\nNow, it’s time to push the changes in your local repository to GitHub:\n\n```bash\ngit push origin master\n```\n\nNow that your assets are up and running on GitHub, let’s connect them to Netlify.\n\n### Connecting to Netlify ###\n\n#### Step 1: Add Your New Site\n\nCreating a new site on [Netlify](http://www.netlify.com) is simple. Once you’ve logged in, you’ll be taken to [https://app.netlify.com/sites](https://app.netlify.com/sites). If you’re just starting out, there’s only one option.\n\n![Netlify 1] (https://dato-images.imgix.net/205/1478514768-717820a6-57d9-11e5-838f-d2a732eb0a41.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n#### Step 2: Link to Your GitHub\n\nClicking “New Site” brings you to this screen:\n\n![Netlify 2] (https://dato-images.imgix.net/205/1478514829-7176ac8a-57d9-11e5-9b09-f43dc772a4f9.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nSince your assets are hosted on GitHub, we’ll need to link Netlify to GitHub. Click “Link to GitHub”.\n\n#### Step 3: Authorize Netlify\n\n![Netlify 3] (https://dato-images.imgix.net/205/1478514867-71760370-57d9-11e5-8bdb-850aa176a22c.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nIt’s time to allow Netlify and GitHub to talk to each other. Clicking the “Authorize Application” button will do just that. Like it says in the image below, Netlify doesn’t store your GitHub access token on their servers. If you’d like to know more about the permissions Netlify requests and why we need them, you can visit [https://docs.netlify.com/github-permissions/](https://docs.netlify.com/github-permissions/).\n\n#### Step 4: Choose Your Repo\n\n![Netlify 4] (https://dato-images.imgix.net/205/1478514928-b9ea7f7c-5bfe-11e5-94a0-f957a7d1986e.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow that you’ve connected Netlify and GitHub, you can see a list of your Git repos. There’s the `my_dato_project` repo we just pushed to GitHub. Let’s select it.\n\n#### Step 5: Configure Your Settings\n\n![Netlify 5] (https://dato-images.imgix.net/205/1478514971-717b2008-57d9-11e5-949c-4ea36645ff08.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nHere you can configure your options. For the purposes of this tutorial, there’s nothing you need to change, so just click “Save”.\n\n#### Step 6: Build Your Site\n\n![Netlify 6] (https://dato-images.imgix.net/205/1478515029-717b9c40-57d9-11e5-9ca4-92f90f8ed005.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow it’s time to sit back and relax. Go grab something cold to drink, scratch the dog behind the ears, or just get up and walk around (you’ve probably been in front of the computer for too long today, right?). Netlify will do the rest, and you can watch the progress. \n\n#### Step 7: Done\n\n![Netlify 7] (https://dato-images.imgix.net/205/1478515200-43c95312-57db-11e5-872b-7a37a19f0589.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nWait, you thought there was going to be more? Nope! Netlify has done it all for you, including giving your site a temporary name. Now everytime you push some change to GitHub, Netlify will repeat the build process and deploy a new version of the site. No more manual deploying! Let’s make it look a little prettier changing the name of the project:\n\n![Netlify 8] (https://dato-images.imgix.net/205/1478515200-43c95312-57db-11e5-872b-7a37a19f0589.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nThere, that’s better. Now you can add your custom domain, and your site will be live for your adoring public to view. Congratulations!!!"
+        },
+        {
+          "id": "21177",
+          "item_type": "text",
+          "updated_at": "2016-11-14 18:49:34 UTC",
+          "text": "## Using DatoCMS\n\nUntil now it's all wonderful, but what about when you need to add, edit or delete a product, a post or a page of your site? Actually is not that difficult: all you need to do is open the data files stored in `_products`, edit the items data, commit your changes and push it to GitHub. Netlify will grab the changes and will deploy your updated website for you.\n\nIf this can be fine for you, it certainly cannot be done if the person in charge of updating catalog is not a programmer and or is not confortable with terminal.\n\n### That's where DatoCMS shines\n\nDatoCMS is a fully customizable administrative area for your static websites. \nThe administrative interface is incredibly simple to use, yet flexible enough to allow the management of pretty much any kind of website.\n\n![alt text](https://www.datocms.com/images/frontend-big.gif \"DatoCMS\")\n\nBest of all, your customers don't need not know anything about Ruby, Middleman, Github, etc. neither they need to install stuff on their computers. \nYou do the dirty work building the website with Middleman, and they can customize thier contents with a browser, just like they're used to do with ie. Wordpress.\n\n### Let see how this magic works\n\n#### Step 1: Add Your New Site\n\nCreating a new site on DatoCMS is simple. Once you’ve logged in, you’ll be taken to [https://dashboard.datocms.com/account/sites](your account dashboard). If you’re just starting out, there’s only one option.\n\n![DatoCMS 1.1](https://dato-images.imgix.net/205/1478517626-DatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nGive your website a name and eventually select a template to start your project. In our case we'll start with an empty site template:\n\n![DatoCMS 1.2](https://dato-images.imgix.net/205/1478517786-DatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n#### Step 2: Enter your Admin dashboard\n\nAfter you click on \"Create a new site\", DatoCMS will create your administrative area in a randomly-generated subdomain. You can adjust some settings, but for now just click on the given link and enter in the Admin Area.\n\n![DatoCMS 2](https://dato-images.imgix.net/205/1478518128-DatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n#### Step 3: Create the Item Types\n\nNow it's time to create a place to store all the informations related to your Products and your Posts. In DatoCMS this place is named \"Item Type\". Try to think of a DatoCMS ItemType as a table in a database. Click on the plus button:\n\n![DatoCMS 3.1] (https://dato-images.imgix.net/205/1478518707-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nGive your Item Type the name `Product`. We are going to have a collection of products so DO NOT check the \"Single Instance\" flag. Enable the \"Order collection\" as in the picture to be able to reorder your product list once populated.\n\n![DatoCMS 3.2] (https://dato-images.imgix.net/205/1478518871-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n#### Step 4: Define the product fields\n\nNow that you have the \"Product\" ItemType (again, think of ItemTypes as a table in a DB) you have to define the Product attributes. To begin click the \"Add Field\" button:\n\n![DatoCMS 4.1] (https://dato-images.imgix.net/205/1478522616-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow let's add the \"Title\" attribute. DatoCMS offers a lot of specialized field types, but in our case a \"Simple-line string\" is fine, so just click it.\nGive a \"Label\" to your field and define your validation rules as in image below, than click on the \"Save Field\" button:\n\n![DatoCMS 4.2](https://dato-images.imgix.net/205/1478522373-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow repeat this taks for the **Description** and for the **Price** field, choosing respectively \"Long text\" and \"Floating-point number\" as field types:\n\n![DatoCMS 4.3] (https://dato-images.imgix.net/205/1478526069-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n\n#### Step 5: Populate your catalogue\n\nNow that you have the \"Product\" item type and its attributes defined, you can start to insert products in your catalog! Click on **Content** in the top navigation bar then click on the plus button to  insert a couple of products.\n\n![DatoCMS 5] (https://dato-images.imgix.net/205/1478526069-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n#### Step 6: Repeat step 3, 4 and 5 for Blog Posts\n\nNow let's create  the BlogPost item Type, its attributes, and populate it:\n\n1. Click on \"Admin area\" on the top-bar;\n2. Click \"Item tyles\" on the left menu (actually it should be already selected);\n3. Click the \"plus\" button;\n4. Give the name \"BlogPost\" to your Item Type and save it;\n5. Click the \"Add Field\" button and choose \"Single-line string\", Give your Field the name \"Title\" and save it;\n6. Click again the \"Field\" button and choose \"Date + Time\", give your Field the name \"Date\" and save it;\n7. Click again the \"Field\" button and choose \"Single-line string\", Give your Field the name \"Categories\" and save it;\n8. Click again the \"Field\" button and choose \"Long text\", Give your Field the name \"content\", select \"Markdown Editor\" in the \"Presentation mode\" dropdown and save it.\n\n![DatoCMS 5] (https://dato-images.imgix.net/205/1479132719-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow that you have your Item Type ready, insert a couple of demo blog post clicking again the \"Content\" button on the top-bar.\n\n#### Important\n\nYou do not need to give your customer access to your Administrative Area just to populate the catalog, but you can restrict the access to the DatoCMS only to the **Content** section. To do so just click to **Users** on the top navigation bar and invite your customer/editor/collaborator."
+        },
+        {
+          "id": "21186",
+          "item_type": "text",
+          "updated_at": "2016-11-15 08:09:07 UTC",
+          "text": "## Integrate DatoCMS with Jekill\n\nOk, just recap what we have done until now:\n\n1. We created a Jekill website\n2. We added our blog posts data to separate files in the `_posts` folder\n3. We added our products data to separate files in the `_products` folder\n4. We committed all the project files to a GitHub repository\n5. We created a new Site in Netlify\n6. We linked the Netlify Site to our Github repo to allow an automated deploy on every commit\n7. We created a new Site on DatoCMS\n8. We created the \"Product\" and \"Blog Post\" ItemType and their attributes\n9. We populated the catalogue in DatoCMS\n\nWhat we want now is to get rid of the Markdown files in the `_products`  and `_posts` folder on our Jekyll project and integrate the data from DatoCMS instead. \nThat's a trivial task, thanks to the [`dato` gem](https://github.com/datocms/ruby-datocms-client/blob/master/docs/dato-cli.md)\n\nOpen your `Gemfile` on your Jekyll project and add the following line:\n\n```ruby\ngem 'dato'\n```\n\nthen in your terminal paste the following command:\n\n```bash\nbundle install\n```\n\nIf everything worked correctly, you should now run `bundle exec dato` and see something like this:\n\n```bash\n$ bundle exec dato\nDatoCMS commands:\n  dato dump --token=TOKEN  # dumps DatoCMS contents into local files\n  dato help [COMMAND]      # Describe available commands or one specific command\n```\n\nGreat! Now we need to dump all the remote data into local files that would replace the ones in `_products`  and `_posts`, so let's create a `dato.config.rb` file into your project root directory with the following content:\n\n```ruby\n# dato.config.rb\ndirectory \"_products\" do\n  dato.products.each do |item|\n    create_post \"#{item.title.parameterize}.md\" do\n      frontmatter :yaml, {\n        layout: \"product\",\n        title: item.title,\n        price: item.price\n      }\n      content item.description\n    end\n  end\nend\ndirectory \"_posts\" do\n  dato.blogposts.each do |item|\n    create_post \"#{item.date.to_s.parameterize}-#{item.title.parameterize}.md\" do\n      frontmatter :yaml, {\n        layout: \"post\",\n        title: item.title,\n        date: item.date.to_s,\n        categories: item.categories\n      }\n      content item.content\n    end\n  end\nend\n```\n\nThis script will fetch the data from DatoCMS and will create the new files thanks to the `create_post` helper that the `dato` gem exposes.\n\nThe DSL is quite simple to understand, in any case you can check the gem [official documentation](https://github.com/datocms/ruby-datocms-client/blob/master/docs/dato-cli.md) \n\nNow is time to see if it works. Fire the following command:\n\n```bash\n$ bundle exec dato dump --token=SITE_READONLY_TOKEN \n```\n\nYou obviously need to replace the `SITE_READ_ONLY_TOKEN` string with the actual token. You can find that token in your DatoCMS Admin area:\n\n![DatoCMS tocken] (https://dato-images.imgix.net/205/1478525309-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow make sure that the files in the `_products` and `_posts` have been replaced.\n\n**BE CAREFUL!\"** This script will delete all the files in the specified directories :)\n"
+        },
+        {
+          "id": "21212",
+          "item_type": "text",
+          "updated_at": "2016-11-14 18:54:32 UTC",
+          "text": "## Auto deploy your website when data on DatoCMS changes\n\nUntil now, to deploy a new version of your website on Netlify you needed to push a new commit on your GitHub repo. This is wonderful when you, as a developer, make some change to the website pages in Jekyll, but you also want to **deploy a new version of your website when products are added/edited/deleted on your DatoCMS site** by your clients!\n\n#### DatoCMS handles all this for you\n\nOn your DatoCMS Admin area click on **Deployment settings**, then on **Netlify**:\n\n![Deploy on Netlify](https://dato-images.imgix.net/205/1478527450-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nOn the new window that pops up, click on \"Grant Access\" to allow DatoCMS to setup the auto-deploy meachanism for you:\n\n![Deploy on Netlify](https://dato-images.imgix.net/205/1478527707-Desktop.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nSelect the Netlify site that has to be build upon data changes on DatoCMS:\n\n![Deploy on Netlify](https://dato-images.imgix.net/205/1478528109-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nAnd click the **Save Settings** button:\n\n![Deploy on Netlify](https://dato-images.imgix.net/205/1478528186-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow every time you change any content in your DatoCMS web interface, you can trigger a new deploy on Netlify simply clicking on the **Publish** button:\n\n![Deploy on Netlify](https://dato-images.imgix.net/205/1478529036-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nThe last thing to to is to tell Netlify to run `bundle exec dato dump --token=SITE_READONLY_TOKEN` before running `jekill build`, so that the latest content coming from your administrative backend will be present at build time.\n\nGo to your [Netlify Dashboard](https://app.netlify.com/) and click on your site, than find the **\"Link to git\"** section end edit the **\"build command\"** like this:\n\n```\nbundle exec dato dump --token=SITE_READONLY_TOKEN && jekill build\n```\n\n![Deploy on Netlify](https://dato-images.imgix.net/205/1479140841-NetlifyApp2.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n## That's it!\n\nJekyll is a great static site generator and Netlify is perfect for one-click continouos deployment. DatoCMS \"seems like it'll be the last piece of the puzzle!\", as our customers says. Just give it a try and feel free to contact our customer support for any questions.\n\n**Happy coding!**"
+        }
+      ],
+      "publication_date": "2016-11-14 11:00:00 UTC",
+      "author": {
+        "id": "18672",
+        "item_type": "author",
+        "updated_at": "2016-12-31 15:36:52 UTC",
+        "avatar": {
+          "format": "jpg",
+          "size": 225549,
+          "url": "https://dato-images.imgix.net/205/1478272450-11090956_10205501754575133_1395398002197970518_o.jpg?ch=DPR%2CWidth&auto=format",
+          "width": 1448,
+          "height": 1448,
+          "alt": null,
+          "title": null
+        },
+        "name": "Claudio Benvenuti",
+        "slug": "claudio-benvenuti"
+      },
+      "seo_settings": null
+    },
+    {
+      "id": "21882",
+      "item_type": "blog_post",
+      "updated_at": "2016-11-21 17:06:36 UTC",
+      "title": "Out of beta!",
+      "slug": "out-of-beta",
+      "excerpt": "DatoCMS is graduating out of beta: read everything about our brand-new premium plans!",
+      "content": [
+        {
+          "id": "21881",
+          "item_type": "text",
+          "updated_at": "2016-11-21 17:27:55 UTC",
+          "text": "After 3 months of public beta-testing, we're happy to announce **DatoCMS is officially charging money**! This marks an important milestone, allowing us to improve your experience by adding features like 24/7 customer service.\n\nWe truly appreciate the support and feedbacks you guys gave us during the beta period. We're committed, more than ever, to **provide the best platform to build easy-to-use and powerful static websites**.\n\n## An updated pricing\n\nDuring these months, we closely monitored your usage of the platform, and we identified 3 main \"targets\" for this platform:\n\n* **Developers**, looking for a web-based editing experience for their personal existing static websites;\n* **Web agencies**, tired of having to build brochure-websites for their clients with tools like Wordpress. They demand a safer, cheapier, faster and easier to develop alternative;\n* **Startups**, looking for a simple, rock-solid solution for their static marketing websites that would enable internal non-tech-savvy editors/marketers to update the website without having to interrupt a developer.\n\nWith these targets in mind, we released [new pricing plans for DatoCMS](https://www.datocms.com/pricing/). We're pretty satisfied with the result, as we think we reached a very competitive price point with a lot of great features packed in.\n\nIn the following days we'll also release a special **bulk/volume pricing** for agencies that will allow them to drammatically cut their invoices (up to 50%) once they accumulate a minimum number of websites published with DatoCMS.\n\nWe'll also add a totally free, special pro-bono/open-source plan very soon.\n\n## A special gift for our early adopters :)\n\nTo thank existing custumers for their support and enthusiasm, we switched all the existing sites to a special **\"Early adopter\"** plan, extremely generous and totally free. You will always be able to switch to an even bigger plan when you need it.\n\n##  Feedbacks are (very) welcome\n\nWe hope our new pricing will sound right to you.. drop us a line at [support@datocms.com](mailto:support@datocms) for any further question!"
+        }
+      ],
+      "publication_date": "2016-11-21 18:00:00 UTC",
+      "author": {
+        "id": "13671",
+        "item_type": "author",
+        "updated_at": "2016-12-31 15:36:47 UTC",
+        "avatar": {
+          "format": "jpg",
+          "size": 40007,
+          "url": "https://dato-images.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg?ch=DPR%2CWidth&auto=format",
+          "width": 633,
+          "height": 632,
+          "alt": null,
+          "title": null
+        },
+        "name": "Stefano Verna",
+        "slug": "stefano-verna"
+      },
+      "seo_settings": null
+    },
+    {
+      "id": "18665",
+      "item_type": "blog_post",
+      "updated_at": "2016-11-08 11:43:24 UTC",
+      "title": "DatoCMS with Middleman: A beginner's guide",
+      "slug": "datocms-middleman-beginners-guide",
+      "excerpt": "A quick step-by-step guide to develop your first DatoCMS website with Middleman and Netlify as hosting platform.",
+      "content": [
+        {
+          "id": "18659",
+          "item_type": "text",
+          "updated_at": "2016-11-08 19:50:35 UTC",
+          "text": "### Prerequisite\n\nThis tutorial assumes you have already installed **[Ruby](https://www.ruby-lang.org)**  and **[RubyGems](https://rubygems.org/)**. You can then install **[Middleman](https://middlemanapp.com/)** with the following command:\n\n```bash\ngem install middleman\n```"
+        },
+        {
+          "id": "18661",
+          "item_type": "text",
+          "updated_at": "2016-11-08 11:04:13 UTC",
+          "text": "## Create your first Middleman project\n\nOk, let's create your first Middleman project. In you terminal paste the following command:\n\n```bash\nmiddleman new my_dato_project\n```\n\nand answer `y` to all the questions. Once finished enter in your project directory:\n\n```bash\ncd my_dato_project\n```\n\nThen fire the following commands:\n\n```bash\nruby_version=`ruby -e 'puts RUBY_VERSION'`\necho \"ruby '$ruby_version'\" >> Gemfile\necho $ruby_version > .ruby-version\nbundle install\n```\n\nand start the preview web-server:\n\n```\nbundle exec middleman server\n```\n\nThis will start a local web server running at: [http://localhost:4567/](http://localhost:4567/).\n\nYou can create and edit files in the source folder and see the changes reflected on the preview web-server. You can stop the preview server from the command-line using CTRL-C.\n\n### Build a simple catalog\n\nNow is time to create a simple catalog in Middleman. It would be great if we could avoid hardcoding all the product metadata inside the HTML templates... this way some team members could concentrate on building up the database of content, while another team member could build the structure of the site.\n\nMiddleman [Data Files](https://middlemanapp.com/advanced/data_files/) allows to create `.yaml` files in a folder called `data` and makes this information available in your templates. The `data` folder should be placed in the root of your project i.e. in the same folder as your project's source folder. \n\nOur catalog is a list of products where each product has the following attributes:\n\n* Title\n* Descriprion\n* Price\n\nCreate the file `data/products.yml` with some example data:\n\n```yaml\n- title: \"Star Wars Chewbacca Slippers\"\n  description: \"Slippers emit two different Wookiee roars when you walk!\"\n  price: 29.99\n- title: \"Star Wars R2-D2 Coffee Press\"\n  description: \"Holds 32 ounces of coffee for you (4 cups)\"\n  price: 39.99\n```\n\nAlso create a `products.html.erb` template in your `source` folder to iterate through your products:\n\n```erb\n<h1>Catalog</h1>\n<div>\n  <% data.products.each do |p| %>\n    <p><%= p.title %></p>\n  <% end %>\n</div>\n```\n\nand add a link to the products page in your layout file `/source/layouts/layout.erb` just under the `body` tag:\n\n```erb\n<%= link_to \"Catalog\", \"products.html\"%>\n```\n\nWell done! Now try to navigate your homepage at **[http://localhost:4567](http://localhost:4567)** and click one the **[Products]( http://localhost:4567/products.html)** link."
+        },
+        {
+          "id": "18662",
+          "item_type": "text",
+          "updated_at": "2016-11-08 19:51:59 UTC",
+          "text": "Now you probably want to have a dedicated page for each of your products where you can show the description and the price, so create a new file named `source/product.html.erb` with the following content:\n\n```erb\n<h1><%= product.title %></h1>\n<div><%= product.description %></div>\n<div>\n  <strong><%= number_to_currency(product.price) %></strong>\n</div>\n```\n\nMiddleman has a nice feature called [proxy pages](https://middlemanapp.com/advanced/dynamic_pages/) that let us use this file as a template for our dynamically generated product pages. Edit the file `config.rb` and add the following lines of code:\n\n```ruby\nignore \"/product.html\"\ndata.products.each do |p| \n  proxy \"/#{p.title.parameterize}.html\", \"/product.html\", locals: { product: p }\nend\n```\n\nThe first argument of the `proxy` method is the URL of the page we want to produce, the second one is the template file, and the \"locals\" are the variables we'll inject into our template file. We are \"slugifying\" the product title to generate the permalink of each product page, so in our case the following pages will be generated:\n\n* [http://localhost:4567/star-wars-chewbacca-slippers.html](http://localhost:4567/star-wars-chewbacca-slippers.html)\n* [http://localhost:4567/star-wars-r2-d2-coffee-press.html](http://localhost:4567/star-wars-r2-d2-coffee-press.html)\n\nNow you can edit the file `/source/products.html.erb` and replace the following lines\n\n```erb\n  <% data.products.each do |p| %>\n    <p><%= p.title %></p>\n  <% end %>\n```\n\nwith these ones, so that each product will link to its detail page:\n\n```erb\n  <% data.products.each do |p| %>\n    <p><%= link_to p.title, \"#{p.title.parameterize}.html\" %></p>\n  <% end %>\n```\n\n**Well done!**\n\n\n"
+        },
+        {
+          "id": "18663",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:27:28 UTC",
+          "text": "## Deploy your first Middleman project\n\nOk, now that you have the ugliest (but perfectly working) catalogue in the world, you need to deploy your website somewhere. You can simply run the  command `middleman build` to build your static website in the `build` folder, than you can manually copy al the files to your preferred hosting platform. \n\nHaving to manually repeat the same process again and again every time you change a single line of code can be quite frustrating, but you can do much better and automate the deploy process!\n\n### Deploy with Github and Netlify\n\nCreate a new repository on [GitHub](https://github.com/). To avoid errors, do not initialize the new repository with any README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.\n\nFor our purposes, let’s call your new repo `my_dato_project`.\n\nIn your terminal initialize the project directory as a Git repository.\n\n```bash\ngit init\n```\n\nAdd the files in your new local repository. This stages them for the first commit.\n\n```bash\ngit add .\n```\n\nCommit the files that you’ve staged in your local repository.\n\n```bash\ngit commit -m 'First commit'\n```\n\nAt the top of your GitHub repository’s Quick Setup page, click the clipboard icon to copy the remote repository URL. In Terminal, add the URL for the remote repository where your local repository will be pushed.\n\n```bash\ngit remote add origin GITHUB_REPOSITORY_URL\n```\n\nNow, it’s time to push the changes in your local repository to GitHub:\n\n```bash\ngit push origin master\n```\n\nNow that your assets are up and running on GitHub, let’s connect them to Netlify.\n\n### Connecting to Netlify ###\n\n#### Step 1: Add Your New Site\n\nCreating a new site on [Netlify](http://www.netlify.com) is simple. Once you’ve logged in, you’ll be taken to [ https://app.netlify.com/sites](https://app.netlify.com/sites). If you’re just starting out, there’s only one option.\n\n"
+        },
+        {
+          "id": "19916",
+          "item_type": "image",
+          "updated_at": "2017-01-08 15:28:59 UTC",
+          "image": {
+            "format": "png",
+            "size": 15529,
+            "url": "https://dato-images.imgix.net/205/1478514768-717820a6-57d9-11e5-838f-d2a732eb0a41.png?ch=DPR%2CWidth&auto=format",
+            "width": 667,
+            "height": 356,
+            "alt": null,
+            "title": ""
+          }
+        },
+        {
+          "id": "19917",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:27:57 UTC",
+          "text": "#### Step 2: Link to Your GitHub\n\nClicking “New Site” brings you to this screen:"
+        },
+        {
+          "id": "19918",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 78996,
+            "url": "https://dato-images.imgix.net/205/1478514829-7176ac8a-57d9-11e5-9b09-f43dc772a4f9.png?ch=DPR%2CWidth&auto=format",
+            "width": 1350,
+            "height": 554,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19919",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:28:14 UTC",
+          "text": "When you push to GitHub, Netlify does all the work. No more manual deploying of updates or changes!\n\nSince your assets are hosted on GitHub, we’ll need to link Netlify to GitHub. Click “Link to GitHub”.\n\n#### Step 3: Authorize Netlify"
+        },
+        {
+          "id": "19921",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 107073,
+            "url": "https://dato-images.imgix.net/205/1478514867-71760370-57d9-11e5-8bdb-850aa176a22c.png?ch=DPR%2CWidth&auto=format",
+            "width": 948,
+            "height": 553,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19922",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:31:43 UTC",
+          "text": "It’s time to allow Netlify and GitHub to talk to each other. Clicking the “Authorize Application” button will do just that. Like it says in the image below, Netlify doesn’t store your GitHub access token on our servers. If you’d like to know more about the permissions Netlify requests and why we need them, you can visit [https://docs.netlify.com/github-permissions/](https://docs.netlify.com/github-permissions/).\n\n#### Step 4: Choose Your Repo"
+        },
+        {
+          "id": "19923",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 22384,
+            "url": "https://dato-images.imgix.net/205/1478514928-b9ea7f7c-5bfe-11e5-94a0-f957a7d1986e.png?ch=DPR%2CWidth&auto=format",
+            "width": 1192,
+            "height": 443,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19925",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:34:41 UTC",
+          "text": "Now that you’ve connected Netlify and GitHub, you can see a list of your Git repos. There’s the `my_dato_project` repo we just pushed to GitHub. Let’s select it.\n\n#### Step 5: Configure Your Settings"
+        },
+        {
+          "id": "19927",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 41095,
+            "url": "https://dato-images.imgix.net/205/1478514971-717b2008-57d9-11e5-949c-4ea36645ff08.png?ch=DPR%2CWidth&auto=format",
+            "width": 615,
+            "height": 591,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19929",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:34:50 UTC",
+          "text": "Here you can configure your options. For the purposes of this tutorial, there’s nothing you need to change, so just click “Save”.\n\n#### Step 6: Build Your Site"
+        },
+        {
+          "id": "19930",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 99960,
+            "url": "https://dato-images.imgix.net/205/1478515029-717b9c40-57d9-11e5-9ca4-92f90f8ed005.png?ch=DPR%2CWidth&auto=format",
+            "width": 1340,
+            "height": 521,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19933",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:35:10 UTC",
+          "text": "Now it’s time to sit back and relax. Go grab something cold to drink, scratch the dog behind the ears, or just get up and walk around (you’ve probably been in front of the computer for too long today, right?). Netlify will do the rest, and you can watch the progress.\n\n#### Step 7: Done"
+        },
+        {
+          "id": "19934",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 237808,
+            "url": "https://dato-images.imgix.net/205/1478515200-43c95312-57db-11e5-872b-7a37a19f0589.png?ch=DPR%2CWidth&auto=format",
+            "width": 1048,
+            "height": 844,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19935",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:36:36 UTC",
+          "text": "Wait, you thought there was going to be more? Nope! Netlify has done it all for you, including giving your site a temporary name. Let’s make it look a little prettier changing the name of the project:"
+        },
+        {
+          "id": "19936",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 214332,
+            "url": "https://dato-images.imgix.net/205/1478515272-f525e7b0-57db-11e5-9398-40bf488a1515.png?ch=DPR%2CWidth&auto=format",
+            "width": 1191,
+            "height": 821,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19937",
+          "item_type": "text",
+          "updated_at": "2016-11-07 10:41:40 UTC",
+          "text": "There, that’s better. Now you can add your custom domain, and your site will be live for your adoring public to view. Congratulations!!!"
+        },
+        {
+          "id": "19940",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:40:42 UTC",
+          "text": "## Using DatoCMS\n\nUntil now it's all wonderful, but what about when you need to add, edit or delete a product? Actually is not that difficult: all you need to do is open the data file `/data/products.yml`, edit the items data, commit your changes and push it to GitHub. Netlify will grab the changes and will deploy your updated website for you.\n\nIf this can be fine for you, it certainly cannot be done if the person in charge of updating catalog is not a programmer and or is not confortable with terminal.\n\n### That's where DatoCMS shines\n\nDatoCMS is a fully customizable administrative area for your static websites. \nThe administrative interface is incredibly simple to use, yet flexible enough to allow the management of pretty much any kind of website.\n\n![alt text](https://www.datocms.com/images/frontend-big.gif \"DatoCMS\")\n\nBest of all, your customers don't need not know anything about Ruby, Middleman, Github, etc. neither they need to install stuff on their computers. \nYou do the dirty work building the website with Middleman, and they can customize thier contents with a browser, just like they're used to do with ie. Wordpress.\n\n### Let see how this magic works\n\n#### Step 1: Add Your New Site\n"
+        },
+        {
+          "id": "19950",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:39:15 UTC",
+          "text": "Creating a new site on DatoCMS is simple. Once you’ve logged in, you’ll be taken to [https://dashboard.datocms.com/account/sites](your account dashboard). If you’re just starting out, there’s only one option.\n"
+        },
+        {
+          "id": "19944",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 38576,
+            "url": "https://dato-images.imgix.net/205/1478517626-DatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 959,
+            "height": 614,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19945",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:41:08 UTC",
+          "text": "Give your website a name and eventually select a template to start your project. In our case we'll start with an empty site template:"
+        },
+        {
+          "id": "19946",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 47900,
+            "url": "https://dato-images.imgix.net/205/1478517786-DatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 959,
+            "height": 614,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19947",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:41:39 UTC",
+          "text": "#### Step 2: Enter your Admin dashboard\n\nAfter you click on \"Create a new site\", DatoCMS will create your administrative area in a randomly-generated subdomain. You can adjust some settings, but for now just click on the given link and enter in the Admin Area."
+        },
+        {
+          "id": "19948",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 64715,
+            "url": "https://dato-images.imgix.net/205/1478518128-DatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 959,
+            "height": 614,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19951",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:42:31 UTC",
+          "text": "**Step 3: Create the Item Types**\n\nNow it's time to create the a place where to store all the informations related to your Products. In DatoCMS this place is named \"Item Type\". Try to think of a DatoCMS ItemType as a table in a database. Click on the plus button:"
+        },
+        {
+          "id": "19952",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 71293,
+            "url": "https://dato-images.imgix.net/205/1478518707-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 959,
+            "height": 614,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19953",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:43:13 UTC",
+          "text": "Give your Item Type the name `Product`. We are going to have a collection of products so DO NOT check the \"Single Instance\" flag.  Enable the \"Order collection\" as in the picture to be able to reorder your product list once populated."
+        },
+        {
+          "id": "19954",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 73621,
+            "url": "https://dato-images.imgix.net/205/1478518871-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 959,
+            "height": 614,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19957",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:43:48 UTC",
+          "text": "#### Step 4: Define the product fields\n\nNow that you have the \"Product\" ItemType (again, think of ItemTypes as a table in a DB) you have to define the Product attributes. To begin click the \"Add Field\" button:"
+        },
+        {
+          "id": "19958",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 92669,
+            "url": "https://dato-images.imgix.net/205/1478522616-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 1121,
+            "height": 629,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19959",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:44:25 UTC",
+          "text": "Now let's add the \"Title\" attribute. DatoCMS offers a lot of specialized field types, but in our case a \"Simple-line string\" is fine, so just click it.\nGive a \"Label\" to your field and define your validation rules as in image below, than click on the \"Save Field\" button:"
+        },
+        {
+          "id": "19960",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 97268,
+            "url": "https://dato-images.imgix.net/205/1478522373-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 1121,
+            "height": 629,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19962",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:44:47 UTC",
+          "text": "Now repeat this taks for the **Description** and for the **Price** field, choosing respectively \"Long text\" and \"Floating-point number\" as field types:"
+        },
+        {
+          "id": "19963",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 90303,
+            "url": "https://dato-images.imgix.net/205/1478526008-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 1121,
+            "height": 629,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19965",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:46:02 UTC",
+          "text": "#### Step 5: Populate your catalogue\n\nNow that you have the \"Product\" item type and its attributes defined, you can start to insert products in your catalog! Click on **Content** in the top navigation bar then click on the plus button to  insert a couple of products.\n\n"
+        },
+        {
+          "id": "19966",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 72873,
+            "url": "https://dato-images.imgix.net/205/1478526069-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 1121,
+            "height": 629,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19969",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:46:31 UTC",
+          "text": "#### Important\n\nYou do not need to give your customer access to your Administrative Area just to populate the catalog, but you can restrict the access to the DatoCMS  only to the **Content** section. To do so just click to **Users** on the top navigation bar and invite your customer/editor/collaborator."
+        },
+        {
+          "id": "19970",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:47:12 UTC",
+          "text": "## Integrate DatoCMS with Middleman\n\nOk, just recap what we have done until now:\n\n1. We created a Middleman website\n2. We added our products metadata to a separate file in the `data` folder\n3. We committed all the project files to a GitHub repository\n4. We created a new Site in Netlify\n5. We linked the Netlify Site to our Github repo to allow an automated deploy on every commit\n6. We created a new Site on DatoCMS\n7. We created the \"Product\" ItemType and its attributes\n8. We populated the catalogue in DatoCMS\n\nWhat we want now is to get rid of the YAML file in the `data` folder on our Middleman project and integrate the data from DatoCMS instead. That's a trivial task, thanks to the [middleman-dato Gem](https://github.com/datocms/middleman-dato)\n\nOpen your `Gemfile` on your Middleman project and add the following line:\n\n```ruby\ngem 'middleman-dato'\n```\n\nthen in your terminal paste the following command:\n\n```bash\nbundle install\n```\n\nIn your `config.rb` paste the following code to activate the `dato` plugin:\n\n```ruby\nactivate :dato,\n  token: 'SITE_READ_ONLY_TOKEN',\n  base_url: 'http://www.mywebsite.com'\n```\n\nYou obviously need to replace the `SITE_READ_ONLY_TOKEN` string with the actual token. You can find that token in your DatoCMS Admin area:"
+        },
+        {
+          "id": "19972",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 105016,
+            "url": "https://dato-images.imgix.net/205/1478525309-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 1121,
+            "height": 629,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19973",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:49:34 UTC",
+          "text": "Now that you Middleman can retrieve data from DatoCMS, all you need to do is to edit the file `/source/products.html.erb` and replace the following line\n\n```erb\n<% data.products.each do |p| %>\n```\n\nwith this one:\n\n```erb\n<% dato.products.each do |p| %>\n```\n\nIn this way you are telling Middleman to not get information from the data files in the `data` folder, but from the DatoCMS API. \n\nAs you can see, if your site has an item type with `product` as API identifier, you can get the complete array of items with `dato.products` — yep, the API identifier pluralized.\n\nIn the same way you need to change the URL generated in `config.rb` replacing the following line:\n\n```ruby\ndata.products.each do |p|\n```\n\nwith\n\n```ruby\ndato.products.each do |p|\n```\n\n**Remember to define this proxy route after the activation of the DatoCMS plugin, otherwise Middleman with throw you an error!**\n\nYou don't even need to change the `source/product.html.erb`, as the attributes name defined in DatoCMS were the same we defined in the YAML file.\n\nTo be sure your data are coming from DatoCMS, get rid of the `products.yml` file:\n\n```bash\nrm data/products.yml\n```\n\nRestart your Middleman development server:\n\n```bash\nbundle exec middleman server\n```\n\nand enjoy."
+        },
+        {
+          "id": "19974",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:50:48 UTC",
+          "text": "## Auto deploy your website when data on DatoCMS changes ##\n\nUntil now, to deploy a new version of your website on Netlify you needed to push a new commit on your GitHub repo. This is wonderful when you, as a developer, make some change to the website pages in Middleman, but you also want to **deploy a new version of your website as products are added/edited/deleted on your DatoCMS Site** by your clients!\n\n#### DatoCMS handles all this for you\n\nOn your DatoCMS Admin area click on **Deployment settings**, than on **Netlify**:\n"
+        },
+        {
+          "id": "19975",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 139366,
+            "url": "https://dato-images.imgix.net/205/1478527450-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 1121,
+            "height": 629,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19976",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:50:58 UTC",
+          "text": "On the new windows the will popup, click on \"Grand Access\" to allow DatoCMS to setup the auto-deploy meahcanism for you:"
+        },
+        {
+          "id": "19977",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 86308,
+            "url": "https://dato-images.imgix.net/205/1478527707-Desktop.png?ch=DPR%2CWidth&auto=format",
+            "width": 759,
+            "height": 483,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19978",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:51:05 UTC",
+          "text": "Select your Netlify Site that have to be build upon data changes on DatoCMS:"
+        },
+        {
+          "id": "19979",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 103964,
+            "url": "https://dato-images.imgix.net/205/1478528109-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 1121,
+            "height": 629,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19980",
+          "item_type": "text",
+          "updated_at": "2016-11-08 10:51:19 UTC",
+          "text": "And click the **Save Settings** button:"
+        },
+        {
+          "id": "19981",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 130764,
+            "url": "https://dato-images.imgix.net/205/1478528186-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 1121,
+            "height": 629,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "19982",
+          "item_type": "text",
+          "updated_at": "2016-11-08 11:04:49 UTC",
+          "text": "Now every time you change your data in DatoCMS, you can trigger a new deploy on Netlify simply clicking on the **Publish** button:"
+        },
+        {
+          "id": "19983",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 141661,
+            "url": "https://dato-images.imgix.net/205/1478529036-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+            "width": 1286,
+            "height": 663,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "20138",
+          "item_type": "text",
+          "updated_at": "2016-11-08 11:42:36 UTC",
+          "text": "## That's it!\n\nMiddleman is a great static site generator and Netlify is perfect for 1 click continuos deployment. DatoCMS \"seems like it'll be the last piece of the puzzle!\", as our customers says.\nJust give it a try and feel free to contact our customer support for any questions.\n\n**Happy coding!**"
+        }
+      ],
+      "publication_date": "2016-11-08 10:00:00 UTC",
+      "author": {
+        "id": "18672",
+        "item_type": "author",
+        "updated_at": "2016-12-31 15:36:52 UTC",
+        "avatar": {
+          "format": "jpg",
+          "size": 225549,
+          "url": "https://dato-images.imgix.net/205/1478272450-11090956_10205501754575133_1395398002197970518_o.jpg?ch=DPR%2CWidth&auto=format",
+          "width": 1448,
+          "height": 1448,
+          "alt": null,
+          "title": null
+        },
+        "name": "Claudio Benvenuti",
+        "slug": "claudio-benvenuti"
+      },
+      "seo_settings": {
+        "title": "Middleman and DatoCMS: a beginner's guide",
+        "description": "In this in-depth article we'll take a look at how you can deploy your CMS-backed Middleman static website to Netlify!",
+        "image": null
+      }
+    },
+    {
+      "id": "18640",
+      "item_type": "blog_post",
+      "updated_at": "2016-11-04 21:28:23 UTC",
+      "title": "Announcing new feature: Slug fields!",
+      "slug": "new-feature-slug-field-type",
+      "excerpt": "A highly anticipated feature just landed on DatoCMS: the ability to generate custom (and permanent) slugs for your Items. Read more about all the details in this in-depth article.",
+      "content": [
+        {
+          "id": "18642",
+          "item_type": "text",
+          "updated_at": "2016-11-04 19:22:27 UTC",
+          "text": "Up until now Item slugs — that is, the human-readable, SEO-friendly strings that univocally identifies a specific resource in a permalink — were automatically generated by our integration plugins based on the title of an Item. This strategy had an obvious and quite dangerous flaw: if the title of an already published Item changed for whatever reason, some URL in your website would change as well. Ugh.\n\nWe are happy to announce the deprecation of this technique in favour of a new type of field you can add right away to your Item types: **Slugs**."
+        },
+        {
+          "id": "18643",
+          "item_type": "text",
+          "updated_at": "2016-11-04 19:22:36 UTC",
+          "text": "## How does it work?\n\nPretty easy. Suppose we have a \"Blog post\" item type. First we create a string field called \"Title\":\n"
+        },
+        {
+          "id": "18648",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 54909,
+            "url": "https://dato-images.imgix.net/205/1478259353-Screenshot2016-11-0412.30.09.png?ch=DPR%2CWidth&auto=format",
+            "width": 656,
+            "height": 483,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "18646",
+          "item_type": "text",
+          "updated_at": "2016-11-04 19:24:08 UTC",
+          "text": "And then we add a slug field. Let's call it.. well.. \"Slug\". We want the slug to be generated based on the \"Title\" field, so we select it as \"Reference field\". Let's make sure we also enforce a uniqueness validation, so that we'll never have two items with the same slug:"
+        },
+        {
+          "id": "18649",
+          "item_type": "image",
+          "updated_at": "2016-12-23 22:37:19 UTC",
+          "image": {
+            "format": "png",
+            "size": 63180,
+            "url": "https://dato-images.imgix.net/205/1478259373-Screenshot2016-11-0412.30.49.png?ch=DPR%2CWidth&auto=format",
+            "width": 642,
+            "height": 604,
+            "alt": null,
+            "title": null
+          }
+        },
+        {
+          "id": "18647",
+          "item_type": "text",
+          "updated_at": "2016-11-04 11:33:58 UTC",
+          "text": "Awesome! If we switch to the Content tab, we can see that the slug will be automatically generated while we write the title for our blog posts:"
+        },
+        {
+          "id": "18650",
+          "item_type": "image",
+          "updated_at": "2017-01-08 15:29:02 UTC",
+          "image": {
+            "format": "png",
+            "size": 42364,
+            "url": "https://dato-images.imgix.net/205/1478259385-Screenshot2016-11-0412.33.00.png?ch=DPR%2CWidth&auto=format",
+            "width": 696,
+            "height": 646,
+            "alt": null,
+            "title": ""
+          }
+        },
+        {
+          "id": "18651",
+          "item_type": "text",
+          "updated_at": "2016-11-04 19:59:31 UTC",
+          "text": "Done! In the `dato.config.js` (or `dato.config.rb`, if you're using the Ruby gem) config file we can now get the slug just like we query for any other regular string field:\n\n```js\ndato.blogPosts[0].slug // => \"my-awesome-article\"\n```\n\n```ruby\ndato.blog_posts.first.slug # => \"my-awesome-article\"\n```"
+        },
+        {
+          "id": "18652",
+          "item_type": "text",
+          "updated_at": "2016-11-04 21:34:14 UTC",
+          "text": "## Migrating existing sites\n\nIt's important to highlight that today's release **won't affect your existing site, unless you explicitely decide to migrate to the new strategy**. That is, as long as you don't add any slug field to your Item types and you don't upgrade to a newer version of our [Javascript](https://github.com/datocms/js-datocms-client) (or [Ruby](https://github.com/datocms/ruby-datocms-client)) plugin, things will continue to work just like you're used to, with slugs generated during build time based on your item Title field.\n\nIf you want to migrate your existing site to use Slug fields, follow these simple steps:\n\n1. Upgrade to the latest dato plugin with `npm update datocms-client` (or `bundle update dato`);\n2. If you're using Middleman, make sure you also update the `middleman-dato` gem (`bundle update middleman-dato`);\n2. From your terminal, run the following command:\n\n```\n# JS version\n$ ./node_modules/.bin/dato migrate-slugs --token=YOUR_SITE_READWRITE_API_TOKEN\n\n# Ruby version\n$ bundle exec dato migrate-slugs --token=YOUR_SITE_READWRITE_API_TOKEN\n```\n\nThe command will handle most of the work for you:\n\n1. It will search for any Item type in your space containing a title field;\n2. It will append a new Slug field to the Item type itself, pointing to the title field as \"Reference field\";\n3. It will fill in the slug field of every Item with a slugified version of the title itself. By default, the command will prefix the slug with ID of the Item itself (ie. `3243-my-article-post`) but you can pass the additional flag `--skip-id-prefix` to avoid that.\n\nAfter the migration your static site will continue to build just fine®, but please **make sure to double-check the URLs of your static site** as some of them might differ from the old ones."
+        },
+        {
+          "id": "18845",
+          "item_type": "text",
+          "updated_at": "2016-11-04 21:25:58 UTC",
+          "text": "## That's it folks!\n\nWe're sure that the introduction of explicit Slug fields will make your DatoCMS static sites more solid and reliable. We also hope to have described this change in detail.. but if you encounter any problems during the migration, don't hesitate to ask for help via our Support channels!"
+        }
+      ],
+      "publication_date": "2016-11-04 13:00:00 UTC",
+      "author": {
+        "id": "13671",
+        "item_type": "author",
+        "updated_at": "2016-12-31 15:36:47 UTC",
+        "avatar": {
+          "format": "jpg",
+          "size": 40007,
+          "url": "https://dato-images.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg?ch=DPR%2CWidth&auto=format",
+          "width": 633,
+          "height": 632,
+          "alt": null,
+          "title": null
+        },
+        "name": "Stefano Verna",
+        "slug": "stefano-verna"
+      },
+      "seo_settings": {
+        "title": "Introducing Slug fields",
+        "description": "We made some big changes at how slugs get generated for your DatoCMS Items.. read more in this detailed blog post!",
+        "image": null
+      }
+    },
+    {
+      "id": "14223",
+      "item_type": "blog_post",
+      "updated_at": "2016-11-04 16:41:40 UTC",
+      "title": "New feature: Markdown editor",
+      "slug": "14223-new-feature-markdown-editor",
+      "excerpt": "We just shipped a long awaited feature: support for Markdown content.",
+      "content": [
+        {
+          "id": "14222",
+          "item_type": "text",
+          "updated_at": "2016-09-07 22:40:36 UTC",
+          "text": "Just a quick update to let you know that you can finally choose to write your website content with DatoCMS using the [Markdown](https://en.wikipedia.org/wiki/Markdown) markup language. \n\nMarkdown is used extensively in the static-web universe, is extremely simple to learn even for non-technical people and leads to clean and semantic HTML, so adding proper support for it was a no-brainer decision for us.\n\n## How to enable it\n\nThis is actually pretty simple: just take an existing \"Multi-line text\" field (or create a new one), and make sure to select \"Markdown Editor\" as its \"Presentation mode\":"
+        },
+        {
+          "id": "14224",
+          "item_type": "image",
+          "updated_at": "2017-01-08 15:28:55 UTC",
+          "image": {
+            "format": "png",
+            "size": 49136,
+            "url": "https://dato-images.imgix.net/205/1473286280-Screenshot2016-09-0800.11.00.png?ch=DPR%2CWidth&auto=format",
+            "width": 646,
+            "height": 406,
+            "alt": null,
+            "title": "HTML, Markdown or plain old text: what more could you ask for from life?"
+          }
+        },
+        {
+          "id": "14225",
+          "item_type": "text",
+          "updated_at": "2016-09-07 23:03:12 UTC",
+          "text": "Once set up, a nice and simple Markdown WYSIWYG editor will come up, ready for to be used by your editors:"
+        },
+        {
+          "id": "14226",
+          "item_type": "image",
+          "updated_at": "2017-01-08 15:28:56 UTC",
+          "image": {
+            "format": "png",
+            "size": 65623,
+            "url": "https://dato-images.imgix.net/205/1473286804-Screenshot2016-09-0800.19.50.png?ch=DPR%2CWidth&auto=format",
+            "width": 727,
+            "height": 604,
+            "alt": null,
+            "title": "This is how it looks like. Not bad huh?"
+          }
+        },
+        {
+          "id": "14227",
+          "item_type": "text",
+          "updated_at": "2016-09-07 22:40:53 UTC",
+          "text": "Under the hood we're using a slightly modified version of the great [SimpleMDE](https://github.com/NextStepWebs/simplemde-markdown-editor) markdown editor.\n\n## Tell us what you think of it\n\nThat's obviously the first release: there might be some rough edges to smooth. As always, [feedbacks](mailto:support@datocms.com) are highly appreciated!"
+        }
+      ],
+      "publication_date": "2016-09-07 11:30:00 UTC",
+      "author": {
+        "id": "13671",
+        "item_type": "author",
+        "updated_at": "2016-12-31 15:36:47 UTC",
+        "avatar": {
+          "format": "jpg",
+          "size": 40007,
+          "url": "https://dato-images.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg?ch=DPR%2CWidth&auto=format",
+          "width": 633,
+          "height": 632,
+          "alt": null,
+          "title": null
+        },
+        "name": "Stefano Verna",
+        "slug": "stefano-verna"
+      },
+      "seo_settings": {
+        "title": "Markdown editor for static websites",
+        "description": "We just added to our CMS for static websites a Markdown editor: read more in the article.",
+        "image": null
+      }
+    },
     {
       "id": "13672",
       "item_type": "blog_post",
-      "updated_at": "2016-09-08 10:01:25 UTC",
-      "title": "Changelog: September 4, 2006!!",
+      "updated_at": "2016-11-04 16:41:39 UTC",
+      "title": "Changelog: September 4, 2016!",
+      "slug": "13672-changelog-september-4-2016",
       "excerpt": "August has been a month full of new features: HTTPS, Structured content, Hugo and Jekyll integrations.",
       "content": [
         {
@@ -74,8 +1080,8 @@
         },
         {
           "id": "13680",
-          "item_type": "gallery_slide",
-          "updated_at": "2016-09-03 22:23:39 UTC",
+          "item_type": "image",
+          "updated_at": "2017-01-08 15:28:55 UTC",
           "image": {
             "format": "png",
             "size": 148541,
@@ -83,9 +1089,8 @@
             "width": 896,
             "height": 266,
             "alt": null,
-            "title": null
-          },
-          "caption": "Damn, how I love Let's Encrypt."
+            "title": "Damn, how I love Let's Encrypt."
+          }
         },
         {
           "id": "13676",
@@ -95,8 +1100,8 @@
         },
         {
           "id": "13679",
-          "item_type": "gallery_slide",
-          "updated_at": "2016-09-03 22:18:20 UTC",
+          "item_type": "image",
+          "updated_at": "2017-01-08 15:28:55 UTC",
           "image": {
             "format": "png",
             "size": 68621,
@@ -104,14 +1109,13 @@
             "width": 721,
             "height": 586,
             "alt": null,
-            "title": null
-          },
-          "caption": "Now you can specify multiple Item Types for a single \"Links\" field type"
+            "title": "Now you can specify multiple Item Types for a single \"Links\" field type"
+          }
         },
         {
           "id": "13678",
-          "item_type": "gallery_slide",
-          "updated_at": "2016-09-03 22:18:43 UTC",
+          "item_type": "image",
+          "updated_at": "2017-01-08 15:28:43 UTC",
           "image": {
             "format": "png",
             "size": 48834,
@@ -119,9 +1123,8 @@
             "width": 528,
             "height": 356,
             "alt": null,
-            "title": null
-          },
-          "caption": "This is the final result for the editor. Isn't it awesome?!"
+            "title": "This is the final result for the editor. Isn't it awesome?!"
+          }
         },
         {
           "id": "13677",
@@ -130,11 +1133,11 @@
           "text": "## Stay tuned for more!\n\nThe enthusiasm we got from your feedbacks in these first 3 weeks of public beta is simply astonishing and makes us giggle. It feels great to build something useful for a lot of people!\n\nWe're already working on some great new features we'll be shipping in the following weeks: Markdown editor, advanced items search, more granular way of managing permissions, content versioning, multiple publishing environments.. You've got some more ideas? [Let us know!](mailto:support@datocms.com)"
         }
       ],
-      "publication_date": "2016-09-03 17:30:00 UTC",
+      "publication_date": "2016-09-04 17:30:00 UTC",
       "author": {
         "id": "13671",
         "item_type": "author",
-        "updated_at": "2016-09-03 21:15:07 UTC",
+        "updated_at": "2016-12-31 15:36:47 UTC",
         "avatar": {
           "format": "jpg",
           "size": 40007,
@@ -144,23 +1147,161 @@
           "alt": null,
           "title": null
         },
-        "name": "Stefano Verna"
+        "name": "Stefano Verna",
+        "slug": "stefano-verna"
       },
       "seo_settings": {
         "title": "Web based editor for Hugo and Jekyll ",
         "description": "Finally you can have a web-interface to edit your static website!",
         "image": null
+      }
+    },
+    {
+      "id": "16403",
+      "item_type": "blog_post",
+      "updated_at": "2016-11-04 16:41:38 UTC",
+      "title": "Changelog: October 14, 2016!",
+      "slug": "16403-changelog-october-14-2016",
+      "excerpt": "Also this month has been full of awesome new features and integrations: take a look at all the details in this article!",
+      "content": [
+        {
+          "id": "16410",
+          "item_type": "text",
+          "updated_at": "2016-10-13 10:47:19 UTC",
+          "text": "We're extremely happy to say it has been **a huge month of progress for DatoCMS**: we've more than doubled our user base, received plenty of useful feedback and seen the first DatoCMS-powered sites going live. A big thanks goes to everyone who tried our product!\n\nAnd.. we did our part too! :) Here's a (not so) short list of product changes that happened during the last month."
+        },
+        {
+          "id": "16407",
+          "item_type": "text",
+          "updated_at": "2016-10-13 10:47:41 UTC",
+          "text": "## Public development roadmap\n\nWe like the idea of having a product that's as transparent to its users as it can. Up until now, feature requests were discussed and prioritized privately via email/phone: that worked well up until now, but as the number of requests are growing, we thought we could take advantage of a more open approach.\n\nWe took a look at how other companies are trying to handle this problem, and we **settled on a [public Trello board](https://trello.com/b/cMINyDiz/datocms-development-roadmap)**.\n\nWe really believe a public roadmapping board is a great place to engage with our community, get input from power users, share our product’s development, and keep people up to date on any issues or releases.\n\nYou're more than encouraged to **vote the features you need the most**: it will help us better prioritize our daily development efforts. Also, feel free to comment open cards or suggest new features!"
+        },
+        {
+          "id": "16412",
+          "item_type": "image",
+          "updated_at": "2017-01-08 15:29:01 UTC",
+          "image": {
+            "format": "png",
+            "size": 198765,
+            "url": "https://dato-images.imgix.net/205/1476350507-Screenshot2016-10-1311.21.45.png?ch=DPR%2CWidth&auto=format",
+            "width": 1917,
+            "height": 769,
+            "alt": null,
+            "title": "Whoa. That's a lot of cards."
+          }
+        },
+        {
+          "id": "16406",
+          "item_type": "text",
+          "updated_at": "2016-10-13 11:58:21 UTC",
+          "text": "## NodeJS/Browser API client and CLI tool\n\nUp until now, the only way to easily interact with our API and transform the content stored on your DatoCMS backend into local static files was through our [official Ruby gem](https://github.com/datocms/ruby-datocms-client). While it worked out quite well in conjunction with static site generators like Middleman and Jekyll that already need a working Ruby environment, we  received some complaints from potential new users working with ie. Hugo or Metalsmith: they (rightfully) didn't like a lot the idea of adding a Ruby dependency to their project.\n\nThe fact is that — even if the \"static movement\" started with Jekyll in Rubyland — an ever increasing number of static site generators is being written in Javascript: Metalsmith, Hexo, GatsbyJS, Brunch, Phenomic... these are just a few popular names, the complete list goes on forever. Javascript is the \"lingua franca\" of the whole frontend world: the vast majority of frontend web-designers and developers have no particular problems digesting Javascript code, so lowering the entry barriers to the \"static websites\" world with static generators written in Javascript makes a LOT of sense.\n\nThis week we've finally released an official [NodeJS-based API client ad CLI tool](https://github.com/datocms/js-datocms-client). **Using DatoCMS with JS-based static generators has never been easier**: just add the `datocms-client` module to your `package.json` and you can start using your remote DatoCMS content into your site in a matter of seconds."
+        },
+        {
+          "id": "16404",
+          "item_type": "text",
+          "updated_at": "2016-10-13 12:19:43 UTC",
+          "text": "## Support for Metalsmith and Hexo\n\nTogheter with our shiny new NodeJS client, we thought it was nice to start giving official support to some of the most popular JS-based generators out there. Within your DatoCMS site settings **you can now select Metalsmith or Hexo as your static site generator**, and receive helpful hints to get started.\n\nWe've published some sample websites in [Metalsmith](https://github.com/datocms/metalsmith-example) and [Hexo](https://github.com/datocms/hexo-example), and in the next few days we'll also post some practical, detailed how-to articles."
+        },
+        {
+          "id": "16413",
+          "item_type": "image",
+          "updated_at": "2017-01-08 15:28:59 UTC",
+          "image": {
+            "format": "png",
+            "size": 13027,
+            "url": "https://dato-images.imgix.net/205/1476352396-hexo-metalsmith.png?ch=DPR%2CWidth&auto=format",
+            "width": 700,
+            "height": 227,
+            "alt": null,
+            "title": "DatoCMS works great with both of them!"
+          }
+        },
+        {
+          "id": "16408",
+          "item_type": "text",
+          "updated_at": "2016-10-13 10:32:58 UTC",
+          "text": "## Integration with SemaphoreCI\n\nWe also took the time to add support for the great [Semaphore](https://semaphoreci.com/) continuous integration platform. If you're already using SemaphoreCI to build and publish your static website, adding DatoCMS to the mix is a matter of minutes!"
+        },
+        {
+          "id": "16414",
+          "item_type": "image",
+          "updated_at": "2017-01-08 15:28:56 UTC",
+          "image": {
+            "format": "png",
+            "size": 166212,
+            "url": "https://dato-images.imgix.net/205/1476354720-Slice1.png?ch=DPR%2CWidth&auto=format",
+            "width": 1304,
+            "height": 772,
+            "alt": null,
+            "title": "Our awesome GIFs will help you integrate DatoCMS with your SemaphoreCI project"
+          }
+        },
+        {
+          "id": "16409",
+          "item_type": "text",
+          "updated_at": "2016-10-13 12:19:51 UTC",
+          "text": "## Logging of deploy events\n\nWe know that the most complicated step when start using DatoCMS is to  configure your Continuous Deployment of choice to make it talk with our product. Being a manual process, it's quite error prone, and that makes us really sad.\n\nWe're actively working on partnering up with the major continuous deployment services available to automate this step, but in the meantime we've also **added a new section to the Admin section of your DatoCMS sites called \"Deployment logs\"**, which presents in real time the result of every webhook call sent to/received from your continuous deployment of choice.\n\nThis should help you better debug any potential errors occuring in the bi-directional communications due to misconfigurations."
+        },
+        {
+          "id": "16415",
+          "item_type": "image",
+          "updated_at": "2017-01-08 15:29:01 UTC",
+          "image": {
+            "format": "png",
+            "size": 94116,
+            "url": "https://dato-images.imgix.net/205/1476355399-Screenshot2016-10-1312.43.33.png?ch=DPR%2CWidth&auto=format",
+            "width": 981,
+            "height": 541,
+            "alt": null,
+            "title": "The \"Show details\" will give you a complete breakdown of the HTTP requests and responses!"
+          }
+        }
+      ],
+      "publication_date": "2016-10-13 11:30:00 UTC",
+      "author": {
+        "id": "13671",
+        "item_type": "author",
+        "updated_at": "2016-12-31 15:36:47 UTC",
+        "avatar": {
+          "format": "jpg",
+          "size": 40007,
+          "url": "https://dato-images.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg?ch=DPR%2CWidth&auto=format",
+          "width": 633,
+          "height": 632,
+          "alt": null,
+          "title": null
+        },
+        "name": "Stefano Verna",
+        "slug": "stefano-verna"
       },
-      "url": "",
-      "email": "",
-      "code": "bar"
+      "seo_settings": {
+        "title": "Changelog: Metalsmith and Hexo CMS integration!",
+        "description": "We just shipped support for Metalsmith and Hexo: adding a CMS to your static site is easier than ever.",
+        "image": null
+      }
     }
   ],
   "author": [
     {
+      "id": "18672",
+      "item_type": "author",
+      "updated_at": "2016-12-31 15:36:52 UTC",
+      "avatar": {
+        "format": "jpg",
+        "size": 225549,
+        "url": "https://dato-images.imgix.net/205/1478272450-11090956_10205501754575133_1395398002197970518_o.jpg?ch=DPR%2CWidth&auto=format",
+        "width": 1448,
+        "height": 1448,
+        "alt": null,
+        "title": null
+      },
+      "name": "Claudio Benvenuti",
+      "slug": "claudio-benvenuti"
+    },
+    {
       "id": "13671",
       "item_type": "author",
-      "updated_at": "2016-09-03 21:15:07 UTC",
+      "updated_at": "2016-12-31 15:36:47 UTC",
       "avatar": {
         "format": "jpg",
         "size": 40007,
@@ -170,10 +1311,419 @@
         "alt": null,
         "title": null
       },
-      "name": "Stefano Verna"
+      "name": "Stefano Verna",
+      "slug": "stefano-verna"
     }
   ],
   "text": [
+    {
+      "id": "22175",
+      "item_type": "text",
+      "updated_at": "2017-01-19 22:16:28 UTC",
+      "text": "Everyone hates WYSIWYG editors: developers know they produce dirty code, designers fear the introduction of unwanted styling, editors struggle to use them. Sure, DatoCMS features a WYSIWYG editor since day one, but we want to keep it simple and lightweight: no inline images or other potentially dangerous stuff.\n\nIn DatoCMS you can achieve rich-content editing using a specific type of field called  (duh) **Rich text** field. The idea is to give your authors the choice to compose their content by alternating certain blocks (e.g. Text, Image, Video, etc). Authors can choose and populate these blocks and reorder them as needed. This gives authors a lot of freedom to organise their content, much like Medium editor does, while keeping the content clean and structured."
+    },
+    {
+      "id": "27984",
+      "item_type": "text",
+      "updated_at": "2017-01-08 16:30:36 UTC",
+      "text": "Now save the field and.. you made it! You just created an awesome rich-text editor for your authors. Just for the sake of being meta, here's me writing this very article in a rich text field!"
+    },
+    {
+      "id": "27979",
+      "item_type": "text",
+      "updated_at": "2017-01-08 16:26:03 UTC",
+      "text": "The first step is to define which are the different kind of basic blocks you want your authors to alternate. In this case, we want our content to be a composition of: \n\n* Text\n* Quotes\n* Videos\n* Images\n\nSeems like a quite flexible layout for an article content, isn't it? \n\nNow, what you need to do is to head over the **Admin** tab of your backend, and create an item type for each one of these blocks. The **Quote** block, for example, will be an item type made of two fields: one containing the actual quote, the other containing the author:"
+    },
+    {
+      "id": "27982",
+      "item_type": "text",
+      "updated_at": "2017-01-08 16:24:21 UTC",
+      "text": "Let's name it \"Content\", and in the \"Validations\" tab, make sure to select the item types you previously created:"
+    },
+    {
+      "id": "27980",
+      "item_type": "text",
+      "updated_at": "2017-01-08 16:21:52 UTC",
+      "text": "Quite easy, right? Now repeat the process for all the other blocks.\n\n### Step 2: add the Rich text to an Item type\n\nNow that the basic blocks are ready, we can finally select the Article item type, and add a **Rich text** field (you'll find it under the Text group):"
+    },
+    {
+      "id": "22197",
+      "item_type": "text",
+      "updated_at": "2017-01-08 16:21:52 UTC",
+      "text": "## How to build a Rich text editor\n\nSuppose we have an \"Article\" item type, and we want to add a Rich text field to manage its content:"
+    },
+    {
+      "id": "25572",
+      "item_type": "text",
+      "updated_at": "2016-12-20 00:09:48 UTC",
+      "text": "Let's be sincere: until this moment, learning how to properly use DatoCMS with your favorite static generator was not an easy task: you had to manually create a new website, integrate it with our plugins, properly configure a deployment method, build an administrative area.. whoa! So much work just to decide if it was even worth it!\n\nThanks to our friends at Netlify, we're finally happy to announce a new, easier and faster way to get started and evaluate DatoCMS. Just sign up and connect your Github and Netlify accounts: in less than 10 seconds we'll prepare and publish a completely working static website editable with DatoCMS.\n\n<figure class=\"blog-post__content__image\">\n<iframe src=\"https://vid.me/e/p6HL?autoplay=1\" width=\"630\" height=\"480\" frameborder=\"0\" allowfullscreen webkitallowfullscreen mozallowfullscreen scrolling=\"no\"></iframe>\n<figcaption>Here's a preview of the new onboarding process that awaits you!</figcaption>\n</figure>\n\n"
+    },
+    {
+      "id": "25687",
+      "item_type": "text",
+      "updated_at": "2016-12-19 23:52:27 UTC",
+      "text": "### Look at all the things you don't have to do!\n\nAfter granting us the authorization to connect to your Github and Netlify accounts, that's the steps we'll perform for you undercover:\n\n1. We'll create a DatoCMS administrative area modeled after a specific template (a designer portfolio website), already filled with some sample data;\n2. We'll add a new public repository on your Github profile containing the actual website — written for the requested static generator — that already use the content coming from the DatoCMS backend, with all the bells and whistles of a modern website: assets bundling, live-reload on development mode, proper SEO management, etc.;\n3. We'll create a new project on your Netlify account, linking it to the just-created Github repository;\n4. We'll tie the 3 services together, creating all the necessary hooks between them so that they can communicate properly;\n\nNetlify in step 3 is already working to publish the website to a randomly-picked domain. Job done, that was easy, wasn't it? :)\n\n### More to come\n\nWe were eager to release and publicly test this improvement over the existing onboarding process, so right now we only offer one template: a clean and responsive creative portfolio website. It might not be exactly what you want, but it will be a great source of faster learning in any case :) \n"
+    },
+    {
+      "id": "25574",
+      "item_type": "text",
+      "updated_at": "2016-12-19 23:22:58 UTC",
+      "text": "We'll slowly add more templates for you to choose, to better show the capabilities and the flexibility of DatoCMS for your specific use case (blogs, coming-soon business card website, photography websites, agency websites..). Stay tuned for more!"
+    },
+    {
+      "id": "22195",
+      "item_type": "text",
+      "updated_at": "2016-11-23 11:51:09 UTC",
+      "text": "### Step 3: Enjoy!\n\nIf you head over to the \"Contents\" tab and try to create a new article, here's what you will find:"
+    },
+    {
+      "id": "21881",
+      "item_type": "text",
+      "updated_at": "2016-11-21 17:27:55 UTC",
+      "text": "After 3 months of public beta-testing, we're happy to announce **DatoCMS is officially charging money**! This marks an important milestone, allowing us to improve your experience by adding features like 24/7 customer service.\n\nWe truly appreciate the support and feedbacks you guys gave us during the beta period. We're committed, more than ever, to **provide the best platform to build easy-to-use and powerful static websites**.\n\n## An updated pricing\n\nDuring these months, we closely monitored your usage of the platform, and we identified 3 main \"targets\" for this platform:\n\n* **Developers**, looking for a web-based editing experience for their personal existing static websites;\n* **Web agencies**, tired of having to build brochure-websites for their clients with tools like Wordpress. They demand a safer, cheapier, faster and easier to develop alternative;\n* **Startups**, looking for a simple, rock-solid solution for their static marketing websites that would enable internal non-tech-savvy editors/marketers to update the website without having to interrupt a developer.\n\nWith these targets in mind, we released [new pricing plans for DatoCMS](https://www.datocms.com/pricing/). We're pretty satisfied with the result, as we think we reached a very competitive price point with a lot of great features packed in.\n\nIn the following days we'll also release a special **bulk/volume pricing** for agencies that will allow them to drammatically cut their invoices (up to 50%) once they accumulate a minimum number of websites published with DatoCMS.\n\nWe'll also add a totally free, special pro-bono/open-source plan very soon.\n\n## A special gift for our early adopters :)\n\nTo thank existing custumers for their support and enthusiasm, we switched all the existing sites to a special **\"Early adopter\"** plan, extremely generous and totally free. You will always be able to switch to an even bigger plan when you need it.\n\n##  Feedbacks are (very) welcome\n\nWe hope our new pricing will sound right to you.. drop us a line at [support@datocms.com](mailto:support@datocms) for any further question!"
+    },
+    {
+      "id": "21186",
+      "item_type": "text",
+      "updated_at": "2016-11-15 08:09:07 UTC",
+      "text": "## Integrate DatoCMS with Jekill\n\nOk, just recap what we have done until now:\n\n1. We created a Jekill website\n2. We added our blog posts data to separate files in the `_posts` folder\n3. We added our products data to separate files in the `_products` folder\n4. We committed all the project files to a GitHub repository\n5. We created a new Site in Netlify\n6. We linked the Netlify Site to our Github repo to allow an automated deploy on every commit\n7. We created a new Site on DatoCMS\n8. We created the \"Product\" and \"Blog Post\" ItemType and their attributes\n9. We populated the catalogue in DatoCMS\n\nWhat we want now is to get rid of the Markdown files in the `_products`  and `_posts` folder on our Jekyll project and integrate the data from DatoCMS instead. \nThat's a trivial task, thanks to the [`dato` gem](https://github.com/datocms/ruby-datocms-client/blob/master/docs/dato-cli.md)\n\nOpen your `Gemfile` on your Jekyll project and add the following line:\n\n```ruby\ngem 'dato'\n```\n\nthen in your terminal paste the following command:\n\n```bash\nbundle install\n```\n\nIf everything worked correctly, you should now run `bundle exec dato` and see something like this:\n\n```bash\n$ bundle exec dato\nDatoCMS commands:\n  dato dump --token=TOKEN  # dumps DatoCMS contents into local files\n  dato help [COMMAND]      # Describe available commands or one specific command\n```\n\nGreat! Now we need to dump all the remote data into local files that would replace the ones in `_products`  and `_posts`, so let's create a `dato.config.rb` file into your project root directory with the following content:\n\n```ruby\n# dato.config.rb\ndirectory \"_products\" do\n  dato.products.each do |item|\n    create_post \"#{item.title.parameterize}.md\" do\n      frontmatter :yaml, {\n        layout: \"product\",\n        title: item.title,\n        price: item.price\n      }\n      content item.description\n    end\n  end\nend\ndirectory \"_posts\" do\n  dato.blogposts.each do |item|\n    create_post \"#{item.date.to_s.parameterize}-#{item.title.parameterize}.md\" do\n      frontmatter :yaml, {\n        layout: \"post\",\n        title: item.title,\n        date: item.date.to_s,\n        categories: item.categories\n      }\n      content item.content\n    end\n  end\nend\n```\n\nThis script will fetch the data from DatoCMS and will create the new files thanks to the `create_post` helper that the `dato` gem exposes.\n\nThe DSL is quite simple to understand, in any case you can check the gem [official documentation](https://github.com/datocms/ruby-datocms-client/blob/master/docs/dato-cli.md) \n\nNow is time to see if it works. Fire the following command:\n\n```bash\n$ bundle exec dato dump --token=SITE_READONLY_TOKEN \n```\n\nYou obviously need to replace the `SITE_READ_ONLY_TOKEN` string with the actual token. You can find that token in your DatoCMS Admin area:\n\n![DatoCMS tocken] (https://dato-images.imgix.net/205/1478525309-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow make sure that the files in the `_products` and `_posts` have been replaced.\n\n**BE CAREFUL!\"** This script will delete all the files in the specified directories :)\n"
+    },
+    {
+      "id": "21212",
+      "item_type": "text",
+      "updated_at": "2016-11-14 18:54:32 UTC",
+      "text": "## Auto deploy your website when data on DatoCMS changes\n\nUntil now, to deploy a new version of your website on Netlify you needed to push a new commit on your GitHub repo. This is wonderful when you, as a developer, make some change to the website pages in Jekyll, but you also want to **deploy a new version of your website when products are added/edited/deleted on your DatoCMS site** by your clients!\n\n#### DatoCMS handles all this for you\n\nOn your DatoCMS Admin area click on **Deployment settings**, then on **Netlify**:\n\n![Deploy on Netlify](https://dato-images.imgix.net/205/1478527450-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nOn the new window that pops up, click on \"Grant Access\" to allow DatoCMS to setup the auto-deploy meachanism for you:\n\n![Deploy on Netlify](https://dato-images.imgix.net/205/1478527707-Desktop.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nSelect the Netlify site that has to be build upon data changes on DatoCMS:\n\n![Deploy on Netlify](https://dato-images.imgix.net/205/1478528109-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nAnd click the **Save Settings** button:\n\n![Deploy on Netlify](https://dato-images.imgix.net/205/1478528186-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow every time you change any content in your DatoCMS web interface, you can trigger a new deploy on Netlify simply clicking on the **Publish** button:\n\n![Deploy on Netlify](https://dato-images.imgix.net/205/1478529036-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nThe last thing to to is to tell Netlify to run `bundle exec dato dump --token=SITE_READONLY_TOKEN` before running `jekill build`, so that the latest content coming from your administrative backend will be present at build time.\n\nGo to your [Netlify Dashboard](https://app.netlify.com/) and click on your site, than find the **\"Link to git\"** section end edit the **\"build command\"** like this:\n\n```\nbundle exec dato dump --token=SITE_READONLY_TOKEN && jekill build\n```\n\n![Deploy on Netlify](https://dato-images.imgix.net/205/1479140841-NetlifyApp2.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n## That's it!\n\nJekyll is a great static site generator and Netlify is perfect for one-click continouos deployment. DatoCMS \"seems like it'll be the last piece of the puzzle!\", as our customers says. Just give it a try and feel free to contact our customer support for any questions.\n\n**Happy coding!**"
+    },
+    {
+      "id": "21177",
+      "item_type": "text",
+      "updated_at": "2016-11-14 18:49:34 UTC",
+      "text": "## Using DatoCMS\n\nUntil now it's all wonderful, but what about when you need to add, edit or delete a product, a post or a page of your site? Actually is not that difficult: all you need to do is open the data files stored in `_products`, edit the items data, commit your changes and push it to GitHub. Netlify will grab the changes and will deploy your updated website for you.\n\nIf this can be fine for you, it certainly cannot be done if the person in charge of updating catalog is not a programmer and or is not confortable with terminal.\n\n### That's where DatoCMS shines\n\nDatoCMS is a fully customizable administrative area for your static websites. \nThe administrative interface is incredibly simple to use, yet flexible enough to allow the management of pretty much any kind of website.\n\n![alt text](https://www.datocms.com/images/frontend-big.gif \"DatoCMS\")\n\nBest of all, your customers don't need not know anything about Ruby, Middleman, Github, etc. neither they need to install stuff on their computers. \nYou do the dirty work building the website with Middleman, and they can customize thier contents with a browser, just like they're used to do with ie. Wordpress.\n\n### Let see how this magic works\n\n#### Step 1: Add Your New Site\n\nCreating a new site on DatoCMS is simple. Once you’ve logged in, you’ll be taken to [https://dashboard.datocms.com/account/sites](your account dashboard). If you’re just starting out, there’s only one option.\n\n![DatoCMS 1.1](https://dato-images.imgix.net/205/1478517626-DatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nGive your website a name and eventually select a template to start your project. In our case we'll start with an empty site template:\n\n![DatoCMS 1.2](https://dato-images.imgix.net/205/1478517786-DatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n#### Step 2: Enter your Admin dashboard\n\nAfter you click on \"Create a new site\", DatoCMS will create your administrative area in a randomly-generated subdomain. You can adjust some settings, but for now just click on the given link and enter in the Admin Area.\n\n![DatoCMS 2](https://dato-images.imgix.net/205/1478518128-DatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n#### Step 3: Create the Item Types\n\nNow it's time to create a place to store all the informations related to your Products and your Posts. In DatoCMS this place is named \"Item Type\". Try to think of a DatoCMS ItemType as a table in a database. Click on the plus button:\n\n![DatoCMS 3.1] (https://dato-images.imgix.net/205/1478518707-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nGive your Item Type the name `Product`. We are going to have a collection of products so DO NOT check the \"Single Instance\" flag. Enable the \"Order collection\" as in the picture to be able to reorder your product list once populated.\n\n![DatoCMS 3.2] (https://dato-images.imgix.net/205/1478518871-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n#### Step 4: Define the product fields\n\nNow that you have the \"Product\" ItemType (again, think of ItemTypes as a table in a DB) you have to define the Product attributes. To begin click the \"Add Field\" button:\n\n![DatoCMS 4.1] (https://dato-images.imgix.net/205/1478522616-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow let's add the \"Title\" attribute. DatoCMS offers a lot of specialized field types, but in our case a \"Simple-line string\" is fine, so just click it.\nGive a \"Label\" to your field and define your validation rules as in image below, than click on the \"Save Field\" button:\n\n![DatoCMS 4.2](https://dato-images.imgix.net/205/1478522373-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow repeat this taks for the **Description** and for the **Price** field, choosing respectively \"Long text\" and \"Floating-point number\" as field types:\n\n![DatoCMS 4.3] (https://dato-images.imgix.net/205/1478526069-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n\n#### Step 5: Populate your catalogue\n\nNow that you have the \"Product\" item type and its attributes defined, you can start to insert products in your catalog! Click on **Content** in the top navigation bar then click on the plus button to  insert a couple of products.\n\n![DatoCMS 5] (https://dato-images.imgix.net/205/1478526069-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n#### Step 6: Repeat step 3, 4 and 5 for Blog Posts\n\nNow let's create  the BlogPost item Type, its attributes, and populate it:\n\n1. Click on \"Admin area\" on the top-bar;\n2. Click \"Item tyles\" on the left menu (actually it should be already selected);\n3. Click the \"plus\" button;\n4. Give the name \"BlogPost\" to your Item Type and save it;\n5. Click the \"Add Field\" button and choose \"Single-line string\", Give your Field the name \"Title\" and save it;\n6. Click again the \"Field\" button and choose \"Date + Time\", give your Field the name \"Date\" and save it;\n7. Click again the \"Field\" button and choose \"Single-line string\", Give your Field the name \"Categories\" and save it;\n8. Click again the \"Field\" button and choose \"Long text\", Give your Field the name \"content\", select \"Markdown Editor\" in the \"Presentation mode\" dropdown and save it.\n\n![DatoCMS 5] (https://dato-images.imgix.net/205/1479132719-my_dato_projectDatoCMS.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow that you have your Item Type ready, insert a couple of demo blog post clicking again the \"Content\" button on the top-bar.\n\n#### Important\n\nYou do not need to give your customer access to your Administrative Area just to populate the catalog, but you can restrict the access to the DatoCMS only to the **Content** section. To do so just click to **Users** on the top navigation bar and invite your customer/editor/collaborator."
+    },
+    {
+      "id": "21176",
+      "item_type": "text",
+      "updated_at": "2016-11-14 18:47:14 UTC",
+      "text": "## Deploy your first Jekill project\n\nOk, now that you have the ugliest (but perfectly working) catalogue in the world, you need to deploy your website somewhere. You can simply run the  command `jekyll build` to build your static website in the `_site` folder, than you can manually copy al the files to your preferred hosting platform. \n\nHaving to manually repeat the same process again and again every time you change a single line of code can be quite frustrating, but you can do much better and automate the deploy process!\n\n### Deploy with Github and Netlify\n\nCreate a new repository on [GitHub](https://github.com/). To avoid errors, do not initialize the new repository with any README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.\n\nFor our purposes, let’s call your new repo `my_dato_project`.\n\nIn your terminal initialize the project directory as a Git repository.\n\n```bash\ngit init\n```\n\nAdd the files in your new local repository. This stages them for the first commit.\n\n```bash\ngit add .\n```\n\nCommit the files that you’ve staged in your local repository.\n\n```bash\ngit commit -m 'First commit'\n```\n\nAt the top of your GitHub repository’s Quick Setup page, click the clipboard icon to copy the remote repository URL. In Terminal, add the URL for the remote repository where your local repository will be pushed.\n\n```bash\ngit remote add origin GITHUB_REPOSITORY_URL\n```\n\nNow, it’s time to push the changes in your local repository to GitHub:\n\n```bash\ngit push origin master\n```\n\nNow that your assets are up and running on GitHub, let’s connect them to Netlify.\n\n### Connecting to Netlify ###\n\n#### Step 1: Add Your New Site\n\nCreating a new site on [Netlify](http://www.netlify.com) is simple. Once you’ve logged in, you’ll be taken to [https://app.netlify.com/sites](https://app.netlify.com/sites). If you’re just starting out, there’s only one option.\n\n![Netlify 1] (https://dato-images.imgix.net/205/1478514768-717820a6-57d9-11e5-838f-d2a732eb0a41.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\n#### Step 2: Link to Your GitHub\n\nClicking “New Site” brings you to this screen:\n\n![Netlify 2] (https://dato-images.imgix.net/205/1478514829-7176ac8a-57d9-11e5-9b09-f43dc772a4f9.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nSince your assets are hosted on GitHub, we’ll need to link Netlify to GitHub. Click “Link to GitHub”.\n\n#### Step 3: Authorize Netlify\n\n![Netlify 3] (https://dato-images.imgix.net/205/1478514867-71760370-57d9-11e5-8bdb-850aa176a22c.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nIt’s time to allow Netlify and GitHub to talk to each other. Clicking the “Authorize Application” button will do just that. Like it says in the image below, Netlify doesn’t store your GitHub access token on their servers. If you’d like to know more about the permissions Netlify requests and why we need them, you can visit [https://docs.netlify.com/github-permissions/](https://docs.netlify.com/github-permissions/).\n\n#### Step 4: Choose Your Repo\n\n![Netlify 4] (https://dato-images.imgix.net/205/1478514928-b9ea7f7c-5bfe-11e5-94a0-f957a7d1986e.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow that you’ve connected Netlify and GitHub, you can see a list of your Git repos. There’s the `my_dato_project` repo we just pushed to GitHub. Let’s select it.\n\n#### Step 5: Configure Your Settings\n\n![Netlify 5] (https://dato-images.imgix.net/205/1478514971-717b2008-57d9-11e5-949c-4ea36645ff08.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nHere you can configure your options. For the purposes of this tutorial, there’s nothing you need to change, so just click “Save”.\n\n#### Step 6: Build Your Site\n\n![Netlify 6] (https://dato-images.imgix.net/205/1478515029-717b9c40-57d9-11e5-9ca4-92f90f8ed005.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nNow it’s time to sit back and relax. Go grab something cold to drink, scratch the dog behind the ears, or just get up and walk around (you’ve probably been in front of the computer for too long today, right?). Netlify will do the rest, and you can watch the progress. \n\n#### Step 7: Done\n\n![Netlify 7] (https://dato-images.imgix.net/205/1478515200-43c95312-57db-11e5-872b-7a37a19f0589.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nWait, you thought there was going to be more? Nope! Netlify has done it all for you, including giving your site a temporary name. Now everytime you push some change to GitHub, Netlify will repeat the build process and deploy a new version of the site. No more manual deploying! Let’s make it look a little prettier changing the name of the project:\n\n![Netlify 8] (https://dato-images.imgix.net/205/1478515200-43c95312-57db-11e5-872b-7a37a19f0589.png?ixlib=rb-1.1.0&ch=DPR%2CWidth&auto=compress%2Cformat&w=652&fit=max&fm=png)\n\nThere, that’s better. Now you can add your custom domain, and your site will be live for your adoring public to view. Congratulations!!!"
+    },
+    {
+      "id": "21161",
+      "item_type": "text",
+      "updated_at": "2016-11-14 18:44:30 UTC",
+      "text": "## Create your first Jekill project\n\nOk, let's create your first Jekill project. In you terminal paste the following command:\n\n```bash\njekill new my_dato_project\n```\n\nOnce finished enter in your project directory:\n\n```bash\ncd my_dato_project\n```\n\n### Create a new blog post\n\nYour new Jekill project is ready to host a Blog and some static pages. By default you have an *index* page, an *about* page and a *blog post* .\nYou can find the `index.md` and `about.md` files in the root folder of the project, and the blog post in `_post/xxxx-xx-xx-welcome-to-jekill.markdown`.\n\nThe way those pages will show up in your website is defined by your theme. In a fresh Jekill installation the default theme is \"[minima](https://github.com/jekyll/minima)\".\n \n Let's create a new blog post copying e modifying the existing post:\n \n ```bash\ncp ./_post/xxxx-xx-xx-welcome-to-jekill.markdown ./_post/2016-11-14-my-second-post.markdown \n```\n\nNow change the content of the new file, and start the preview web-server:\n\n```bash\nbundle exec jekill server\n```\n\nThis will start a local web server running at: [http://localhost:4000/](http://localhost:400/).\n\nYou can create and edit files in the source folder and see the changes reflected on the preview web-server. You can stop the preview server from the command-line using CTRL-C.\n\n### Build a simple catalog\n\nNot everything is a post or a page. Maybe you want to document the various methods in your open source project, members of a team, or talks at a conference. In our case, we want to create a simple product catalog. It would be great if we could avoid hardcoding all the product metadata inside the HTML templates... this way some team members could concentrate on building up the database of content, while another team member could build the structure of the site. [Jekyll collections](https://jekyllrb.com/docs/collections/) allow you to define new types of document that behave like Pages or Posts do normally, but also have their own unique properties and namespace.\n\nOur catalog is a list of products where each product has the following attributes:\n\n* Title\n* Price\n* Descriprion\n\nLet's add a new products collection. Open your site's `_config.yml` file and copy the following lines:\n\n```yaml\ncollections:\n  products:\n    output: true\n    permalink: /products/:path/\n```\n\nThis way we're telling Jekyll that we are going to have a new collection name *products*, and we want to output a page for each element of the collection (our products). Those pages will be reachable at the URL  `products/{product_filename}/index.html`.\n\nCreate a corresponding `_products` folder:\n\n```bash\nmkdir _products\n```\n\nand add a couple of files, one for each product, with some metadata and some markdown description:\n\n```\n# _products/sku-0001.md\n---\nlayout: product\ntitle:  \"Star Wars Chewbacca Slippers\"\nprice:  29.99\n---\n**Slippers** emit two different Wookiee roars when you walk!\n```\n\n```\n# _products/sku-0002.md\n---\nlayout: product\ntitle:  \"Star Wars R2-D2 Coffee Press\"\nprice:  39.99\n---\nHolds 32 ounces of coffee for you (4 cups)\n```\n\nAs you can see, Jekyll will use a layout named `product`. Layout templates live in the `layouts` folder, so let's create it:\n\n```bash\nmkdir layouts\n```\n\nInside this folder add the template file `product.html`, which will render the details of a product:\n\n```\n---\nlayout: default\n---\n<h1>{{ page.title }}</h1>\n<div>\n  <strong>{{ page.price }}</strong>\n</div>\n{{ content }}\n```\n\nIn this case, the `default` layout is inherithed from the \"minima\" theme we are using, and the `page.title` and `page.price` are exactly the metadata we added to the beginning of every product page.\n\nWe also need to create a `products.md` page in the root of our project to iterate through the products and create an index of products reachable at `/products/`\n\n```\n---\nlayout: default\ntitle: \"Products\"\npermalink: /products/\n---\n\n<h1>Catalog</h1>\n<div>\n  {% for product in site.products %}\n    <p>\n      <a href=\"{{ product.url }}\" >{{ product.title }}</a>\n    </p>\n  {% endfor %}\n</div>\n```\n\nWell done! Now try to navigate your homepage at **[http://localhost:4000](http://localhost:4000)** and click one the **[Products]( http://localhost:4000/products/)** link."
+    },
+    {
+      "id": "21167",
+      "item_type": "text",
+      "updated_at": "2016-11-14 11:43:30 UTC",
+      "text": "## Deploy your first Jekill project\n\nOk, now that you have the ugliest (but perfectly working) catalogue in the world, you need to deploy your website somewhere. You can simply run the  command `jekill build` to build your static website in the `_site` folder, than you can manually copy al the files to your preferred hosting platform. \n\nHaving to manually repeat the same process again and again every time you change a single line of code can be quite frustrating, but you can do much better and automate the deploy process!\n\n### Deploy with Github and Netlify\n\nCreate a new repository on [GitHub](https://github.com/). To avoid errors, do not initialize the new repository with any README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.\n\nFor our purposes, let’s call your new repo `my_dato_project`.\n\nIn your terminal initialize the project directory as a Git repository.\n\n```bash\ngit init\n```\n\nAdd the files in your new local repository. This stages them for the first commit.\n\n```bash\ngit add .\n```\n\nCommit the files that you’ve staged in your local repository.\n\n```bash\ngit commit -m 'First commit'\n```\n\nAt the top of your GitHub repository’s Quick Setup page, click the clipboard icon to copy the remote repository URL. In Terminal, add the URL for the remote repository where your local repository will be pushed.\n\n```bash\ngit remote add origin GITHUB_REPOSITORY_URL\n```\n\nNow, it’s time to push the changes in your local repository to GitHub:\n\n```bash\ngit push origin master\n```\n\nNow that your assets are up and running on GitHub, let’s connect them to Netlify.\n\n### Connecting to Netlify ###\n\n#### Step 1: Add Your New Site\n\nCreating a new site on [Netlify](http://www.netlify.com) is simple. Once you’ve logged in, you’ll be taken to [ https://app.netlify.com/sites](https://app.netlify.com/sites). If you’re just starting out, there’s only one option.\n\n"
+    },
+    {
+      "id": "21157",
+      "item_type": "text",
+      "updated_at": "2016-11-14 10:45:17 UTC",
+      "text": "### Prerequisite\n\nThis tutorial assumes you have already installed **[Ruby](https://www.ruby-lang.org)**  and **[RubyGems](https://rubygems.org/)**. You can then install **[Jekill](https://jekyllrb.com)** with the following command:\n\n```bash\ngem install jekyll bundler\n```"
+    },
+    {
+      "id": "21154",
+      "item_type": "text",
+      "updated_at": "2016-11-14 09:41:27 UTC",
+      "text": "## Create your first Jekill project\n\nOk, let's create your first Jekill project. In you terminal paste the following command:\n\n```bash\njekill new my-awesome-blog\n```\n\nOnce finished enter in your project directory:\n\n```bash\nmy-awesome-blog\n```\n\nThen fire the following commands:\n\n```bash\nruby_version=`ruby -e 'puts RUBY_VERSION'`\necho \"ruby '$ruby_version'\" >> Gemfile\necho $ruby_version > .ruby-version\nbundle install\n```\n\nand start the preview web-server:\n\n```\nbundle exec jekill server\n```\n\nThis will start a local web server running at: [http://localhost:4000/](http://localhost:4000/).\n\nYou can create and edit files in the source folder and see the changes reflected on the preview web-server. You can stop the preview server from the command-line using CTRL-C.\n\n### Build a simple catalog\n\nNow is time to create a simple catalog in Middleman. It would be great if we could avoid hardcoding all the product metadata inside the HTML templates... this way some team members could concentrate on building up the database of content, while another team member could build the structure of the site.\n\nMiddleman [Data Files](https://middlemanapp.com/advanced/data_files/) allows to create `.yaml` files in a folder called `data` and makes this information available in your templates. The `data` folder should be placed in the root of your project i.e. in the same folder as your project's source folder. \n\nOur catalog is a list of products where each product has the following attributes:\n\n* Title\n* Descriprion\n* Price\n\nCreate the file `data/products.yml` with some example data:\n\n```yaml\n- title: \"Star Wars Chewbacca Slippers\"\n  description: \"Slippers emit two different Wookiee roars when you walk!\"\n  price: 29.99\n- title: \"Star Wars R2-D2 Coffee Press\"\n  description: \"Holds 32 ounces of coffee for you (4 cups)\"\n  price: 39.99\n```\n\nAlso create a `products.html.erb` template in your `source` folder to iterate through your products:\n\n```erb\n<h1>Catalog</h1>\n<div>\n  <% data.products.each do |p| %>\n    <p><%= p.title %></p>\n  <% end %>\n</div>\n```\n\nand add a link to the products page in your layout file `/source/layouts/layout.erb` just under the `body` tag:\n\n```erb\n<%= link_to \"Catalog\", \"products.html\"%>\n```\n\nWell done! Now try to navigate your homepage at **[http://localhost:4567](http://localhost:4567)** and click one the **[Products]( http://localhost:4567/products.html)** link."
+    },
+    {
+      "id": "21153",
+      "item_type": "text",
+      "updated_at": "2016-11-14 09:38:20 UTC",
+      "text": "### Prerequisite\n\nThis tutorial assumes you have already installed **[Ruby](https://www.ruby-lang.org)**  and **[RubyGems](https://rubygems.org/)**. You can then install **[jekill](https://jekyllrb.com/)** with the following command:\n\n```bash\ngem install jekyll bundler\n```"
+    },
+    {
+      "id": "18662",
+      "item_type": "text",
+      "updated_at": "2016-11-08 19:51:59 UTC",
+      "text": "Now you probably want to have a dedicated page for each of your products where you can show the description and the price, so create a new file named `source/product.html.erb` with the following content:\n\n```erb\n<h1><%= product.title %></h1>\n<div><%= product.description %></div>\n<div>\n  <strong><%= number_to_currency(product.price) %></strong>\n</div>\n```\n\nMiddleman has a nice feature called [proxy pages](https://middlemanapp.com/advanced/dynamic_pages/) that let us use this file as a template for our dynamically generated product pages. Edit the file `config.rb` and add the following lines of code:\n\n```ruby\nignore \"/product.html\"\ndata.products.each do |p| \n  proxy \"/#{p.title.parameterize}.html\", \"/product.html\", locals: { product: p }\nend\n```\n\nThe first argument of the `proxy` method is the URL of the page we want to produce, the second one is the template file, and the \"locals\" are the variables we'll inject into our template file. We are \"slugifying\" the product title to generate the permalink of each product page, so in our case the following pages will be generated:\n\n* [http://localhost:4567/star-wars-chewbacca-slippers.html](http://localhost:4567/star-wars-chewbacca-slippers.html)\n* [http://localhost:4567/star-wars-r2-d2-coffee-press.html](http://localhost:4567/star-wars-r2-d2-coffee-press.html)\n\nNow you can edit the file `/source/products.html.erb` and replace the following lines\n\n```erb\n  <% data.products.each do |p| %>\n    <p><%= p.title %></p>\n  <% end %>\n```\n\nwith these ones, so that each product will link to its detail page:\n\n```erb\n  <% data.products.each do |p| %>\n    <p><%= link_to p.title, \"#{p.title.parameterize}.html\" %></p>\n  <% end %>\n```\n\n**Well done!**\n\n\n"
+    },
+    {
+      "id": "18659",
+      "item_type": "text",
+      "updated_at": "2016-11-08 19:50:35 UTC",
+      "text": "### Prerequisite\n\nThis tutorial assumes you have already installed **[Ruby](https://www.ruby-lang.org)**  and **[RubyGems](https://rubygems.org/)**. You can then install **[Middleman](https://middlemanapp.com/)** with the following command:\n\n```bash\ngem install middleman\n```"
+    },
+    {
+      "id": "20138",
+      "item_type": "text",
+      "updated_at": "2016-11-08 11:42:36 UTC",
+      "text": "## That's it!\n\nMiddleman is a great static site generator and Netlify is perfect for 1 click continuos deployment. DatoCMS \"seems like it'll be the last piece of the puzzle!\", as our customers says.\nJust give it a try and feel free to contact our customer support for any questions.\n\n**Happy coding!**"
+    },
+    {
+      "id": "19982",
+      "item_type": "text",
+      "updated_at": "2016-11-08 11:04:49 UTC",
+      "text": "Now every time you change your data in DatoCMS, you can trigger a new deploy on Netlify simply clicking on the **Publish** button:"
+    },
+    {
+      "id": "18661",
+      "item_type": "text",
+      "updated_at": "2016-11-08 11:04:13 UTC",
+      "text": "## Create your first Middleman project\n\nOk, let's create your first Middleman project. In you terminal paste the following command:\n\n```bash\nmiddleman new my_dato_project\n```\n\nand answer `y` to all the questions. Once finished enter in your project directory:\n\n```bash\ncd my_dato_project\n```\n\nThen fire the following commands:\n\n```bash\nruby_version=`ruby -e 'puts RUBY_VERSION'`\necho \"ruby '$ruby_version'\" >> Gemfile\necho $ruby_version > .ruby-version\nbundle install\n```\n\nand start the preview web-server:\n\n```\nbundle exec middleman server\n```\n\nThis will start a local web server running at: [http://localhost:4567/](http://localhost:4567/).\n\nYou can create and edit files in the source folder and see the changes reflected on the preview web-server. You can stop the preview server from the command-line using CTRL-C.\n\n### Build a simple catalog\n\nNow is time to create a simple catalog in Middleman. It would be great if we could avoid hardcoding all the product metadata inside the HTML templates... this way some team members could concentrate on building up the database of content, while another team member could build the structure of the site.\n\nMiddleman [Data Files](https://middlemanapp.com/advanced/data_files/) allows to create `.yaml` files in a folder called `data` and makes this information available in your templates. The `data` folder should be placed in the root of your project i.e. in the same folder as your project's source folder. \n\nOur catalog is a list of products where each product has the following attributes:\n\n* Title\n* Descriprion\n* Price\n\nCreate the file `data/products.yml` with some example data:\n\n```yaml\n- title: \"Star Wars Chewbacca Slippers\"\n  description: \"Slippers emit two different Wookiee roars when you walk!\"\n  price: 29.99\n- title: \"Star Wars R2-D2 Coffee Press\"\n  description: \"Holds 32 ounces of coffee for you (4 cups)\"\n  price: 39.99\n```\n\nAlso create a `products.html.erb` template in your `source` folder to iterate through your products:\n\n```erb\n<h1>Catalog</h1>\n<div>\n  <% data.products.each do |p| %>\n    <p><%= p.title %></p>\n  <% end %>\n</div>\n```\n\nand add a link to the products page in your layout file `/source/layouts/layout.erb` just under the `body` tag:\n\n```erb\n<%= link_to \"Catalog\", \"products.html\"%>\n```\n\nWell done! Now try to navigate your homepage at **[http://localhost:4567](http://localhost:4567)** and click one the **[Products]( http://localhost:4567/products.html)** link."
+    },
+    {
+      "id": "19980",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:51:19 UTC",
+      "text": "And click the **Save Settings** button:"
+    },
+    {
+      "id": "19978",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:51:05 UTC",
+      "text": "Select your Netlify Site that have to be build upon data changes on DatoCMS:"
+    },
+    {
+      "id": "19976",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:50:58 UTC",
+      "text": "On the new windows the will popup, click on \"Grand Access\" to allow DatoCMS to setup the auto-deploy meahcanism for you:"
+    },
+    {
+      "id": "19974",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:50:48 UTC",
+      "text": "## Auto deploy your website when data on DatoCMS changes ##\n\nUntil now, to deploy a new version of your website on Netlify you needed to push a new commit on your GitHub repo. This is wonderful when you, as a developer, make some change to the website pages in Middleman, but you also want to **deploy a new version of your website as products are added/edited/deleted on your DatoCMS Site** by your clients!\n\n#### DatoCMS handles all this for you\n\nOn your DatoCMS Admin area click on **Deployment settings**, than on **Netlify**:\n"
+    },
+    {
+      "id": "19973",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:49:34 UTC",
+      "text": "Now that you Middleman can retrieve data from DatoCMS, all you need to do is to edit the file `/source/products.html.erb` and replace the following line\n\n```erb\n<% data.products.each do |p| %>\n```\n\nwith this one:\n\n```erb\n<% dato.products.each do |p| %>\n```\n\nIn this way you are telling Middleman to not get information from the data files in the `data` folder, but from the DatoCMS API. \n\nAs you can see, if your site has an item type with `product` as API identifier, you can get the complete array of items with `dato.products` — yep, the API identifier pluralized.\n\nIn the same way you need to change the URL generated in `config.rb` replacing the following line:\n\n```ruby\ndata.products.each do |p|\n```\n\nwith\n\n```ruby\ndato.products.each do |p|\n```\n\n**Remember to define this proxy route after the activation of the DatoCMS plugin, otherwise Middleman with throw you an error!**\n\nYou don't even need to change the `source/product.html.erb`, as the attributes name defined in DatoCMS were the same we defined in the YAML file.\n\nTo be sure your data are coming from DatoCMS, get rid of the `products.yml` file:\n\n```bash\nrm data/products.yml\n```\n\nRestart your Middleman development server:\n\n```bash\nbundle exec middleman server\n```\n\nand enjoy."
+    },
+    {
+      "id": "19970",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:47:12 UTC",
+      "text": "## Integrate DatoCMS with Middleman\n\nOk, just recap what we have done until now:\n\n1. We created a Middleman website\n2. We added our products metadata to a separate file in the `data` folder\n3. We committed all the project files to a GitHub repository\n4. We created a new Site in Netlify\n5. We linked the Netlify Site to our Github repo to allow an automated deploy on every commit\n6. We created a new Site on DatoCMS\n7. We created the \"Product\" ItemType and its attributes\n8. We populated the catalogue in DatoCMS\n\nWhat we want now is to get rid of the YAML file in the `data` folder on our Middleman project and integrate the data from DatoCMS instead. That's a trivial task, thanks to the [middleman-dato Gem](https://github.com/datocms/middleman-dato)\n\nOpen your `Gemfile` on your Middleman project and add the following line:\n\n```ruby\ngem 'middleman-dato'\n```\n\nthen in your terminal paste the following command:\n\n```bash\nbundle install\n```\n\nIn your `config.rb` paste the following code to activate the `dato` plugin:\n\n```ruby\nactivate :dato,\n  token: 'SITE_READ_ONLY_TOKEN',\n  base_url: 'http://www.mywebsite.com'\n```\n\nYou obviously need to replace the `SITE_READ_ONLY_TOKEN` string with the actual token. You can find that token in your DatoCMS Admin area:"
+    },
+    {
+      "id": "19969",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:46:31 UTC",
+      "text": "#### Important\n\nYou do not need to give your customer access to your Administrative Area just to populate the catalog, but you can restrict the access to the DatoCMS  only to the **Content** section. To do so just click to **Users** on the top navigation bar and invite your customer/editor/collaborator."
+    },
+    {
+      "id": "19965",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:46:02 UTC",
+      "text": "#### Step 5: Populate your catalogue\n\nNow that you have the \"Product\" item type and its attributes defined, you can start to insert products in your catalog! Click on **Content** in the top navigation bar then click on the plus button to  insert a couple of products.\n\n"
+    },
+    {
+      "id": "19962",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:44:47 UTC",
+      "text": "Now repeat this taks for the **Description** and for the **Price** field, choosing respectively \"Long text\" and \"Floating-point number\" as field types:"
+    },
+    {
+      "id": "19959",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:44:25 UTC",
+      "text": "Now let's add the \"Title\" attribute. DatoCMS offers a lot of specialized field types, but in our case a \"Simple-line string\" is fine, so just click it.\nGive a \"Label\" to your field and define your validation rules as in image below, than click on the \"Save Field\" button:"
+    },
+    {
+      "id": "19957",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:43:48 UTC",
+      "text": "#### Step 4: Define the product fields\n\nNow that you have the \"Product\" ItemType (again, think of ItemTypes as a table in a DB) you have to define the Product attributes. To begin click the \"Add Field\" button:"
+    },
+    {
+      "id": "19953",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:43:13 UTC",
+      "text": "Give your Item Type the name `Product`. We are going to have a collection of products so DO NOT check the \"Single Instance\" flag.  Enable the \"Order collection\" as in the picture to be able to reorder your product list once populated."
+    },
+    {
+      "id": "19951",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:42:31 UTC",
+      "text": "**Step 3: Create the Item Types**\n\nNow it's time to create the a place where to store all the informations related to your Products. In DatoCMS this place is named \"Item Type\". Try to think of a DatoCMS ItemType as a table in a database. Click on the plus button:"
+    },
+    {
+      "id": "19947",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:41:39 UTC",
+      "text": "#### Step 2: Enter your Admin dashboard\n\nAfter you click on \"Create a new site\", DatoCMS will create your administrative area in a randomly-generated subdomain. You can adjust some settings, but for now just click on the given link and enter in the Admin Area."
+    },
+    {
+      "id": "19945",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:41:08 UTC",
+      "text": "Give your website a name and eventually select a template to start your project. In our case we'll start with an empty site template:"
+    },
+    {
+      "id": "19940",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:40:42 UTC",
+      "text": "## Using DatoCMS\n\nUntil now it's all wonderful, but what about when you need to add, edit or delete a product? Actually is not that difficult: all you need to do is open the data file `/data/products.yml`, edit the items data, commit your changes and push it to GitHub. Netlify will grab the changes and will deploy your updated website for you.\n\nIf this can be fine for you, it certainly cannot be done if the person in charge of updating catalog is not a programmer and or is not confortable with terminal.\n\n### That's where DatoCMS shines\n\nDatoCMS is a fully customizable administrative area for your static websites. \nThe administrative interface is incredibly simple to use, yet flexible enough to allow the management of pretty much any kind of website.\n\n![alt text](https://www.datocms.com/images/frontend-big.gif \"DatoCMS\")\n\nBest of all, your customers don't need not know anything about Ruby, Middleman, Github, etc. neither they need to install stuff on their computers. \nYou do the dirty work building the website with Middleman, and they can customize thier contents with a browser, just like they're used to do with ie. Wordpress.\n\n### Let see how this magic works\n\n#### Step 1: Add Your New Site\n"
+    },
+    {
+      "id": "19950",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:39:15 UTC",
+      "text": "Creating a new site on DatoCMS is simple. Once you’ve logged in, you’ll be taken to [https://dashboard.datocms.com/account/sites](your account dashboard). If you’re just starting out, there’s only one option.\n"
+    },
+    {
+      "id": "19935",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:36:36 UTC",
+      "text": "Wait, you thought there was going to be more? Nope! Netlify has done it all for you, including giving your site a temporary name. Let’s make it look a little prettier changing the name of the project:"
+    },
+    {
+      "id": "19933",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:35:10 UTC",
+      "text": "Now it’s time to sit back and relax. Go grab something cold to drink, scratch the dog behind the ears, or just get up and walk around (you’ve probably been in front of the computer for too long today, right?). Netlify will do the rest, and you can watch the progress.\n\n#### Step 7: Done"
+    },
+    {
+      "id": "19929",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:34:50 UTC",
+      "text": "Here you can configure your options. For the purposes of this tutorial, there’s nothing you need to change, so just click “Save”.\n\n#### Step 6: Build Your Site"
+    },
+    {
+      "id": "19925",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:34:41 UTC",
+      "text": "Now that you’ve connected Netlify and GitHub, you can see a list of your Git repos. There’s the `my_dato_project` repo we just pushed to GitHub. Let’s select it.\n\n#### Step 5: Configure Your Settings"
+    },
+    {
+      "id": "19922",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:31:43 UTC",
+      "text": "It’s time to allow Netlify and GitHub to talk to each other. Clicking the “Authorize Application” button will do just that. Like it says in the image below, Netlify doesn’t store your GitHub access token on our servers. If you’d like to know more about the permissions Netlify requests and why we need them, you can visit [https://docs.netlify.com/github-permissions/](https://docs.netlify.com/github-permissions/).\n\n#### Step 4: Choose Your Repo"
+    },
+    {
+      "id": "19919",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:28:14 UTC",
+      "text": "When you push to GitHub, Netlify does all the work. No more manual deploying of updates or changes!\n\nSince your assets are hosted on GitHub, we’ll need to link Netlify to GitHub. Click “Link to GitHub”.\n\n#### Step 3: Authorize Netlify"
+    },
+    {
+      "id": "19917",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:27:57 UTC",
+      "text": "#### Step 2: Link to Your GitHub\n\nClicking “New Site” brings you to this screen:"
+    },
+    {
+      "id": "18663",
+      "item_type": "text",
+      "updated_at": "2016-11-08 10:27:28 UTC",
+      "text": "## Deploy your first Middleman project\n\nOk, now that you have the ugliest (but perfectly working) catalogue in the world, you need to deploy your website somewhere. You can simply run the  command `middleman build` to build your static website in the `build` folder, than you can manually copy al the files to your preferred hosting platform. \n\nHaving to manually repeat the same process again and again every time you change a single line of code can be quite frustrating, but you can do much better and automate the deploy process!\n\n### Deploy with Github and Netlify\n\nCreate a new repository on [GitHub](https://github.com/). To avoid errors, do not initialize the new repository with any README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.\n\nFor our purposes, let’s call your new repo `my_dato_project`.\n\nIn your terminal initialize the project directory as a Git repository.\n\n```bash\ngit init\n```\n\nAdd the files in your new local repository. This stages them for the first commit.\n\n```bash\ngit add .\n```\n\nCommit the files that you’ve staged in your local repository.\n\n```bash\ngit commit -m 'First commit'\n```\n\nAt the top of your GitHub repository’s Quick Setup page, click the clipboard icon to copy the remote repository URL. In Terminal, add the URL for the remote repository where your local repository will be pushed.\n\n```bash\ngit remote add origin GITHUB_REPOSITORY_URL\n```\n\nNow, it’s time to push the changes in your local repository to GitHub:\n\n```bash\ngit push origin master\n```\n\nNow that your assets are up and running on GitHub, let’s connect them to Netlify.\n\n### Connecting to Netlify ###\n\n#### Step 1: Add Your New Site\n\nCreating a new site on [Netlify](http://www.netlify.com) is simple. Once you’ve logged in, you’ll be taken to [ https://app.netlify.com/sites](https://app.netlify.com/sites). If you’re just starting out, there’s only one option.\n\n"
+    },
+    {
+      "id": "19949",
+      "item_type": "text",
+      "updated_at": "2016-11-07 11:31:24 UTC",
+      "text": "Creating a new site on DatoCMS is simple. Once you’ve logged in, you’ll be taken to [https://dashboard.datocms.com/account/sites](https://dashboard.datocms.com/account/sites). If you’re just starting out, there’s only one option.\n"
+    },
+    {
+      "id": "19937",
+      "item_type": "text",
+      "updated_at": "2016-11-07 10:41:40 UTC",
+      "text": "There, that’s better. Now you can add your custom domain, and your site will be live for your adoring public to view. Congratulations!!!"
+    },
+    {
+      "id": "18652",
+      "item_type": "text",
+      "updated_at": "2016-11-04 21:34:14 UTC",
+      "text": "## Migrating existing sites\n\nIt's important to highlight that today's release **won't affect your existing site, unless you explicitely decide to migrate to the new strategy**. That is, as long as you don't add any slug field to your Item types and you don't upgrade to a newer version of our [Javascript](https://github.com/datocms/js-datocms-client) (or [Ruby](https://github.com/datocms/ruby-datocms-client)) plugin, things will continue to work just like you're used to, with slugs generated during build time based on your item Title field.\n\nIf you want to migrate your existing site to use Slug fields, follow these simple steps:\n\n1. Upgrade to the latest dato plugin with `npm update datocms-client` (or `bundle update dato`);\n2. If you're using Middleman, make sure you also update the `middleman-dato` gem (`bundle update middleman-dato`);\n2. From your terminal, run the following command:\n\n```\n# JS version\n$ ./node_modules/.bin/dato migrate-slugs --token=YOUR_SITE_READWRITE_API_TOKEN\n\n# Ruby version\n$ bundle exec dato migrate-slugs --token=YOUR_SITE_READWRITE_API_TOKEN\n```\n\nThe command will handle most of the work for you:\n\n1. It will search for any Item type in your space containing a title field;\n2. It will append a new Slug field to the Item type itself, pointing to the title field as \"Reference field\";\n3. It will fill in the slug field of every Item with a slugified version of the title itself. By default, the command will prefix the slug with ID of the Item itself (ie. `3243-my-article-post`) but you can pass the additional flag `--skip-id-prefix` to avoid that.\n\nAfter the migration your static site will continue to build just fine®, but please **make sure to double-check the URLs of your static site** as some of them might differ from the old ones."
+    },
+    {
+      "id": "18845",
+      "item_type": "text",
+      "updated_at": "2016-11-04 21:25:58 UTC",
+      "text": "## That's it folks!\n\nWe're sure that the introduction of explicit Slug fields will make your DatoCMS static sites more solid and reliable. We also hope to have described this change in detail.. but if you encounter any problems during the migration, don't hesitate to ask for help via our Support channels!"
+    },
+    {
+      "id": "18651",
+      "item_type": "text",
+      "updated_at": "2016-11-04 19:59:31 UTC",
+      "text": "Done! In the `dato.config.js` (or `dato.config.rb`, if you're using the Ruby gem) config file we can now get the slug just like we query for any other regular string field:\n\n```js\ndato.blogPosts[0].slug // => \"my-awesome-article\"\n```\n\n```ruby\ndato.blog_posts.first.slug # => \"my-awesome-article\"\n```"
+    },
+    {
+      "id": "18646",
+      "item_type": "text",
+      "updated_at": "2016-11-04 19:24:08 UTC",
+      "text": "And then we add a slug field. Let's call it.. well.. \"Slug\". We want the slug to be generated based on the \"Title\" field, so we select it as \"Reference field\". Let's make sure we also enforce a uniqueness validation, so that we'll never have two items with the same slug:"
+    },
+    {
+      "id": "18643",
+      "item_type": "text",
+      "updated_at": "2016-11-04 19:22:36 UTC",
+      "text": "## How does it work?\n\nPretty easy. Suppose we have a \"Blog post\" item type. First we create a string field called \"Title\":\n"
+    },
+    {
+      "id": "18642",
+      "item_type": "text",
+      "updated_at": "2016-11-04 19:22:27 UTC",
+      "text": "Up until now Item slugs — that is, the human-readable, SEO-friendly strings that univocally identifies a specific resource in a permalink — were automatically generated by our integration plugins based on the title of an Item. This strategy had an obvious and quite dangerous flaw: if the title of an already published Item changed for whatever reason, some URL in your website would change as well. Ugh.\n\nWe are happy to announce the deprecation of this technique in favour of a new type of field you can add right away to your Item types: **Slugs**."
+    },
+    {
+      "id": "18647",
+      "item_type": "text",
+      "updated_at": "2016-11-04 11:33:58 UTC",
+      "text": "Awesome! If we switch to the Content tab, we can see that the slug will be automatically generated while we write the title for our blog posts:"
+    },
+    {
+      "id": "16409",
+      "item_type": "text",
+      "updated_at": "2016-10-13 12:19:51 UTC",
+      "text": "## Logging of deploy events\n\nWe know that the most complicated step when start using DatoCMS is to  configure your Continuous Deployment of choice to make it talk with our product. Being a manual process, it's quite error prone, and that makes us really sad.\n\nWe're actively working on partnering up with the major continuous deployment services available to automate this step, but in the meantime we've also **added a new section to the Admin section of your DatoCMS sites called \"Deployment logs\"**, which presents in real time the result of every webhook call sent to/received from your continuous deployment of choice.\n\nThis should help you better debug any potential errors occuring in the bi-directional communications due to misconfigurations."
+    },
+    {
+      "id": "16404",
+      "item_type": "text",
+      "updated_at": "2016-10-13 12:19:43 UTC",
+      "text": "## Support for Metalsmith and Hexo\n\nTogheter with our shiny new NodeJS client, we thought it was nice to start giving official support to some of the most popular JS-based generators out there. Within your DatoCMS site settings **you can now select Metalsmith or Hexo as your static site generator**, and receive helpful hints to get started.\n\nWe've published some sample websites in [Metalsmith](https://github.com/datocms/metalsmith-example) and [Hexo](https://github.com/datocms/hexo-example), and in the next few days we'll also post some practical, detailed how-to articles."
+    },
+    {
+      "id": "16406",
+      "item_type": "text",
+      "updated_at": "2016-10-13 11:58:21 UTC",
+      "text": "## NodeJS/Browser API client and CLI tool\n\nUp until now, the only way to easily interact with our API and transform the content stored on your DatoCMS backend into local static files was through our [official Ruby gem](https://github.com/datocms/ruby-datocms-client). While it worked out quite well in conjunction with static site generators like Middleman and Jekyll that already need a working Ruby environment, we  received some complaints from potential new users working with ie. Hugo or Metalsmith: they (rightfully) didn't like a lot the idea of adding a Ruby dependency to their project.\n\nThe fact is that — even if the \"static movement\" started with Jekyll in Rubyland — an ever increasing number of static site generators is being written in Javascript: Metalsmith, Hexo, GatsbyJS, Brunch, Phenomic... these are just a few popular names, the complete list goes on forever. Javascript is the \"lingua franca\" of the whole frontend world: the vast majority of frontend web-designers and developers have no particular problems digesting Javascript code, so lowering the entry barriers to the \"static websites\" world with static generators written in Javascript makes a LOT of sense.\n\nThis week we've finally released an official [NodeJS-based API client ad CLI tool](https://github.com/datocms/js-datocms-client). **Using DatoCMS with JS-based static generators has never been easier**: just add the `datocms-client` module to your `package.json` and you can start using your remote DatoCMS content into your site in a matter of seconds."
+    },
+    {
+      "id": "16407",
+      "item_type": "text",
+      "updated_at": "2016-10-13 10:47:41 UTC",
+      "text": "## Public development roadmap\n\nWe like the idea of having a product that's as transparent to its users as it can. Up until now, feature requests were discussed and prioritized privately via email/phone: that worked well up until now, but as the number of requests are growing, we thought we could take advantage of a more open approach.\n\nWe took a look at how other companies are trying to handle this problem, and we **settled on a [public Trello board](https://trello.com/b/cMINyDiz/datocms-development-roadmap)**.\n\nWe really believe a public roadmapping board is a great place to engage with our community, get input from power users, share our product’s development, and keep people up to date on any issues or releases.\n\nYou're more than encouraged to **vote the features you need the most**: it will help us better prioritize our daily development efforts. Also, feel free to comment open cards or suggest new features!"
+    },
+    {
+      "id": "16410",
+      "item_type": "text",
+      "updated_at": "2016-10-13 10:47:19 UTC",
+      "text": "We're extremely happy to say it has been **a huge month of progress for DatoCMS**: we've more than doubled our user base, received plenty of useful feedback and seen the first DatoCMS-powered sites going live. A big thanks goes to everyone who tried our product!\n\nAnd.. we did our part too! :) Here's a (not so) short list of product changes that happened during the last month."
+    },
+    {
+      "id": "16408",
+      "item_type": "text",
+      "updated_at": "2016-10-13 10:32:58 UTC",
+      "text": "## Integration with SemaphoreCI\n\nWe also took the time to add support for the great [Semaphore](https://semaphoreci.com/) continuous integration platform. If you're already using SemaphoreCI to build and publish your static website, adding DatoCMS to the mix is a matter of minutes!"
+    },
+    {
+      "id": "14225",
+      "item_type": "text",
+      "updated_at": "2016-09-07 23:03:12 UTC",
+      "text": "Once set up, a nice and simple Markdown WYSIWYG editor will come up, ready for to be used by your editors:"
+    },
+    {
+      "id": "14227",
+      "item_type": "text",
+      "updated_at": "2016-09-07 22:40:53 UTC",
+      "text": "Under the hood we're using a slightly modified version of the great [SimpleMDE](https://github.com/NextStepWebs/simplemde-markdown-editor) markdown editor.\n\n## Tell us what you think of it\n\nThat's obviously the first release: there might be some rough edges to smooth. As always, [feedbacks](mailto:support@datocms.com) are highly appreciated!"
+    },
+    {
+      "id": "14222",
+      "item_type": "text",
+      "updated_at": "2016-09-07 22:40:36 UTC",
+      "text": "Just a quick update to let you know that you can finally choose to write your website content with DatoCMS using the [Markdown](https://en.wikipedia.org/wiki/Markdown) markup language. \n\nMarkdown is used extensively in the static-web universe, is extremely simple to learn even for non-technical people and leads to clean and semantic HTML, so adding proper support for it was a no-brainer decision for us.\n\n## How to enable it\n\nThis is actually pretty simple: just take an existing \"Multi-line text\" field (or create a new one), and make sure to select \"Markdown Editor\" as its \"Presentation mode\":"
+    },
     {
       "id": "13676",
       "item_type": "text",
@@ -204,5 +1754,618 @@
       "updated_at": "2016-09-03 22:11:00 UTC",
       "text": "August has been a month full of incredible changes that we don't want to keep back from you! Along with the existing Middleman plugin, we've also released integrations for **Jekyll** and **Hugo**, enabled **HTTPS by default** on every site and introduced **a new way of generating structured content**."
     }
+  ],
+  "image": [
+    {
+      "id": "27983",
+      "item_type": "image",
+      "updated_at": "2017-01-19 22:15:23 UTC",
+      "image": {
+        "format": "png",
+        "size": 69057,
+        "url": "https://dato-images.imgix.net/205/1484864111-screenshot-2017-01-19-23-14-41-png?ch=DPR%2CWidth&auto=format",
+        "width": 631,
+        "height": 436,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "27981",
+      "item_type": "image",
+      "updated_at": "2017-01-19 22:15:23 UTC",
+      "image": {
+        "format": "png",
+        "size": 45851,
+        "url": "https://dato-images.imgix.net/205/1484864102-screenshot-2017-01-19-23-14-04-png?ch=DPR%2CWidth&auto=format",
+        "width": 633,
+        "height": 354,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "22193",
+      "item_type": "image",
+      "updated_at": "2017-01-19 22:15:21 UTC",
+      "image": {
+        "format": "png",
+        "size": 45851,
+        "url": "https://dato-images.imgix.net/205/1484864094-screenshot-2017-01-19-23-14-04-png?ch=DPR%2CWidth&auto=format",
+        "width": 633,
+        "height": 354,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "27985",
+      "item_type": "image",
+      "updated_at": "2017-01-08 16:29:55 UTC",
+      "image": {
+        "format": "png",
+        "size": 78600,
+        "url": "https://dato-images.imgix.net/205/1483892964-screenshot-2017-01-08-17-29-18-png?ch=DPR%2CWidth&auto=format",
+        "width": 701,
+        "height": 576,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "27978",
+      "item_type": "image",
+      "updated_at": "2017-01-08 16:05:12 UTC",
+      "image": {
+        "format": "png",
+        "size": 18475,
+        "url": "https://dato-images.imgix.net/205/1483890764-screenshot-2017-01-08-16-33-13-png?ch=DPR%2CWidth&auto=format",
+        "width": 717,
+        "height": 182,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "27977",
+      "item_type": "image",
+      "updated_at": "2017-01-08 16:05:12 UTC",
+      "image": {
+        "format": "png",
+        "size": 23294,
+        "url": "https://dato-images.imgix.net/205/1483891306-screenshot-2017-01-08-17-00-30-png?ch=DPR%2CWidth&auto=format",
+        "width": 684,
+        "height": 204,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "18650",
+      "item_type": "image",
+      "updated_at": "2017-01-08 15:29:02 UTC",
+      "image": {
+        "format": "png",
+        "size": 42364,
+        "url": "https://dato-images.imgix.net/205/1478259385-Screenshot2016-11-0412.33.00.png?ch=DPR%2CWidth&auto=format",
+        "width": 696,
+        "height": 646,
+        "alt": null,
+        "title": ""
+      }
+    },
+    {
+      "id": "16415",
+      "item_type": "image",
+      "updated_at": "2017-01-08 15:29:01 UTC",
+      "image": {
+        "format": "png",
+        "size": 94116,
+        "url": "https://dato-images.imgix.net/205/1476355399-Screenshot2016-10-1312.43.33.png?ch=DPR%2CWidth&auto=format",
+        "width": 981,
+        "height": 541,
+        "alt": null,
+        "title": "The \"Show details\" will give you a complete breakdown of the HTTP requests and responses!"
+      }
+    },
+    {
+      "id": "16412",
+      "item_type": "image",
+      "updated_at": "2017-01-08 15:29:01 UTC",
+      "image": {
+        "format": "png",
+        "size": 198765,
+        "url": "https://dato-images.imgix.net/205/1476350507-Screenshot2016-10-1311.21.45.png?ch=DPR%2CWidth&auto=format",
+        "width": 1917,
+        "height": 769,
+        "alt": null,
+        "title": "Whoa. That's a lot of cards."
+      }
+    },
+    {
+      "id": "25573",
+      "item_type": "image",
+      "updated_at": "2017-01-08 15:29:00 UTC",
+      "image": {
+        "format": "png",
+        "size": 616496,
+        "url": "https://dato-images.imgix.net/205/1482189625-ScreenShot2016-12-20at12.19.40AM.png?ch=DPR%2CWidth&auto=format",
+        "width": 1410,
+        "height": 753,
+        "alt": null,
+        "title": "That's a screenshot of the demo website you'll get.. nice, clean and super-fast :-)"
+      }
+    },
+    {
+      "id": "19916",
+      "item_type": "image",
+      "updated_at": "2017-01-08 15:28:59 UTC",
+      "image": {
+        "format": "png",
+        "size": 15529,
+        "url": "https://dato-images.imgix.net/205/1478514768-717820a6-57d9-11e5-838f-d2a732eb0a41.png?ch=DPR%2CWidth&auto=format",
+        "width": 667,
+        "height": 356,
+        "alt": null,
+        "title": ""
+      }
+    },
+    {
+      "id": "16413",
+      "item_type": "image",
+      "updated_at": "2017-01-08 15:28:59 UTC",
+      "image": {
+        "format": "png",
+        "size": 13027,
+        "url": "https://dato-images.imgix.net/205/1476352396-hexo-metalsmith.png?ch=DPR%2CWidth&auto=format",
+        "width": 700,
+        "height": 227,
+        "alt": null,
+        "title": "DatoCMS works great with both of them!"
+      }
+    },
+    {
+      "id": "14226",
+      "item_type": "image",
+      "updated_at": "2017-01-08 15:28:56 UTC",
+      "image": {
+        "format": "png",
+        "size": 65623,
+        "url": "https://dato-images.imgix.net/205/1473286804-Screenshot2016-09-0800.19.50.png?ch=DPR%2CWidth&auto=format",
+        "width": 727,
+        "height": 604,
+        "alt": null,
+        "title": "This is how it looks like. Not bad huh?"
+      }
+    },
+    {
+      "id": "16414",
+      "item_type": "image",
+      "updated_at": "2017-01-08 15:28:56 UTC",
+      "image": {
+        "format": "png",
+        "size": 166212,
+        "url": "https://dato-images.imgix.net/205/1476354720-Slice1.png?ch=DPR%2CWidth&auto=format",
+        "width": 1304,
+        "height": 772,
+        "alt": null,
+        "title": "Our awesome GIFs will help you integrate DatoCMS with your SemaphoreCI project"
+      }
+    },
+    {
+      "id": "13680",
+      "item_type": "image",
+      "updated_at": "2017-01-08 15:28:55 UTC",
+      "image": {
+        "format": "png",
+        "size": 148541,
+        "url": "https://dato-images.imgix.net/205/1472941398-Screenshot2016-09-0212.16.09.png?ch=DPR%2CWidth&auto=format",
+        "width": 896,
+        "height": 266,
+        "alt": null,
+        "title": "Damn, how I love Let's Encrypt."
+      }
+    },
+    {
+      "id": "14224",
+      "item_type": "image",
+      "updated_at": "2017-01-08 15:28:55 UTC",
+      "image": {
+        "format": "png",
+        "size": 49136,
+        "url": "https://dato-images.imgix.net/205/1473286280-Screenshot2016-09-0800.11.00.png?ch=DPR%2CWidth&auto=format",
+        "width": 646,
+        "height": 406,
+        "alt": null,
+        "title": "HTML, Markdown or plain old text: what more could you ask for from life?"
+      }
+    },
+    {
+      "id": "13679",
+      "item_type": "image",
+      "updated_at": "2017-01-08 15:28:55 UTC",
+      "image": {
+        "format": "png",
+        "size": 68621,
+        "url": "https://dato-images.imgix.net/205/1472941077-Screenshot2016-09-0400.17.48.png?ch=DPR%2CWidth&auto=format",
+        "width": 721,
+        "height": 586,
+        "alt": null,
+        "title": "Now you can specify multiple Item Types for a single \"Links\" field type"
+      }
+    },
+    {
+      "id": "13678",
+      "item_type": "image",
+      "updated_at": "2017-01-08 15:28:43 UTC",
+      "image": {
+        "format": "png",
+        "size": 48834,
+        "url": "https://dato-images.imgix.net/205/1472937693-Screenshot2016-09-0317.07.38.png?ch=DPR%2CWidth&auto=format",
+        "width": 528,
+        "height": 356,
+        "alt": null,
+        "title": "This is the final result for the editor. Isn't it awesome?!"
+      }
+    },
+    {
+      "id": "18649",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 63180,
+        "url": "https://dato-images.imgix.net/205/1478259373-Screenshot2016-11-0412.30.49.png?ch=DPR%2CWidth&auto=format",
+        "width": 642,
+        "height": 604,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "18648",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 54909,
+        "url": "https://dato-images.imgix.net/205/1478259353-Screenshot2016-11-0412.30.09.png?ch=DPR%2CWidth&auto=format",
+        "width": 656,
+        "height": 483,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19918",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 78996,
+        "url": "https://dato-images.imgix.net/205/1478514829-7176ac8a-57d9-11e5-9b09-f43dc772a4f9.png?ch=DPR%2CWidth&auto=format",
+        "width": 1350,
+        "height": 554,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19921",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 107073,
+        "url": "https://dato-images.imgix.net/205/1478514867-71760370-57d9-11e5-8bdb-850aa176a22c.png?ch=DPR%2CWidth&auto=format",
+        "width": 948,
+        "height": 553,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19923",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 22384,
+        "url": "https://dato-images.imgix.net/205/1478514928-b9ea7f7c-5bfe-11e5-94a0-f957a7d1986e.png?ch=DPR%2CWidth&auto=format",
+        "width": 1192,
+        "height": 443,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19927",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 41095,
+        "url": "https://dato-images.imgix.net/205/1478514971-717b2008-57d9-11e5-949c-4ea36645ff08.png?ch=DPR%2CWidth&auto=format",
+        "width": 615,
+        "height": 591,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19930",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 99960,
+        "url": "https://dato-images.imgix.net/205/1478515029-717b9c40-57d9-11e5-9ca4-92f90f8ed005.png?ch=DPR%2CWidth&auto=format",
+        "width": 1340,
+        "height": 521,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19934",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 237808,
+        "url": "https://dato-images.imgix.net/205/1478515200-43c95312-57db-11e5-872b-7a37a19f0589.png?ch=DPR%2CWidth&auto=format",
+        "width": 1048,
+        "height": 844,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19936",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 214332,
+        "url": "https://dato-images.imgix.net/205/1478515272-f525e7b0-57db-11e5-9398-40bf488a1515.png?ch=DPR%2CWidth&auto=format",
+        "width": 1191,
+        "height": 821,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19944",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 38576,
+        "url": "https://dato-images.imgix.net/205/1478517626-DatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 959,
+        "height": 614,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19946",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 47900,
+        "url": "https://dato-images.imgix.net/205/1478517786-DatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 959,
+        "height": 614,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19948",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 64715,
+        "url": "https://dato-images.imgix.net/205/1478518128-DatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 959,
+        "height": 614,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19952",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 71293,
+        "url": "https://dato-images.imgix.net/205/1478518707-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 959,
+        "height": 614,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19954",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 73621,
+        "url": "https://dato-images.imgix.net/205/1478518871-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 959,
+        "height": 614,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19958",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 92669,
+        "url": "https://dato-images.imgix.net/205/1478522616-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 1121,
+        "height": 629,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19960",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 97268,
+        "url": "https://dato-images.imgix.net/205/1478522373-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 1121,
+        "height": 629,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19963",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 90303,
+        "url": "https://dato-images.imgix.net/205/1478526008-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 1121,
+        "height": 629,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19966",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 72873,
+        "url": "https://dato-images.imgix.net/205/1478526069-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 1121,
+        "height": 629,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19972",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 105016,
+        "url": "https://dato-images.imgix.net/205/1478525309-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 1121,
+        "height": 629,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19975",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 139366,
+        "url": "https://dato-images.imgix.net/205/1478527450-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 1121,
+        "height": 629,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19977",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 86308,
+        "url": "https://dato-images.imgix.net/205/1478527707-Desktop.png?ch=DPR%2CWidth&auto=format",
+        "width": 759,
+        "height": 483,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19979",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 103964,
+        "url": "https://dato-images.imgix.net/205/1478528109-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 1121,
+        "height": 629,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19981",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 130764,
+        "url": "https://dato-images.imgix.net/205/1478528186-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 1121,
+        "height": 629,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "19983",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 141661,
+        "url": "https://dato-images.imgix.net/205/1478529036-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 1286,
+        "height": 663,
+        "alt": null,
+        "title": null
+      }
+    },
+    {
+      "id": "21185",
+      "item_type": "image",
+      "updated_at": "2016-12-23 22:37:19 UTC",
+      "image": {
+        "format": "png",
+        "size": 79804,
+        "url": "https://dato-images.imgix.net/205/1479132719-my_dato_projectDatoCMS.png?ch=DPR%2CWidth&auto=format",
+        "width": 1124,
+        "height": 612,
+        "alt": null,
+        "title": null
+      }
+    }
+  ],
+  "video": [
+
+  ],
+  "quote": [
+
+  ],
+  "article": [
+
   ]
 }

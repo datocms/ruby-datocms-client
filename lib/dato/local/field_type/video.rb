@@ -52,7 +52,7 @@ module Dato
           VideoEmbed.embed(url, { width: width, height: height }.compact)
         end
 
-        def to_hash(*args)
+        def to_hash(*_args)
           {
             url: url,
             thumbnail_url: thumbnail_url,
