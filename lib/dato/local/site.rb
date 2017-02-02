@@ -10,7 +10,7 @@ module Dato
 
       attr_reader :entity
       def_delegators :entity, :id, :name, :locales, :theme_hue, :domain,
-                     :internal_domain, :no_index
+                     :internal_domain, :no_index, :frontend_url
 
       def initialize(entity)
         @entity = entity
@@ -36,7 +36,7 @@ module Dato
       def to_hash
         attributes = [
           :id, :name, :locales, :theme_hue, :domain, :internal_domain,
-          :no_index, :global_seo, :favicon
+          :no_index, :global_seo, :favicon, :frontend_url
         ]
 
         attributes.each_with_object({}) do |attribute, result|

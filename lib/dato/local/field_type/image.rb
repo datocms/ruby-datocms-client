@@ -29,7 +29,7 @@ module Dato
 
         alias raw_file file
 
-        def file(host = default_host)
+        def file
           super.ch('DPR', 'Width').auto('format')
         end
 

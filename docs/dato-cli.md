@@ -41,7 +41,7 @@ If everything worked correctly, you should now run `bundle exec dato` and see so
 ```
 $ bundle exec dato
 DatoCMS commands:
-  dato dump --token=TOKEN  # dumps DatoCMS contents into local files
+  dato dump --token=TOKEN  # dumps DatoCMS content into local files
   dato help [COMMAND]      # Describe available commands or one specific command
 ```
 

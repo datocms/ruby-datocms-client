@@ -16,7 +16,7 @@ Ruby client for the DatoCMS API.
 This gem can be used in different ways, so the documentation is split up in different files:
 
 * [I want to use the content of a DatoCMS site in my static website (Hugo, Jekyll, etc.)](https://github.com/datocms/ruby-datocms-client/blob/master/docs/dato-cli.md);
-* [I want to edit the contents of an existing DatoCMS site  programmatically](https://github.com/datocms/ruby-datocms-client/blob/master/docs/site-api-client.md);
+* [I want to edit the content of an existing DatoCMS site  programmatically](https://github.com/datocms/ruby-datocms-client/blob/master/docs/site-api-client.md);
 * [I want to create new DatoCMS sites programmatically](https://github.com/datocms/ruby-datocms-client/blob/master/docs/account-api-client.md).
 
 ## Development

@@ -1,4 +1,4 @@
-# Edit the contents of an existing DatoCMS site
+# Edit the content of an existing DatoCMS site
 
 With this gem, you can easily create, edit and destroy any object within a DatoCMS site:
 

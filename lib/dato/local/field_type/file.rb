@@ -21,16 +21,16 @@ module Dato
           @size = size
         end
 
-        def file(host = default_host)
+        def file
           Imgix::Client.new(
-            host: host,
+            host: 'dato-images.imgix.net',
             secure: true,
             include_library_param: false
           ).path(path)
         end
 
-        def url(host: default_host, **opts)
-          file(host).to_url(opts)
+        def url(opts)
+          file.to_url(opts)
         end
 
         def to_hash(*args)
@@ -39,12 +39,6 @@ module Dato
             size: size,
             url: url
           }
-        end
-
-        private
-
-        def default_host
-          'dato-images.imgix.net'
         end
       end
     end

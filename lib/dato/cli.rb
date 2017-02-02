@@ -8,7 +8,7 @@ module Dato
   class Cli < Thor
     package_name 'DatoCMS'
 
-    desc 'dump', 'dumps DatoCMS contents into local files'
+    desc 'dump', 'dumps DatoCMS content into local files'
     option :config, default: 'dato.config.rb'
     option :token, default: ENV['DATO_API_TOKEN'], required: true
     def dump

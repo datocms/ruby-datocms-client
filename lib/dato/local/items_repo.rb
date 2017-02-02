@@ -18,7 +18,7 @@ module Dato
       end
 
       def find(id)
-        @items_by_id[id]
+        @items_by_id[id.to_s]
       end
 
       def respond_to_missing?(method, include_private = false)

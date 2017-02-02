@@ -6,7 +6,7 @@ module Dato
     module MetaTags
       class OgSiteName < Base
         def build
-          card_tag('og:site_name', site_name) if site_name
+          og_tag('og:site_name', site_name) if site_name
         end
 
         def site_name

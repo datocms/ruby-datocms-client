@@ -59,11 +59,11 @@ module Dato
       def singleton?
         item_type.singleton
       end
+      alias single_instance? singleton?
 
       def item_type
         @item_type ||= entity.item_type
       end
-      alias content_type item_type
 
       def fields
         @fields ||= item_type.fields.sort_by(&:position)
