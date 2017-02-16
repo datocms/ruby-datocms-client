@@ -28,25 +28,19 @@ module Dato
       )
 
       if watch_mode
-        site_id = client.request(:get, '/site')["data"]["id"]
+        site_id = client.request(:get, '/site')['data']['id']
 
         semaphore = Mutex.new
 
-        semaphore.synchronize do
-          Dump::Runner.new(config_file, client).run
-        end
+        thread_safe_dump(semaphore, config_file, client)
 
         Dato::Watch::SiteChangeWatcher.new(site_id).connect do
-          semaphore.synchronize do
-            Dump::Runner.new(config_file, client).run
-          end
+          thread_safe_dump(semaphore, config_file, client)
         end
 
-        Listen.to(File.dirname(config_file), only: /#{Regexp.quote(File.basename(config_file))}/) do
-          semaphore.synchronize do
-            Dump::Runner.new(config_file, client).run
-          end
-        end.start
+        watch_config_file(config_file) do
+          thread_safe_dump(semaphore, config_file, client)
+        end
 
         sleep
       else
@@ -87,6 +81,22 @@ module Dato
       )
 
       MigrateSlugs::Runner.new(client, options[:skip_id_prefix]).run
+    end
+
+    no_tasks do
+      def watch_config_file(config_file, &block)
+        Listen.to(
+          File.dirname(config_file),
+          only: /#{Regexp.quote(File.basename(config_file))}/,
+          &block
+        ).start
+      end
+
+      def thread_safe_dump(semaphore, config_file, client)
+        semaphore.synchronize do
+          Dump::Runner.new(config_file, client).run
+        end
+      end
     end
   end
 end
