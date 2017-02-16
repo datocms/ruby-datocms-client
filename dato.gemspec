@@ -45,4 +45,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'cacert'
   spec.add_runtime_dependency 'dotenv'
   spec.add_runtime_dependency 'pusher-client'
+  spec.add_runtime_dependency 'listen'
 end
