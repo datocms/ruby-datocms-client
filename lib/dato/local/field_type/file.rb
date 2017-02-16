@@ -23,7 +23,7 @@ module Dato
 
         def file
           Imgix::Client.new(
-            host: 'dato-images.imgix.net',
+            host: 'www.datocms-assets.com',
             secure: true,
             include_library_param: false
           ).path(path)
