@@ -21,7 +21,7 @@ module Dato
         end
 
         it 'responds to url method' do
-          expect(file.url(w: 300)).to eq 'https://dato-images.imgix.net/foo.png?w=300'
+          expect(file.url(w: 300)).to eq 'https://www.datocms-assets.com/foo.png?w=300'
         end
       end
     end
