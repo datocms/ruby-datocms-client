@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require 'active_support/core_ext/hash/compact'
-require 'video_embed'
 
 module Dato
   module Local
@@ -48,8 +47,14 @@ module Dato
           @provider_uid   = provider_uid
         end
 
-        def iframe_embed(width = nil, height = nil)
-          VideoEmbed.embed(url, { width: width, height: height }.compact)
+        def iframe_embed(width = self.width, height = self.height)
+          # rubocop:disable Metrics/LineLength
+          if provider == 'youtube'
+            %(<iframe width="#{width}" height="#{height}" src="//www.youtube.com/embed/#{provider_uid}?rel=0" frameborder="0" allowfullscreen></iframe>)
+          elsif provider == 'vimeo'
+            %(<iframe src="//player.vimeo.com/video/#{provider_uid}?title=0&amp;byline=0&amp;portrait=0" width="#{width}" height="#{height}" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>)
+          end
+          # rubocop:enable Metrics/LineLength
         end
 
         def to_hash(*_args)
