@@ -2,22 +2,19 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/datocms/ruby-datocms-client/badge.svg?branch=master)](https://coveralls.io/github/datocms/ruby-datocms-client?branch=master) [![Build Status](https://travis-ci.org/datocms/ruby-datocms-client.svg?branch=master)](https://travis-ci.org/datocms/ruby-datocms-client) [![Gem Version](https://badge.fury.io/rb/dato.svg)](https://badge.fury.io/rb/dato)
 
-Ruby client for the DatoCMS API.
+CLI tool for DatoCMS (https://www.datocms.com).
 
-[DatoCMS](https://www.datocms.com/) is a fully customizable administrative area for your static websites:
+## How to integrate DatoCMS with Jekyll
 
-1. Use your favorite static website generator (Middleman, Hugo, Jekyll, and many others);
-2. Let your clients publish new content independently;
-3. Connect and build your site with any Continuous Deployment service (Netlify, Gitlab, CircleCI, etc.);
-4. Host the site anywhere you like (Amazon S3, Netlify, Surge.sh, etc.)
+Please head over the [Jekyll section of our documentation](https://docs.datocms.com/jekyll/overview.html) to learn everything you need to get started.
 
-## Usage
+## How to integrate DatoCMS with Middleman
 
-This gem can be used in different ways, so the documentation is split up in different files:
+For Middleman we have created a nice Middleman extension called [middleman-dato](https://github.com/datocms/middleman-dato). Please visit the [Middleman section of our documentation](https://docs.datocms.com/middleman/overview.html) to learn everything you need to get started.
 
-* [I want to use the content of a DatoCMS site in my static website (Hugo, Jekyll, etc.)](https://github.com/datocms/ruby-datocms-client/blob/master/docs/dato-cli.md);
-* [I want to edit the content of an existing DatoCMS site  programmatically](https://github.com/datocms/ruby-datocms-client/blob/master/docs/site-api-client.md);
-* [I want to create new DatoCMS sites programmatically](https://github.com/datocms/ruby-datocms-client/blob/master/docs/account-api-client.md).
+## API Client
+
+This gem also exposes an API client, useful ie. to import existing content in your DatoCMS administrative area. Read our [documentation](https://docs.datocms.com/api-client/ruby.html) for detailed info.
 
 ## Development
 
