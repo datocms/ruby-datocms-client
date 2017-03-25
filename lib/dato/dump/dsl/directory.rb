@@ -16,8 +16,13 @@ module Dato
         def initialize(dato, operations, &block)
           @dato = dato
           @operations = operations
+          @self_before_instance_eval = eval "self", block.binding
 
           instance_eval(&block)
+        end
+
+        def method_missing(method, *args, &block)
+          @self_before_instance_eval.send method, *args, &block
         end
       end
     end
