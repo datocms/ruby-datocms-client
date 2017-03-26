@@ -18,11 +18,15 @@ gem 'dato'
 
 And then execute:
 
-    $ bundle
+```
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install dato
+```
+$ gem install dato
+```
 
 ## Usage
 
