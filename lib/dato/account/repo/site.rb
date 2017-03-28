@@ -16,7 +16,7 @@ module Dato
         def create(resource_attributes)
           body = JsonApiSerializer.new(
             type: :site,
-            attributes: %i(domain internal_subdomain name notes template)
+            attributes: %i(domain internal_subdomain name notes ssg template)
           ).serialize(resource_attributes)
 
           post_request '/sites', body

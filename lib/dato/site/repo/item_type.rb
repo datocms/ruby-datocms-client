@@ -8,8 +8,9 @@ module Dato
         def create(resource_attributes)
           body = JsonApiSerializer.new(
             type: :item_type,
-            attributes: %i(api_key name singleton sortable),
-            required_attributes: %i(api_key name singleton sortable)
+            attributes: %i(api_key name ordering_direction singleton sortable),
+            relationships: { ordering_field: { collection: false, type: :field } },
+            required_attributes: %i(api_key name ordering_direction singleton sortable)
           ).serialize(resource_attributes)
 
           post_request '/item-types', body
@@ -18,8 +19,9 @@ module Dato
         def update(item_type_id, resource_attributes)
           body = JsonApiSerializer.new(
             type: :item_type,
-            attributes: %i(api_key name singleton sortable),
-            required_attributes: %i(api_key name singleton sortable)
+            attributes: %i(api_key name ordering_direction singleton sortable),
+            relationships: { ordering_field: { collection: false, type: :field } },
+            required_attributes: %i(api_key name ordering_direction singleton sortable)
           ).serialize(resource_attributes, item_type_id)
 
           put_request "/item-types/#{item_type_id}", body

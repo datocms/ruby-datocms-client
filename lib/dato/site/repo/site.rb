@@ -12,7 +12,7 @@ module Dato
         def update(resource_attributes)
           body = JsonApiSerializer.new(
             type: :site,
-            attributes: %i(deploy_adapter deploy_settings favicon global_seo locales name no_index ssg theme_hue timezone)
+            attributes: %i(deploy_adapter deploy_settings favicon frontend_url global_seo locales name no_index ssg theme_hue timezone)
           ).serialize(resource_attributes)
 
           put_request '/site', body
