@@ -24,7 +24,8 @@ module Dato
             :id,
             :updated_at,
             :is_valid,
-            :item_type
+            :item_type,
+            :last_editor
           )
 
           body = JsonApiSerializer.new(

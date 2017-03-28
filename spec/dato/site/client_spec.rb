@@ -38,7 +38,9 @@ module Dato
             name: 'Article',
             singleton: false,
             sortable: false,
-            api_key: 'article'
+            api_key: 'article',
+            ordering_direction: nil,
+            ordering_field: nil
           )
         end
 
@@ -77,7 +79,9 @@ module Dato
             name: 'Article',
             singleton: false,
             sortable: false,
-            api_key: 'article'
+            api_key: 'article',
+            ordering_direction: nil,
+            ordering_field: nil
           )
 
           expect(client.item_types.all.size).to eq 1
@@ -100,7 +104,10 @@ module Dato
             name: 'Article',
             singleton: false,
             sortable: false,
-            api_key: 'article'
+            api_key: 'article',
+            ordering_direction: nil,
+            ordering_field: nil
+
           )
         end
 
@@ -137,7 +144,9 @@ module Dato
             name: 'Article',
             singleton: false,
             sortable: false,
-            api_key: 'article'
+            api_key: 'article',
+            ordering_direction: nil,
+            ordering_field: nil
           )
         end
 

@@ -25,7 +25,9 @@ describe Dato::Local::Loader, :vcr do
       name: 'Article',
       singleton: false,
       sortable: false,
-      api_key: 'article'
+      api_key: 'article',
+      ordering_direction: nil,
+      ordering_field: nil
     )
   end
 
