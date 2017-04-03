@@ -27,12 +27,6 @@ module Dato
           @title = title
         end
 
-        alias raw_file file
-
-        def file
-          super.ch('DPR', 'Width').auto('format')
-        end
-
         def to_hash(*args)
           super.merge(
             width: width,
