@@ -30,7 +30,10 @@ module Dato
       end
 
       def site
-        Site.new(entities_repo.find_entities_of_type('site').first)
+        Site.new(
+          entities_repo.find_entities_of_type('site').first,
+          self
+        )
       end
 
       def available_locales

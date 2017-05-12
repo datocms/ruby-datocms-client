@@ -7,23 +7,25 @@ module Dato
       class File
         attr_reader :path, :format, :size
 
-        def self.parse(value, _repo)
+        def self.parse(value, repo)
           value && new(
             value[:path],
             value[:format],
-            value[:size]
+            value[:size],
+            repo.site.entity.imgix_host
           )
         end
 
-        def initialize(path, format, size)
+        def initialize(path, format, size, imgix_host)
           @path = path
           @format = format
           @size = size
+          @imgix_host = imgix_host
         end
 
         def file
           Imgix::Client.new(
-            host: 'www.datocms-assets.com',
+            host: @imgix_host,
             secure: true,
             include_library_param: false
           ).path(path)

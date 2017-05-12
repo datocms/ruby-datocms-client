@@ -5,7 +5,12 @@ module Dato
   module Local
     module FieldType
       RSpec.describe Image do
-        subject(:image) { described_class.parse(attributes, nil) }
+        subject(:image) { described_class.parse(attributes, repo) }
+
+        let(:repo) { instance_double('Dato::Local::ItemsRepo', site: site) }
+        let(:site) { instance_double('Dato::Local::Site', entity: site_entity) }
+        let(:site_entity) { double('Dato::Local::JsonApiEntity', imgix_host: 'foobar.com') }
+
         let(:attributes) do
           {
             path: '/foo.png',

@@ -5,18 +5,19 @@ module Dato
       class Seo
         attr_reader :title, :description
 
-        def self.parse(value, _repo)
-          value && new(value[:title], value[:description], value[:image])
+        def self.parse(value, repo)
+          value && new(value[:title], value[:description], value[:image], repo)
         end
 
-        def initialize(title, description, image)
+        def initialize(title, description, image, repo)
           @title = title
           @description = description
           @image = image
+          @repo = repo
         end
 
         def image
-          @image && Image.parse(@image, nil)
+          @image && Image.parse(@image, @repo)
         end
 
         def to_hash(*args)

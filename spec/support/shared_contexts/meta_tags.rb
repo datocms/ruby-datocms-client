@@ -39,7 +39,8 @@ RSpec.shared_context 'items repo' do
             global_seo: global_seo,
             favicon: favicon,
             no_index: no_index,
-            ssg: nil
+            ssg: nil,
+            imgix_host: 'www.datocms-assets.com'
           },
           relationships: {
             menu_items: {

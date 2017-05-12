@@ -12,8 +12,9 @@ module Dato
       def_delegators :entity, :id, :name, :locales, :theme_hue, :domain,
                      :internal_domain, :no_index, :frontend_url
 
-      def initialize(entity)
+      def initialize(entity, items_repo)
         @entity = entity
+        @items_repo = items_repo
       end
 
       def global_seo

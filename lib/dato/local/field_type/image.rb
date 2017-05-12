@@ -7,7 +7,7 @@ module Dato
       class Image < Dato::Local::FieldType::File
         attr_reader :width, :height, :title, :alt
 
-        def self.parse(value, _repo)
+        def self.parse(value, repo)
           value && new(
             value[:path],
             value[:format],
@@ -15,12 +15,22 @@ module Dato
             value[:width],
             value[:height],
             value[:alt],
-            value[:title]
+            value[:title],
+            repo.site.entity.imgix_host
           )
         end
 
-        def initialize(path, format, size, width, height, alt, title)
-          super(path, format, size)
+        def initialize(
+          path,
+          format,
+          size,
+          width,
+          height,
+          alt,
+          title,
+          imgix_host
+        )
+          super(path, format, size, imgix_host)
           @width = width
           @height = height
           @alt = alt

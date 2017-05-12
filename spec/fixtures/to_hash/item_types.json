@@ -1,11 +1,134 @@
 {
+  "stocazzo": [
+
+  ],
   "blog_post": [
+    {
+      "id": "21882",
+      "item_type": "blog_post",
+      "updated_at": "2017-04-27 09:23:25 UTC",
+      "fsdasd": [
+
+      ],
+      "foobar": [
+        {
+          "id": "13671",
+          "item_type": "author",
+          "updated_at": "2016-12-31 15:36:47 UTC",
+          "avatar": {
+            "format": "jpg",
+            "size": 40007,
+            "url": "https://custom.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
+            "width": 633,
+            "height": 632,
+            "alt": null,
+            "title": null
+          },
+          "name": "Stefano Verna",
+          "slug": "stefano-verna"
+        },
+        {
+          "id": "18672",
+          "item_type": "author",
+          "updated_at": "2016-12-31 15:36:52 UTC",
+          "avatar": {
+            "format": "jpg",
+            "size": 225549,
+            "url": "https://custom.imgix.net/205/1478272450-11090956_10205501754575133_1395398002197970518_o.jpg",
+            "width": 1448,
+            "height": 1448,
+            "alt": null,
+            "title": null
+          },
+          "name": "Claudio Benvenuti",
+          "slug": "claudio-benvenuti"
+        }
+      ],
+      "title": "Out of beta!!",
+      "slug": "out-of-beta",
+      "color": null,
+      "excerpt": "DatoCMS is graduating out of beta: read everything about our brand-new premium plans!",
+      "content": [
+        {
+          "id": "21881",
+          "item_type": "text",
+          "updated_at": "2016-11-21 17:27:55 UTC",
+          "text": "After 3 months of public beta-testing, we're happy to announce **DatoCMS is officially charging money**! This marks an important milestone, allowing us to improve your experience by adding features like 24/7 customer service.\n\nWe truly appreciate the support and feedbacks you guys gave us during the beta period. We're committed, more than ever, to **provide the best platform to build easy-to-use and powerful static websites**.\n\n## An updated pricing\n\nDuring these months, we closely monitored your usage of the platform, and we identified 3 main \"targets\" for this platform:\n\n* **Developers**, looking for a web-based editing experience for their personal existing static websites;\n* **Web agencies**, tired of having to build brochure-websites for their clients with tools like Wordpress. They demand a safer, cheapier, faster and easier to develop alternative;\n* **Startups**, looking for a simple, rock-solid solution for their static marketing websites that would enable internal non-tech-savvy editors/marketers to update the website without having to interrupt a developer.\n\nWith these targets in mind, we released [new pricing plans for DatoCMS](https://www.datocms.com/pricing/). We're pretty satisfied with the result, as we think we reached a very competitive price point with a lot of great features packed in.\n\nIn the following days we'll also release a special **bulk/volume pricing** for agencies that will allow them to drammatically cut their invoices (up to 50%) once they accumulate a minimum number of websites published with DatoCMS.\n\nWe'll also add a totally free, special pro-bono/open-source plan very soon.\n\n## A special gift for our early adopters :)\n\nTo thank existing custumers for their support and enthusiasm, we switched all the existing sites to a special **\"Early adopter\"** plan, extremely generous and totally free. You will always be able to switch to an even bigger plan when you need it.\n\n##  Feedbacks are (very) welcome\n\nWe hope our new pricing will sound right to you.. drop us a line at [support@datocms.com](mailto:support@datocms) for any further question!"
+        }
+      ],
+      "publication_date": "2018-12-12 18:00:00 UTC",
+      "author": {
+        "id": "13671",
+        "item_type": "author",
+        "updated_at": "2016-12-31 15:36:47 UTC",
+        "avatar": {
+          "format": "jpg",
+          "size": 40007,
+          "url": "https://custom.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
+          "width": 633,
+          "height": 632,
+          "alt": null,
+          "title": null
+        },
+        "name": "Stefano Verna",
+        "slug": "stefano-verna"
+      },
+      "seo_settings": null
+    },
+    {
+      "id": "43071",
+      "item_type": "blog_post",
+      "updated_at": "2017-03-16 16:49:42 UTC",
+      "fsdasd": [
+
+      ],
+      "foobar": [
+
+      ],
+      "title": "Update of the JS/Ruby DatoCMS clients required!",
+      "slug": "update-of-the-js-and-ruby-datocms-clients-required",
+      "color": null,
+      "excerpt": "Starting from March 31th, images and files uploaded to DatoCMS will no longer be served from the domain dato-images.imgix.net, but from a new domain: www.datocms-assets.com. If your website is using an outdated version of our JS or Ruby clients, you need to to upgrade your project dependencies or images on your  website will stop being served. Let's take a look at the details in this article.",
+      "content": [
+        {
+          "id": "43070",
+          "item_type": "text",
+          "updated_at": "2017-03-16 16:49:41 UTC",
+          "text": "Starting from March 31th, images and files uploaded to DatoCMS will no longer be served from the domain **dato-images.imgix.net**, but from a new domain: **www.datocms-assets.com**. \n\nIf your website is using an outdated version of our JS or Ruby clients, and still links to the old domain, you need to to upgrade your project dependencies **or images on your website will stop being served**. \n\nWe're very sorry for the inconvenience, but this change will allow us to be in total control of the domain from now on, and will make it easier and smoother to introduce changes regarding the way DatoCMS serves your assets in the future.\n\n### How to update the JS datocms-client package\n\nIf your project is using our [datocms-client NPM](https://www.npmjs.com/package/datocms-client) package, please open your `package.json` and edit the version of the datocms-client package:\n\n```json\n...\n  \"datocms-client\": \"^0.3.17\",\n...\n```\n\nIf your project uses npm as package manager, open the terminal and type this command:\n\n```\nnpm update datocms-client\n```\n\nIf you're using yarn instead of npm, open the terminal and type this command:\n\n```\nyarn upgrade datocms-client\n```\n\nOnce the update process completes, commit the changes to your Git repository:\n\n```\ngit add package.json yarn.lock\ngit commit -m \"Upgrade DatoCMS client\"\ngit push\n```\n\n### How to update the Ruby dato gem\n\nIf you're using any Ruby-based static website generator (Jekyll, Middleman, Nanoc), you're probably using our Ruby gems ([dato](https://rubygems.org/gems/dato) and [middleman-dato](https://rubygems.org/gems/middleman-dato) if you're running a Middleman website) to integrate your website with DatoCMS.\n\nTo upgrade to the latest gem versions, please open your `Gemfile` and edit the version of `dato` (and `middleman-dato`, if you're on a Middleman project):\n\n```ruby\n...\ngem \"dato\", \">=0.3.11\"\n# add the line below only if you're on a Middleman project!\ngem \"middleman-dato\", \">=0.7.2\"\n...\n```\n\nThen open the terminal and update the gems with `bundle update`:\n\n```ruby\nbundle update dato\nbundle update middleman-dato\n```\n\nOnce the update process completes, commit the changes to your Git repository:\n\n```\ngit add Gemfile Gemfile.lock\ngit commit -m \"Upgrade DatoCMS client\"\ngit push\n```"
+        }
+      ],
+      "publication_date": "2017-03-16 12:00:00 UTC",
+      "author": {
+        "id": "13671",
+        "item_type": "author",
+        "updated_at": "2016-12-31 15:36:47 UTC",
+        "avatar": {
+          "format": "jpg",
+          "size": 40007,
+          "url": "https://custom.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
+          "width": 633,
+          "height": 632,
+          "alt": null,
+          "title": null
+        },
+        "name": "Stefano Verna",
+        "slug": "stefano-verna"
+      },
+      "seo_settings": null
+    },
     {
       "id": "22194",
       "item_type": "blog_post",
       "updated_at": "2017-01-08 16:32:31 UTC",
+      "fsdasd": [
+
+      ],
+      "foobar": [
+
+      ],
       "title": "Allowing rich-text editing within DatoCMS",
       "slug": "rich-content-editing",
+      "color": null,
       "excerpt": "Image galleries, videos, quotes... learn how to achieve rich-content editing with DatoCMS.",
       "content": [
         {
@@ -21,7 +144,7 @@
           "image": {
             "format": "png",
             "size": 45851,
-            "url": "https://www.datocms-assets.com/205/1484864094-screenshot-2017-01-19-23-14-04-png",
+            "url": "https://custom.imgix.net/205/1484864094-screenshot-2017-01-19-23-14-04-png",
             "width": 633,
             "height": 354,
             "alt": null,
@@ -41,7 +164,7 @@
           "image": {
             "format": "png",
             "size": 18475,
-            "url": "https://www.datocms-assets.com/205/1483890764-screenshot-2017-01-08-16-33-13-png",
+            "url": "https://custom.imgix.net/205/1483890764-screenshot-2017-01-08-16-33-13-png",
             "width": 717,
             "height": 182,
             "alt": null,
@@ -61,7 +184,7 @@
           "image": {
             "format": "png",
             "size": 23294,
-            "url": "https://www.datocms-assets.com/205/1483891306-screenshot-2017-01-08-17-00-30-png",
+            "url": "https://custom.imgix.net/205/1483891306-screenshot-2017-01-08-17-00-30-png",
             "width": 684,
             "height": 204,
             "alt": null,
@@ -81,7 +204,7 @@
           "image": {
             "format": "png",
             "size": 45851,
-            "url": "https://www.datocms-assets.com/205/1484864102-screenshot-2017-01-19-23-14-04-png",
+            "url": "https://custom.imgix.net/205/1484864102-screenshot-2017-01-19-23-14-04-png",
             "width": 633,
             "height": 354,
             "alt": null,
@@ -101,7 +224,7 @@
           "image": {
             "format": "png",
             "size": 69057,
-            "url": "https://www.datocms-assets.com/205/1484864111-screenshot-2017-01-19-23-14-41-png",
+            "url": "https://custom.imgix.net/205/1484864111-screenshot-2017-01-19-23-14-41-png",
             "width": 631,
             "height": 436,
             "alt": null,
@@ -121,7 +244,7 @@
           "image": {
             "format": "png",
             "size": 78600,
-            "url": "https://www.datocms-assets.com/205/1483892964-screenshot-2017-01-08-17-29-18-png",
+            "url": "https://custom.imgix.net/205/1483892964-screenshot-2017-01-08-17-29-18-png",
             "width": 701,
             "height": 576,
             "alt": null,
@@ -137,7 +260,7 @@
         "avatar": {
           "format": "jpg",
           "size": 40007,
-          "url": "https://www.datocms-assets.com/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
+          "url": "https://custom.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
           "width": 633,
           "height": 632,
           "alt": null,
@@ -152,8 +275,15 @@
       "id": "25575",
       "item_type": "blog_post",
       "updated_at": "2016-12-19 23:59:05 UTC",
+      "fsdasd": [
+
+      ],
+      "foobar": [
+
+      ],
       "title": "Introducing one-click creation of DatoCMS-powered static websites",
       "slug": "one-click-websites",
+      "color": null,
       "excerpt": "We're excited to announce a new, easier and faster way to get started with DatoCMS. Just sign up and connect your Github and Netlify account: we'll take care of the rest. Read more in this article!",
       "content": [
         {
@@ -175,7 +305,7 @@
           "image": {
             "format": "png",
             "size": 616496,
-            "url": "https://www.datocms-assets.com/205/1482189625-ScreenShot2016-12-20at12.19.40AM.png",
+            "url": "https://custom.imgix.net/205/1482189625-ScreenShot2016-12-20at12.19.40AM.png",
             "width": 1410,
             "height": 753,
             "alt": null,
@@ -197,7 +327,7 @@
         "avatar": {
           "format": "jpg",
           "size": 40007,
-          "url": "https://www.datocms-assets.com/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
+          "url": "https://custom.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
           "width": 633,
           "height": 632,
           "alt": null,
@@ -212,7 +342,7 @@
         "image": {
           "format": "png",
           "size": 285582,
-          "url": "https://www.datocms-assets.com/205/1482189844-ScreenShot2016-12-20at12.23.50AM.png",
+          "url": "https://custom.imgix.net/205/1482189844-ScreenShot2016-12-20at12.23.50AM.png",
           "width": 896,
           "height": 568,
           "alt": null,
@@ -224,8 +354,15 @@
       "id": "21152",
       "item_type": "blog_post",
       "updated_at": "2016-11-21 17:07:38 UTC",
+      "fsdasd": [
+
+      ],
+      "foobar": [
+
+      ],
       "title": "DatoCMS with Jekyll: A beginner's guide",
       "slug": "datocms-with-jekyll-a-beginners-guide",
+      "color": null,
       "excerpt": "A quick step-by-step guide to develop your first DatoCMS website with Jekill and Netlify as hosting platform.",
       "content": [
         {
@@ -273,7 +410,7 @@
         "avatar": {
           "format": "jpg",
           "size": 225549,
-          "url": "https://www.datocms-assets.com/205/1478272450-11090956_10205501754575133_1395398002197970518_o.jpg",
+          "url": "https://custom.imgix.net/205/1478272450-11090956_10205501754575133_1395398002197970518_o.jpg",
           "width": 1448,
           "height": 1448,
           "alt": null,
@@ -285,45 +422,18 @@
       "seo_settings": null
     },
     {
-      "id": "21882",
-      "item_type": "blog_post",
-      "updated_at": "2016-11-21 17:06:36 UTC",
-      "title": "Out of beta!",
-      "slug": "out-of-beta",
-      "excerpt": "DatoCMS is graduating out of beta: read everything about our brand-new premium plans!",
-      "content": [
-        {
-          "id": "21881",
-          "item_type": "text",
-          "updated_at": "2016-11-21 17:27:55 UTC",
-          "text": "After 3 months of public beta-testing, we're happy to announce **DatoCMS is officially charging money**! This marks an important milestone, allowing us to improve your experience by adding features like 24/7 customer service.\n\nWe truly appreciate the support and feedbacks you guys gave us during the beta period. We're committed, more than ever, to **provide the best platform to build easy-to-use and powerful static websites**.\n\n## An updated pricing\n\nDuring these months, we closely monitored your usage of the platform, and we identified 3 main \"targets\" for this platform:\n\n* **Developers**, looking for a web-based editing experience for their personal existing static websites;\n* **Web agencies**, tired of having to build brochure-websites for their clients with tools like Wordpress. They demand a safer, cheapier, faster and easier to develop alternative;\n* **Startups**, looking for a simple, rock-solid solution for their static marketing websites that would enable internal non-tech-savvy editors/marketers to update the website without having to interrupt a developer.\n\nWith these targets in mind, we released [new pricing plans for DatoCMS](https://www.datocms.com/pricing/). We're pretty satisfied with the result, as we think we reached a very competitive price point with a lot of great features packed in.\n\nIn the following days we'll also release a special **bulk/volume pricing** for agencies that will allow them to drammatically cut their invoices (up to 50%) once they accumulate a minimum number of websites published with DatoCMS.\n\nWe'll also add a totally free, special pro-bono/open-source plan very soon.\n\n## A special gift for our early adopters :)\n\nTo thank existing custumers for their support and enthusiasm, we switched all the existing sites to a special **\"Early adopter\"** plan, extremely generous and totally free. You will always be able to switch to an even bigger plan when you need it.\n\n##  Feedbacks are (very) welcome\n\nWe hope our new pricing will sound right to you.. drop us a line at [support@datocms.com](mailto:support@datocms) for any further question!"
-        }
-      ],
-      "publication_date": "2016-11-21 18:00:00 UTC",
-      "author": {
-        "id": "13671",
-        "item_type": "author",
-        "updated_at": "2016-12-31 15:36:47 UTC",
-        "avatar": {
-          "format": "jpg",
-          "size": 40007,
-          "url": "https://www.datocms-assets.com/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
-          "width": 633,
-          "height": 632,
-          "alt": null,
-          "title": null
-        },
-        "name": "Stefano Verna",
-        "slug": "stefano-verna"
-      },
-      "seo_settings": null
-    },
-    {
       "id": "18665",
       "item_type": "blog_post",
       "updated_at": "2016-11-08 11:43:24 UTC",
+      "fsdasd": [
+
+      ],
+      "foobar": [
+
+      ],
       "title": "DatoCMS with Middleman: A beginner's guide",
       "slug": "datocms-middleman-beginners-guide",
+      "color": null,
       "excerpt": "A quick step-by-step guide to develop your first DatoCMS website with Middleman and Netlify as hosting platform.",
       "content": [
         {
@@ -357,7 +467,7 @@
           "image": {
             "format": "png",
             "size": 15529,
-            "url": "https://www.datocms-assets.com/205/1478514768-717820a6-57d9-11e5-838f-d2a732eb0a41.png",
+            "url": "https://custom.imgix.net/205/1478514768-717820a6-57d9-11e5-838f-d2a732eb0a41.png",
             "width": 667,
             "height": 356,
             "alt": null,
@@ -377,7 +487,7 @@
           "image": {
             "format": "png",
             "size": 78996,
-            "url": "https://www.datocms-assets.com/205/1478514829-7176ac8a-57d9-11e5-9b09-f43dc772a4f9.png",
+            "url": "https://custom.imgix.net/205/1478514829-7176ac8a-57d9-11e5-9b09-f43dc772a4f9.png",
             "width": 1350,
             "height": 554,
             "alt": null,
@@ -397,7 +507,7 @@
           "image": {
             "format": "png",
             "size": 107073,
-            "url": "https://www.datocms-assets.com/205/1478514867-71760370-57d9-11e5-8bdb-850aa176a22c.png",
+            "url": "https://custom.imgix.net/205/1478514867-71760370-57d9-11e5-8bdb-850aa176a22c.png",
             "width": 948,
             "height": 553,
             "alt": null,
@@ -417,7 +527,7 @@
           "image": {
             "format": "png",
             "size": 22384,
-            "url": "https://www.datocms-assets.com/205/1478514928-b9ea7f7c-5bfe-11e5-94a0-f957a7d1986e.png",
+            "url": "https://custom.imgix.net/205/1478514928-b9ea7f7c-5bfe-11e5-94a0-f957a7d1986e.png",
             "width": 1192,
             "height": 443,
             "alt": null,
@@ -437,7 +547,7 @@
           "image": {
             "format": "png",
             "size": 41095,
-            "url": "https://www.datocms-assets.com/205/1478514971-717b2008-57d9-11e5-949c-4ea36645ff08.png",
+            "url": "https://custom.imgix.net/205/1478514971-717b2008-57d9-11e5-949c-4ea36645ff08.png",
             "width": 615,
             "height": 591,
             "alt": null,
@@ -457,7 +567,7 @@
           "image": {
             "format": "png",
             "size": 99960,
-            "url": "https://www.datocms-assets.com/205/1478515029-717b9c40-57d9-11e5-9ca4-92f90f8ed005.png",
+            "url": "https://custom.imgix.net/205/1478515029-717b9c40-57d9-11e5-9ca4-92f90f8ed005.png",
             "width": 1340,
             "height": 521,
             "alt": null,
@@ -477,7 +587,7 @@
           "image": {
             "format": "png",
             "size": 237808,
-            "url": "https://www.datocms-assets.com/205/1478515200-43c95312-57db-11e5-872b-7a37a19f0589.png",
+            "url": "https://custom.imgix.net/205/1478515200-43c95312-57db-11e5-872b-7a37a19f0589.png",
             "width": 1048,
             "height": 844,
             "alt": null,
@@ -497,7 +607,7 @@
           "image": {
             "format": "png",
             "size": 214332,
-            "url": "https://www.datocms-assets.com/205/1478515272-f525e7b0-57db-11e5-9398-40bf488a1515.png",
+            "url": "https://custom.imgix.net/205/1478515272-f525e7b0-57db-11e5-9398-40bf488a1515.png",
             "width": 1191,
             "height": 821,
             "alt": null,
@@ -529,7 +639,7 @@
           "image": {
             "format": "png",
             "size": 38576,
-            "url": "https://www.datocms-assets.com/205/1478517626-DatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478517626-DatoCMS.png",
             "width": 959,
             "height": 614,
             "alt": null,
@@ -549,7 +659,7 @@
           "image": {
             "format": "png",
             "size": 47900,
-            "url": "https://www.datocms-assets.com/205/1478517786-DatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478517786-DatoCMS.png",
             "width": 959,
             "height": 614,
             "alt": null,
@@ -569,7 +679,7 @@
           "image": {
             "format": "png",
             "size": 64715,
-            "url": "https://www.datocms-assets.com/205/1478518128-DatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478518128-DatoCMS.png",
             "width": 959,
             "height": 614,
             "alt": null,
@@ -589,7 +699,7 @@
           "image": {
             "format": "png",
             "size": 71293,
-            "url": "https://www.datocms-assets.com/205/1478518707-my_dato_projectDatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478518707-my_dato_projectDatoCMS.png",
             "width": 959,
             "height": 614,
             "alt": null,
@@ -609,7 +719,7 @@
           "image": {
             "format": "png",
             "size": 73621,
-            "url": "https://www.datocms-assets.com/205/1478518871-my_dato_projectDatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478518871-my_dato_projectDatoCMS.png",
             "width": 959,
             "height": 614,
             "alt": null,
@@ -629,7 +739,7 @@
           "image": {
             "format": "png",
             "size": 92669,
-            "url": "https://www.datocms-assets.com/205/1478522616-my_dato_projectDatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478522616-my_dato_projectDatoCMS.png",
             "width": 1121,
             "height": 629,
             "alt": null,
@@ -649,7 +759,7 @@
           "image": {
             "format": "png",
             "size": 97268,
-            "url": "https://www.datocms-assets.com/205/1478522373-my_dato_projectDatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478522373-my_dato_projectDatoCMS.png",
             "width": 1121,
             "height": 629,
             "alt": null,
@@ -669,7 +779,7 @@
           "image": {
             "format": "png",
             "size": 90303,
-            "url": "https://www.datocms-assets.com/205/1478526008-my_dato_projectDatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478526008-my_dato_projectDatoCMS.png",
             "width": 1121,
             "height": 629,
             "alt": null,
@@ -689,7 +799,7 @@
           "image": {
             "format": "png",
             "size": 72873,
-            "url": "https://www.datocms-assets.com/205/1478526069-my_dato_projectDatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478526069-my_dato_projectDatoCMS.png",
             "width": 1121,
             "height": 629,
             "alt": null,
@@ -715,7 +825,7 @@
           "image": {
             "format": "png",
             "size": 105016,
-            "url": "https://www.datocms-assets.com/205/1478525309-my_dato_projectDatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478525309-my_dato_projectDatoCMS.png",
             "width": 1121,
             "height": 629,
             "alt": null,
@@ -741,7 +851,7 @@
           "image": {
             "format": "png",
             "size": 139366,
-            "url": "https://www.datocms-assets.com/205/1478527450-my_dato_projectDatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478527450-my_dato_projectDatoCMS.png",
             "width": 1121,
             "height": 629,
             "alt": null,
@@ -761,7 +871,7 @@
           "image": {
             "format": "png",
             "size": 86308,
-            "url": "https://www.datocms-assets.com/205/1478527707-Desktop.png",
+            "url": "https://custom.imgix.net/205/1478527707-Desktop.png",
             "width": 759,
             "height": 483,
             "alt": null,
@@ -781,7 +891,7 @@
           "image": {
             "format": "png",
             "size": 103964,
-            "url": "https://www.datocms-assets.com/205/1478528109-my_dato_projectDatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478528109-my_dato_projectDatoCMS.png",
             "width": 1121,
             "height": 629,
             "alt": null,
@@ -801,7 +911,7 @@
           "image": {
             "format": "png",
             "size": 130764,
-            "url": "https://www.datocms-assets.com/205/1478528186-my_dato_projectDatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478528186-my_dato_projectDatoCMS.png",
             "width": 1121,
             "height": 629,
             "alt": null,
@@ -821,7 +931,7 @@
           "image": {
             "format": "png",
             "size": 141661,
-            "url": "https://www.datocms-assets.com/205/1478529036-my_dato_projectDatoCMS.png",
+            "url": "https://custom.imgix.net/205/1478529036-my_dato_projectDatoCMS.png",
             "width": 1286,
             "height": 663,
             "alt": null,
@@ -843,7 +953,7 @@
         "avatar": {
           "format": "jpg",
           "size": 225549,
-          "url": "https://www.datocms-assets.com/205/1478272450-11090956_10205501754575133_1395398002197970518_o.jpg",
+          "url": "https://custom.imgix.net/205/1478272450-11090956_10205501754575133_1395398002197970518_o.jpg",
           "width": 1448,
           "height": 1448,
           "alt": null,
@@ -862,8 +972,15 @@
       "id": "18640",
       "item_type": "blog_post",
       "updated_at": "2016-11-04 21:28:23 UTC",
+      "fsdasd": [
+
+      ],
+      "foobar": [
+
+      ],
       "title": "Announcing new feature: Slug fields!",
       "slug": "new-feature-slug-field-type",
+      "color": null,
       "excerpt": "A highly anticipated feature just landed on DatoCMS: the ability to generate custom (and permanent) slugs for your Items. Read more about all the details in this in-depth article.",
       "content": [
         {
@@ -885,7 +1002,7 @@
           "image": {
             "format": "png",
             "size": 54909,
-            "url": "https://www.datocms-assets.com/205/1478259353-Screenshot2016-11-0412.30.09.png",
+            "url": "https://custom.imgix.net/205/1478259353-Screenshot2016-11-0412.30.09.png",
             "width": 656,
             "height": 483,
             "alt": null,
@@ -905,7 +1022,7 @@
           "image": {
             "format": "png",
             "size": 63180,
-            "url": "https://www.datocms-assets.com/205/1478259373-Screenshot2016-11-0412.30.49.png",
+            "url": "https://custom.imgix.net/205/1478259373-Screenshot2016-11-0412.30.49.png",
             "width": 642,
             "height": 604,
             "alt": null,
@@ -925,7 +1042,7 @@
           "image": {
             "format": "png",
             "size": 42364,
-            "url": "https://www.datocms-assets.com/205/1478259385-Screenshot2016-11-0412.33.00.png",
+            "url": "https://custom.imgix.net/205/1478259385-Screenshot2016-11-0412.33.00.png",
             "width": 696,
             "height": 646,
             "alt": null,
@@ -959,7 +1076,7 @@
         "avatar": {
           "format": "jpg",
           "size": 40007,
-          "url": "https://www.datocms-assets.com/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
+          "url": "https://custom.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
           "width": 633,
           "height": 632,
           "alt": null,
@@ -978,8 +1095,15 @@
       "id": "14223",
       "item_type": "blog_post",
       "updated_at": "2016-11-04 16:41:40 UTC",
+      "fsdasd": [
+
+      ],
+      "foobar": [
+
+      ],
       "title": "New feature: Markdown editor",
       "slug": "14223-new-feature-markdown-editor",
+      "color": null,
       "excerpt": "We just shipped a long awaited feature: support for Markdown content.",
       "content": [
         {
@@ -995,7 +1119,7 @@
           "image": {
             "format": "png",
             "size": 49136,
-            "url": "https://www.datocms-assets.com/205/1473286280-Screenshot2016-09-0800.11.00.png",
+            "url": "https://custom.imgix.net/205/1473286280-Screenshot2016-09-0800.11.00.png",
             "width": 646,
             "height": 406,
             "alt": null,
@@ -1015,7 +1139,7 @@
           "image": {
             "format": "png",
             "size": 65623,
-            "url": "https://www.datocms-assets.com/205/1473286804-Screenshot2016-09-0800.19.50.png",
+            "url": "https://custom.imgix.net/205/1473286804-Screenshot2016-09-0800.19.50.png",
             "width": 727,
             "height": 604,
             "alt": null,
@@ -1037,7 +1161,7 @@
         "avatar": {
           "format": "jpg",
           "size": 40007,
-          "url": "https://www.datocms-assets.com/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
+          "url": "https://custom.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
           "width": 633,
           "height": 632,
           "alt": null,
@@ -1056,8 +1180,15 @@
       "id": "13672",
       "item_type": "blog_post",
       "updated_at": "2016-11-04 16:41:39 UTC",
+      "fsdasd": [
+
+      ],
+      "foobar": [
+
+      ],
       "title": "Changelog: September 4, 2016!",
       "slug": "13672-changelog-september-4-2016",
+      "color": null,
       "excerpt": "August has been a month full of new features: HTTPS, Structured content, Hugo and Jekyll integrations.",
       "content": [
         {
@@ -1085,7 +1216,7 @@
           "image": {
             "format": "png",
             "size": 148541,
-            "url": "https://www.datocms-assets.com/205/1472941398-Screenshot2016-09-0212.16.09.png",
+            "url": "https://custom.imgix.net/205/1472941398-Screenshot2016-09-0212.16.09.png",
             "width": 896,
             "height": 266,
             "alt": null,
@@ -1105,7 +1236,7 @@
           "image": {
             "format": "png",
             "size": 68621,
-            "url": "https://www.datocms-assets.com/205/1472941077-Screenshot2016-09-0400.17.48.png",
+            "url": "https://custom.imgix.net/205/1472941077-Screenshot2016-09-0400.17.48.png",
             "width": 721,
             "height": 586,
             "alt": null,
@@ -1119,7 +1250,7 @@
           "image": {
             "format": "png",
             "size": 48834,
-            "url": "https://www.datocms-assets.com/205/1472937693-Screenshot2016-09-0317.07.38.png",
+            "url": "https://custom.imgix.net/205/1472937693-Screenshot2016-09-0317.07.38.png",
             "width": 528,
             "height": 356,
             "alt": null,
@@ -1141,7 +1272,7 @@
         "avatar": {
           "format": "jpg",
           "size": 40007,
-          "url": "https://www.datocms-assets.com/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
+          "url": "https://custom.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
           "width": 633,
           "height": 632,
           "alt": null,
@@ -1160,8 +1291,15 @@
       "id": "16403",
       "item_type": "blog_post",
       "updated_at": "2016-11-04 16:41:38 UTC",
+      "fsdasd": [
+
+      ],
+      "foobar": [
+
+      ],
       "title": "Changelog: October 14, 2016!",
       "slug": "16403-changelog-october-14-2016",
+      "color": null,
       "excerpt": "Also this month has been full of awesome new features and integrations: take a look at all the details in this article!",
       "content": [
         {
@@ -1183,7 +1321,7 @@
           "image": {
             "format": "png",
             "size": 198765,
-            "url": "https://www.datocms-assets.com/205/1476350507-Screenshot2016-10-1311.21.45.png",
+            "url": "https://custom.imgix.net/205/1476350507-Screenshot2016-10-1311.21.45.png",
             "width": 1917,
             "height": 769,
             "alt": null,
@@ -1209,7 +1347,7 @@
           "image": {
             "format": "png",
             "size": 13027,
-            "url": "https://www.datocms-assets.com/205/1476352396-hexo-metalsmith.png",
+            "url": "https://custom.imgix.net/205/1476352396-hexo-metalsmith.png",
             "width": 700,
             "height": 227,
             "alt": null,
@@ -1229,7 +1367,7 @@
           "image": {
             "format": "png",
             "size": 166212,
-            "url": "https://www.datocms-assets.com/205/1476354720-Slice1.png",
+            "url": "https://custom.imgix.net/205/1476354720-Slice1.png",
             "width": 1304,
             "height": 772,
             "alt": null,
@@ -1249,7 +1387,7 @@
           "image": {
             "format": "png",
             "size": 94116,
-            "url": "https://www.datocms-assets.com/205/1476355399-Screenshot2016-10-1312.43.33.png",
+            "url": "https://custom.imgix.net/205/1476355399-Screenshot2016-10-1312.43.33.png",
             "width": 981,
             "height": 541,
             "alt": null,
@@ -1265,7 +1403,7 @@
         "avatar": {
           "format": "jpg",
           "size": 40007,
-          "url": "https://www.datocms-assets.com/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
+          "url": "https://custom.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
           "width": 633,
           "height": 632,
           "alt": null,
@@ -1289,7 +1427,7 @@
       "avatar": {
         "format": "jpg",
         "size": 225549,
-        "url": "https://www.datocms-assets.com/205/1478272450-11090956_10205501754575133_1395398002197970518_o.jpg",
+        "url": "https://custom.imgix.net/205/1478272450-11090956_10205501754575133_1395398002197970518_o.jpg",
         "width": 1448,
         "height": 1448,
         "alt": null,
@@ -1305,7 +1443,7 @@
       "avatar": {
         "format": "jpg",
         "size": 40007,
-        "url": "https://www.datocms-assets.com/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
+        "url": "https://custom.imgix.net/205/1472937299-13124693_10154207792227287_9063755594656398544_n-1.jpg",
         "width": 633,
         "height": 632,
         "alt": null,
@@ -1316,6 +1454,12 @@
     }
   ],
   "text": [
+    {
+      "id": "43070",
+      "item_type": "text",
+      "updated_at": "2017-03-16 16:49:41 UTC",
+      "text": "Starting from March 31th, images and files uploaded to DatoCMS will no longer be served from the domain **dato-images.imgix.net**, but from a new domain: **www.datocms-assets.com**. \n\nIf your website is using an outdated version of our JS or Ruby clients, and still links to the old domain, you need to to upgrade your project dependencies **or images on your website will stop being served**. \n\nWe're very sorry for the inconvenience, but this change will allow us to be in total control of the domain from now on, and will make it easier and smoother to introduce changes regarding the way DatoCMS serves your assets in the future.\n\n### How to update the JS datocms-client package\n\nIf your project is using our [datocms-client NPM](https://www.npmjs.com/package/datocms-client) package, please open your `package.json` and edit the version of the datocms-client package:\n\n```json\n...\n  \"datocms-client\": \"^0.3.17\",\n...\n```\n\nIf your project uses npm as package manager, open the terminal and type this command:\n\n```\nnpm update datocms-client\n```\n\nIf you're using yarn instead of npm, open the terminal and type this command:\n\n```\nyarn upgrade datocms-client\n```\n\nOnce the update process completes, commit the changes to your Git repository:\n\n```\ngit add package.json yarn.lock\ngit commit -m \"Upgrade DatoCMS client\"\ngit push\n```\n\n### How to update the Ruby dato gem\n\nIf you're using any Ruby-based static website generator (Jekyll, Middleman, Nanoc), you're probably using our Ruby gems ([dato](https://rubygems.org/gems/dato) and [middleman-dato](https://rubygems.org/gems/middleman-dato) if you're running a Middleman website) to integrate your website with DatoCMS.\n\nTo upgrade to the latest gem versions, please open your `Gemfile` and edit the version of `dato` (and `middleman-dato`, if you're on a Middleman project):\n\n```ruby\n...\ngem \"dato\", \">=0.3.11\"\n# add the line below only if you're on a Middleman project!\ngem \"middleman-dato\", \">=0.7.2\"\n...\n```\n\nThen open the terminal and update the gems with `bundle update`:\n\n```ruby\nbundle update dato\nbundle update middleman-dato\n```\n\nOnce the update process completes, commit the changes to your Git repository:\n\n```\ngit add Gemfile Gemfile.lock\ngit commit -m \"Upgrade DatoCMS client\"\ngit push\n```"
+    },
     {
       "id": "22175",
       "item_type": "text",
@@ -1763,7 +1907,7 @@
       "image": {
         "format": "png",
         "size": 69057,
-        "url": "https://www.datocms-assets.com/205/1484864111-screenshot-2017-01-19-23-14-41-png",
+        "url": "https://custom.imgix.net/205/1484864111-screenshot-2017-01-19-23-14-41-png",
         "width": 631,
         "height": 436,
         "alt": null,
@@ -1777,7 +1921,7 @@
       "image": {
         "format": "png",
         "size": 45851,
-        "url": "https://www.datocms-assets.com/205/1484864102-screenshot-2017-01-19-23-14-04-png",
+        "url": "https://custom.imgix.net/205/1484864102-screenshot-2017-01-19-23-14-04-png",
         "width": 633,
         "height": 354,
         "alt": null,
@@ -1791,7 +1935,7 @@
       "image": {
         "format": "png",
         "size": 45851,
-        "url": "https://www.datocms-assets.com/205/1484864094-screenshot-2017-01-19-23-14-04-png",
+        "url": "https://custom.imgix.net/205/1484864094-screenshot-2017-01-19-23-14-04-png",
         "width": 633,
         "height": 354,
         "alt": null,
@@ -1805,7 +1949,7 @@
       "image": {
         "format": "png",
         "size": 78600,
-        "url": "https://www.datocms-assets.com/205/1483892964-screenshot-2017-01-08-17-29-18-png",
+        "url": "https://custom.imgix.net/205/1483892964-screenshot-2017-01-08-17-29-18-png",
         "width": 701,
         "height": 576,
         "alt": null,
@@ -1819,7 +1963,7 @@
       "image": {
         "format": "png",
         "size": 18475,
-        "url": "https://www.datocms-assets.com/205/1483890764-screenshot-2017-01-08-16-33-13-png",
+        "url": "https://custom.imgix.net/205/1483890764-screenshot-2017-01-08-16-33-13-png",
         "width": 717,
         "height": 182,
         "alt": null,
@@ -1833,7 +1977,7 @@
       "image": {
         "format": "png",
         "size": 23294,
-        "url": "https://www.datocms-assets.com/205/1483891306-screenshot-2017-01-08-17-00-30-png",
+        "url": "https://custom.imgix.net/205/1483891306-screenshot-2017-01-08-17-00-30-png",
         "width": 684,
         "height": 204,
         "alt": null,
@@ -1847,7 +1991,7 @@
       "image": {
         "format": "png",
         "size": 42364,
-        "url": "https://www.datocms-assets.com/205/1478259385-Screenshot2016-11-0412.33.00.png",
+        "url": "https://custom.imgix.net/205/1478259385-Screenshot2016-11-0412.33.00.png",
         "width": 696,
         "height": 646,
         "alt": null,
@@ -1861,7 +2005,7 @@
       "image": {
         "format": "png",
         "size": 94116,
-        "url": "https://www.datocms-assets.com/205/1476355399-Screenshot2016-10-1312.43.33.png",
+        "url": "https://custom.imgix.net/205/1476355399-Screenshot2016-10-1312.43.33.png",
         "width": 981,
         "height": 541,
         "alt": null,
@@ -1875,7 +2019,7 @@
       "image": {
         "format": "png",
         "size": 198765,
-        "url": "https://www.datocms-assets.com/205/1476350507-Screenshot2016-10-1311.21.45.png",
+        "url": "https://custom.imgix.net/205/1476350507-Screenshot2016-10-1311.21.45.png",
         "width": 1917,
         "height": 769,
         "alt": null,
@@ -1889,7 +2033,7 @@
       "image": {
         "format": "png",
         "size": 616496,
-        "url": "https://www.datocms-assets.com/205/1482189625-ScreenShot2016-12-20at12.19.40AM.png",
+        "url": "https://custom.imgix.net/205/1482189625-ScreenShot2016-12-20at12.19.40AM.png",
         "width": 1410,
         "height": 753,
         "alt": null,
@@ -1903,7 +2047,7 @@
       "image": {
         "format": "png",
         "size": 15529,
-        "url": "https://www.datocms-assets.com/205/1478514768-717820a6-57d9-11e5-838f-d2a732eb0a41.png",
+        "url": "https://custom.imgix.net/205/1478514768-717820a6-57d9-11e5-838f-d2a732eb0a41.png",
         "width": 667,
         "height": 356,
         "alt": null,
@@ -1917,7 +2061,7 @@
       "image": {
         "format": "png",
         "size": 13027,
-        "url": "https://www.datocms-assets.com/205/1476352396-hexo-metalsmith.png",
+        "url": "https://custom.imgix.net/205/1476352396-hexo-metalsmith.png",
         "width": 700,
         "height": 227,
         "alt": null,
@@ -1931,7 +2075,7 @@
       "image": {
         "format": "png",
         "size": 65623,
-        "url": "https://www.datocms-assets.com/205/1473286804-Screenshot2016-09-0800.19.50.png",
+        "url": "https://custom.imgix.net/205/1473286804-Screenshot2016-09-0800.19.50.png",
         "width": 727,
         "height": 604,
         "alt": null,
@@ -1945,7 +2089,7 @@
       "image": {
         "format": "png",
         "size": 166212,
-        "url": "https://www.datocms-assets.com/205/1476354720-Slice1.png",
+        "url": "https://custom.imgix.net/205/1476354720-Slice1.png",
         "width": 1304,
         "height": 772,
         "alt": null,
@@ -1959,7 +2103,7 @@
       "image": {
         "format": "png",
         "size": 148541,
-        "url": "https://www.datocms-assets.com/205/1472941398-Screenshot2016-09-0212.16.09.png",
+        "url": "https://custom.imgix.net/205/1472941398-Screenshot2016-09-0212.16.09.png",
         "width": 896,
         "height": 266,
         "alt": null,
@@ -1973,7 +2117,7 @@
       "image": {
         "format": "png",
         "size": 49136,
-        "url": "https://www.datocms-assets.com/205/1473286280-Screenshot2016-09-0800.11.00.png",
+        "url": "https://custom.imgix.net/205/1473286280-Screenshot2016-09-0800.11.00.png",
         "width": 646,
         "height": 406,
         "alt": null,
@@ -1987,7 +2131,7 @@
       "image": {
         "format": "png",
         "size": 68621,
-        "url": "https://www.datocms-assets.com/205/1472941077-Screenshot2016-09-0400.17.48.png",
+        "url": "https://custom.imgix.net/205/1472941077-Screenshot2016-09-0400.17.48.png",
         "width": 721,
         "height": 586,
         "alt": null,
@@ -2001,7 +2145,7 @@
       "image": {
         "format": "png",
         "size": 48834,
-        "url": "https://www.datocms-assets.com/205/1472937693-Screenshot2016-09-0317.07.38.png",
+        "url": "https://custom.imgix.net/205/1472937693-Screenshot2016-09-0317.07.38.png",
         "width": 528,
         "height": 356,
         "alt": null,
@@ -2015,7 +2159,7 @@
       "image": {
         "format": "png",
         "size": 63180,
-        "url": "https://www.datocms-assets.com/205/1478259373-Screenshot2016-11-0412.30.49.png",
+        "url": "https://custom.imgix.net/205/1478259373-Screenshot2016-11-0412.30.49.png",
         "width": 642,
         "height": 604,
         "alt": null,
@@ -2029,7 +2173,7 @@
       "image": {
         "format": "png",
         "size": 54909,
-        "url": "https://www.datocms-assets.com/205/1478259353-Screenshot2016-11-0412.30.09.png",
+        "url": "https://custom.imgix.net/205/1478259353-Screenshot2016-11-0412.30.09.png",
         "width": 656,
         "height": 483,
         "alt": null,
@@ -2043,7 +2187,7 @@
       "image": {
         "format": "png",
         "size": 78996,
-        "url": "https://www.datocms-assets.com/205/1478514829-7176ac8a-57d9-11e5-9b09-f43dc772a4f9.png",
+        "url": "https://custom.imgix.net/205/1478514829-7176ac8a-57d9-11e5-9b09-f43dc772a4f9.png",
         "width": 1350,
         "height": 554,
         "alt": null,
@@ -2057,7 +2201,7 @@
       "image": {
         "format": "png",
         "size": 107073,
-        "url": "https://www.datocms-assets.com/205/1478514867-71760370-57d9-11e5-8bdb-850aa176a22c.png",
+        "url": "https://custom.imgix.net/205/1478514867-71760370-57d9-11e5-8bdb-850aa176a22c.png",
         "width": 948,
         "height": 553,
         "alt": null,
@@ -2071,7 +2215,7 @@
       "image": {
         "format": "png",
         "size": 22384,
-        "url": "https://www.datocms-assets.com/205/1478514928-b9ea7f7c-5bfe-11e5-94a0-f957a7d1986e.png",
+        "url": "https://custom.imgix.net/205/1478514928-b9ea7f7c-5bfe-11e5-94a0-f957a7d1986e.png",
         "width": 1192,
         "height": 443,
         "alt": null,
@@ -2085,7 +2229,7 @@
       "image": {
         "format": "png",
         "size": 41095,
-        "url": "https://www.datocms-assets.com/205/1478514971-717b2008-57d9-11e5-949c-4ea36645ff08.png",
+        "url": "https://custom.imgix.net/205/1478514971-717b2008-57d9-11e5-949c-4ea36645ff08.png",
         "width": 615,
         "height": 591,
         "alt": null,
@@ -2099,7 +2243,7 @@
       "image": {
         "format": "png",
         "size": 99960,
-        "url": "https://www.datocms-assets.com/205/1478515029-717b9c40-57d9-11e5-9ca4-92f90f8ed005.png",
+        "url": "https://custom.imgix.net/205/1478515029-717b9c40-57d9-11e5-9ca4-92f90f8ed005.png",
         "width": 1340,
         "height": 521,
         "alt": null,
@@ -2113,7 +2257,7 @@
       "image": {
         "format": "png",
         "size": 237808,
-        "url": "https://www.datocms-assets.com/205/1478515200-43c95312-57db-11e5-872b-7a37a19f0589.png",
+        "url": "https://custom.imgix.net/205/1478515200-43c95312-57db-11e5-872b-7a37a19f0589.png",
         "width": 1048,
         "height": 844,
         "alt": null,
@@ -2127,7 +2271,7 @@
       "image": {
         "format": "png",
         "size": 214332,
-        "url": "https://www.datocms-assets.com/205/1478515272-f525e7b0-57db-11e5-9398-40bf488a1515.png",
+        "url": "https://custom.imgix.net/205/1478515272-f525e7b0-57db-11e5-9398-40bf488a1515.png",
         "width": 1191,
         "height": 821,
         "alt": null,
@@ -2141,7 +2285,7 @@
       "image": {
         "format": "png",
         "size": 38576,
-        "url": "https://www.datocms-assets.com/205/1478517626-DatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478517626-DatoCMS.png",
         "width": 959,
         "height": 614,
         "alt": null,
@@ -2155,7 +2299,7 @@
       "image": {
         "format": "png",
         "size": 47900,
-        "url": "https://www.datocms-assets.com/205/1478517786-DatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478517786-DatoCMS.png",
         "width": 959,
         "height": 614,
         "alt": null,
@@ -2169,7 +2313,7 @@
       "image": {
         "format": "png",
         "size": 64715,
-        "url": "https://www.datocms-assets.com/205/1478518128-DatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478518128-DatoCMS.png",
         "width": 959,
         "height": 614,
         "alt": null,
@@ -2183,7 +2327,7 @@
       "image": {
         "format": "png",
         "size": 71293,
-        "url": "https://www.datocms-assets.com/205/1478518707-my_dato_projectDatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478518707-my_dato_projectDatoCMS.png",
         "width": 959,
         "height": 614,
         "alt": null,
@@ -2197,7 +2341,7 @@
       "image": {
         "format": "png",
         "size": 73621,
-        "url": "https://www.datocms-assets.com/205/1478518871-my_dato_projectDatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478518871-my_dato_projectDatoCMS.png",
         "width": 959,
         "height": 614,
         "alt": null,
@@ -2211,7 +2355,7 @@
       "image": {
         "format": "png",
         "size": 92669,
-        "url": "https://www.datocms-assets.com/205/1478522616-my_dato_projectDatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478522616-my_dato_projectDatoCMS.png",
         "width": 1121,
         "height": 629,
         "alt": null,
@@ -2225,7 +2369,7 @@
       "image": {
         "format": "png",
         "size": 97268,
-        "url": "https://www.datocms-assets.com/205/1478522373-my_dato_projectDatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478522373-my_dato_projectDatoCMS.png",
         "width": 1121,
         "height": 629,
         "alt": null,
@@ -2239,7 +2383,7 @@
       "image": {
         "format": "png",
         "size": 90303,
-        "url": "https://www.datocms-assets.com/205/1478526008-my_dato_projectDatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478526008-my_dato_projectDatoCMS.png",
         "width": 1121,
         "height": 629,
         "alt": null,
@@ -2253,7 +2397,7 @@
       "image": {
         "format": "png",
         "size": 72873,
-        "url": "https://www.datocms-assets.com/205/1478526069-my_dato_projectDatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478526069-my_dato_projectDatoCMS.png",
         "width": 1121,
         "height": 629,
         "alt": null,
@@ -2267,7 +2411,7 @@
       "image": {
         "format": "png",
         "size": 105016,
-        "url": "https://www.datocms-assets.com/205/1478525309-my_dato_projectDatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478525309-my_dato_projectDatoCMS.png",
         "width": 1121,
         "height": 629,
         "alt": null,
@@ -2281,7 +2425,7 @@
       "image": {
         "format": "png",
         "size": 139366,
-        "url": "https://www.datocms-assets.com/205/1478527450-my_dato_projectDatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478527450-my_dato_projectDatoCMS.png",
         "width": 1121,
         "height": 629,
         "alt": null,
@@ -2295,7 +2439,7 @@
       "image": {
         "format": "png",
         "size": 86308,
-        "url": "https://www.datocms-assets.com/205/1478527707-Desktop.png",
+        "url": "https://custom.imgix.net/205/1478527707-Desktop.png",
         "width": 759,
         "height": 483,
         "alt": null,
@@ -2309,7 +2453,7 @@
       "image": {
         "format": "png",
         "size": 103964,
-        "url": "https://www.datocms-assets.com/205/1478528109-my_dato_projectDatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478528109-my_dato_projectDatoCMS.png",
         "width": 1121,
         "height": 629,
         "alt": null,
@@ -2323,7 +2467,7 @@
       "image": {
         "format": "png",
         "size": 130764,
-        "url": "https://www.datocms-assets.com/205/1478528186-my_dato_projectDatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478528186-my_dato_projectDatoCMS.png",
         "width": 1121,
         "height": 629,
         "alt": null,
@@ -2337,7 +2481,7 @@
       "image": {
         "format": "png",
         "size": 141661,
-        "url": "https://www.datocms-assets.com/205/1478529036-my_dato_projectDatoCMS.png",
+        "url": "https://custom.imgix.net/205/1478529036-my_dato_projectDatoCMS.png",
         "width": 1286,
         "height": 663,
         "alt": null,
@@ -2351,7 +2495,7 @@
       "image": {
         "format": "png",
         "size": 79804,
-        "url": "https://www.datocms-assets.com/205/1479132719-my_dato_projectDatoCMS.png",
+        "url": "https://custom.imgix.net/205/1479132719-my_dato_projectDatoCMS.png",
         "width": 1124,
         "height": 612,
         "alt": null,
@@ -2359,13 +2503,7 @@
       }
     }
   ],
-  "video": [
-
-  ],
   "quote": [
-
-  ],
-  "article": [
 
   ]
 }

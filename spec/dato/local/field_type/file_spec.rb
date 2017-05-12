@@ -5,7 +5,12 @@ module Dato
   module Local
     module FieldType
       RSpec.describe Dato::Local::FieldType::File do
-        subject(:file) { described_class.parse(attributes, nil) }
+        subject(:file) { described_class.parse(attributes, repo) }
+
+        let(:repo) { instance_double('Dato::Local::ItemsRepo', site: site) }
+        let(:site) { instance_double('Dato::Local::Site', entity: site_entity) }
+        let(:site_entity) { double('Dato::Local::JsonApiEntity', imgix_host: 'foobar.com') }
+
         let(:attributes) do
           {
             path: '/foo.png',
@@ -21,7 +26,7 @@ module Dato
         end
 
         it 'responds to url method' do
-          expect(file.url(w: 300)).to eq 'https://www.datocms-assets.com/foo.png?w=300'
+          expect(file.url(w: 300)).to eq 'https://foobar.com/foo.png?w=300'
         end
       end
     end

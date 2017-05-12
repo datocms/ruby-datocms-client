@@ -17,7 +17,8 @@ module Dato
               attributes: {
                 name: 'Site name',
                 locales: ['en'],
-                favicon: favicon
+                favicon: favicon,
+                imgix_host: 'www.datocms-assets.com'
               }
             }
           }
