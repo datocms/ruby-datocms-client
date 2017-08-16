@@ -122,8 +122,14 @@ module Dato
         field_type = field.field_type
         type_klass_name = "::Dato::Local::FieldType::#{field_type.camelize}"
         type_klass = type_klass_name.safe_constantize
+
         value = if field.localized
-                  (entity.send(method) || {})[I18n.locale]
+                  obj = entity.send(method) || {}
+
+                  locale_with_value = I18n.fallbacks[I18n.locale]
+                    .find { |locale| obj[locale] }
+
+                  obj[locale_with_value || I18n.locale]
                 else
                   entity.send(method)
                 end
@@ -150,14 +156,18 @@ module Dato
         else
           super
         end
-      rescue NoMethodError
-        message = []
-        message << "Undefined method `#{method}`"
-        message << "Available fields for a `#{item_type.api_key}` item:"
-        message += fields.map do |f|
-          "* .#{f.api_key}"
+      rescue NoMethodError => e
+        if e.name === method
+          message = []
+          message << "Undefined method `#{method}`"
+          message << "Available fields for a `#{item_type.api_key}` item:"
+          message += fields.map do |f|
+            "* .#{f.api_key}"
+          end
+          raise NoMethodError, message.join("\n")
+        else
+          raise e
         end
-        raise NoMethodError, message.join("\n")
       end
 
       def respond_to_missing?(method, include_private = false)

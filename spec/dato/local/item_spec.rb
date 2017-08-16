@@ -144,6 +144,23 @@ module Dato
                 end
               end
             end
+
+            context 'fallbacks' do
+              let(:entity) do
+                double(
+                  'Dato::Local::JsonApiEntity(Item)',
+                  id: '14',
+                  item_type: item_type,
+                  title: { it: nil, en: 'Bar' }
+                )
+              end
+
+              it 'uses them' do
+                I18n.with_locale(:it) do
+                  expect(item.title).to eq 'Bar'
+                end
+              end
+            end
           end
         end
 

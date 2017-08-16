@@ -16,9 +16,12 @@ Dir['spec/support/**/*.rb'].each { |f| require_relative '../' + f }
 require 'vcr'
 require 'dato'
 require 'i18n'
+require 'i18n/backend/fallbacks'
 
 I18n.enforce_available_locales = false
 I18n.available_locales = [:it, :en, :ru]
+I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+I18n.fallbacks[:ru] = [:"es-ES"]
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'

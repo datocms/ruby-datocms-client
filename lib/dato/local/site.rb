@@ -54,7 +54,12 @@ module Dato
 
       def read_attribute(method, type_klass, localized)
         value = if localized
-                  (entity.send(method) || {})[I18n.locale]
+                  obj = entity.send(method) || {}
+
+                  locale_with_value = I18n.fallbacks[I18n.locale]
+                    .find { |locale| obj[locale] }
+
+                  obj[locale_with_value || I18n.locale]
                 else
                   entity.send(method)
                 end
