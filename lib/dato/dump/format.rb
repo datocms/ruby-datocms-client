@@ -19,6 +19,8 @@ module Dato
           Format::Toml
         when :yaml, :yml
           Format::Yaml
+        when :json
+          Format::Json
         end
       end
     end
