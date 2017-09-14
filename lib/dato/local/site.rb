@@ -2,6 +2,7 @@
 require 'forwardable'
 require 'active_support/inflector/transliterate'
 require 'active_support/hash_with_indifferent_access'
+require 'dato/utils/locale_value'
 
 module Dato
   module Local
@@ -56,10 +57,7 @@ module Dato
         value = if localized
                   obj = entity.send(method) || {}
 
-                  locale_with_value = I18n.fallbacks[I18n.locale]
-                    .find { |locale| obj[locale] }
-
-                  obj[locale_with_value || I18n.locale]
+                  Utils::LocaleValue.find(obj)
                 else
                   entity.send(method)
                 end
