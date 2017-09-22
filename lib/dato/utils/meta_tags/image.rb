@@ -24,7 +24,8 @@ module Dato
                       .map { |field| item.send(field.api_key) }
                       .compact
                       .find do |image|
-                        image.width >= 200 && image.height >= 200
+                        image.width && image.height &&
+                          image.width >= 200 && image.height >= 200
                       end
         end
       end
