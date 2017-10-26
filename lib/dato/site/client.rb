@@ -69,9 +69,14 @@ module Dato
         Cacert.set_in_env
         request(*args)
       rescue Faraday::ConnectionFailed, Faraday::TimeoutError => e
+        puts e.message
         raise e
       rescue Faraday::ClientError => e
-        raise ApiError, e
+        error = ApiError.new(e)
+        puts "===="
+        puts error.message
+        puts "===="
+        raise error
       end
 
       private
