@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 def helper_method_example
-  puts "A helper method"
+  puts 'A helper method'
 end
 
 dato.available_locales.each do |_locale|

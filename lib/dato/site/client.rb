@@ -13,6 +13,9 @@ require 'dato/site/repo/site'
 require 'dato/site/repo/upload_request'
 require 'dato/site/repo/user'
 require 'dato/site/repo/item'
+require 'dato/site/repo/role'
+require 'dato/site/repo/access_token'
+require 'dato/site/repo/upload'
 
 require 'dato/upload/file'
 require 'dato/upload/image'
@@ -30,7 +33,10 @@ module Dato
         site: Repo::Site,
         upload_requests: Repo::UploadRequest,
         users: Repo::User,
-        items: Repo::Item
+        items: Repo::Item,
+        roles: Repo::Role,
+        access_tokens: Repo::AccessToken,
+        uploads: Repo::Upload
       }.freeze
 
       attr_reader :token, :base_url, :schema, :extra_headers
@@ -73,9 +79,9 @@ module Dato
         raise e
       rescue Faraday::ClientError => e
         error = ApiError.new(e)
-        puts "===="
+        puts '===='
         puts error.message
-        puts "===="
+        puts '===='
         raise error
       end
 

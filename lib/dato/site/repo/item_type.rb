@@ -10,7 +10,8 @@ module Dato
             type: :item_type,
             attributes: %i(api_key name ordering_direction singleton sortable),
             relationships: { ordering_field: { collection: false, type: :field } },
-            required_attributes: %i(api_key name ordering_direction singleton sortable)
+            required_attributes: %i(api_key name ordering_direction singleton sortable),
+            required_relationships: %i(ordering_field)
           ).serialize(resource_attributes)
 
           post_request '/item-types', body
@@ -21,7 +22,8 @@ module Dato
             type: :item_type,
             attributes: %i(api_key name ordering_direction singleton sortable),
             relationships: { ordering_field: { collection: false, type: :field } },
-            required_attributes: %i(api_key name ordering_direction singleton sortable)
+            required_attributes: %i(api_key name ordering_direction singleton sortable),
+            required_relationships: %i(ordering_field)
           ).serialize(resource_attributes, item_type_id)
 
           put_request "/item-types/#{item_type_id}", body
@@ -33,6 +35,10 @@ module Dato
 
         def find(item_type_id)
           get_request "/item-types/#{item_type_id}"
+        end
+
+        def duplicate(item_type_id)
+          post_request "/item-types/#{item_type_id}/duplicate"
         end
 
         def destroy(item_type_id)

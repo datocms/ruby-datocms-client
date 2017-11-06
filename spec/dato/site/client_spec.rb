@@ -93,8 +93,15 @@ module Dato
 
           expect(client.item_types.find(new_item_type[:id])[:api_key]).to eq 'post'
 
+          duplicate = client.item_types.duplicate(
+            new_item_type[:id]
+          )
+
+          expect(client.item_types.find(duplicate[:id])[:api_key]).to eq 'post_copy_1'
+
           client.item_types.destroy(new_item_type[:id])
-          expect(client.item_types.all.size).to eq 0
+
+          expect(client.item_types.all.size).to eq 1
         end
       end
 
@@ -222,10 +229,13 @@ module Dato
 
       describe 'Users' do
         it 'fetch, create and destroy' do
+          role = client.roles.all.first
+
           user = client.users.create(
             email: 'foo@bar.it',
             first_name: 'Foo',
-            last_name: 'Bar'
+            last_name: 'Bar',
+            role: role[:id]
           )
 
           expect(client.users.all.size).to eq 1

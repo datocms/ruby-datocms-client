@@ -9,7 +9,9 @@ module Dato
           body = JsonApiSerializer.new(
             type: :user,
             attributes: %i(email first_name last_name),
-            required_attributes: %i(email first_name last_name)
+            relationships: { role: { collection: false, type: :role } },
+            required_attributes: %i(email first_name last_name),
+            required_relationships: %i(role)
           ).serialize(resource_attributes)
 
           post_request '/users', body
