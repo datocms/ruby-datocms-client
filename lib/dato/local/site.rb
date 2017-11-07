@@ -10,7 +10,7 @@ module Dato
       extend Forwardable
 
       attr_reader :entity
-      def_delegators :entity, :id, :name, :locales, :theme_hue, :domain,
+      def_delegators :entity, :id, :name, :locales, :theme, :domain,
                      :internal_domain, :no_index, :frontend_url
 
       def initialize(entity, items_repo)
@@ -37,7 +37,7 @@ module Dato
 
       def to_hash
         attributes = [
-          :id, :name, :locales, :theme_hue, :domain, :internal_domain,
+          :id, :name, :locales, :theme, :domain, :internal_domain,
           :no_index, :global_seo, :favicon, :frontend_url
         ]
 

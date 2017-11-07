@@ -14,7 +14,7 @@ module Dato
 
       let(:client) do
         Dato::Site::Client.new(
-          'XYZ',
+          'd89d00dc259fb2e018451cbcaf74520f',
           base_url: 'http://site-api.lvh.me:3001'
         )
       end
@@ -25,7 +25,7 @@ module Dato
 
       describe '.to_hash' do
         it 'dump everything you might need' do
-          expect(repo.available_locales).to eq [:en]
+          expect(repo.available_locales).to eq [:it, :en]
           # File.write('./spec/fixtures/to_hash/site.json', JSON.pretty_generate(repo.site.to_hash))
           expect(JSON.pretty_generate(repo.site.to_hash)).to eq File.read('./spec/fixtures/to_hash/site.json')
 
@@ -40,13 +40,13 @@ module Dato
       context 'multi language' do
         it 'returns localized data correctly' do
           I18n.with_locale(:it) do
-            expect(repo.articles.first.title).to eq 'Titolo'
-            expect(repo.articles.first.to_hash[:title]).to eq 'Titolo'
+            expect(repo.articles.last.title).to eq "La Madonna della Cintola a Santa Maria Novella "
+            expect(repo.articles.last.to_hash[:title]).to eq "La Madonna della Cintola a Santa Maria Novella "
           end
 
           I18n.with_locale(:en) do
-            expect(repo.articles.first.title).to eq 'Title'
-            expect(repo.articles.first.to_hash[:title]).to eq 'Title'
+            expect(repo.articles.last.title).to eq "Our Lady of the Belt in Santa Maria Novella"
+            expect(repo.articles.last.to_hash[:title]).to eq "Our Lady of the Belt in Santa Maria Novella"
           end
         end
       end
