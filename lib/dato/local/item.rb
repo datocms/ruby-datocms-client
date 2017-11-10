@@ -87,7 +87,7 @@ module Dato
       end
 
       def children
-        @items_repo.children_of(id) if item_type.tree
+        @items_repo.children_of(id).sort_by(&:position) if item_type.tree
       end
 
       def updated_at
