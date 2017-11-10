@@ -4,7 +4,7 @@ require 'spec_helper'
 describe Dato::Local::Loader, :vcr do
   let(:account_client) do
     Dato::Account::Client.new(
-      'XXXYYY',
+      'XXX',
       base_url: 'http://account-api.lvh.me:3001'
     )
   end
@@ -25,6 +25,7 @@ describe Dato::Local::Loader, :vcr do
       name: 'Article',
       singleton: false,
       sortable: false,
+      tree: false,
       api_key: 'article',
       ordering_direction: nil,
       ordering_field: nil

@@ -2,14 +2,14 @@
 title:
   id: '22240'
   item_type: work
-  updated_at: 2017-09-20 14:01:44.365000000 Z
+  updated_at: 2017-10-27 09:20:54.590000000 Z
   position: 10
   title: Poster 1
   slug: poster-1
   cover_image:
     format: png
     size: 2378035
-    url: https://www.datocms-assets.com/604/1479910934-Screenshot2016-11-2315.21.33.png
+    url: https://www.datocms-assets.com/604/1509095879-1479910934-screenshot2016-11-2315-21-33.png
     width: 1296
     height: 985
     alt: 
@@ -17,7 +17,21 @@ title:
   excerpt: 'IPhone android client non-disclosure agreement supply chain startup buzz
     crowdfunding. A/B testing stock stealth beta angel investor gen-z direct mailing
     handshake research & development infographic strategy infrastructure. '
-  gallery: []
+  gallery:
+  - format: jpg
+    size: 74995
+    url: https://www.datocms-assets.com/604/1481209112-6.jpg
+    width: 600
+    height: 669
+    alt: 
+    title: 
+  - format: jpg
+    size: 28462
+    url: https://www.datocms-assets.com/604/1481209135-Argö-Poster.jpg
+    width: 750
+    height: 562
+    alt: 
+    title: 
   description: |-
     A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
 

@@ -40,13 +40,13 @@ module Dato
       context 'multi language' do
         it 'returns localized data correctly' do
           I18n.with_locale(:it) do
-            expect(repo.articles.last.title).to eq "La Madonna della Cintola a Santa Maria Novella "
-            expect(repo.articles.last.to_hash[:title]).to eq "La Madonna della Cintola a Santa Maria Novella "
+            expect(repo.articles.last.title).to eq 'La Madonna della Cintola a Santa Maria Novella '
+            expect(repo.articles.last.to_hash[:title]).to eq 'La Madonna della Cintola a Santa Maria Novella '
           end
 
           I18n.with_locale(:en) do
-            expect(repo.articles.last.title).to eq "Our Lady of the Belt in Santa Maria Novella"
-            expect(repo.articles.last.to_hash[:title]).to eq "Our Lady of the Belt in Santa Maria Novella"
+            expect(repo.articles.last.title).to eq 'Our Lady of the Belt in Santa Maria Novella'
+            expect(repo.articles.last.to_hash[:title]).to eq 'Our Lady of the Belt in Santa Maria Novella'
           end
         end
       end

@@ -2,14 +2,14 @@
 title:
   id: '22252'
   item_type: work
-  updated_at: 2017-10-27 07:49:34.409000000 Z
+  updated_at: 2017-11-02 13:19:47.798000000 Z
   position: 5
   title: Flyer 2
   slug: flyer-2
   cover_image:
     format: png
     size: 608777
-    url: https://www.datocms-assets.com/604/1479912890-Screenshot2016-11-2315.54.41.png
+    url: https://www.datocms-assets.com/604/1509628762-1479912890-screenshot2016-11-2315-54-41.png
     width: 541
     height: 793
     alt: 

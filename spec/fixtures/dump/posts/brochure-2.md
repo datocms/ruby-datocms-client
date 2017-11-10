@@ -2,23 +2,37 @@
 title:
   id: '24292'
   item_type: work
-  updated_at: 2017-09-20 14:01:44.443000000 Z
+  updated_at: 2017-11-02 13:18:33.485000000 Z
   position: 11
   title: Brochure 2
   slug: brochure-2
   cover_image:
     format: jpg
-    size: 107775
-    url: https://www.datocms-assets.com/604/1481208578-a4-trifold-brochure-psd-mockup-01-1170x780.jpg
-    width: 1170
-    height: 780
+    size: 95120
+    url: https://www.datocms-assets.com/604/1509628707-1479910693-07_portrait_brochure_mockup.jpg
+    width: 1310
+    height: 874
     alt: 
     title: 
   excerpt: Ecosystem paradigm shift validation entrepreneur stealth business-to-business
     vesting period churn rate customer ownership. Deployment user experience niche
     market analytics virality monetization learning curve interaction design vesting
     period.
-  gallery: []
+  gallery:
+  - format: png
+    size: 608777
+    url: https://www.datocms-assets.com/604/1479912890-Screenshot2016-11-2315.54.41.png
+    width: 541
+    height: 793
+    alt: 
+    title: 
+  - format: jpg
+    size: 95254
+    url: https://www.datocms-assets.com/604/1509095866-1479910654-tri-fold-brochure-mockup-1024x768.jpg
+    width: 1024
+    height: 768
+    alt: 
+    title: 
   description: |-
     A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
 

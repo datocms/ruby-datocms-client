@@ -2,14 +2,14 @@
 title:
   id: '24294'
   item_type: work
-  updated_at: 2017-09-20 14:01:44.491000000 Z
+  updated_at: 2017-11-02 13:21:52.064000000 Z
   position: 13
   title: Logo 1
   slug: logo-1
   cover_image:
     format: png
     size: 1148495
-    url: https://www.datocms-assets.com/604/1481208830-Screenshot2016-12-0815.53.42.png
+    url: https://www.datocms-assets.com/604/1509628904-1481208830-screenshot2016-12-0815-53-42.png
     width: 980
     height: 591
     alt: 

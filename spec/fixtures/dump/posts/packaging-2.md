@@ -2,7 +2,7 @@
 title:
   id: '24293'
   item_type: work
-  updated_at: 2017-09-20 14:01:44.469000000 Z
+  updated_at: 2017-11-02 13:15:39.309000000 Z
   position: 12
   title: Packaging 2
   slug: packaging-2
@@ -17,7 +17,21 @@ title:
   excerpt: Analytics stock virality business-to-consumer ownership rockstar mass market
     network effects venture twitter investor paradigm shift scrum project. Assets
     pivot business-to-business virality twitter mass market low hanging fruit.
-  gallery: []
+  gallery:
+  - format: jpg
+    size: 63415
+    url: https://www.datocms-assets.com/604/1509095906-1481207691-lovely-package-sugar-island-rum-6-e1411329470575.jpg
+    width: 538
+    height: 641
+    alt: 
+    title: 
+  - format: jpg
+    size: 1296491
+    url: https://www.datocms-assets.com/604/1509090345-e601eb23304333-5632272a0987e.jpg
+    width: 2484
+    height: 1728
+    alt: 
+    title: 
   description: |-
     A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
 

@@ -12,6 +12,7 @@ module Dato
         @entities_repo = entities_repo
         @collections_by_type = {}
         @items_by_id = {}
+        @items_by_parent_id = {}
         @item_type_methods = {}
 
         build_cache!
@@ -19,6 +20,10 @@ module Dato
 
       def find(id)
         @items_by_id[id.to_s]
+      end
+
+      def children_of(id)
+        @items_by_parent_id[id.to_s]
       end
 
       def respond_to_missing?(method, include_private = false)
@@ -116,6 +121,11 @@ module Dato
           end
 
           @items_by_id[item.id] = item
+
+          if item_entity.respond_to?(:parent_id) && item_entity.parent_id
+            @items_by_parent_id[item_entity.parent_id] ||= []
+            @items_by_parent_id[item_entity.parent_id] << item
+          end
         end
 
         item_types.each do |item_type|

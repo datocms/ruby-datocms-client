@@ -2,40 +2,33 @@
 title:
   id: '22236'
   item_type: work
-  updated_at: 2017-09-20 14:01:44.239000000 Z
+  updated_at: 2017-11-02 13:21:09.154000000 Z
   position: 6
   title: Brochure 1
   slug: brochure-1
   cover_image:
     format: jpg
-    size: 95254
-    url: https://www.datocms-assets.com/604/1479910654-Tri-Fold-Brochure-MockUp-1024x768.jpg
-    width: 1024
-    height: 768
+    size: 107775
+    url: https://www.datocms-assets.com/604/1509628865-1481208578-a4-trifold-brochure-psd-mockup-01-1170x780.jpg
+    width: 1170
+    height: 780
     alt: 
     title: 
   excerpt: 'Ownership scrum project facebook handshake entrepreneur churn rate marketing
     traction iPhone gen-z pitch. MVP partnership conversion beta technology pitch. '
   gallery:
   - format: jpg
-    size: 107775
-    url: https://www.datocms-assets.com/604/1481208288-a4-trifold-brochure-psd-mockup-01-1170x780.jpg
-    width: 1170
-    height: 780
-    alt: 
-    title: 
-  - format: jpg
-    size: 357098
-    url: https://www.datocms-assets.com/604/1481208298-Property-Brochure-Template.jpg
-    width: 3000
-    height: 1987
+    size: 95120
+    url: https://www.datocms-assets.com/604/1509095868-1479910693-07_portrait_brochure_mockup.jpg
+    width: 1310
+    height: 874
     alt: 
     title: 
   - format: png
-    size: 203619
-    url: https://www.datocms-assets.com/604/1481208352-dribble.png
-    width: 800
-    height: 600
+    size: 608777
+    url: https://www.datocms-assets.com/604/1479912890-Screenshot2016-11-2315.54.41.png
+    width: 541
+    height: 793
     alt: 
     title: 
   description: |-

@@ -6,7 +6,7 @@ module Dato
     describe Client, :vcr do
       let(:account_client) do
         Dato::Account::Client.new(
-          'XXXYYY',
+          'XXX',
           base_url: 'http://account-api.lvh.me:3001',
           extra_headers: { 'X-Foo' => 'Bar' }
         )
@@ -38,6 +38,7 @@ module Dato
             name: 'Article',
             singleton: false,
             sortable: false,
+            tree: false,
             api_key: 'article',
             ordering_direction: nil,
             ordering_field: nil
@@ -79,6 +80,7 @@ module Dato
             name: 'Article',
             singleton: false,
             sortable: false,
+            tree: false,
             api_key: 'article',
             ordering_direction: nil,
             ordering_field: nil
@@ -111,6 +113,7 @@ module Dato
             name: 'Article',
             singleton: false,
             sortable: false,
+            tree: false,
             api_key: 'article',
             ordering_direction: nil,
             ordering_field: nil
@@ -151,6 +154,7 @@ module Dato
             name: 'Article',
             singleton: false,
             sortable: false,
+            tree: false,
             api_key: 'article',
             ordering_direction: nil,
             ordering_field: nil

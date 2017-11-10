@@ -2,16 +2,16 @@
 title:
   id: '22229'
   item_type: work
-  updated_at: 2017-10-27 07:40:31.468000000 Z
+  updated_at: 2017-11-02 13:16:29.406000000 Z
   position: 2
   title: Packaging 1
   slug: packaging-1
   cover_image:
     format: jpg
-    size: 53390
-    url: https://www.datocms-assets.com/604/1509089946-packaging-design-20-1.jpg
-    width: 600
-    height: 357
+    size: 63415
+    url: https://www.datocms-assets.com/604/1509095906-1481207691-lovely-package-sugar-island-rum-6-e1411329470575.jpg
+    width: 538
+    height: 641
     alt: 
     title: 
   excerpt: Efficiently unleash cross-media information without cross-media value.
@@ -19,17 +19,17 @@ title:
     clicks-and-mortar.
   gallery:
   - format: jpg
-    size: 43980
-    url: https://www.datocms-assets.com/604/1509089979-0b45e245c274da6389687281119a26df-branding-packaging-beauty-packaging.jpg
-    width: 736
-    height: 981
+    size: 73144
+    url: https://www.datocms-assets.com/604/1509095904-1481207677-a7ff9c835a640f43872fc7631a922544.jpg
+    width: 600
+    height: 485
     alt: 
     title: 
   - format: jpg
-    size: 71116
-    url: https://www.datocms-assets.com/604/1509090027-creative-product-packaging-design-24e.jpg
-    width: 780
-    height: 526
+    size: 74541
+    url: https://www.datocms-assets.com/604/1509095858-1479910209-preview.jpg
+    width: 960
+    height: 720
     alt: 
     title: 
   description: |-

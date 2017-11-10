@@ -2,16 +2,16 @@
 title:
   id: '22232'
   item_type: work
-  updated_at: 2017-10-27 07:48:22.320000000 Z
+  updated_at: 2017-11-02 13:20:33.912000000 Z
   position: 4
   title: Business card 1
   slug: business-card-1
   cover_image:
     format: jpg
-    size: 115310
-    url: https://www.datocms-assets.com/604/1479910365-psd-businees-card-mock-up.jpg
-    width: 590
-    height: 313
+    size: 255845
+    url: https://www.datocms-assets.com/604/1509628827-1481208020-free_business_card_mockup_psd_by_brandinhall-d5sym94copy.jpg
+    width: 1000
+    height: 750
     alt: 
     title: 
   excerpt: " Network effects product management interaction design paradigm shift

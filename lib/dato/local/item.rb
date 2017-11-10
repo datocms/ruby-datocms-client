@@ -82,6 +82,14 @@ module Dato
         entity.position
       end
 
+      def parent
+        @items_repo.find(entity.parent_id) if item_type.tree && entity.parent_id
+      end
+
+      def children
+        @items_repo.children_of(id) if item_type.tree
+      end
+
       def updated_at
         Time.parse(entity.updated_at).utc
       end
@@ -102,6 +110,16 @@ module Dato
         }
 
         base[:position] = position if item_type.sortable
+
+        if item_type.tree
+          base[:position] = position
+          base[:children] = children.map do |_i|
+            value.to_hash(
+              max_depth,
+              current_depth + 1
+            )
+          end
+        end
 
         fields.each_with_object(base) do |field, result|
           value = send(field.api_key)
