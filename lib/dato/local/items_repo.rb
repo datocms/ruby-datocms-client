@@ -23,7 +23,7 @@ module Dato
       end
 
       def children_of(id)
-        @items_by_parent_id[id.to_s]
+        @items_by_parent_id.fetch(id.to_s, [])
       end
 
       def respond_to_missing?(method, include_private = false)
