@@ -2,7 +2,7 @@
 title:
   id: '24294'
   item_type: work
-  updated_at: 2017-11-02 13:21:52.064000000 Z
+  updated_at: 2017-11-23 16:02:33.318000000 Z
   position: 13
   title: Logo 1
   slug: logo-1

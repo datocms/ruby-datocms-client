@@ -9,10 +9,21 @@ module Dato
         instance_double('Dato::Local::EntitiesRepo')
       end
       let(:item_type) do
-        double('Dato::Local::JsonApiEntity', api_key: 'post', singleton: false, sortable: false)
+        double(
+          'Dato::Local::JsonApiEntity',
+          api_key: 'post',
+          singleton: false,
+          modular_block: false,
+          sortable: false
+        )
       end
       let(:singleton_item_type) do
-        double('Dato::Local::JsonApiEntity', api_key: 'homepage', singleton: true)
+        double(
+          'Dato::Local::JsonApiEntity',
+          api_key: 'homepage',
+          singleton: true,
+          modular_block: false
+        )
       end
       let(:item_entity) do
         double('Dato::Local::JsonApiEntity', item_type: item_type)
@@ -88,11 +99,22 @@ module Dato
 
         describe 'non-singleton that clashes with singleton' do
           let(:item_type) do
-            double('Dato::Local::JsonApiEntity', api_key: 'post', singleton: false, sortable: false)
+            double(
+              'Dato::Local::JsonApiEntity',
+              api_key: 'post',
+              singleton: false,
+              modular_block: false,
+              sortable: false
+            )
           end
 
           let(:singleton_item_type) do
-            double('Dato::Local::JsonApiEntity', api_key: 'posts', singleton: true)
+            double(
+              'Dato::Local::JsonApiEntity',
+              api_key: 'posts',
+              singleton: true,
+              modular_block: false,
+            )
           end
 
           it 'responds to XXX_instance and XXX_collection method' do
@@ -103,11 +125,22 @@ module Dato
 
         describe 'singleton that clashes with non-singleton' do
           let(:item_type) do
-            double('Dato::Local::JsonApiEntity', api_key: 'posts', singleton: false, sortable: false)
+            double(
+              'Dato::Local::JsonApiEntity',
+              api_key: 'posts',
+              singleton: false,
+              modular_block: false,
+              sortable: false
+            )
           end
 
           let(:singleton_item_type) do
-            double('Dato::Local::JsonApiEntity', api_key: 'posts', singleton: true)
+            double(
+              'Dato::Local::JsonApiEntity',
+              api_key: 'posts',
+              singleton: true,
+              modular_block: false
+            )
           end
 
           it 'responds to XXX_instance and XXX_collection method' do
@@ -118,7 +151,13 @@ module Dato
 
         describe 'sortable collection' do
           let(:item_type) do
-            double('Dato::Local::JsonApiEntity', api_key: 'post', singleton: false, sortable: true)
+            double(
+              'Dato::Local::JsonApiEntity',
+              api_key: 'post',
+              singleton: false,
+              sortable: true,
+              modular_block: false
+            )
           end
           let(:item) do
             instance_double('Dato::Local::Item', id: '14', position: 2)

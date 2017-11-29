@@ -16,7 +16,7 @@ module Dato
 
       let(:client) do
         Dato::Site::Client.new(
-          'XXX',
+          '1b3a3699366bc5494d9d62aca7cd4202bf3df85b124d3d2f07',
           base_url: 'http://site-api.lvh.me:3001'
         )
       end

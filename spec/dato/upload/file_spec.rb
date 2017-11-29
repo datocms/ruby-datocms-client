@@ -15,6 +15,14 @@ module Dato
         account_client.sites.create(name: 'Test site')
       end
 
+      before do
+        site
+      end
+
+      after do
+        account_client.sites.destroy(site[:id])
+      end
+
       let(:site_client) do
         Dato::Site::Client.new(
           site[:readwrite_token],
@@ -22,13 +30,15 @@ module Dato
         )
       end
 
-      subject(:command) { described_class.new(site_client, source) }
+      subject(:command) do
+        described_class.new(site_client, source)
+      end
 
       context 'with a url' do
         let(:source) { 'https://s3.claudiaraddi.net/slideshows/original/4/Sito2.jpg' }
 
         it 'downloads locally and then uploads the file' do
-          expect(command.upload).to eq(path: '/315/1477643153-Sito2.jpg',
+          expect(command.upload).to eq(path: '/4072/1511970850-sito2.jpg',
                                        size: 713_012,
                                        format: 'jpg')
         end
@@ -38,7 +48,7 @@ module Dato
         let(:source) { './spec/fixtures/image.jpg' }
 
         it 'uploads the file' do
-          expect(command.upload).to eq(path: '/316/1477643159-image.jpg',
+          expect(command.upload).to eq(path: '/4073/1511970860-image.jpg',
                                        size: 4865,
                                        format: 'jpg')
         end

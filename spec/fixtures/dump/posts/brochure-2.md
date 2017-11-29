@@ -2,7 +2,7 @@
 title:
   id: '24292'
   item_type: work
-  updated_at: 2017-11-02 13:18:33.485000000 Z
+  updated_at: 2017-11-23 16:02:33.304000000 Z
   position: 11
   title: Brochure 2
   slug: brochure-2

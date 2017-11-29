@@ -6,7 +6,7 @@ module Dato
     describe Client, :vcr do
       let(:client) do
         Dato::Account::Client.new(
-          'XYZ',
+          'XXX',
           base_url: 'http://account-api.lvh.me:3001'
         )
       end
@@ -20,11 +20,7 @@ module Dato
       describe 'Account' do
         it 'fetch, update' do
           account = client.account.find
-
-          client.account.update(
-            account.merge(email: 'foo@bar.com')
-          )
-
+          client.account.update(account.merge(email: 'foo@bar.com'))
           expect(client.account.find[:email]).to eq 'foo@bar.com'
         end
       end
@@ -38,11 +34,11 @@ module Dato
             new_site.merge(name: 'Blog')
           )
 
-          expect(client.sites.all.size).to eq 1
+          new_sites_count = client.sites.all.size
           expect(client.sites.find(new_site[:id])[:name]).to eq 'Blog'
 
           client.sites.destroy(new_site[:id])
-          expect(client.sites.all.size).to eq 0
+          expect(client.sites.all.size).to eq (new_sites_count - 1)
         end
       end
     end

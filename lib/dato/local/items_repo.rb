@@ -54,7 +54,9 @@ module Dato
       end
 
       def collection_item_types
-        item_types - single_instance_item_types
+        item_types.select do |item_type|
+          !item_type.singleton && !item_type.modular_block
+        end
       end
 
       def items_of_type(item_type)

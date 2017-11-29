@@ -18,7 +18,7 @@ module Dato
         def update(field_id, resource_attributes)
           body = JsonApiSerializer.new(
             type: :field,
-            attributes: %i(api_key appeareance hint label localized position validators)
+            attributes: %i(api_key appeareance field_type hint label localized position validators)
           ).serialize(resource_attributes, field_id)
 
           put_request "/fields/#{field_id}", body

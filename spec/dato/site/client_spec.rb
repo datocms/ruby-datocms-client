@@ -37,6 +37,7 @@ module Dato
           client.item_types.create(
             name: 'Article',
             singleton: false,
+            modular_block: false,
             sortable: false,
             tree: false,
             api_key: 'article',
@@ -79,6 +80,7 @@ module Dato
           new_item_type = client.item_types.create(
             name: 'Article',
             singleton: false,
+            modular_block: false,
             sortable: false,
             tree: false,
             api_key: 'article',
@@ -113,6 +115,7 @@ module Dato
             name: 'Article',
             singleton: false,
             sortable: false,
+            modular_block: false,
             tree: false,
             api_key: 'article',
             ordering_direction: nil,
@@ -153,6 +156,7 @@ module Dato
           client.item_types.create(
             name: 'Article',
             singleton: false,
+            modular_block: false,
             sortable: false,
             tree: false,
             api_key: 'article',

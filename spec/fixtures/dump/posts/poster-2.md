@@ -2,7 +2,7 @@
 title:
   id: '24298'
   item_type: work
-  updated_at: 2017-09-20 14:01:44.508000000 Z
+  updated_at: 2017-11-23 16:02:33.325000000 Z
   position: 14
   title: Poster 2
   slug: poster-2

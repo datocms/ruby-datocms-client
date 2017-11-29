@@ -24,6 +24,7 @@ describe Dato::Local::Loader, :vcr do
     client.item_types.create(
       name: 'Article',
       singleton: false,
+      modular_block: false,
       sortable: false,
       tree: false,
       api_key: 'article',
