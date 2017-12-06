@@ -94,6 +94,10 @@ module Dato
         Time.parse(entity.updated_at).utc
       end
 
+      def created_at
+        Time.parse(entity.created_at).utc
+      end
+
       def to_s
         api_key = item_type.api_key
         "#<Item id=#{id} item_type=#{api_key} attributes=#{attributes}>"
@@ -106,7 +110,8 @@ module Dato
         base = {
           id: id,
           item_type: item_type.api_key,
-          updated_at: updated_at
+          updated_at: updated_at,
+          created_at: created_at
         }
 
         base[:position] = position if item_type.sortable

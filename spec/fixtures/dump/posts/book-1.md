@@ -3,6 +3,7 @@ title:
   id: '22237'
   item_type: work
   updated_at: 2017-11-23 16:02:25.434000000 Z
+  created_at: 2016-11-23 14:18:17.532000000 Z
   position: 7
   title: Book 1
   slug: book-1

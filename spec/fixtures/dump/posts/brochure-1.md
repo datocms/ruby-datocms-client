@@ -3,6 +3,7 @@ title:
   id: '22236'
   item_type: work
   updated_at: 2017-11-23 16:02:25.423000000 Z
+  created_at: 2016-11-23 14:18:06.653000000 Z
   position: 6
   title: Brochure 1
   slug: brochure-1

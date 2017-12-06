@@ -23,6 +23,7 @@ module Dato
           resource_attributes = resource_attributes.except(
             :id,
             :updated_at,
+            :created_at,
             :is_valid,
             :item_type,
             :last_editor

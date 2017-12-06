@@ -3,6 +3,7 @@ title:
   id: '22238'
   item_type: work
   updated_at: 2017-11-23 16:02:25.444000000 Z
+  created_at: 2016-11-23 14:20:09.729000000 Z
   position: 8
   title: Stationery 2
   slug: stationery-2

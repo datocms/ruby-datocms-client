@@ -113,7 +113,7 @@ module Dato
               'Dato::Local::JsonApiEntity',
               api_key: 'posts',
               singleton: true,
-              modular_block: false,
+              modular_block: false
             )
           end
 

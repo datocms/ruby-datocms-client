@@ -3,6 +3,7 @@ title:
   id: '22239'
   item_type: work
   updated_at: 2017-11-23 16:02:25.450000000 Z
+  created_at: 2016-11-23 14:21:49.422000000 Z
   position: 9
   title: Web 1
   slug: web-1

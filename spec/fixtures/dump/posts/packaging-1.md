@@ -3,6 +3,7 @@ title:
   id: '22229'
   item_type: work
   updated_at: 2017-11-23 16:02:25.396000000 Z
+  created_at: 2016-11-23 14:10:14.007000000 Z
   position: 2
   title: Packaging 1
   slug: packaging-1

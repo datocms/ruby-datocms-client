@@ -3,6 +3,7 @@ title:
   id: '22248'
   item_type: work
   updated_at: 2017-11-23 16:02:25.483000000 Z
+  created_at: 2016-11-23 14:48:10.939000000 Z
   position: 1
   title: Flyer 1
   slug: flyer-1
