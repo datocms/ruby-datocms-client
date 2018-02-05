@@ -31,7 +31,7 @@ module Dato
       end
 
       def all_items
-        client.items.all({}, false)
+        client.items.all({}, deserialize_response: false, all_pages: true)
       end
     end
   end

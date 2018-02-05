@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 require 'dato/site/repo/base'
+require 'dato/site/paginator'
+require 'active_support/core_ext/hash/except'
+require 'active_support/core_ext/hash/keys'
 
 module Dato
   module Site
@@ -15,8 +18,23 @@ module Dato
           post_request '/uploads', body
         end
 
-        def all(query)
-          get_request '/uploads', query
+        def all(filters = {}, options = {})
+          options.symbolize_keys!
+
+          deserialize_response = options.fetch(:deserialize_response, true)
+          all_pages = options.fetch(:all_pages, false)
+
+          response = if all_pages
+            Paginator.new(client, '/uploads', filters).response
+          else
+            client.request(:get, '/uploads', filters)
+          end
+
+          if deserialize_response
+            JsonApiDeserializer.new.deserialize(response)
+          else
+            response
+          end
         end
 
         def find(upload_id)

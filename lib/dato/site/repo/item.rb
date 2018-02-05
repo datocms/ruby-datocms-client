@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 require 'dato/site/repo/base'
+require 'dato/site/paginator'
 require 'active_support/core_ext/hash/except'
+require 'active_support/core_ext/hash/keys'
 
 module Dato
   module Site
@@ -37,32 +39,22 @@ module Dato
           put_request "/items/#{item_id}", body
         end
 
-        def all(filters = {}, deserialize_response = true)
-          items_per_page = 500
+        def all(filters = {}, options = {})
+          options.symbolize_keys!
 
-          base_response = client.request(
-            :get, '/items', filters.dup.merge('page[limit]' => items_per_page)
-          )
+          deserialize_response = options.fetch(:deserialize_response, true)
+          all_pages = options.fetch(:all_pages, false)
 
-          extra_pages = (
-            base_response[:meta][:total_count] / items_per_page.to_f
-          ).ceil - 1
-
-          extra_pages.times do |page|
-            base_response[:data] += client.request(
-              :get,
-              '/items',
-              filters.dup.merge(
-                'page[offset]' => items_per_page * (page + 1),
-                'page[limit]' => items_per_page
-              )
-            )[:data]
+          response = if all_pages
+            Paginator.new(client, '/items', filters).response
+          else
+            client.request(:get, '/items', filters)
           end
 
           if deserialize_response
-            JsonApiDeserializer.new.deserialize(base_response)
+            JsonApiDeserializer.new.deserialize(response)
           else
-            base_response
+            response
           end
         end
 
