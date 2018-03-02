@@ -38,9 +38,9 @@ module Dato
         let(:source) { 'https://s3.claudiaraddi.net/slideshows/original/4/Sito2.jpg' }
 
         it 'downloads locally and then uploads the file' do
-          expect(command.upload).to eq(path: '/4072/1511970850-sito2.jpg',
-                                       size: 713_012,
-                                       format: 'jpg')
+          expect(command.upload[:path]).to include('sito2.jpg')
+          expect(command.upload[:size]).to eq(713_012)
+          expect(command.upload[:format]).to eq('jpg')
         end
       end
 
@@ -48,9 +48,9 @@ module Dato
         let(:source) { './spec/fixtures/image.jpg' }
 
         it 'uploads the file' do
-          expect(command.upload).to eq(path: '/4073/1511970860-image.jpg',
-                                       size: 4865,
-                                       format: 'jpg')
+          expect(command.upload[:path]).to include('image.jpg')
+          expect(command.upload[:size]).to eq(4_865)
+          expect(command.upload[:format]).to eq('jpg')
         end
       end
     end

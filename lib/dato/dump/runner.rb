@@ -7,10 +7,11 @@ require 'dato/local/loader'
 module Dato
   module Dump
     class Runner
-      attr_reader :config_path, :client, :destination_path
+      attr_reader :config_path, :client, :destination_path, :draft_mode
 
-      def initialize(config_path, client, destination_path = Dir.pwd)
+      def initialize(config_path, client, draft_mode, destination_path = Dir.pwd)
         @config_path = config_path
+        @draft_mode = draft_mode
         @client = client
         @destination_path = destination_path
       end
@@ -39,7 +40,7 @@ module Dato
       end
 
       def loader
-        @loader ||= Dato::Local::Loader.new(client)
+        @loader ||= Dato::Local::Loader.new(client, draft_mode)
       end
     end
   end

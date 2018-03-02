@@ -28,7 +28,8 @@ module Dato
             :created_at,
             :is_valid,
             :item_type,
-            :published_version
+            :published_version,
+            :current_version
           )
 
           body = JsonApiSerializer.new(
@@ -37,6 +38,14 @@ module Dato
           ).serialize(resource_attributes, item_id)
 
           put_request "/items/#{item_id}", body
+        end
+
+        def publish(item_id)
+          put_request "/items/#{item_id}/publish", {}
+        end
+
+        def unpublish(item_id)
+          put_request "/items/#{item_id}/unpublish", {}
         end
 
         def all(filters = {}, options = {})

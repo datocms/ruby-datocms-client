@@ -14,10 +14,12 @@ module Dato
     desc 'dump', 'dumps DatoCMS content into local files'
     option :config, default: 'dato.config.rb'
     option :token, default: ENV['DATO_API_TOKEN'], required: true
+    option :draft, default: false, type: :boolean
     option :watch, default: false, type: :boolean
     def dump
       config_file = File.expand_path(options[:config])
       watch_mode = options[:watch]
+      draft_mode = options[:draft]
 
       client = Dato::Site::Client.new(
         options[:token],
@@ -44,7 +46,7 @@ module Dato
 
         sleep
       else
-        Dump::Runner.new(config_file, client).run
+        Dump::Runner.new(config_file, client, draft_mode).run
       end
     end
 
@@ -67,20 +69,6 @@ module Dato
       say 'Token added to .env file.'
 
       exit 0
-    end
-
-    desc 'migrate-slugs', 'migrates a Site so that it uses slug fields'
-    option :token, default: ENV['DATO_API_TOKEN'], required: true
-    option :skip_id_prefix, type: :boolean
-    def migrate_slugs
-      client = Dato::Site::Client.new(
-        options[:token],
-        extra_headers: {
-          'X-Reason' => 'migrate-slugs'
-        }
-      )
-
-      MigrateSlugs::Runner.new(client, options[:skip_id_prefix]).run
     end
 
     no_tasks do
