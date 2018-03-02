@@ -8,10 +8,11 @@ dato.available_locales.each do |_locale|
 
   directory 'posts' do
     helper_method_example
-    dato.works.each do |post|
+
+    dato.articles.each do |post|
       create_post "#{post.slug}.md" do
         frontmatter :yaml, title: post.to_hash
-        content post.excerpt
+        content post.title
       end
     end
   end

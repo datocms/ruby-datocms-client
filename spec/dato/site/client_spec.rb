@@ -217,7 +217,7 @@ module Dato
           new_item = client.items.create(
             item_type: item_type[:id],
             title: 'First post',
-            image: client.upload_image('https://www.datocms.com/images/logo.png'),
+            image: client.upload_image('https://www.datocms.com/static/2-00c287793580e47fbe1222a1d44a6e25-95c66.png'),
             file: client.upload_file('./spec/fixtures/file.txt')
           )
 

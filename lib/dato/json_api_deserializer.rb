@@ -13,7 +13,10 @@ module Dato
 
     def deserialize_resource(data)
       result = { id: data[:id] }
-      result.merge!(data[:attributes])
+
+      if data[:attributes]
+        result.merge!(data[:attributes])
+      end
 
       relationships = data.delete(:relationships)
 

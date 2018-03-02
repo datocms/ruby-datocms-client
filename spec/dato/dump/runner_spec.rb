@@ -6,22 +6,17 @@ require 'diff_dirs'
 module Dato
   module Dump
     RSpec.describe Runner, :vcr do
+      include_context 'with a new site'
+
       subject(:runner) do
-        described_class.new(config_path, client, destination_path)
+        described_class.new(config_path, client, false, destination_path)
       end
+
+      let(:config_path) { './spec/fixtures/config.rb' }
 
       let(:destination_path) do
         Dir.mktmpdir
       end
-
-      let(:client) do
-        Dato::Site::Client.new(
-          '1b3a3699366bc5494d9d62aca7cd4202bf3df85b124d3d2f07',
-          base_url: 'http://site-api.lvh.me:3001'
-        )
-      end
-
-      let(:config_path) { './spec/fixtures/config.rb' }
 
       describe '.run' do
         before do
