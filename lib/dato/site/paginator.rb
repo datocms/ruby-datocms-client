@@ -6,7 +6,7 @@ module Dato
       end
 
       def response
-        items_per_page = 500
+        items_per_page = 100
 
         base_response = @client.request(
           :get, @base_endpoint, @filters.dup.merge('page[limit]' => items_per_page)
