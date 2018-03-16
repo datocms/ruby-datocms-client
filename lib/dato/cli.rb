@@ -14,12 +14,12 @@ module Dato
     desc 'dump', 'dumps DatoCMS content into local files'
     option :config, default: 'dato.config.rb'
     option :token, default: ENV['DATO_API_TOKEN'], required: true
-    option :draft, default: false, type: :boolean
+    option :preview, default: false, type: :boolean
     option :watch, default: false, type: :boolean
     def dump
       config_file = File.expand_path(options[:config])
       watch_mode = options[:watch]
-      draft_mode = options[:draft]
+      preview_mode = options[:preview]
 
       client = Dato::Site::Client.new(
         options[:token],
@@ -46,7 +46,7 @@ module Dato
 
         sleep
       else
-        Dump::Runner.new(config_file, client, draft_mode).run
+        Dump::Runner.new(config_file, client, preview_mode).run
       end
     end
 

@@ -8,11 +8,11 @@ module Dato
       attr_reader :client
       attr_reader :entities_repo
       attr_reader :items_repo
-      attr_reader :draft_mode
+      attr_reader :preview_mode
 
-      def initialize(client, draft_mode = false)
+      def initialize(client, preview_mode = false)
         @client = client
-        @draft_mode = draft_mode
+        @preview_mode = preview_mode
         @entities_repo = EntitiesRepo.new
         @items_repo = ItemsRepo.new(@entities_repo)
       end
@@ -31,7 +31,7 @@ module Dato
 
       def all_items
         client.items.all(
-          { version: draft_mode ? 'current' : 'published' },
+          { version: preview_mode ? 'latest' : 'published' },
           deserialize_response: false,
           all_pages: true
         )
