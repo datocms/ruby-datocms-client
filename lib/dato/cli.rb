@@ -2,7 +2,6 @@
 require 'thor'
 require 'dato/dump/runner'
 require 'dato/dump/ssg_detector'
-require 'dato/migrate_slugs/runner'
 require 'dato/watch/site_change_watcher'
 require 'listen'
 require 'thread'
