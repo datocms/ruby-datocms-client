@@ -68,6 +68,7 @@ RSpec.shared_context 'items repo' do
             name: 'Article',
             singleton: false,
             modular_block: false,
+            draft_mode_active: false,
             sortable: false,
             api_key: 'article'
           },

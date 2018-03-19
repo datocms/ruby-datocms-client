@@ -40,6 +40,7 @@ module Dato
             modular_block: false,
             sortable: false,
             tree: false,
+            draft_mode_active: false,
             api_key: 'article',
             ordering_direction: nil,
             ordering_field: nil
@@ -83,6 +84,7 @@ module Dato
             modular_block: false,
             sortable: false,
             tree: false,
+            draft_mode_active: false,
             api_key: 'article',
             ordering_direction: nil,
             ordering_field: nil
@@ -117,6 +119,7 @@ module Dato
             sortable: false,
             modular_block: false,
             tree: false,
+            draft_mode_active: false,
             api_key: 'article',
             ordering_direction: nil,
             ordering_field: nil
@@ -159,6 +162,7 @@ module Dato
             modular_block: false,
             sortable: false,
             tree: false,
+            draft_mode_active: false,
             api_key: 'article',
             ordering_direction: nil,
             ordering_field: nil

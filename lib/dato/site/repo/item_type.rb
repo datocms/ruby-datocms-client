@@ -8,9 +8,9 @@ module Dato
         def create(resource_attributes)
           body = JsonApiSerializer.new(
             type: :item_type,
-            attributes: %i(api_key modular_block name ordering_direction singleton sortable tree),
+            attributes: %i(api_key modular_block name ordering_direction singleton sortable tree draft_mode_active),
             relationships: { ordering_field: { collection: false, type: :field } },
-            required_attributes: %i(api_key modular_block name ordering_direction singleton sortable tree),
+            required_attributes: %i(api_key modular_block name ordering_direction singleton sortable tree draft_mode_active),
             required_relationships: %i(ordering_field)
           ).serialize(resource_attributes)
 
@@ -20,9 +20,9 @@ module Dato
         def update(item_type_id, resource_attributes)
           body = JsonApiSerializer.new(
             type: :item_type,
-            attributes: %i(api_key modular_block name ordering_direction singleton sortable tree),
+            attributes: %i(api_key modular_block name ordering_direction singleton sortable tree draft_mode_active),
             relationships: { ordering_field: { collection: false, type: :field } },
-            required_attributes: %i(api_key modular_block name ordering_direction singleton sortable tree),
+            required_attributes: %i(api_key modular_block name ordering_direction singleton sortable tree draft_mode_active),
             required_relationships: %i(ordering_field)
           ).serialize(resource_attributes, item_type_id)
 

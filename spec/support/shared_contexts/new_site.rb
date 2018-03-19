@@ -26,6 +26,7 @@ RSpec.shared_context 'with a new site' do
       modular_block: false,
       sortable: false,
       tree: false,
+      draft_mode_active: false,
       api_key: 'article',
       ordering_direction: nil,
       ordering_field: nil
