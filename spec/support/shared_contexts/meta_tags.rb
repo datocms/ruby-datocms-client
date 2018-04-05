@@ -70,7 +70,8 @@ RSpec.shared_context 'items repo' do
             modular_block: false,
             draft_mode_active: false,
             sortable: false,
-            api_key: 'article'
+            api_key: 'article',
+            ordering_direction: nil
           },
           relationships: {
             fields: {
@@ -94,6 +95,9 @@ RSpec.shared_context 'items repo' do
               ]
             },
             singleton_item: {
+              data: nil
+            },
+            ordering_field: {
               data: nil
             }
           }

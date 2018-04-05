@@ -14,7 +14,9 @@ module Dato
           api_key: 'post',
           singleton: false,
           modular_block: false,
-          sortable: false
+          sortable: false,
+          ordering_field: nil,
+          ordering_direction: nil
         )
       end
       let(:singleton_item_type) do
@@ -22,7 +24,9 @@ module Dato
           'Dato::Local::JsonApiEntity',
           api_key: 'homepage',
           singleton: true,
-          modular_block: false
+          modular_block: false,
+          ordering_field: nil,
+          ordering_direction: nil
         )
       end
       let(:item_entity) do
@@ -104,7 +108,9 @@ module Dato
               api_key: 'post',
               singleton: false,
               modular_block: false,
-              sortable: false
+              sortable: false,
+              ordering_field: nil,
+              ordering_direction: nil
             )
           end
 
@@ -113,7 +119,9 @@ module Dato
               'Dato::Local::JsonApiEntity',
               api_key: 'posts',
               singleton: true,
-              modular_block: false
+              modular_block: false,
+              ordering_field: nil,
+              ordering_direction: nil
             )
           end
 
@@ -130,7 +138,9 @@ module Dato
               api_key: 'posts',
               singleton: false,
               modular_block: false,
-              sortable: false
+              sortable: false,
+              ordering_field: nil,
+              ordering_direction: nil
             )
           end
 
@@ -139,7 +149,9 @@ module Dato
               'Dato::Local::JsonApiEntity',
               api_key: 'posts',
               singleton: true,
-              modular_block: false
+              modular_block: false,
+              ordering_field: nil,
+              ordering_direction: nil
             )
           end
 
