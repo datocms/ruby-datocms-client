@@ -118,8 +118,8 @@ module Dato
 
         if item_type.tree
           base[:position] = position
-          base[:children] = children.map do |_i|
-            value.to_hash(
+          base[:children] = children.map do |child|
+            child.to_hash(
               max_depth,
               current_depth + 1
             )
