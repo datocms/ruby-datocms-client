@@ -18,7 +18,7 @@ module Dato
       end
 
       def load
-        @entities_repo = EntitiesRepo.new(site, all_items)
+        @entities_repo = EntitiesRepo.new(site, all_items, all_uploads)
         @items_repo = ItemsRepo.new(@entities_repo)
       end
 
@@ -32,6 +32,14 @@ module Dato
       def all_items
         client.items.all(
           { version: preview_mode ? 'latest' : 'published' },
+          deserialize_response: false,
+          all_pages: true
+        )
+      end
+
+      def all_uploads
+        client.uploads.all(
+          {},
           deserialize_response: false,
           all_pages: true
         )

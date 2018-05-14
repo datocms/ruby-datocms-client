@@ -56,7 +56,11 @@ module Dato
 
         http.request(request)
 
-        format_resource(upload_request)
+        uploads = client.uploads.create(
+          format_resource(upload_request)
+        )
+
+        uploads["id"]
       end
 
       def format_resource(upload_request)

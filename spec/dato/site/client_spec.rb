@@ -24,7 +24,8 @@ module Dato
       end
 
       before { site }
-      after { account_client.sites.destroy(site[:id]) }
+
+      after { destroy_site_and_wait(site) }
 
       describe 'Not found' do
         it 'raises Dato::ApiError' do
@@ -187,13 +188,18 @@ module Dato
           client.fields.create(
             item_type[:id],
             api_key: 'image',
-            field_type: 'image',
+            field_type: 'file',
             appeareance: nil,
             label: 'Image',
             localized: false,
             position: 99,
             hint: '',
-            validators: { required: {} }
+            validators: {
+              required: {},
+              extension: {
+                predefined_list: "image"
+              }
+            }
           )
         end
 

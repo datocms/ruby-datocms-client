@@ -94,7 +94,8 @@ module Dato
             'Accept' => 'application/json',
             'Content-Type' => 'application/json',
             'Authorization' => "Bearer #{@token}",
-            'User-Agent' => "ruby-client v#{Dato::VERSION}"
+            'User-Agent' => "ruby-client v#{Dato::VERSION}",
+            'X-Api-Version' => "2"
           )
         }
 

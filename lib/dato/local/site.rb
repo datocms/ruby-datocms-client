@@ -23,7 +23,7 @@ module Dato
       end
 
       def favicon
-        read_attribute(:favicon, FieldType::Image, false)
+        read_attribute(:favicon, FieldType::File, false)
       end
 
       def to_s

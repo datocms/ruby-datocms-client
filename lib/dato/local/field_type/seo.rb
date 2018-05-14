@@ -17,7 +17,7 @@ module Dato
         end
 
         def image
-          @image && Image.parse(@image, @repo)
+          @image && File.parse(@image, @repo)
         end
 
         def to_hash(*args)

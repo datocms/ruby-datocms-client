@@ -9,42 +9,20 @@ module Dato
       subject(:builder) { described_class.new(site, '#ff0000') }
 
       describe '#meta_tags' do
-        let(:payload) do
-          {
-            data: {
-              id: '681',
-              type: 'site',
-              attributes: {
-                name: 'Site name',
-                locales: ['en'],
-                favicon: favicon,
-                imgix_host: 'www.datocms-assets.com'
-              }
-            }
-          }
-        end
-        let(:favicon) { nil }
-
         context 'with no favicon' do
+          let(:favicon) { nil }
+
           it 'returns an array of tags' do
             expect(builder.meta_tags).to eq [
               { tag_name: 'meta', attributes: { name: 'theme-color', content: '#ff0000' } },
               { tag_name: 'meta', attributes: { name: 'msapplication-TileColor', content: '#ff0000' } },
-              { tag_name: 'meta', attributes: { name: 'application-name', content: 'Site name' } }
+              { tag_name: 'meta', attributes: { name: 'application-name', content: 'XXX' } }
             ]
           end
         end
 
         context 'with favicon' do
-          let(:favicon) do
-            {
-              path: '/seo.png',
-              width: 500,
-              height: 500,
-              format: 'png',
-              size: 572_451
-            }
-          end
+          let(:favicon) { "666" }
 
           it 'returns an array of tags' do
             expect(builder.meta_tags).to eq [
@@ -67,7 +45,7 @@ module Dato
               { tag_name: 'meta', attributes: { name: 'msapplication-square310x150logo', content: 'https://www.datocms-assets.com/seo.png?w=310&h=150' } },
               { tag_name: 'meta', attributes: { name: 'theme-color', content: '#ff0000' } },
               { tag_name: 'meta', attributes: { name: 'msapplication-TileColor', content: '#ff0000' } },
-              { tag_name: 'meta', attributes: { name: 'application-name', content: 'Site name' } }
+              { tag_name: 'meta', attributes: { name: 'application-name', content: 'XXX' } }
             ]
           end
         end

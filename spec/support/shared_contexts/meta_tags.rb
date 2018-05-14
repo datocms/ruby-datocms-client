@@ -28,6 +28,45 @@ RSpec.shared_context 'items repo' do
           }
         },
         {
+          id: '666',
+          type: 'upload',
+          attributes: {
+            path: '/seo.png',
+            width: 500,
+            height: 500,
+            format: 'png',
+            size: 572_451,
+            alt: 'an alt',
+            title: 'a title',
+          }
+        },
+        {
+          id: '999',
+          type: 'upload',
+          attributes: {
+            path: '/fallback_seo.png',
+            width: 500,
+            height: 500,
+            format: 'png',
+            size: 543_210,
+            alt: 'another alt',
+            title: 'another title'
+          }
+        },
+        {
+          id: '111',
+          type: 'upload',
+          attributes: {
+            path: '/simple_image.png',
+            width: 500,
+            height: 500,
+            format: 'png',
+            size: 543_210,
+            alt: 'image alt',
+            title: 'image title'
+          }
+        },
+        {
           id: '681',
           type: 'site',
           attributes: {
@@ -107,7 +146,7 @@ RSpec.shared_context 'items repo' do
           type: 'field',
           attributes: {
             label: 'Image',
-            field_type: 'image',
+            field_type: 'file',
             api_key: 'image',
             hint: nil,
             localized: false,

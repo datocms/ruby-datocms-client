@@ -34,13 +34,7 @@ module Dato
                 context 'with SEO' do
                   let(:seo) do
                     {
-                      image: {
-                        path: '/seo.png',
-                        width: 569,
-                        height: 629,
-                        format: 'png',
-                        size: 572_451
-                      }
+                      image: '666'
                     }
                   end
 
@@ -52,15 +46,7 @@ module Dato
               end
 
               context 'with image' do
-                let(:item_image) do
-                  {
-                    path: '/image.png',
-                    width: 569,
-                    height: 629,
-                    format: 'png',
-                    size: 572_451
-                  }
-                end
+                let(:item_image) { '111' }
 
                 context 'no SEO' do
                   it 'returns item image' do
@@ -72,13 +58,7 @@ module Dato
                 context 'with SEO' do
                   let(:seo) do
                     {
-                      image: {
-                        path: '/seo.png',
-                        width: 569,
-                        height: 629,
-                        format: 'png',
-                        size: 572_451
-                      }
+                      image: '666'
                     }
                   end
 
@@ -94,21 +74,15 @@ module Dato
               let(:global_seo) do
                 {
                   fallback_seo: {
-                    image: {
-                      path: '/fallback.png',
-                      width: 569,
-                      height: 629,
-                      format: 'png',
-                      size: 572_451
-                    }
+                    image: "999"
                   }
                 }
               end
 
               context 'with no item' do
                 it 'returns fallback image' do
-                  expect(og_value).to include('fallback.png')
-                  expect(card_value).to include('fallback.png')
+                  expect(og_value).to include('fallback_seo.png')
+                  expect(card_value).to include('fallback_seo.png')
                 end
               end
 
@@ -118,21 +92,15 @@ module Dato
                 context 'with no image' do
                   context 'no SEO' do
                     it 'returns fallback image' do
-                      expect(og_value).to include('fallback.png')
-                      expect(card_value).to include('fallback.png')
+                      expect(og_value).to include('fallback_seo.png')
+                      expect(card_value).to include('fallback_seo.png')
                     end
                   end
 
                   context 'with SEO' do
                     let(:seo) do
                       {
-                        image: {
-                          path: '/seo.png',
-                          width: 569,
-                          height: 629,
-                          format: 'png',
-                          size: 572_451
-                        }
+                        image: '666'
                       }
                     end
 
@@ -144,15 +112,7 @@ module Dato
                 end
 
                 context 'with image' do
-                  let(:item_image) do
-                    {
-                      path: '/image.png',
-                      width: 569,
-                      height: 629,
-                      format: 'png',
-                      size: 572_451
-                    }
-                  end
+                  let(:item_image) { '111' }
 
                   context 'no SEO' do
                     it 'returns item image' do
@@ -164,13 +124,7 @@ module Dato
                   context 'with SEO' do
                     let(:seo) do
                       {
-                        image: {
-                          path: '/seo.png',
-                          width: 569,
-                          height: 629,
-                          format: 'png',
-                          size: 572_451
-                        }
+                        image: '666'
                       }
                     end
 

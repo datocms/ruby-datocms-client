@@ -16,62 +16,65 @@ http_interactions:
       Authorization:
       - Bearer XXX
       User-Agent:
-      - ruby-client v0.3.30
+      - ruby-client v0.4.3
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
       code: 201
-      message: Created
+      message: 'Created '
     headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
+      X-Api-Version:
+      - '1'
       Content-Type:
       - application/json; charset=utf-8
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"4d6cbce7c11400b12480ce89e04fb3bd"
+      - W/"28b93dcd1f1ca25c8d24b29a2ddaea3e"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5cc8057a-b933-42ee-a4db-ef47a3ca3559
+      - 980d4838-bd6a-4ebe-8674-e9cc41782e8a
       X-Runtime:
-      - '0.056987'
-      Transfer-Encoding:
-      - chunked
+      - '0.078020'
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.0/2017-12-25)
+      Date:
+      - Mon, 14 May 2018 15:22:41 GMT
+      Content-Length:
+      - '582'
+      Connection:
+      - Keep-Alive
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiMTAzIiwidHlwZSI6InNpdGUiLCJhdHRyaWJ1dGVz
-        Ijp7Im5hbWUiOiJUZXN0IHNpdGUiLCJkb21haW4iOm51bGwsImludGVybmFs
-        X3N1YmRvbWFpbiI6InRlc3Qtc2l0ZSIsImxhc3RfZGF0YV9jaGFuZ2VfYXQi
-        Om51bGwsIm5vdGVzIjpudWxsLCJwcm9kdWN0aW9uX3dlYmhvb2tfdG9rZW4i
-        OiIyNjY3MTdiNjU2NzhlYzg1MjAyZSIsInN0YWdpbmdfd2ViaG9va190b2tl
-        biI6IjMxMjBkMThiZjQxY2I4ZmUyNWFkIiwiYWNjZXNzX3Rva2VuIjoiZXlK
-        MGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnphWFJsWDJs
-        a0lqb3hNRE1zSW1GalkyOTFiblFpT25SeWRXVjkud24wV2xXOTBVT3hvSkVN
-        S2pnSEpxZ1pMcGk0blZLMXE0RG9VSk9TZDcwdyIsInVwbG9hZGVkX2J5dGVz
-        IjowLCJlZGl0b3JzX2NvdW50IjowLCJwcm9kdWN0aW9uX2RlcGxveV9hZGFw
-        dGVyIjpudWxsLCJzdGFnaW5nX3dlYmhvb2tfdXJsIjoiaHR0cHM6Ly93ZWJo
-        b29rcy5sdmgubWUvMzEyMGQxOGJmNDFjYjhmZTI1YWQvZGVwbG95LXJlc3Vs
-        dHMiLCJwcm9kdWN0aW9uX3dlYmhvb2tfdXJsIjoiaHR0cHM6Ly93ZWJob29r
-        cy5sdmgubWUvMjY2NzE3YjY1Njc4ZWM4NTIwMmUvZGVwbG95LXJlc3VsdHMi
-        LCJpbnRlcm5hbF9kb21haW4iOiJ0ZXN0LXNpdGUuYWRtaW4uZGF0b2Ntcy5j
-        b20iLCJwcm9kdWN0aW9uX2Zyb250ZW5kX3VybCI6bnVsbCwic3RhZ2luZ19m
-        cm9udGVuZF91cmwiOm51bGwsImNyZWF0ZWRfYXQiOiIyMDE4LTAzLTAyVDE1
-        OjEyOjQzLjM1N1oiLCJzc2ciOm51bGwsIml0ZW1zX2NvdW50IjowLCJyZWFk
-        d3JpdGVfdG9rZW4iOiI0Y2U4NjkxNjdlZTM1OTYzNjRhZmUxMTFhOThhMDEi
-        LCJyZWFkb25seV90b2tlbiI6IjIzNjA4ZDhiYzYyM2Y4YWM5NmIzOWVlNTM2
-        OGQ2NiJ9LCJyZWxhdGlvbnNoaXBzIjp7ImFjdGl2ZV9zdWJzY3JpcHRpb24i
-        OnsiZGF0YSI6eyJpZCI6IjEwMyIsInR5cGUiOiJzdWJzY3JpcHRpb24ifX0s
-        ImxhdGVzdF9kZXBsb3lfZXZlbnRzIjp7ImRhdGEiOltdfX19fQ==
+        eyJkYXRhIjp7ImlkIjoiNTc2NiIsInR5cGUiOiJzaXRlIiwiYXR0cmlidXRl
+        cyI6eyJuYW1lIjoiVGVzdCBzaXRlIiwiZG9tYWluIjpudWxsLCJpbnRlcm5h
+        bF9zdWJkb21haW4iOiJ0ZXN0LXNpdGUtMTgiLCJsYXN0X2RhdGFfY2hhbmdl
+        X2F0IjoiMjAxOC0wNS0xNFQxNToyMjo0MS4yODRaIiwibm90ZXMiOm51bGws
+        InByb2R1Y3Rpb25fd2ViaG9va190b2tlbiI6IjExOTg2ZTU4YmU4OTk4NWEx
+        ODJlIiwic3RhZ2luZ193ZWJob29rX3Rva2VuIjoiMjAzYWJhNDAyMWVmMGQw
+        N2I3OTUiLCJhY2Nlc3NfdG9rZW4iOiJleUowZVhBaU9pSktWMVFpTENKaGJH
+        Y2lPaUpJVXpJMU5pSjkuZXlKemFYUmxYMmxrSWpvMU56WTJMQ0poWTJOdmRX
+        NTBJanAwY25WbGZRLnBfMng2OEdieGdCMEdQQ1hxb01Jd1BxbjR5N0pLRklu
+        eEU1ckRCQlJHYzQiLCJ1cGxvYWRlZF9ieXRlcyI6MCwiZWRpdG9yc19jb3Vu
+        dCI6MCwicHJvZHVjdGlvbl9kZXBsb3lfYWRhcHRlciI6bnVsbCwic3RhZ2lu
+        Z193ZWJob29rX3VybCI6Imh0dHBzOi8vd2ViaG9va3MubHZoLm1lLzIwM2Fi
+        YTQwMjFlZjBkMDdiNzk1L2RlcGxveS1yZXN1bHRzIiwicHJvZHVjdGlvbl93
+        ZWJob29rX3VybCI6Imh0dHBzOi8vd2ViaG9va3MubHZoLm1lLzExOTg2ZTU4
+        YmU4OTk4NWExODJlL2RlcGxveS1yZXN1bHRzIiwiaW50ZXJuYWxfZG9tYWlu
+        IjoidGVzdC1zaXRlLTE4LmFkbWluLmRhdG9jbXMuY29tIiwicHJvZHVjdGlv
+        bl9mcm9udGVuZF91cmwiOm51bGwsInN0YWdpbmdfZnJvbnRlbmRfdXJsIjpu
+        dWxsLCJjcmVhdGVkX2F0IjoiMjAxOC0wNS0xNFQxNToyMjo0MS4yODRaIiwi
+        c3NnIjpudWxsLCJpdGVtc19jb3VudCI6MCwicmVhZHdyaXRlX3Rva2VuIjoi
+        NjdjMzQyNjg3Y2Q5NDRmZWQxNWI0ZjYxNGVkNDJkIiwicmVhZG9ubHlfdG9r
+        ZW4iOiIyZDI0NDQ3N2Q4MWMwODQ1MmQ4ZTQzNzM1NGZiOTAifSwicmVsYXRp
+        b25zaGlwcyI6eyJhY3RpdmVfc3Vic2NyaXB0aW9uIjp7ImRhdGEiOnsiaWQi
+        OiI2MzE0IiwidHlwZSI6InN1YnNjcmlwdGlvbiJ9fSwibGF0ZXN0X2RlcGxv
+        eV9ldmVudHMiOnsiZGF0YSI6W119fX19
     http_version: 
-  recorded_at: Fri, 02 Mar 2018 15:12:43 GMT
+  recorded_at: Mon, 14 May 2018 15:22:41 GMT
 - request:
     method: get
     uri: http://site-api.lvh.me:3001/roles
@@ -84,111 +87,119 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 4ce869167ee3596364afe111a98a01
+      - Bearer 67c342687cd944fed15b4f614ed42d
       User-Agent:
-      - ruby-client v0.3.30
+      - ruby-client v0.4.3
+      X-Api-Version:
+      - '2'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
       code: 200
-      message: OK
+      message: 'OK '
     headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
+      X-Api-Version:
+      - '2'
       Content-Type:
       - application/json; charset=utf-8
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"ae47af3af4bb0c91c87b40fddd4eefbd"
+      - W/"3b709fb620a0af5fc43c2ebf48d15192"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 86639583-6022-4702-9b69-e65cdfac2d50
+      - 0649c1d7-e50a-4aaa-a0af-6a146fe0da35
       X-Runtime:
-      - '0.017280'
-      Transfer-Encoding:
-      - chunked
+      - '0.014437'
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.0/2017-12-25)
+      Date:
+      - Mon, 14 May 2018 15:22:41 GMT
+      Content-Length:
+      - '267'
+      Connection:
+      - Keep-Alive
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjpbeyJpZCI6IjIwNSIsInR5cGUiOiJyb2xlIiwiYXR0cmlidXRl
-        cyI6eyJuYW1lIjoiRWRpdG9yIiwiY2FuX2VkaXRfc2NoZW1hIjpmYWxzZSwi
-        Y2FuX2VkaXRfc2l0ZSI6ZmFsc2UsImNhbl9lZGl0X2Zhdmljb24iOnRydWUs
-        ImNhbl9tYW5hZ2VfdXNlcnMiOmZhbHNlLCJjYW5fbWFuYWdlX2FjY2Vzc190
-        b2tlbnMiOmZhbHNlLCJjYW5fcGVyZm9ybV9zaXRlX3NlYXJjaCI6ZmFsc2Us
-        ImNhbl9wdWJsaXNoX3RvX3N0YWdpbmciOnRydWUsImNhbl9wdWJsaXNoX3Rv
-        X3Byb2R1Y3Rpb24iOnRydWUsInBvc2l0aXZlX2l0ZW1fdHlwZV9wZXJtaXNz
-        aW9ucyI6W3siaXRlbV90eXBlIjoiIiwiYWN0aW9uIjoiYWxsIn1dLCJuZWdh
-        dGl2ZV9pdGVtX3R5cGVfcGVybWlzc2lvbnMiOltdfX0seyJpZCI6IjIwNiIs
-        InR5cGUiOiJyb2xlIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiQWRtaW4iLCJj
-        YW5fZWRpdF9zY2hlbWEiOnRydWUsImNhbl9lZGl0X3NpdGUiOnRydWUsImNh
-        bl9lZGl0X2Zhdmljb24iOnRydWUsImNhbl9tYW5hZ2VfdXNlcnMiOnRydWUs
-        ImNhbl9tYW5hZ2VfYWNjZXNzX3Rva2VucyI6dHJ1ZSwiY2FuX3BlcmZvcm1f
-        c2l0ZV9zZWFyY2giOnRydWUsImNhbl9wdWJsaXNoX3RvX3N0YWdpbmciOnRy
-        dWUsImNhbl9wdWJsaXNoX3RvX3Byb2R1Y3Rpb24iOnRydWUsInBvc2l0aXZl
-        X2l0ZW1fdHlwZV9wZXJtaXNzaW9ucyI6W3siaXRlbV90eXBlIjoiIiwiYWN0
-        aW9uIjoiYWxsIn1dLCJuZWdhdGl2ZV9pdGVtX3R5cGVfcGVybWlzc2lvbnMi
-        OltdfX1dfQ==
+        eyJkYXRhIjpbeyJpZCI6IjEwMjc2IiwidHlwZSI6InJvbGUiLCJhdHRyaWJ1
+        dGVzIjp7Im5hbWUiOiJFZGl0b3IiLCJjYW5fZWRpdF9zY2hlbWEiOmZhbHNl
+        LCJjYW5fZWRpdF9zaXRlIjpmYWxzZSwiY2FuX2VkaXRfZmF2aWNvbiI6dHJ1
+        ZSwiY2FuX21hbmFnZV91c2VycyI6ZmFsc2UsImNhbl9tYW5hZ2VfYWNjZXNz
+        X3Rva2VucyI6ZmFsc2UsImNhbl9wZXJmb3JtX3NpdGVfc2VhcmNoIjpmYWxz
+        ZSwiY2FuX3B1Ymxpc2hfdG9fc3RhZ2luZyI6dHJ1ZSwiY2FuX3B1Ymxpc2hf
+        dG9fcHJvZHVjdGlvbiI6dHJ1ZSwicG9zaXRpdmVfaXRlbV90eXBlX3Blcm1p
+        c3Npb25zIjpbeyJpdGVtX3R5cGUiOiIiLCJhY3Rpb24iOiJhbGwifV0sIm5l
+        Z2F0aXZlX2l0ZW1fdHlwZV9wZXJtaXNzaW9ucyI6W119fSx7ImlkIjoiMTAy
+        NzciLCJ0eXBlIjoicm9sZSIsImF0dHJpYnV0ZXMiOnsibmFtZSI6IkFkbWlu
+        IiwiY2FuX2VkaXRfc2NoZW1hIjp0cnVlLCJjYW5fZWRpdF9zaXRlIjp0cnVl
+        LCJjYW5fZWRpdF9mYXZpY29uIjp0cnVlLCJjYW5fbWFuYWdlX3VzZXJzIjp0
+        cnVlLCJjYW5fbWFuYWdlX2FjY2Vzc190b2tlbnMiOnRydWUsImNhbl9wZXJm
+        b3JtX3NpdGVfc2VhcmNoIjp0cnVlLCJjYW5fcHVibGlzaF90b19zdGFnaW5n
+        Ijp0cnVlLCJjYW5fcHVibGlzaF90b19wcm9kdWN0aW9uIjp0cnVlLCJwb3Np
+        dGl2ZV9pdGVtX3R5cGVfcGVybWlzc2lvbnMiOlt7Iml0ZW1fdHlwZSI6IiIs
+        ImFjdGlvbiI6ImFsbCJ9XSwibmVnYXRpdmVfaXRlbV90eXBlX3Blcm1pc3Np
+        b25zIjpbXX19XX0=
     http_version: 
-  recorded_at: Fri, 02 Mar 2018 15:12:43 GMT
+  recorded_at: Mon, 14 May 2018 15:22:41 GMT
 - request:
     method: post
     uri: http://site-api.lvh.me:3001/users
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"user","attributes":{"email":"foo@bar.it","first_name":"Foo","last_name":"Bar"},"relationships":{"role":{"data":{"type":"role","id":"205"}}}}}'
+      string: '{"data":{"type":"user","attributes":{"email":"foo@bar.it","first_name":"Foo","last_name":"Bar"},"relationships":{"role":{"data":{"type":"role","id":"10276"}}}}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 4ce869167ee3596364afe111a98a01
+      - Bearer 67c342687cd944fed15b4f614ed42d
       User-Agent:
-      - ruby-client v0.3.30
+      - ruby-client v0.4.3
+      X-Api-Version:
+      - '2'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
       code: 201
-      message: Created
+      message: 'Created '
     headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
+      X-Api-Version:
+      - '2'
       Content-Type:
       - application/json; charset=utf-8
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"fcf6d30d0d36db583175ec20986a6bf4"
+      - W/"eb75866b44ce74297d880b127bb25cd6"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 367bf4e6-f89f-4ac2-8035-bf6e1edb6a97
+      - ecd90281-2f04-4e17-858e-7a8b4f2dd7a9
       X-Runtime:
-      - '0.415392'
-      Transfer-Encoding:
-      - chunked
+      - '0.041002'
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.0/2017-12-25)
+      Date:
+      - Mon, 14 May 2018 15:22:41 GMT
+      Content-Length:
+      - '168'
+      Connection:
+      - Keep-Alive
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiOCIsInR5cGUiOiJ1c2VyIiwiYXR0cmlidXRlcyI6
-        eyJmaXJzdF9uYW1lIjoiRm9vIiwibGFzdF9uYW1lIjoiQmFyIiwiZW1haWwi
-        OiJmb29AYmFyLml0Iiwic3RhdGUiOiJJTlZJVEFUSU9OX1BFTkRJTkcifSwi
-        cmVsYXRpb25zaGlwcyI6eyJyb2xlIjp7ImRhdGEiOnsiaWQiOiIyMDUiLCJ0
-        eXBlIjoicm9sZSJ9fX19fQ==
+        eyJkYXRhIjp7ImlkIjoiMTQyNiIsInR5cGUiOiJ1c2VyIiwiYXR0cmlidXRl
+        cyI6eyJmaXJzdF9uYW1lIjoiRm9vIiwibGFzdF9uYW1lIjoiQmFyIiwiZW1h
+        aWwiOiJmb29AYmFyLml0Iiwic3RhdGUiOiJJTlZJVEFUSU9OX1BFTkRJTkci
+        fSwicmVsYXRpb25zaGlwcyI6eyJyb2xlIjp7ImRhdGEiOnsiaWQiOiIxMDI3
+        NiIsInR5cGUiOiJyb2xlIn19fX19
     http_version: 
-  recorded_at: Fri, 02 Mar 2018 15:12:43 GMT
+  recorded_at: Mon, 14 May 2018 15:22:41 GMT
 - request:
     method: get
     uri: http://site-api.lvh.me:3001/users
@@ -201,49 +212,53 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 4ce869167ee3596364afe111a98a01
+      - Bearer 67c342687cd944fed15b4f614ed42d
       User-Agent:
-      - ruby-client v0.3.30
+      - ruby-client v0.4.3
+      X-Api-Version:
+      - '2'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
       code: 200
-      message: OK
+      message: 'OK '
     headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
+      X-Api-Version:
+      - '2'
       Content-Type:
       - application/json; charset=utf-8
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"c569b57d5f070aa00a8feb07178d6431"
+      - W/"9cf93d198a53614010825e0604ca38f5"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b141e908-eabe-4045-829b-69e0f16ec41c
+      - 886e59dd-6fa7-4c2f-a1dc-70aeec32ddfa
       X-Runtime:
-      - '0.040142'
-      Transfer-Encoding:
-      - chunked
+      - '0.016565'
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.0/2017-12-25)
+      Date:
+      - Mon, 14 May 2018 15:22:41 GMT
+      Content-Length:
+      - '176'
+      Connection:
+      - Keep-Alive
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjpbeyJpZCI6IjgiLCJ0eXBlIjoidXNlciIsImF0dHJpYnV0ZXMi
-        OnsiZmlyc3RfbmFtZSI6IkZvbyIsImxhc3RfbmFtZSI6IkJhciIsImVtYWls
-        IjoiZm9vQGJhci5pdCIsInN0YXRlIjoiSU5WSVRBVElPTl9QRU5ESU5HIn0s
-        InJlbGF0aW9uc2hpcHMiOnsicm9sZSI6eyJkYXRhIjp7ImlkIjoiMjA1Iiwi
-        dHlwZSI6InJvbGUifX19fV19
+        eyJkYXRhIjpbeyJpZCI6IjE0MjYiLCJ0eXBlIjoidXNlciIsImF0dHJpYnV0
+        ZXMiOnsiZmlyc3RfbmFtZSI6IkZvbyIsImxhc3RfbmFtZSI6IkJhciIsImVt
+        YWlsIjoiZm9vQGJhci5pdCIsInN0YXRlIjoiSU5WSVRBVElPTl9QRU5ESU5H
+        In0sInJlbGF0aW9uc2hpcHMiOnsicm9sZSI6eyJkYXRhIjp7ImlkIjoiMTAy
+        NzYiLCJ0eXBlIjoicm9sZSJ9fX19XX0=
     http_version: 
-  recorded_at: Fri, 02 Mar 2018 15:12:43 GMT
+  recorded_at: Mon, 14 May 2018 15:22:41 GMT
 - request:
     method: get
-    uri: http://site-api.lvh.me:3001/users/8
+    uri: http://site-api.lvh.me:3001/users/1426
     body:
       encoding: US-ASCII
       string: ''
@@ -253,49 +268,53 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 4ce869167ee3596364afe111a98a01
+      - Bearer 67c342687cd944fed15b4f614ed42d
       User-Agent:
-      - ruby-client v0.3.30
+      - ruby-client v0.4.3
+      X-Api-Version:
+      - '2'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
       code: 200
-      message: OK
+      message: 'OK '
     headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
+      X-Api-Version:
+      - '2'
       Content-Type:
       - application/json; charset=utf-8
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"fcf6d30d0d36db583175ec20986a6bf4"
+      - W/"eb75866b44ce74297d880b127bb25cd6"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2c4a284c-249d-4357-a91f-2712d6b14286
+      - 4d2b544b-396e-4f19-9205-0c476df52677
       X-Runtime:
-      - '0.030709'
-      Transfer-Encoding:
-      - chunked
+      - '0.011771'
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.0/2017-12-25)
+      Date:
+      - Mon, 14 May 2018 15:22:41 GMT
+      Content-Length:
+      - '168'
+      Connection:
+      - Keep-Alive
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiOCIsInR5cGUiOiJ1c2VyIiwiYXR0cmlidXRlcyI6
-        eyJmaXJzdF9uYW1lIjoiRm9vIiwibGFzdF9uYW1lIjoiQmFyIiwiZW1haWwi
-        OiJmb29AYmFyLml0Iiwic3RhdGUiOiJJTlZJVEFUSU9OX1BFTkRJTkcifSwi
-        cmVsYXRpb25zaGlwcyI6eyJyb2xlIjp7ImRhdGEiOnsiaWQiOiIyMDUiLCJ0
-        eXBlIjoicm9sZSJ9fX19fQ==
+        eyJkYXRhIjp7ImlkIjoiMTQyNiIsInR5cGUiOiJ1c2VyIiwiYXR0cmlidXRl
+        cyI6eyJmaXJzdF9uYW1lIjoiRm9vIiwibGFzdF9uYW1lIjoiQmFyIiwiZW1h
+        aWwiOiJmb29AYmFyLml0Iiwic3RhdGUiOiJJTlZJVEFUSU9OX1BFTkRJTkci
+        fSwicmVsYXRpb25zaGlwcyI6eyJyb2xlIjp7ImRhdGEiOnsiaWQiOiIxMDI3
+        NiIsInR5cGUiOiJyb2xlIn19fX19
     http_version: 
-  recorded_at: Fri, 02 Mar 2018 15:12:43 GMT
+  recorded_at: Mon, 14 May 2018 15:22:41 GMT
 - request:
     method: delete
-    uri: http://site-api.lvh.me:3001/users/8
+    uri: http://site-api.lvh.me:3001/users/1426
     body:
       encoding: US-ASCII
       string: ''
@@ -305,49 +324,53 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 4ce869167ee3596364afe111a98a01
+      - Bearer 67c342687cd944fed15b4f614ed42d
       User-Agent:
-      - ruby-client v0.3.30
+      - ruby-client v0.4.3
+      X-Api-Version:
+      - '2'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
       code: 200
-      message: OK
+      message: 'OK '
     headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
+      X-Api-Version:
+      - '2'
       Content-Type:
       - application/json; charset=utf-8
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"fcf6d30d0d36db583175ec20986a6bf4"
+      - W/"eb75866b44ce74297d880b127bb25cd6"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c6d31348-c6d6-4368-961e-675c3ba8fbc2
+      - 5ce4641c-2273-4bf4-a2e2-0d5b433ec876
       X-Runtime:
-      - '0.038136'
-      Transfer-Encoding:
-      - chunked
+      - '0.014674'
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.0/2017-12-25)
+      Date:
+      - Mon, 14 May 2018 15:22:41 GMT
+      Content-Length:
+      - '168'
+      Connection:
+      - Keep-Alive
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiOCIsInR5cGUiOiJ1c2VyIiwiYXR0cmlidXRlcyI6
-        eyJmaXJzdF9uYW1lIjoiRm9vIiwibGFzdF9uYW1lIjoiQmFyIiwiZW1haWwi
-        OiJmb29AYmFyLml0Iiwic3RhdGUiOiJJTlZJVEFUSU9OX1BFTkRJTkcifSwi
-        cmVsYXRpb25zaGlwcyI6eyJyb2xlIjp7ImRhdGEiOnsiaWQiOiIyMDUiLCJ0
-        eXBlIjoicm9sZSJ9fX19fQ==
+        eyJkYXRhIjp7ImlkIjoiMTQyNiIsInR5cGUiOiJ1c2VyIiwiYXR0cmlidXRl
+        cyI6eyJmaXJzdF9uYW1lIjoiRm9vIiwibGFzdF9uYW1lIjoiQmFyIiwiZW1h
+        aWwiOiJmb29AYmFyLml0Iiwic3RhdGUiOiJJTlZJVEFUSU9OX1BFTkRJTkci
+        fSwicmVsYXRpb25zaGlwcyI6eyJyb2xlIjp7ImRhdGEiOnsiaWQiOiIxMDI3
+        NiIsInR5cGUiOiJyb2xlIn19fX19
     http_version: 
-  recorded_at: Fri, 02 Mar 2018 15:12:43 GMT
+  recorded_at: Mon, 14 May 2018 15:22:41 GMT
 - request:
     method: delete
-    uri: http://account-api.lvh.me:3001/sites/103
+    uri: http://account-api.lvh.me:3001/sites/5766
     body:
       encoding: US-ASCII
       string: ''
@@ -361,20 +384,16 @@ http_interactions:
       Authorization:
       - Bearer XXX
       User-Agent:
-      - ruby-client v0.3.30
+      - ruby-client v0.4.3
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
       code: 202
-      message: Accepted
+      message: 'Accepted '
     headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
+      X-Api-Version:
+      - '1'
       Content-Type:
       - application/json; charset=utf-8
       Vary:
@@ -382,16 +401,75 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 1b571d4c-e0f5-46ca-b046-1d51a4ef0359
+      - 2583b07a-3348-4226-b651-23f0d941a65b
       X-Runtime:
-      - '0.027438'
-      Transfer-Encoding:
-      - chunked
+      - '0.014293'
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.0/2017-12-25)
+      Date:
+      - Mon, 14 May 2018 15:22:41 GMT
+      Content-Length:
+      - '80'
+      Connection:
+      - Keep-Alive
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiZjlhYzBkNWRiN2E5ZjA3NWU1ZTlmYTdhIiwidHlw
+        eyJkYXRhIjp7ImlkIjoiY2Q5YTgwY2EyNDA4MjNhMzg0ZDAwZDQ3IiwidHlw
         ZSI6ImpvYiJ9fQ==
     http_version: 
-  recorded_at: Fri, 02 Mar 2018 15:12:44 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Mon, 14 May 2018 15:22:41 GMT
+- request:
+    method: get
+    uri: http://account-api.lvh.me:3001/sites/5766
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Foo:
+      - Bar
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer XXX
+      User-Agent:
+      - ruby-client v0.4.3
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: 'Not Found '
+    headers:
+      X-Api-Version:
+      - '1'
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 9fb0e819-9e9c-4a8f-9188-afcf4b60727c
+      X-Runtime:
+      - '0.011002'
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.0/2017-12-25)
+      Date:
+      - Mon, 14 May 2018 15:22:42 GMT
+      Content-Length:
+      - '167'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjpbeyJpZCI6Ik5PVF9GT1VORCIsInR5cGUiOiJhcGlfZXJyb3Ii
+        LCJhdHRyaWJ1dGVzIjp7ImRldGFpbHMiOnsibWVzc2FnZSI6IkNvdWxkbid0
+        IGZpbmQgU2l0ZSB3aXRoICdpZCc9NTc2NiBbV0hFUkUgXCJzaXRlc1wiLlwi
+        YWNjb3VudF9pZFwiID0gJDFdIn19fV19
+    http_version: 
+  recorded_at: Mon, 14 May 2018 15:22:42 GMT
+recorded_with: VCR 4.0.0

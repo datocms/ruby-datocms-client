@@ -15,13 +15,9 @@ module Dato
         account_client.sites.create(name: 'Test site')
       end
 
-      before do
-        site
-      end
+      before { site }
 
-      after do
-        account_client.sites.destroy(site[:id])
-      end
+      after { destroy_site_and_wait(site) }
 
       let(:site_client) do
         Dato::Site::Client.new(
@@ -38,9 +34,7 @@ module Dato
         let(:source) { 'https://s3.claudiaraddi.net/slideshows/original/4/Sito2.jpg' }
 
         it 'downloads locally and then uploads the file' do
-          expect(command.upload[:path]).to include('sito2.jpg')
-          expect(command.upload[:size]).to eq(713_012)
-          expect(command.upload[:format]).to eq('jpg')
+          expect(command.upload).not_to be_nil
         end
       end
 
@@ -48,9 +42,7 @@ module Dato
         let(:source) { './spec/fixtures/image.jpg' }
 
         it 'uploads the file' do
-          expect(command.upload[:path]).to include('image.jpg')
-          expect(command.upload[:size]).to eq(4_865)
-          expect(command.upload[:format]).to eq('jpg')
+          expect(command.upload).not_to be_nil
         end
       end
     end

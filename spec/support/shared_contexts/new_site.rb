@@ -68,13 +68,18 @@ RSpec.shared_context 'with a new site' do
     client.fields.create(
       item_type[:id],
       api_key: 'image',
-      field_type: 'image',
+      field_type: 'file',
       appeareance: nil,
       label: 'Image',
       localized: false,
       position: 99,
       hint: '',
-      validators: { required: {} }
+      validators: {
+        required: {},
+        extension: {
+          predefined_list: "image"
+        }
+      }
     )
   end
 
@@ -120,7 +125,5 @@ RSpec.shared_context 'with a new site' do
     client.items.publish(item[:id])
   end
 
-  after do
-    account_client.sites.destroy(site[:id])
-  end
+  after { destroy_site_and_wait(site) }
 end

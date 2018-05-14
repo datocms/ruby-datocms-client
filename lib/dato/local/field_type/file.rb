@@ -5,22 +5,42 @@ module Dato
   module Local
     module FieldType
       class File
-        attr_reader :path, :format, :size
+        attr_reader :path, :format, :size, :width, :height, :title, :alt
 
-        def self.parse(value, repo)
-          value && new(
-            value[:path],
-            value[:format],
-            value[:size],
-            repo.site.entity.imgix_host
-          )
+        def self.parse(upload_id, repo)
+          if upload_id
+            upload = repo.entities_repo.find_entity("upload", upload_id)
+            new(
+              upload.path,
+              upload.format,
+              upload.size,
+              upload.width,
+              upload.height,
+              upload.alt,
+              upload.title,
+              repo.site.entity.imgix_host
+            )
+          end
         end
 
-        def initialize(path, format, size, imgix_host)
+        def initialize(
+          path,
+          format,
+          size,
+          width,
+          height,
+          alt,
+          title,
+          imgix_host
+        )
           @path = path
           @format = format
           @size = size
           @imgix_host = imgix_host
+          @width = width
+          @height = height
+          @alt = alt
+          @title = title
         end
 
         def file
@@ -39,6 +59,10 @@ module Dato
           {
             format: format,
             size: size,
+            width: width,
+            height: height,
+            alt: alt,
+            title: title,
             url: url
           }
         end
