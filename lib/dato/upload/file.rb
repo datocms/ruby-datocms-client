@@ -3,10 +3,13 @@ require 'downloadr'
 require 'tempfile'
 require 'addressable'
 require 'net/http'
+require 'fastimage'
 
 module Dato
   module Upload
     class File
+      IMAGE_FORMATS = %w(png jpg jpeg gif)
+
       attr_reader :client, :source
 
       def initialize(client, source)
@@ -64,11 +67,25 @@ module Dato
       end
 
       def format_resource(upload_request)
-        {
+        extension = ::File.extname(::File.basename(file.path)).delete('.')
+
+        base_format = {
           path: upload_request[:id],
           size: ::File.size(file.path),
-          format: ::File.extname(::File.basename(file.path)).delete('.')
+          format: extension
         }
+
+        if IMAGE_FORMATS.include?(extension)
+          width, height = FastImage.size(file.path)
+
+          base_format.merge(
+            width: width,
+            height: height,
+            format: FastImage.type(file.path).to_s
+          )
+        else
+          base_format
+        end
       end
     end
   end
