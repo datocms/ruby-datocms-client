@@ -113,7 +113,38 @@ RSpec.shared_context 'with a new site' do
   before do
     site
 
-    client.site.update(client.site.find.merge(locales: ['en', 'it']))
+    client.site.update(
+      client.site.find.merge(
+        locales: ['en', 'it'],
+        theme: {
+          logo: client.upload_image('./spec/fixtures/dato-logo.jpg'),
+          primary_color: {
+            red: 63,
+            green: 63,
+            blue: 63,
+            alpha: 63
+          },
+          dark_color: {
+            red: 0,
+            green: 0,
+            blue: 0,
+            alpha: 0
+          },
+          light_color: {
+            red: 127,
+            green: 127,
+            blue: 127,
+            alpha: 127
+          },
+          accent_color: {
+            red: 255,
+            green: 255,
+            blue: 255,
+            alpha: 255
+          }
+        }
+      )
+    )
 
     item_type
     text_field

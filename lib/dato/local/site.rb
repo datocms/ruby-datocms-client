@@ -10,7 +10,7 @@ module Dato
       extend Forwardable
 
       attr_reader :entity
-      def_delegators :entity, :id, :name, :locales, :theme, :domain,
+      def_delegators :entity, :id, :name, :locales, :domain,
                      :internal_domain, :no_index, :frontend_url
 
       def initialize(entity, items_repo)
@@ -20,6 +20,10 @@ module Dato
 
       def global_seo
         read_attribute(:global_seo, FieldType::GlobalSeo, locales.size > 1)
+      end
+
+      def theme
+        read_attribute(:theme, FieldType::Theme, false)
       end
 
       def favicon
