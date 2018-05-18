@@ -7,7 +7,7 @@ module Dato
       class Gallery < Array
         def self.parse(value, repo)
           images = if value
-                     value.map { |image| FieldType::Image.parse(image, repo) }
+                     value.map { |image| FieldType::File.parse(image, repo) }
                    else
                      []
                    end
