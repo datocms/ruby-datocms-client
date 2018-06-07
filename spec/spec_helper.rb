@@ -3,9 +3,9 @@ require 'simplecov'
 require 'coveralls'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-                                                                 SimpleCov::Formatter::HTMLFormatter,
-                                                                 Coveralls::SimpleCov::Formatter
-                                                               ])
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+])
 
 SimpleCov.start
 
@@ -14,7 +14,6 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 Dir['spec/support/**/*.rb'].each { |f| require_relative '../' + f }
 
 require 'vcr'
-require 'dato'
 require 'i18n'
 require 'i18n/backend/fallbacks'
 
@@ -31,4 +30,8 @@ VCR.configure do |config|
       !http_message.body.valid_encoding?
   end
   config.configure_rspec_metadata!
+end
+
+VCR.use_cassette('json_schema', record: :new_episodes) do
+  require 'dato'
 end

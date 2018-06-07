@@ -45,7 +45,7 @@ module Dato
       end
 
       def upload
-        upload_request = client.upload_requests.create(filename: filename)
+        upload_request = client.upload_request.create(filename: filename)
         uri = URI.parse(upload_request[:url])
 
         request = Net::HTTP::Put.new(

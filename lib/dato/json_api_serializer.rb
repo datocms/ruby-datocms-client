@@ -1,21 +1,11 @@
 # frozen_string_literal: true
 module Dato
   class JsonApiSerializer
-    attr_reader :type, :attributes, :relationships
-    attr_reader :required_attributes, :required_relationships
+    attr_reader :link, :type
 
-    def initialize(
-      type:,
-      attributes: [],
-      required_attributes: [],
-      relationships: {},
-      required_relationships: []
-    )
+    def initialize(type, link)
+      @link = link
       @type = type
-      @attributes = attributes
-      @required_attributes = required_attributes
-      @relationships = relationships
-      @required_relationships = required_relationships
     end
 
     def serialize(resource, id = nil)
@@ -37,7 +27,7 @@ module Dato
     def serialized_attributes(resource)
       result = {}
 
-      attributes.each do |attribute|
+      attributes(resource).each do |attribute|
         if resource.key? attribute
           result[attribute] = resource[attribute]
         elsif required_attributes.include? attribute
@@ -54,7 +44,6 @@ module Dato
       relationships.each do |relationship, meta|
         if resource.key? relationship
           value = resource[relationship]
-
           data = if value
                    if meta[:collection]
                      value.map do |id|
@@ -66,12 +55,78 @@ module Dato
                  end
           result[relationship] = { data: data }
 
-        elsif required_relationships.include? relationship
+        elsif required_relationships.include?(relationship)
           throw "Required attribute: #{relationship}"
         end
       end
 
       result
+    end
+
+    def attributes(resource)
+      if type == "item"
+        resource.keys - [:item_type, :id]
+      end
+
+      link_attributes["properties"].keys.map(&:to_sym)
+    end
+
+    def required_attributes
+      if type == "item"
+        []
+      end
+
+      (link_attributes.required || []).map(&:to_sym)
+    end
+
+    def relationships
+      if type == "item"
+        {
+          item_type: { collection: false, type: 'item_type' }
+        }
+      end
+
+      if !link_relationships
+        return {}
+      end
+
+      link_relationships.properties.reduce({}) do |acc, (relationship, schema)|
+        is_collection = schema.properties["data"].type.first == 'array'
+
+        definition = if is_collection
+                       schema.properties['data'].items
+                     elsif schema.properties['data'].type.first == 'object'
+                       schema.properties['data']
+                     else
+                       schema.properties['data'].any_of.find do |option|
+                         option.type.first == 'object'
+                       end
+                     end
+
+        type = definition.properties['type']
+                         .pattern.source.gsub(/(^\^|\$$)/, '')
+
+        acc[relationship.to_sym] = {
+          collection: is_collection,
+          type: type,
+        }
+      end
+    end
+
+    def required_relationships
+      if type == "item"
+        %i(item_type)
+      end
+
+      (link_relationships.required || []).map(&:to_sym)
+    end
+
+    def link_attributes
+      link.schema.properties["data"].properties["attributes"]
+    end
+
+    def link_relationships
+      link.schema.properties["data"].properties["relationships"]
     end
   end
 end
