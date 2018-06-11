@@ -96,15 +96,3 @@ module Dato
     end
   end
 end
-
-module AugmentWithRepos
-  def self.do_it!(klass, url)
-  end
-end
-
-module Dato
-  class BaseClient
-
-
-  end
-end
