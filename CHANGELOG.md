@@ -1,3 +1,7 @@
+# v0.6.2
+
+Moved `json_schema` as runtime dependency
+
 # v0.6.1
 
 The big change is that the methods the client makes available are  generated at runtime based on the [JSON Schema of our CMA](https://www.datocms.com/content-management-api/). This means any new API endpoint — or changes to existing ones — will instantly be reflected to the client, without the need to upgrade to the latest client version.
