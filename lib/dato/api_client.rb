@@ -30,10 +30,9 @@ module Dato
           @extra_headers = options[:extra_headers] || {}
         end
 
-        url = URI.parse("https://#{subdomain}.datocms.com/docs/#{subdomain}-hyperschema.json")
-        response = Net::HTTP.get(url)
+        response = Faraday.get("https://#{subdomain}.datocms.com/docs/#{subdomain}-hyperschema.json")
 
-        schema = JsonSchema.parse!(JSON.parse(response))
+        schema = JsonSchema.parse!(JSON.parse(response.body))
         schema.expand_references!
 
         schema.definitions.each do |type, schema|
