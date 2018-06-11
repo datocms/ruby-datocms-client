@@ -26,7 +26,7 @@ module Dato
           min_arguments_count = [
             link.href.scan(IDENTITY_REGEXP).size,
             link.schema && link.method != :get ? 1 : 0
-          ].sum
+          ].reduce(0, :+)
 
           args.size >= min_arguments_count or
             raise ArgumentError.new(
