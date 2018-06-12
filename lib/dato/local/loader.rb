@@ -18,7 +18,18 @@ module Dato
       end
 
       def load
-        @entities_repo = EntitiesRepo.new(site, all_items, all_uploads)
+        threads = [
+          Thread.new { Thread.current[:output] = site },
+          Thread.new { Thread.current[:output] = all_items },
+          Thread.new { Thread.current[:output] = all_uploads }
+        ]
+
+        results = threads.map do |t|
+          t.join
+          t[:output]
+        end
+
+        @entities_repo = EntitiesRepo.new(*results)
         @items_repo = ItemsRepo.new(@entities_repo)
       end
 
@@ -39,7 +50,7 @@ module Dato
 
       def all_uploads
         client.uploads.all(
-          {},
+          { "filter[type]" => "used" },
           deserialize_response: false,
           all_pages: true
         )
