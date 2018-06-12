@@ -44,6 +44,7 @@ module Dato
       relationships.each do |relationship, meta|
         if resource.key? relationship
           value = resource[relationship]
+
           data = if value
                    if meta[:collection]
                      value.map do |id|
@@ -65,7 +66,15 @@ module Dato
 
     def attributes(resource)
       if type == "item"
-        resource.keys - [:item_type, :id]
+        return resource.keys.map(&:to_sym) - [
+          :item_type,
+          :id,
+          :created_at,
+          :updated_at,
+          :is_valid,
+          :published_version,
+          :current_version
+        ]
       end
 
       link_attributes["properties"].keys.map(&:to_sym)
@@ -73,7 +82,7 @@ module Dato
 
     def required_attributes
       if type == "item"
-        []
+        return []
       end
 
       (link_attributes.required || []).map(&:to_sym)
@@ -81,9 +90,11 @@ module Dato
 
     def relationships
       if type == "item"
-        {
-          item_type: { collection: false, type: 'item_type' }
-        }
+        if link.rel == :create
+          return { item_type: { collection: false, type: 'item_type' } }
+        else
+          {}
+        end
       end
 
       if !link_relationships
@@ -110,12 +121,14 @@ module Dato
           collection: is_collection,
           type: type,
         }
+
+        acc
       end
     end
 
     def required_relationships
       if type == "item"
-        %i(item_type)
+        return %i(item_type)
       end
 
       (link_relationships.required || []).map(&:to_sym)

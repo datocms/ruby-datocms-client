@@ -14,36 +14,30 @@ http_interactions:
       Authorization:
       - Bearer XXX
       User-Agent:
-      - ruby-client v0.5.0
+      - ruby-client v0.6.3.beta
+      X-Api-Version:
+      - '2'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
       code: 200
-      message: 'OK '
+      message: OK
     headers:
-      X-Api-Version:
-      - '1'
       Content-Type:
       - application/json; charset=utf-8
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"dbc093c380ce1d4640e8f0fa9933a1f3"
+      - W/"9ca08d0bf4ce2563c13d67cf1963eb71"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 79a736f8-42d0-409c-8dd9-6850621e57c9
+      - 6e5c24df-b782-44a9-8cfe-9cee716da16c
       X-Runtime:
-      - '0.009126'
-      Server:
-      - WEBrick/1.4.2 (Ruby/2.5.0/2017-12-25)
-      Date:
-      - Thu, 17 May 2018 13:57:47 GMT
-      Content-Length:
-      - '113'
-      Connection:
-      - Keep-Alive
+      - '0.021925'
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: ASCII-8BIT
       base64_string: |
@@ -51,13 +45,13 @@ http_interactions:
         cyI6eyJlbWFpbCI6ImludGVncmF0aW9uQHRlc3QuY29tIiwibmFtZSI6bnVs
         bCwiY29tcGFueSI6bnVsbH19fQ==
     http_version: 
-  recorded_at: Thu, 17 May 2018 13:57:47 GMT
+  recorded_at: Tue, 12 Jun 2018 17:34:25 GMT
 - request:
     method: put
     uri: http://account-api.lvh.me:3001/account
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"4","type":"account","attributes":{"email":"integration@test.com"}}}'
+      string: '{"data":{"id":"4","type":"account","attributes":{"email":"integration@test.com","name":null,"company":null}}}'
     headers:
       Accept:
       - application/json
@@ -66,36 +60,30 @@ http_interactions:
       Authorization:
       - Bearer XXX
       User-Agent:
-      - ruby-client v0.5.0
+      - ruby-client v0.6.3.beta
+      X-Api-Version:
+      - '2'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
       code: 200
-      message: 'OK '
+      message: OK
     headers:
-      X-Api-Version:
-      - '1'
       Content-Type:
       - application/json; charset=utf-8
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"dbc093c380ce1d4640e8f0fa9933a1f3"
+      - W/"9ca08d0bf4ce2563c13d67cf1963eb71"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1e0a4046-6017-4ce6-99c7-23bf1e16598e
+      - c110a6ec-ca49-415a-9efd-abcb3b7e2ff6
       X-Runtime:
-      - '0.013254'
-      Server:
-      - WEBrick/1.4.2 (Ruby/2.5.0/2017-12-25)
-      Date:
-      - Thu, 17 May 2018 13:57:47 GMT
-      Content-Length:
-      - '113'
-      Connection:
-      - Keep-Alive
+      - '0.027002'
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: ASCII-8BIT
       base64_string: |
@@ -103,7 +91,7 @@ http_interactions:
         cyI6eyJlbWFpbCI6ImludGVncmF0aW9uQHRlc3QuY29tIiwibmFtZSI6bnVs
         bCwiY29tcGFueSI6bnVsbH19fQ==
     http_version: 
-  recorded_at: Thu, 17 May 2018 13:57:47 GMT
+  recorded_at: Tue, 12 Jun 2018 17:34:25 GMT
 - request:
     method: get
     uri: http://account-api.lvh.me:3001/account
@@ -118,36 +106,30 @@ http_interactions:
       Authorization:
       - Bearer XXX
       User-Agent:
-      - ruby-client v0.5.0
+      - ruby-client v0.6.3.beta
+      X-Api-Version:
+      - '2'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
       code: 200
-      message: 'OK '
+      message: OK
     headers:
-      X-Api-Version:
-      - '1'
       Content-Type:
       - application/json; charset=utf-8
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"dbc093c380ce1d4640e8f0fa9933a1f3"
+      - W/"9ca08d0bf4ce2563c13d67cf1963eb71"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - '043398bf-a4f0-42ce-aa9d-5f4139af3e94'
+      - 89b7a19a-5b9f-47d2-b231-a1a8fbbf74af
       X-Runtime:
-      - '0.008718'
-      Server:
-      - WEBrick/1.4.2 (Ruby/2.5.0/2017-12-25)
-      Date:
-      - Thu, 17 May 2018 13:57:47 GMT
-      Content-Length:
-      - '113'
-      Connection:
-      - Keep-Alive
+      - '0.013520'
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: ASCII-8BIT
       base64_string: |
@@ -155,5 +137,5 @@ http_interactions:
         cyI6eyJlbWFpbCI6ImludGVncmF0aW9uQHRlc3QuY29tIiwibmFtZSI6bnVs
         bCwiY29tcGFueSI6bnVsbH19fQ==
     http_version: 
-  recorded_at: Thu, 17 May 2018 13:57:47 GMT
+  recorded_at: Tue, 12 Jun 2018 17:34:25 GMT
 recorded_with: VCR 4.0.0

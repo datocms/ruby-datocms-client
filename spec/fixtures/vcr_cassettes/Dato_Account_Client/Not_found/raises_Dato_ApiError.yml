@@ -14,16 +14,16 @@ http_interactions:
       Authorization:
       - Bearer XXX
       User-Agent:
-      - ruby-client v0.5.0
+      - ruby-client v0.6.3.beta
+      X-Api-Version:
+      - '2'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
       code: 404
-      message: 'Not Found '
+      message: Not Found
     headers:
-      X-Api-Version:
-      - '1'
       Content-Type:
       - application/json; charset=utf-8
       Vary:
@@ -31,17 +31,11 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 9e280368-1b44-4c2c-9eaa-b4f15871ef55
+      - 6bf773e9-dfed-410c-9445-ddcf9b9d18e5
       X-Runtime:
-      - '0.009155'
-      Server:
-      - WEBrick/1.4.2 (Ruby/2.5.0/2017-12-25)
-      Date:
-      - Thu, 17 May 2018 13:57:47 GMT
-      Content-Length:
-      - '165'
-      Connection:
-      - Keep-Alive
+      - '0.047838'
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: ASCII-8BIT
       base64_string: |
@@ -50,5 +44,5 @@ http_interactions:
         IGZpbmQgU2l0ZSB3aXRoICdpZCc9OTk5OSBbV0hFUkUgXCJzaXRlc1wiLlwi
         YWNjb3VudF9pZFwiID0gJDFdIn19fV19
     http_version: 
-  recorded_at: Thu, 17 May 2018 13:57:47 GMT
+  recorded_at: Tue, 12 Jun 2018 17:34:25 GMT
 recorded_with: VCR 4.0.0

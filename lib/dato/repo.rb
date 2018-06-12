@@ -33,10 +33,12 @@ module Dato
               "wrong number of arguments (given #{args.size}, expected #{min_arguments_count})"
           )
 
-          last_url_id = nil
+          placeholders = []
 
           url = link["href"].gsub(IDENTITY_REGEXP) do |_stuff|
-            last_url_id = args.shift.to_s
+            placeholder = args.shift.to_s
+            placeholders << placeholder
+            placeholder
           end
 
           response = if %i(post put).include?(link.method)
@@ -45,7 +47,7 @@ module Dato
 
               JsonApiSerializer.new(type, link).serialize(
                 unserialized_body,
-                last_url_id
+                link.method == :post ? nil : placeholders.last
               )
             else
               {}

@@ -37,15 +37,12 @@ module Dato
 
         schema.definitions.each do |type, schema|
           is_collection = schema.links.select{|x| x.rel === "instances"}.any?
+          namespace = is_collection ? type.pluralize : type
 
-          if is_collection
-            type = type.pluralize
-          end
-
-          define_method(type) do
+          define_method(namespace) do
             instance_variable_set(
-              "@#{type}",
-              instance_variable_get("@#{type}") ||
+              "@#{namespace}",
+              instance_variable_get("@#{namespace}") ||
               Dato::Repo.new(self, type, schema)
             )
           end

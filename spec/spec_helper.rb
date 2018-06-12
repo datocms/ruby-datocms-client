@@ -30,6 +30,9 @@ VCR.configure do |config|
       !http_message.body.valid_encoding?
   end
   config.configure_rspec_metadata!
+  config.default_cassette_options = {
+    match_requests_on: [:method, :uri, :query, :body]
+  }
 end
 
 VCR.use_cassette('json_schema', record: :new_episodes) do
