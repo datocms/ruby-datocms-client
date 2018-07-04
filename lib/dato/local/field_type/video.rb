@@ -53,6 +53,8 @@ module Dato
             %(<iframe width="#{width}" height="#{height}" src="//www.youtube.com/embed/#{provider_uid}?rel=0" frameborder="0" allowfullscreen></iframe>)
           elsif provider == 'vimeo'
             %(<iframe src="//player.vimeo.com/video/#{provider_uid}?title=0&amp;byline=0&amp;portrait=0" width="#{width}" height="#{height}" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>)
+          elsif provider == 'facebook'
+           %(<iframe src="//www.facebook.com/plugins/video.php?href=#{url}&width=#{width}&show_text=false&height=#{height}" width="#{width}" height="#{height}" style="border:none;overflow:hidden;width:100%;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>)
           end
           # rubocop:enable Metrics/LineLength
         end
