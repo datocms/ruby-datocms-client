@@ -1,3 +1,7 @@
+# 0.6.5
+
+* The `.seo_meta_tags` method now generates fallback titles based on the model field title
+
 # v0.6.2
 
 Moved `json_schema` as runtime dependency
