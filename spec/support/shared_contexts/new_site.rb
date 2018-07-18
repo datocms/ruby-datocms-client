@@ -29,7 +29,9 @@ RSpec.shared_context 'with a new site' do
       draft_mode_active: false,
       api_key: 'article',
       ordering_direction: nil,
-      ordering_field: nil
+      ordering_field: nil,
+      all_locales_required: true,
+      title_field: nil
     )
   end
 
@@ -38,7 +40,12 @@ RSpec.shared_context 'with a new site' do
       item_type[:id],
       api_key: 'title',
       field_type: 'string',
-      appeareance: { type: 'title' },
+      appeareance: {
+        editor: 'single_line',
+        parameters: {
+          heading: true,
+        }
+      },
       label: 'Title',
       localized: true,
       position: 99,
@@ -53,14 +60,19 @@ RSpec.shared_context 'with a new site' do
       api_key: 'slug',
       field_type: 'slug',
       appeareance: {
-        title_field_id: text_field[:id].to_s,
-        url_prefix: nil
+        editor: 'slug',
+        parameters: {}
       },
       label: 'Slug',
       localized: false,
       position: 99,
       hint: '',
-      validators: { required: {} }
+      validators: {
+        required: {},
+        slug_title_field: {
+          title_field_id: text_field[:id].to_s,
+        },
+      },
     )
   end
 
@@ -69,7 +81,10 @@ RSpec.shared_context 'with a new site' do
       item_type[:id],
       api_key: 'image',
       field_type: 'file',
-      appeareance: nil,
+      appeareance: {
+        editor: 'file',
+        parameters: {},
+      },
       label: 'Image',
       localized: false,
       position: 99,
@@ -88,7 +103,10 @@ RSpec.shared_context 'with a new site' do
       item_type[:id],
       api_key: 'file',
       field_type: 'file',
-      appeareance: nil,
+      appeareance: {
+        editor: 'file',
+        parameters: {},
+      },
       label: 'File',
       localized: false,
       position: 99,

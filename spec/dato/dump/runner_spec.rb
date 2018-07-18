@@ -15,6 +15,8 @@ module Dato
       let(:config_path) { './spec/fixtures/config.rb' }
 
       let(:destination_path) do
+        # FOR DEV
+        # './spec/fixtures/dump'
         Dir.mktmpdir
       end
 

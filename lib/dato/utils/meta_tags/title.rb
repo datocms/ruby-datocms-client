@@ -16,10 +16,7 @@ module Dato
         end
 
         def title_field
-          item && item.fields.find do |field|
-            field.field_type == 'string' &&
-              field.appeareance[:type] == 'title'
-          end
+          item && item.item_type.title_field
         end
 
         def item_title

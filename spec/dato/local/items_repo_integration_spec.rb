@@ -22,6 +22,7 @@ module Dato
         it 'dump everything you might need' do
           expect(repo.available_locales).to eq [:en, :it]
 
+          # FOR DEV
           # File.write('./spec/fixtures/to_hash/site.json', JSON.pretty_generate(repo.site.to_hash))
           expect(JSON.pretty_generate(repo.site.to_hash)).to eq File.read('./spec/fixtures/to_hash/site.json')
 
@@ -29,6 +30,7 @@ module Dato
             acc[item_type.api_key] = repo.items_of_type(item_type).map(&:to_hash)
           end
 
+          # FOR DEV
           # File.write('./spec/fixtures/to_hash/item_types.json', JSON.pretty_generate(item_types))
           expect(JSON.pretty_generate(item_types)).to eq File.read('./spec/fixtures/to_hash/item_types.json')
         end

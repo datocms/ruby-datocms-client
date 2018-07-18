@@ -44,7 +44,9 @@ module Dato
             draft_mode_active: false,
             api_key: 'article',
             ordering_direction: nil,
-            ordering_field: nil
+            ordering_field: nil,
+            all_locales_required: true,
+            title_field: nil
           )
         end
 
@@ -88,7 +90,9 @@ module Dato
             draft_mode_active: false,
             api_key: 'article',
             ordering_direction: nil,
-            ordering_field: nil
+            ordering_field: nil,
+            all_locales_required: true,
+            title_field: nil
           )
 
           expect(client.item_types.all.size).to eq 1
@@ -123,8 +127,9 @@ module Dato
             draft_mode_active: false,
             api_key: 'article',
             ordering_direction: nil,
-            ordering_field: nil
-
+            ordering_field: nil,
+            all_locales_required: true,
+            title_field: nil
           )
         end
 
@@ -133,7 +138,10 @@ module Dato
             item_type[:id],
             api_key: 'title',
             field_type: 'string',
-            appeareance: { type: 'title' },
+            appeareance: {
+              editor: 'single_line',
+              parameters: { heading: true }
+            },
             label: 'Title',
             localized: false,
             position: 99,
@@ -145,7 +153,10 @@ module Dato
 
           client.fields.update(
             new_field[:id],
-            new_field.merge(label: 'Article title')
+            new_field.merge(
+              label: 'Article title',
+              appeareance: new_field[:appeareance].except(:type),
+            )
           )
 
           expect(client.fields.find(new_field[:id])[:label]).to eq 'Article title'
@@ -166,7 +177,9 @@ module Dato
             draft_mode_active: false,
             api_key: 'article',
             ordering_direction: nil,
-            ordering_field: nil
+            ordering_field: nil,
+            all_locales_required: true,
+            title_field: nil
           )
         end
 
@@ -175,7 +188,10 @@ module Dato
             item_type[:id],
             api_key: 'title',
             field_type: 'string',
-            appeareance: { type: 'title' },
+            appeareance: {
+              editor: 'single_line',
+              parameters: { heading: true }
+            },
             label: 'Title',
             localized: false,
             position: 99,
@@ -189,7 +205,10 @@ module Dato
             item_type[:id],
             api_key: 'image',
             field_type: 'file',
-            appeareance: nil,
+            appeareance: {
+              editor: 'file',
+              parameters: {}
+            },
             label: 'Image',
             localized: false,
             position: 99,
@@ -208,7 +227,10 @@ module Dato
             item_type[:id],
             api_key: 'file',
             field_type: 'file',
-            appeareance: nil,
+            appeareance: {
+              editor: 'file',
+              parameters: {}
+            },
             label: 'File',
             localized: false,
             position: 99,

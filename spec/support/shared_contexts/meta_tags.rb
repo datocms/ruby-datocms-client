@@ -138,6 +138,12 @@ RSpec.shared_context 'items repo' do
             },
             ordering_field: {
               data: nil
+            },
+            title_field: {
+              data: {
+                id: '15085',
+                type: 'field'
+              }
             }
           }
         },
@@ -152,7 +158,10 @@ RSpec.shared_context 'items repo' do
             localized: false,
             validators: {},
             position: 1,
-            appeareance: {}
+            appeareance: {
+              editor: 'file',
+              parameters: {},
+            },
           },
           relationships: {
             item_type: {
@@ -177,8 +186,9 @@ RSpec.shared_context 'items repo' do
             },
             position: 2,
             appeareance: {
-              type: 'title'
-            }
+              editor: 'single_line',
+              parameters: { heading: true },
+            },
           },
           relationships: {
             item_type: {
@@ -201,8 +211,9 @@ RSpec.shared_context 'items repo' do
             validators: {},
             position: 3,
             appeareance: {
-              type: 'plain'
-            }
+              editor: 'single_line',
+              parameters: { heading: false },
+            },
           },
           relationships: {
             item_type: {
@@ -224,7 +235,10 @@ RSpec.shared_context 'items repo' do
             localized: false,
             validators: {},
             position: 4,
-            appeareance: {}
+            appeareance: {
+              editor: 'seo',
+              parameters: {},
+            },
           },
           relationships: {
             item_type: {
