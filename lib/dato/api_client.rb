@@ -75,15 +75,17 @@ module Dato
     private
 
     def connection
+      default_headers = {
+        'Accept' => 'application/json',
+        'Content-Type' => 'application/json',
+        'Authorization' => "Bearer #{@token}",
+        'User-Agent' => "ruby-client v#{Dato::VERSION}",
+        'X-Api-Version' => "2"
+      }
+
       options = {
         url: base_url,
-        headers: extra_headers.merge(
-          'Accept' => 'application/json',
-          'Content-Type' => 'application/json',
-          'Authorization' => "Bearer #{@token}",
-          'User-Agent' => "ruby-client v#{Dato::VERSION}",
-          'X-Api-Version' => "2"
-        )
+        headers: default_headers.merge(extra_headers)
       }
 
       @connection ||= Faraday.new(options) do |c|
