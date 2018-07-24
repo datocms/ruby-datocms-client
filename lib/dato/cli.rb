@@ -33,14 +33,14 @@ module Dato
 
         semaphore = Mutex.new
 
-        thread_safe_dump(semaphore, config_file, client)
+        thread_safe_dump(semaphore, config_file, client, preview_mode)
 
         Dato::Watch::SiteChangeWatcher.new(site_id).connect do
-          thread_safe_dump(semaphore, config_file, client)
+          thread_safe_dump(semaphore, config_file, client, preview_mode)
         end
 
         watch_config_file(config_file) do
-          thread_safe_dump(semaphore, config_file, client)
+          thread_safe_dump(semaphore, config_file, client, preview_mode)
         end
 
         sleep
@@ -79,9 +79,9 @@ module Dato
         ).start
       end
 
-      def thread_safe_dump(semaphore, config_file, client)
+      def thread_safe_dump(semaphore, config_file, client, preview_mode)
         semaphore.synchronize do
-          Dump::Runner.new(config_file, client).run
+          Dump::Runner.new(config_file, client, preview_mode).run
         end
       end
     end
