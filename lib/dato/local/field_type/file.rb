@@ -10,16 +10,19 @@ module Dato
         def self.parse(upload_id, repo)
           if upload_id
             upload = repo.entities_repo.find_entity("upload", upload_id)
-            new(
-              upload.path,
-              upload.format,
-              upload.size,
-              upload.width,
-              upload.height,
-              upload.alt,
-              upload.title,
-              repo.site.entity.imgix_host
-            )
+
+            if upload
+              new(
+                upload.path,
+                upload.format,
+                upload.size,
+                upload.width,
+                upload.height,
+                upload.alt,
+                upload.title,
+                repo.site.entity.imgix_host
+              )
+            end
           end
         end
 
