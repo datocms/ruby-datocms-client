@@ -6,7 +6,7 @@ module Dato
     module MetaTags
       class TwitterCard < Base
         def build
-          card_tag('twitter:card', 'summary')
+          card_tag('twitter:card', seo_field_with_fallback(:twitter_card, nil) || "summary")
         end
       end
     end

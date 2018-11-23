@@ -121,12 +121,12 @@ module Dato
                   'Dato::Local::JsonApiEntity(Item)',
                   id: '14',
                   item_type: item_type,
-                  title: { it: nil, en: 'Bar' }
+                  title: { ru: nil, "es-ES": 'Bar' }
                 )
               end
 
               it 'uses them' do
-                I18n.with_locale(:it) do
+                I18n.with_locale(:ru) do
                   expect(item.title).to eq 'Bar'
                 end
               end

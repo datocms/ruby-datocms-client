@@ -3,17 +3,18 @@ module Dato
   module Local
     module FieldType
       class Seo
-        attr_reader :title, :description
+        attr_reader :title, :description, :twitter_card
 
         def self.parse(value, repo)
-          value && new(value[:title], value[:description], value[:image], repo)
+          value && new(value[:title], value[:description], value[:image], value[:twitter_card], repo)
         end
 
-        def initialize(title, description, image, repo)
+        def initialize(title, description, image, twitter_card, repo)
           @title = title
           @description = description
           @image = image
           @repo = repo
+          @twitter_card = twitter_card
         end
 
         def image
