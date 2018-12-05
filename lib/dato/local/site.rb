@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'forwardable'
 require 'active_support/inflector/transliterate'
 require 'active_support/hash_with_indifferent_access'
@@ -40,9 +41,9 @@ module Dato
       end
 
       def to_hash
-        attributes = [
-          :id, :name, :locales, :theme, :domain, :internal_domain,
-          :no_index, :global_seo, :favicon, :frontend_url
+        attributes = %i[
+          id name locales theme domain internal_domain
+          no_index global_seo favicon frontend_url
         ]
 
         attributes.each_with_object({}) do |attribute, result|

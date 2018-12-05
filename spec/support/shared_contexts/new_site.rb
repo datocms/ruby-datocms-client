@@ -1,14 +1,13 @@
+# frozen_string_literal: true
+
 RSpec.shared_context 'with a new site' do
   let(:account_client) do
-    Dato::Account::Client.new(
-      'XXX',
-      base_url: 'http://account-api.lvh.me:3001'
-    )
+    generate_account_client!
   end
 
   let(:site) do
     account_client.sites.create(
-      name: 'Integration new test site',
+      name: 'Integration new test site'
     )
   end
 
@@ -40,12 +39,6 @@ RSpec.shared_context 'with a new site' do
       item_type[:id],
       api_key: 'title',
       field_type: 'string',
-      appeareance: {
-        editor: 'single_line',
-        parameters: {
-          heading: true,
-        }
-      },
       label: 'Title',
       localized: true,
       position: 99,
@@ -59,10 +52,6 @@ RSpec.shared_context 'with a new site' do
       item_type[:id],
       api_key: 'slug',
       field_type: 'slug',
-      appeareance: {
-        editor: 'slug',
-        parameters: {}
-      },
       label: 'Slug',
       localized: false,
       position: 99,
@@ -70,9 +59,9 @@ RSpec.shared_context 'with a new site' do
       validators: {
         required: {},
         slug_title_field: {
-          title_field_id: text_field[:id].to_s,
-        },
-      },
+          title_field_id: text_field[:id].to_s
+        }
+      }
     )
   end
 
@@ -81,10 +70,6 @@ RSpec.shared_context 'with a new site' do
       item_type[:id],
       api_key: 'image',
       field_type: 'file',
-      appeareance: {
-        editor: 'file',
-        parameters: {},
-      },
       label: 'Image',
       localized: false,
       position: 99,
@@ -92,7 +77,7 @@ RSpec.shared_context 'with a new site' do
       validators: {
         required: {},
         extension: {
-          predefined_list: "image"
+          predefined_list: 'image'
         }
       }
     )
@@ -103,10 +88,6 @@ RSpec.shared_context 'with a new site' do
       item_type[:id],
       api_key: 'file',
       field_type: 'file',
-      appeareance: {
-        editor: 'file',
-        parameters: {},
-      },
       label: 'File',
       localized: false,
       position: 99,
@@ -133,7 +114,7 @@ RSpec.shared_context 'with a new site' do
 
     client.site.update(
       client.site.find.merge(
-        locales: ['en', 'it'],
+        locales: %w[en it],
         theme: {
           logo: client.upload_image('./spec/fixtures/dato-logo.jpg'),
           primary_color: {
@@ -173,6 +154,4 @@ RSpec.shared_context 'with a new site' do
 
     client.items.publish(item[:id])
   end
-
-  after { destroy_site_and_wait(site) }
 end

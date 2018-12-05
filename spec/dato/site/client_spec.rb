@@ -1,15 +1,12 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 module Dato
   module Site
     describe Client, :vcr do
       let(:account_client) do
-        Dato::Account::Client.new(
-          'XXX',
-          base_url: 'http://account-api.lvh.me:3001',
-          extra_headers: { 'X-Foo' => 'Bar' }
-        )
+        generate_account_client!(extra_headers: { 'X-Foo' => 'Bar' })
       end
 
       let(:site) do
@@ -24,8 +21,6 @@ module Dato
       end
 
       before { site }
-
-      after { destroy_site_and_wait(site) }
 
       describe 'Not found' do
         it 'raises Dato::ApiError' do
@@ -138,14 +133,7 @@ module Dato
             item_type[:id],
             api_key: 'title',
             field_type: 'string',
-            appeareance: {
-              editor: 'single_line',
-              parameters: { heading: true }
-            },
             label: 'Title',
-            localized: false,
-            position: 99,
-            hint: '',
             validators: { required: {} }
           )
 
@@ -155,7 +143,7 @@ module Dato
             new_field[:id],
             new_field.merge(
               label: 'Article title',
-              appeareance: new_field[:appeareance].except(:type),
+              appeareance: new_field[:appeareance].except(:type)
             )
           )
 
@@ -188,14 +176,7 @@ module Dato
             item_type[:id],
             api_key: 'title',
             field_type: 'string',
-            appeareance: {
-              editor: 'single_line',
-              parameters: { heading: true }
-            },
             label: 'Title',
-            localized: false,
-            position: 99,
-            hint: '',
             validators: { required: {} }
           )
         end
@@ -205,18 +186,11 @@ module Dato
             item_type[:id],
             api_key: 'image',
             field_type: 'file',
-            appeareance: {
-              editor: 'file',
-              parameters: {}
-            },
             label: 'Image',
-            localized: false,
-            position: 99,
-            hint: '',
             validators: {
               required: {},
               extension: {
-                predefined_list: "image"
+                predefined_list: 'image'
               }
             }
           )
@@ -227,14 +201,7 @@ module Dato
             item_type[:id],
             api_key: 'file',
             field_type: 'file',
-            appeareance: {
-              editor: 'file',
-              parameters: {}
-            },
             label: 'File',
-            localized: false,
-            position: 99,
-            hint: '',
             validators: { required: {} }
           )
         end
@@ -257,7 +224,7 @@ module Dato
 
           client.items.update(
             new_item[:id],
-            new_item.merge(title: 'Welcome!')
+            new_item.except(:creator).merge(title: 'Welcome!')
           )
 
           expect(client.items.find(new_item[:id])[:title]).to eq 'Welcome!'

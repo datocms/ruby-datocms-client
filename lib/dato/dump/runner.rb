@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'dato/dump/dsl/root'
 require 'dato/dump/operation/root'
 require 'dato/dump/ssg_detector'

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'dato/dump/operation/create_post'
 
 module Dato

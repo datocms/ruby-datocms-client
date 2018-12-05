@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Dato
   class JsonApiSerializer
     attr_reader :link, :type
@@ -65,31 +66,29 @@ module Dato
     end
 
     def attributes(resource)
-      if type == "item"
-        return resource.keys.map(&:to_sym) - [
-          :item_type,
-          :id,
-          :created_at,
-          :updated_at,
-          :is_valid,
-          :published_version,
-          :current_version
+      if type == 'item'
+        return resource.keys.map(&:to_sym) - %i[
+          item_type
+          id
+          created_at
+          updated_at
+          is_valid
+          published_version
+          current_version
         ]
       end
 
-      link_attributes["properties"].keys.map(&:to_sym)
+      link_attributes['properties'].keys.map(&:to_sym)
     end
 
     def required_attributes
-      if type == "item"
-        return []
-      end
+      return [] if type == 'item'
 
       (link_attributes.required || []).map(&:to_sym)
     end
 
     def relationships
-      if type == "item"
+      if type == 'item'
         if link.rel == :create
           return { item_type: { collection: false, type: 'item_type' } }
         else
@@ -97,12 +96,10 @@ module Dato
         end
       end
 
-      if !link_relationships
-        return {}
-      end
+      return {} unless link_relationships
 
-      link_relationships.properties.reduce({}) do |acc, (relationship, schema)|
-        is_collection = schema.properties["data"].type.first == 'array'
+      link_relationships.properties.each_with_object({}) do |(relationship, schema), acc|
+        is_collection = schema.properties['data'].type.first == 'array'
 
         definition = if is_collection
                        schema.properties['data'].items
@@ -119,27 +116,23 @@ module Dato
 
         acc[relationship.to_sym] = {
           collection: is_collection,
-          type: type,
+          type: type
         }
-
-        acc
       end
     end
 
     def required_relationships
-      if type == "item"
-        return %i(item_type)
-      end
+      return %i[item_type] if type == 'item'
 
       (link_relationships.required || []).map(&:to_sym)
     end
 
     def link_attributes
-      link.schema.properties["data"].properties["attributes"]
+      link.schema.properties['data'].properties['attributes']
     end
 
     def link_relationships
-      link.schema.properties["data"].properties["relationships"]
+      link.schema.properties['data'].properties['relationships']
     end
   end
 end

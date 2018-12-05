@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 module Dato
@@ -83,4 +84,3 @@ module Dato
     end
   end
 end
-

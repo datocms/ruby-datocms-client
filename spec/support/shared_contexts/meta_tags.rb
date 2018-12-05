@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.shared_context 'items repo' do
   let(:item) { nil }
   let(:site) { items_repo.site }
@@ -11,12 +12,14 @@ RSpec.shared_context 'items repo' do
           id: '24038',
           type: 'item',
           attributes: {
-            updated_at: '2016-12-07T09:14:22.046Z',
             is_valid: true,
             title: item_title,
             another_string: 'Foo bar',
             seo_settings: seo,
             image: item_image
+          },
+          meta: {
+            updated_at: '2016-12-07T09:14:22.046Z'
           },
           relationships: {
             item_type: {
@@ -37,7 +40,7 @@ RSpec.shared_context 'items repo' do
             format: 'png',
             size: 572_451,
             alt: 'an alt',
-            title: 'a title',
+            title: 'a title'
           }
         },
         {
@@ -160,8 +163,8 @@ RSpec.shared_context 'items repo' do
             position: 1,
             appeareance: {
               editor: 'file',
-              parameters: {},
-            },
+              parameters: {}
+            }
           },
           relationships: {
             item_type: {
@@ -187,8 +190,8 @@ RSpec.shared_context 'items repo' do
             position: 2,
             appeareance: {
               editor: 'single_line',
-              parameters: { heading: true },
-            },
+              parameters: { heading: true }
+            }
           },
           relationships: {
             item_type: {
@@ -212,8 +215,8 @@ RSpec.shared_context 'items repo' do
             position: 3,
             appeareance: {
               editor: 'single_line',
-              parameters: { heading: false },
-            },
+              parameters: { heading: false }
+            }
           },
           relationships: {
             item_type: {
@@ -237,8 +240,8 @@ RSpec.shared_context 'items repo' do
             position: 4,
             appeareance: {
               editor: 'seo',
-              parameters: {},
-            },
+              parameters: {}
+            }
           },
           relationships: {
             item_type: {

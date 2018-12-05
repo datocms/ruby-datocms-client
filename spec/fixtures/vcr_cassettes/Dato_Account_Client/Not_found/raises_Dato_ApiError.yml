@@ -1,6 +1,57 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: http://account-api.lvh.me:3001/account
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"account","attributes":{"email":"DONSWGRI@example.com","name":"Test","company":"DatoCMS","password":"test123"}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer
+      User-Agent:
+      - ruby-client v0.6.10
+      X-Api-Version:
+      - '2'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"462aa4b99ec851662bc8d251fb675fa3"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e6857f8d-86fc-4931-9ead-c1be663c6716
+      X-Runtime:
+      - '0.071502'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6
+        STFOaUo5LmV5SmhZMk52ZFc1MFgybGtJam8xT1RJeGZRLk9qcEd1bUVybEIw
+        SUtlZ2NJZURrYktjV04zbTdVSmp0bG16bHFNSHZaUWciLCJ0eXBlIjoic2Vz
+        c2lvbiIsInJlbGF0aW9uc2hpcHMiOnsiYWNjb3VudCI6eyJkYXRhIjp7Imlk
+        IjoiNTkyMSIsInR5cGUiOiJhY2NvdW50In19fX0sImluY2x1ZGVkIjpbeyJp
+        ZCI6IjU5MjEiLCJ0eXBlIjoiYWNjb3VudCIsImF0dHJpYnV0ZXMiOnsiZW1h
+        aWwiOiJET05TV0dSSUBleGFtcGxlLmNvbSIsIm5hbWUiOiJUZXN0IiwiY29t
+        cGFueSI6IkRhdG9DTVMifX1dfQ==
+    http_version: 
+  recorded_at: Wed, 05 Dec 2018 09:26:03 GMT
+- request:
     method: get
     uri: http://account-api.lvh.me:3001/sites/9999
     body:
@@ -12,9 +63,9 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer XXX
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjo1OTIxfQ.OjpGumErlB0IKegcIeDkbKcWN3m7UJjtlmzlqMHvZQg
       User-Agent:
-      - ruby-client v0.6.4
+      - ruby-client v0.6.10
       X-Api-Version:
       - '2'
       Accept-Encoding:
@@ -31,9 +82,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - c5bc29f4-578c-48fe-bca9-60666b5d64d6
+      - 2f71ed34-e99d-45c7-8e24-29b659fec9ab
       X-Runtime:
-      - '0.011359'
+      - '0.020285'
       Transfer-Encoding:
       - chunked
     body:
@@ -44,5 +95,5 @@ http_interactions:
         c3NhZ2UiOiJDb3VsZG4ndCBmaW5kIFNpdGUgd2l0aCAnaWQnPTk5OTkgW1dI
         RVJFIFwic2l0ZXNcIi5cImFjY291bnRfaWRcIiA9ICQxXSJ9fX1dfQ==
     http_version: 
-  recorded_at: Wed, 18 Jul 2018 15:13:07 GMT
+  recorded_at: Wed, 05 Dec 2018 09:26:03 GMT
 recorded_with: VCR 4.0.0

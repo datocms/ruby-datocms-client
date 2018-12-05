@@ -1,14 +1,12 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 module Dato
   module Upload
     describe File, :vcr do
       let(:account_client) do
-        Dato::Account::Client.new(
-          'XXX',
-          base_url: 'http://account-api.lvh.me:3001'
-        )
+        generate_account_client!
       end
 
       let(:site) do
@@ -16,8 +14,6 @@ module Dato
       end
 
       before { site }
-
-      after { destroy_site_and_wait(site) }
 
       let(:site_client) do
         Dato::Site::Client.new(

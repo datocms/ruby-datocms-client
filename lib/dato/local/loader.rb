@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'dato/local/entities_repo'
 require 'dato/local/items_repo'
 
@@ -50,7 +51,7 @@ module Dato
 
       def all_uploads
         client.uploads.all(
-          { "filter[type]" => "used" },
+          { 'filter[type]' => 'used' },
           deserialize_response: false,
           all_pages: true
         )

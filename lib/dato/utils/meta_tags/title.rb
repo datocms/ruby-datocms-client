@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'dato/utils/meta_tags/base'
 
 module Dato

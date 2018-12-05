@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Dato
   class ApiError < StandardError
     attr_reader :faraday_error

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'dato/api_client'
 require 'dato/upload/file'
 require 'dato/upload/image'

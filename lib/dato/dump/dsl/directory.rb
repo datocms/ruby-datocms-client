@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'dato/dump/dsl/create_post'
 require 'dato/dump/dsl/create_data_file'
 require 'dato/dump/dsl/add_to_data_file'

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'dato/local/json_api_entity'
 
 module Dato

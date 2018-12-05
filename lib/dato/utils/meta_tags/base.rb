@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'forwardable'
 require 'dato/local/field_type/seo'
 require 'active_support/core_ext/object/blank'

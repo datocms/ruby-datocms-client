@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'forwardable'
 require 'active_support/inflector/transliterate'
 require 'active_support/hash_with_indifferent_access'
@@ -14,7 +15,7 @@ module Dato
       extend Forwardable
 
       attr_reader :entity
-      def_delegators :entity, :id
+      def_delegators :entity, :id, :meta
 
       def initialize(entity, items_repo)
         @entity = entity
@@ -63,11 +64,11 @@ module Dato
       end
 
       def updated_at
-        Time.parse(entity.updated_at).utc
+        Time.parse(meta.updated_at).utc
       end
 
       def created_at
-        Time.parse(entity.created_at).utc
+        Time.parse(meta.created_at).utc
       end
 
       def to_s

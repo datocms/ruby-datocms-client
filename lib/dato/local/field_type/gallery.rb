@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'dato/local/field_type/file'
 
 module Dato

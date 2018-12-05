@@ -1,11 +1,10 @@
 # frozen_string_literal: true
+
 require 'thor'
 require 'dato/dump/runner'
 require 'dato/dump/ssg_detector'
 require 'dato/watch/site_change_watcher'
 require 'listen'
-require 'thread'
-
 module Dato
   class Cli < Thor
     package_name 'DatoCMS'

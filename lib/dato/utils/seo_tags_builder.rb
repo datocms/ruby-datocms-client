@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'dato/utils/meta_tags/title'
 require 'dato/utils/meta_tags/description'
 require 'dato/utils/meta_tags/image'

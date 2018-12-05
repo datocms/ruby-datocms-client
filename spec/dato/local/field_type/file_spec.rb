@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 module Dato
@@ -11,7 +12,7 @@ module Dato
         let(:site) { instance_double('Dato::Local::Site', entity: site_entity) }
         let(:site_entity) { double('Dato::Local::JsonApiEntity', imgix_host: 'foobar.com') }
         let(:entities_repo) { instance_double('Dato::Local::EntitiesRepo', find_entity: upload_entity) }
-        let(:upload_entity) { double('Dato::Local::JsonApiEntity', attributes ) }
+        let(:upload_entity) { double('Dato::Local::JsonApiEntity', attributes) }
 
         let(:attributes) do
           {
@@ -20,8 +21,8 @@ module Dato
             size: 4000,
             width: 20,
             height: 20,
-            alt: "an alt",
-            title: "a title"
+            alt: 'an alt',
+            title: 'a title'
           }
         end
 

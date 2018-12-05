@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 module Dato
@@ -13,7 +14,10 @@ module Dato
           title: 'My titlè with àccents',
           body: 'Hi there',
           position: 2,
-          updated_at: '2010-01-01T00:00'
+          meta: double(
+            'Dato::Local::JsonApiMeta',
+            updated_at: '2010-01-01T00:00'
+          )
         )
       end
       let(:repo) do

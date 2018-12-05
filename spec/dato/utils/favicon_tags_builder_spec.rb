@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 module Dato
@@ -22,7 +23,7 @@ module Dato
         end
 
         context 'with favicon' do
-          let(:favicon) { "666" }
+          let(:favicon) { '666' }
 
           it 'returns an array of tags' do
             expect(builder.meta_tags).to eq [

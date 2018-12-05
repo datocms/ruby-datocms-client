@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 module Dato
@@ -74,7 +75,7 @@ module Dato
               let(:global_seo) do
                 {
                   fallback_seo: {
-                    image: "999"
+                    image: '999'
                   }
                 }
               end

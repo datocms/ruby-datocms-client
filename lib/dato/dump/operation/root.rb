@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Dato
   module Dump
     module Operation

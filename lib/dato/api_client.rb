@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'faraday'
 require 'faraday_middleware'
 require 'json'
@@ -40,7 +42,7 @@ module Dato
         schema.expand_references!
 
         schema.definitions.each do |type, schema|
-          is_collection = schema.links.select{|x| x.rel === "instances"}.any?
+          is_collection = schema.links.select { |x| x.rel === 'instances' }.any?
           namespace = is_collection ? type.pluralize : type
 
           define_method(namespace) do
@@ -55,7 +57,8 @@ module Dato
     end
 
     def request(*args)
-      connection.send(*args).body.with_indifferent_access
+      response = connection.send(*args)
+      response.body.with_indifferent_access
     rescue Faraday::SSLError => e
       raise e if ENV['SSL_CERT_FILE'] == Cacert.pem
 
@@ -80,7 +83,7 @@ module Dato
         'Content-Type' => 'application/json',
         'Authorization' => "Bearer #{@token}",
         'User-Agent' => "ruby-client v#{Dato::VERSION}",
-        'X-Api-Version' => "2"
+        'X-Api-Version' => '2'
       }
 
       options = {

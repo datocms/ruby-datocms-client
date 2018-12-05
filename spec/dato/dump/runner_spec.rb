@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
 
-require 'diff_dirs'
+require 'spec_helper'
+require 'front_matter_parser'
 
 module Dato
   module Dump
@@ -15,8 +15,6 @@ module Dato
       let(:config_path) { './spec/fixtures/config.rb' }
 
       let(:destination_path) do
-        # FOR DEV
-        # './spec/fixtures/dump'
         Dir.mktmpdir
       end
 
@@ -26,11 +24,33 @@ module Dato
         end
 
         it 'generates directories and files' do
-          diff = DiffDirs.diff_dirs(
-            destination_path,
-            './spec/fixtures/dump'
+          toml_file = TOML.load(File.read(File.join(destination_path, 'foobar.toml')))
+          expect(toml_file['sitename']).to eq 'Integration new test site'
+
+          yaml_file = YAML.safe_load(File.read(File.join(destination_path, 'site.yml')))
+          expect(yaml_file['name']).to eq 'Integration new test site'
+          expect(yaml_file['locales']).to eq %w[en it]
+
+          loader = FrontMatterParser::Loader::Yaml.new(whitelist_classes: [Time])
+          article_file = FrontMatterParser::Parser.new(:md, loader: loader).call(
+            File.read(File.join(destination_path, 'posts', 'first-post.md'))
           )
-          expect(diff).to be_empty
+
+          expect(article_file.front_matter['item_type']).to eq 'article'
+          expect(article_file.front_matter['updated_at']).to be_present
+          expect(article_file.front_matter['created_at']).to be_present
+          expect(article_file.front_matter['title']).to eq 'First post'
+          expect(article_file.front_matter['slug']).to eq 'first-post'
+          expect(article_file.front_matter['image']['format']).to eq 'png'
+          expect(article_file.front_matter['image']['size']).to eq 22_304
+          expect(article_file.front_matter['image']['height']).to eq 398
+          expect(article_file.front_matter['image']['width']).to eq 650
+          expect(article_file.front_matter['image']['url']).to be_present
+          expect(article_file.front_matter['file']['format']).to eq 'txt'
+          expect(article_file.front_matter['file']['size']).to eq 10
+          expect(article_file.front_matter['file']['url']).to be_present
+
+          expect(article_file.content).to eq 'First post'
         end
       end
     end

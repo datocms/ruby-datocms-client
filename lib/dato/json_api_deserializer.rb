@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Dato
   class JsonApiDeserializer
     def deserialize(data)
@@ -14,9 +15,7 @@ module Dato
     def deserialize_resource(data)
       result = { id: data[:id] }
 
-      if data[:attributes]
-        result.merge!(data[:attributes])
-      end
+      result.merge!(data[:attributes]) if data[:attributes]
 
       relationships = data.delete(:relationships)
 

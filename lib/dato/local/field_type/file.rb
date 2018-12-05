@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'imgix'
 
 module Dato
@@ -9,7 +10,7 @@ module Dato
 
         def self.parse(upload_id, repo)
           if upload_id
-            upload = repo.entities_repo.find_entity("upload", upload_id)
+            upload = repo.entities_repo.find_entity('upload', upload_id)
 
             if upload
               new(

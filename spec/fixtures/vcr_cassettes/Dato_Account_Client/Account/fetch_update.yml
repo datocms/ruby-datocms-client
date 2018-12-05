@@ -1,6 +1,57 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: http://account-api.lvh.me:3001/account
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"account","attributes":{"email":"ORHASPHK@example.com","name":"Test","company":"DatoCMS","password":"test123"}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer
+      User-Agent:
+      - ruby-client v0.6.10
+      X-Api-Version:
+      - '2'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"8000d8bfa535ffed21fadd67f1b6aa29"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 47ce6339-1aae-4102-98a5-60558c7d7f9c
+      X-Runtime:
+      - '0.071260'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6
+        STFOaUo5LmV5SmhZMk52ZFc1MFgybGtJam8xT1RNd2ZRLkZVLVcwbmMyR3pi
+        SGFRUTFNVUwtRFlWOHFZblhZd2wyRTh1c0VxMGdfS2MiLCJ0eXBlIjoic2Vz
+        c2lvbiIsInJlbGF0aW9uc2hpcHMiOnsiYWNjb3VudCI6eyJkYXRhIjp7Imlk
+        IjoiNTkzMCIsInR5cGUiOiJhY2NvdW50In19fX0sImluY2x1ZGVkIjpbeyJp
+        ZCI6IjU5MzAiLCJ0eXBlIjoiYWNjb3VudCIsImF0dHJpYnV0ZXMiOnsiZW1h
+        aWwiOiJPUkhBU1BIS0BleGFtcGxlLmNvbSIsIm5hbWUiOiJUZXN0IiwiY29t
+        cGFueSI6IkRhdG9DTVMifX1dfQ==
+    http_version: 
+  recorded_at: Wed, 05 Dec 2018 09:32:28 GMT
+- request:
     method: get
     uri: http://account-api.lvh.me:3001/account
     body:
@@ -12,9 +63,9 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer XXX
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjo1OTMwfQ.FU-W0nc2GzbHaQQ1MUL-DYV8qYnXYwl2E8usEq0g_Kc
       User-Agent:
-      - ruby-client v0.6.4
+      - ruby-client v0.6.10
       X-Api-Version:
       - '2'
       Accept-Encoding:
@@ -29,40 +80,39 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"320128ff3c8ff8f41da4a5077ff8230c"
+      - W/"18fae17e8a54522f537093fe17b9ce87"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2073ff47-da7e-4f67-815e-ba0df03e334f
+      - ed6615b0-8c04-442f-9cfd-16e83da6aff6
       X-Runtime:
-      - '0.010405'
+      - '0.015410'
       Transfer-Encoding:
       - chunked
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiNCIsInR5cGUiOiJhY2NvdW50IiwiYXR0cmlidXRl
-        cyI6eyJlbWFpbCI6ImludGVncmF0aW9uQHRlc3QuY29tIiwibmFtZSI6bnVs
-        bCwiY29tcGFueSI6bnVsbCwic3VwcG9ydF9oYXNoIjoiMzdlZTVkYjY0NmZi
-        ZDUxMjA2YmNhMjk5NzkxMDZlYWNjZWNlMzRlMDNlZTcxM2Q3NDA5YWI1MzA2
-        NmIyMjY0NiJ9fX0=
+        eyJkYXRhIjp7ImlkIjoiNTkzMCIsInR5cGUiOiJhY2NvdW50IiwiYXR0cmli
+        dXRlcyI6eyJlbWFpbCI6Ik9SSEFTUEhLQGV4YW1wbGUuY29tIiwibmFtZSI6
+        IlRlc3QiLCJjb21wYW55IjoiRGF0b0NNUyJ9fX0=
     http_version: 
-  recorded_at: Wed, 18 Jul 2018 15:13:07 GMT
+  recorded_at: Wed, 05 Dec 2018 09:32:28 GMT
 - request:
     method: put
     uri: http://account-api.lvh.me:3001/account
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"4","type":"account","attributes":{"email":"integration@test.com","name":null,"company":null}}}'
+      string: '{"data":{"id":"5930","type":"account","attributes":{"email":"ORHASPHK@example.com","name":"Test","company":"Dundler
+        Mifflin"}}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
       Authorization:
-      - Bearer XXX
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjo1OTMwfQ.FU-W0nc2GzbHaQQ1MUL-DYV8qYnXYwl2E8usEq0g_Kc
       User-Agent:
-      - ruby-client v0.6.4
+      - ruby-client v0.6.10
       X-Api-Version:
       - '2'
       Accept-Encoding:
@@ -77,25 +127,23 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"320128ff3c8ff8f41da4a5077ff8230c"
+      - W/"e1072517903c655c84b5998a6255bfc5"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 572943e6-2cf5-443b-96ff-d7070974fa23
+      - 4d0cc057-bc44-4556-aeb7-f715c3aa4744
       X-Runtime:
-      - '0.012838'
+      - '0.015545'
       Transfer-Encoding:
       - chunked
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiNCIsInR5cGUiOiJhY2NvdW50IiwiYXR0cmlidXRl
-        cyI6eyJlbWFpbCI6ImludGVncmF0aW9uQHRlc3QuY29tIiwibmFtZSI6bnVs
-        bCwiY29tcGFueSI6bnVsbCwic3VwcG9ydF9oYXNoIjoiMzdlZTVkYjY0NmZi
-        ZDUxMjA2YmNhMjk5NzkxMDZlYWNjZWNlMzRlMDNlZTcxM2Q3NDA5YWI1MzA2
-        NmIyMjY0NiJ9fX0=
+        eyJkYXRhIjp7ImlkIjoiNTkzMCIsInR5cGUiOiJhY2NvdW50IiwiYXR0cmli
+        dXRlcyI6eyJlbWFpbCI6Ik9SSEFTUEhLQGV4YW1wbGUuY29tIiwibmFtZSI6
+        IlRlc3QiLCJjb21wYW55IjoiRHVuZGxlciBNaWZmbGluIn19fQ==
     http_version: 
-  recorded_at: Wed, 18 Jul 2018 15:13:07 GMT
+  recorded_at: Wed, 05 Dec 2018 09:32:28 GMT
 - request:
     method: get
     uri: http://account-api.lvh.me:3001/account
@@ -108,9 +156,9 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer XXX
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjo1OTMwfQ.FU-W0nc2GzbHaQQ1MUL-DYV8qYnXYwl2E8usEq0g_Kc
       User-Agent:
-      - ruby-client v0.6.4
+      - ruby-client v0.6.10
       X-Api-Version:
       - '2'
       Accept-Encoding:
@@ -125,23 +173,21 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"320128ff3c8ff8f41da4a5077ff8230c"
+      - W/"e1072517903c655c84b5998a6255bfc5"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ebb92c57-0409-4586-9ffc-6398384ac861
+      - f0f29f41-a79c-452b-a476-3d14f05cf949
       X-Runtime:
-      - '0.010037'
+      - '0.012488'
       Transfer-Encoding:
       - chunked
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiNCIsInR5cGUiOiJhY2NvdW50IiwiYXR0cmlidXRl
-        cyI6eyJlbWFpbCI6ImludGVncmF0aW9uQHRlc3QuY29tIiwibmFtZSI6bnVs
-        bCwiY29tcGFueSI6bnVsbCwic3VwcG9ydF9oYXNoIjoiMzdlZTVkYjY0NmZi
-        ZDUxMjA2YmNhMjk5NzkxMDZlYWNjZWNlMzRlMDNlZTcxM2Q3NDA5YWI1MzA2
-        NmIyMjY0NiJ9fX0=
+        eyJkYXRhIjp7ImlkIjoiNTkzMCIsInR5cGUiOiJhY2NvdW50IiwiYXR0cmli
+        dXRlcyI6eyJlbWFpbCI6Ik9SSEFTUEhLQGV4YW1wbGUuY29tIiwibmFtZSI6
+        IlRlc3QiLCJjb21wYW55IjoiRHVuZGxlciBNaWZmbGluIn19fQ==
     http_version: 
-  recorded_at: Wed, 18 Jul 2018 15:13:07 GMT
+  recorded_at: Wed, 05 Dec 2018 09:32:28 GMT
 recorded_with: VCR 4.0.0

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-#
+
 module Dato
   module Local
     module FieldType
@@ -25,7 +25,7 @@ module Dato
         def rgb
           if alpha == 1.0
             "rgb(#{red}, #{green}, #{blue})"
-          else #
+          else
             "rgba(#{red}, #{green}, #{blue}, #{alpha})"
           end
         end

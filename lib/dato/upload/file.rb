@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'downloadr'
 require 'tempfile'
 require 'addressable'
@@ -8,7 +9,7 @@ require 'fastimage'
 module Dato
   module Upload
     class File
-      IMAGE_FORMATS = %w(png jpg jpeg gif)
+      IMAGE_FORMATS = %w[png jpg jpeg gif].freeze
 
       attr_reader :client, :source
 
@@ -63,7 +64,7 @@ module Dato
           format_resource(upload_request)
         )
 
-        uploads["id"]
+        uploads['id']
       end
 
       def format_resource(upload_request)

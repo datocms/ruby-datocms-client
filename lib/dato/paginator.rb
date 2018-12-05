@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 module Dato
   class Paginator
     def initialize(client, base_endpoint, filters)
-      @client, @base_endpoint, @filters = client, base_endpoint, filters
+      @client = client
+      @base_endpoint = base_endpoint
+      @filters = filters
     end
 
     def response
@@ -30,4 +34,3 @@ module Dato
     end
   end
 end
-

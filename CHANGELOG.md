@@ -1,3 +1,7 @@
+# 0.6.10
+
+* Introduced `.meta` on `Dato::Local::Item` to fetch all meta information about the records
+
 # 0.6.5
 
 * The `.seo_meta_tags` method now generates fallback titles based on the model field title

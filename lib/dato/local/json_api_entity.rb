@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+
+require 'dato/local/json_api_meta'
+
 module Dato
   module Local
     class JsonApiEntity
@@ -15,6 +18,10 @@ module Dato
 
       def type
         @payload[:type]
+      end
+
+      def meta
+        @meta ||= JsonApiMeta.new(@payload[:meta])
       end
 
       def ==(other)

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'toml'
 require 'json'
 require 'yaml'
@@ -8,12 +9,12 @@ module Dato
     class SsgDetector
       attr_reader :path
 
-      RUBY = %w(middleman jekyll nanoc).freeze
+      RUBY = %w[middleman jekyll nanoc].freeze
 
-      NODE = %w(brunch assemble ember-cli hexo metalsmith react-scripts
-                roots docpad wintersmith gatsby harp grunt gulp).freeze
+      NODE = %w[brunch assemble ember-cli hexo metalsmith react-scripts
+                roots docpad wintersmith gatsby harp grunt gulp].freeze
 
-      PYTHON = %w(mkdocs pelican cactus).freeze
+      PYTHON = %w[mkdocs pelican cactus].freeze
 
       HUGO = [
         {
@@ -22,7 +23,7 @@ module Dato
         },
         {
           file: 'config.yaml',
-          loader: ->(content) { YAML.load(content) }
+          loader: ->(content) { YAML.safe_load(content) }
         },
         {
           file: 'config.json',

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'dato/api_client'
 
 module Dato

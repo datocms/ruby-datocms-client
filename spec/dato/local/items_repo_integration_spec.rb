@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 
 module Dato
@@ -7,32 +8,34 @@ module Dato
       include_context 'with a new site'
 
       subject(:repo) do
-        loader.items_repo
-      end
-
-      let(:loader) do
-        Loader.new(client)
-      end
-
-      before do
+        loader = Loader.new(client)
         loader.load
+        loader.items_repo
       end
 
       describe '.to_hash' do
         it 'dump everything you might need' do
-          expect(repo.available_locales).to eq [:en, :it]
+          expect(repo.available_locales).to eq %i[en it]
 
-          # FOR DEV
-          # File.write('./spec/fixtures/to_hash/site.json', JSON.pretty_generate(repo.site.to_hash))
-          expect(JSON.pretty_generate(repo.site.to_hash)).to eq File.read('./spec/fixtures/to_hash/site.json')
+          serialized_site = repo.site.to_hash
+          expect(serialized_site[:name]).to eq 'Integration new test site'
+          expect(serialized_site[:locales]).to eq %w[en it]
 
-          item_types = repo.item_types.each_with_object({}) do |item_type, acc|
-            acc[item_type.api_key] = repo.items_of_type(item_type).map(&:to_hash)
-          end
+          serialized_article = repo.items_of_type(repo.item_types.first).first.to_hash
 
-          # FOR DEV
-          # File.write('./spec/fixtures/to_hash/item_types.json', JSON.pretty_generate(item_types))
-          expect(JSON.pretty_generate(item_types)).to eq File.read('./spec/fixtures/to_hash/item_types.json')
+          expect(serialized_article[:item_type]).to eq 'article'
+          expect(serialized_article[:updated_at]).to be_present
+          expect(serialized_article[:created_at]).to be_present
+          expect(serialized_article[:title]).to eq 'First post'
+          expect(serialized_article[:slug]).to eq 'first-post'
+          expect(serialized_article[:image][:format]).to eq 'png'
+          expect(serialized_article[:image][:size]).to eq 22_304
+          expect(serialized_article[:image][:height]).to eq 398
+          expect(serialized_article[:image][:width]).to eq 650
+          expect(serialized_article[:image][:url]).to be_present
+          expect(serialized_article[:file][:format]).to eq 'txt'
+          expect(serialized_article[:file][:size]).to eq 10
+          expect(serialized_article[:file][:url]).to be_present
         end
       end
 
