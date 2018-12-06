@@ -19,73 +19,85 @@ module Dato
       @client = client
       @type = type
       @schema = schema
+    end
 
-      schema.links.each do |link|
-        method_name = METHOD_NAMES.fetch(link.rel, link.rel)
+    def respond_to_missing?(method, include_private = false)
+      respond_to_missing = schema.links.any? do |link|
+        METHOD_NAMES.fetch(link.rel, link.rel).to_sym == method.to_sym
+      end
 
-        define_singleton_method(method_name) do |*args|
-          min_arguments_count = [
-            link.href.scan(IDENTITY_REGEXP).size,
-            link.schema && link.method != :get ? 1 : 0
-          ].reduce(0, :+)
+      respond_to_missing || super
+    end
 
-          (args.size >= min_arguments_count) or
-            raise ArgumentError, "wrong number of arguments (given #{args.size}, expected #{min_arguments_count})"
+    private
 
-          placeholders = []
+    def method_missing(method, *args, &block)
+      link = schema.links.find do |link|
+        METHOD_NAMES.fetch(link.rel, link.rel).to_sym == method.to_sym
+      end
 
-          url = link['href'].gsub(IDENTITY_REGEXP) do |_stuff|
-            placeholder = args.shift.to_s
-            placeholders << placeholder
-            placeholder
-          end
+      return super if !link
 
-          response = if %i[post put].include?(link.method)
-                       body = if link.schema
-                                unserialized_body = args.shift
+      min_arguments_count = [
+        link.href.scan(IDENTITY_REGEXP).size,
+        link.schema && link.method != :get ? 1 : 0
+      ].reduce(0, :+)
 
-                                JsonApiSerializer.new(type, link).serialize(
-                                  unserialized_body,
-                                  link.method == :post ? nil : placeholders.last
-                                )
-                              else
-                                {}
-                       end
+      (args.size >= min_arguments_count) or
+        raise ArgumentError, "wrong number of arguments (given #{args.size}, expected #{min_arguments_count})"
 
-                       client.request(link.method, url, body)
+      placeholders = []
 
-                     elsif link.method == :delete
-                       client.request(:delete, url)
+      url = link['href'].gsub(IDENTITY_REGEXP) do |_stuff|
+        placeholder = args.shift.to_s
+        placeholders << placeholder
+        placeholder
+      end
 
-                     elsif link.method == :get
-                       query_string = args.shift
+      response = if %i[post put].include?(link.method)
+                   body = if link.schema
+                            unserialized_body = args.shift
 
-                       all_pages = (args[0] || {})
-                                   .symbolize_keys
-                                   .fetch(:all_pages, false)
+                            JsonApiSerializer.new(type, link).serialize(
+                              unserialized_body,
+                              link.method == :post ? nil : placeholders.last
+                            )
+                          else
+                            {}
+                          end
 
-                       is_paginated_endpoint = link.schema &&
-                                               link.schema.properties.key?('page[limit]')
+                   client.request(link.method, url, body)
 
-                       if is_paginated_endpoint && all_pages
-                         Paginator.new(client, url, query_string).response
-                       else
-                         client.request(:get, url, query_string)
-                       end
-          end
+                 elsif link.method == :delete
+                   client.request(:delete, url)
 
-          options = if args.any?
-                      args.shift.symbolize_keys
-                    else
-                      {}
-                    end
+                 elsif link.method == :get
+                   query_string = args.shift
 
-          if options.fetch(:deserialize_response, true)
-            JsonApiDeserializer.new.deserialize(response)
-          else
-            response
-          end
-        end
+                   all_pages = (args[0] || {})
+                     .symbolize_keys
+                     .fetch(:all_pages, false)
+
+                   is_paginated_endpoint = link.schema &&
+                     link.schema.properties.key?('page[limit]')
+
+                   if is_paginated_endpoint && all_pages
+                     Paginator.new(client, url, query_string).response
+                   else
+                     client.request(:get, url, query_string)
+                   end
+                 end
+
+      options = if args.any?
+                  args.shift.symbolize_keys
+                else
+                  {}
+                end
+
+      if options.fetch(:deserialize_response, true)
+        JsonApiDeserializer.new.deserialize(response)
+      else
+        response
       end
     end
   end

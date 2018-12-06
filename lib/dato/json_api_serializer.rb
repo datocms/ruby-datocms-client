@@ -15,6 +15,10 @@ module Dato
 
       data[:id] = id || resource[:id] if id || resource[:id]
 
+      if resource.has_key?(:meta)
+        resource.delete(:meta)
+      end
+
       data[:type] = type
       data[:attributes] = serialized_attributes(resource)
 
@@ -72,9 +76,6 @@ module Dato
           id
           created_at
           updated_at
-          is_valid
-          published_version
-          current_version
         ]
       end
 
