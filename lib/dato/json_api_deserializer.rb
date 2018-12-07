@@ -3,6 +3,8 @@
 module Dato
   class JsonApiDeserializer
     def deserialize(data)
+      return nil unless data
+
       data = data[:data]
 
       if data.is_a? Array

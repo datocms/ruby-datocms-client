@@ -58,7 +58,11 @@ module Dato
 
     def request(*args)
       response = connection.send(*args)
-      response.body.with_indifferent_access
+      if response.body.is_a?(Hash)
+        response.body.with_indifferent_access
+      else
+        nil
+      end
     rescue Faraday::SSLError => e
       raise e if ENV['SSL_CERT_FILE'] == Cacert.pem
 

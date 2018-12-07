@@ -23,13 +23,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 05 Dec 2018 09:25:24 GMT
+      - Fri, 07 Dec 2018 07:14:06 GMT
       Last-Modified:
-      - Wed, 05 Dec 2018 08:48:37 GMT
+      - Thu, 06 Dec 2018 22:18:32 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '220831'
+      - '221568'
       Via:
       - 1.1 vegur
     body:
@@ -6624,7 +6624,8 @@ http_interactions:
                               "deploy_adapter",
                               "spider_enabled",
                               "frontend_url",
-                              "deploy_settings"
+                              "deploy_settings",
+                              "build_on_scheduled_publications"
                             ],
                             "additionalProperties": false,
                             "properties": {
@@ -6642,6 +6643,9 @@ http_interactions:
                               },
                               "frontend_url": {
                                 "$ref": "#/definitions/deployment_environment/definitions/attributes/properties/frontend_url"
+                              },
+                              "build_on_scheduled_publications": {
+                                "$ref": "#/definitions/deployment_environment/definitions/attributes/properties/build_on_scheduled_publications"
                               },
                               "deploy_settings": {
                                 "$ref": "#/definitions/deployment_environment/definitions/attributes/properties/deploy_settings"
@@ -6711,6 +6715,9 @@ http_interactions:
                               },
                               "frontend_url": {
                                 "$ref": "#/definitions/deployment_environment/definitions/attributes/properties/frontend_url"
+                              },
+                              "build_on_scheduled_publications": {
+                                "$ref": "#/definitions/deployment_environment/definitions/attributes/properties/build_on_scheduled_publications"
                               },
                               "deploy_settings": {
                                 "$ref": "#/definitions/deployment_environment/definitions/attributes/properties/deploy_settings"
@@ -6823,7 +6830,8 @@ http_interactions:
                     "scrape_status",
                     "frontend_url",
                     "spider_enabled",
-                    "access_policy"
+                    "access_policy",
+                    "build_on_scheduled_publications"
                   ],
                   "additionalProperties": false,
                   "properties": {
@@ -6889,6 +6897,11 @@ http_interactions:
                       ],
                       "description": "Public url of the site",
                       "example": "https://www.mywebsite.com/"
+                    },
+                    "build_on_scheduled_publications": {
+                      "type": "boolean",
+                      "description": "Deploy on scheduled publication",
+                      "example": true
                     },
                     "spider_enabled": {
                       "type": "boolean",
@@ -7208,7 +7221,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 05 Dec 2018 09:25:24 GMT
+  recorded_at: Fri, 07 Dec 2018 07:14:06 GMT
 - request:
     method: get
     uri: https://account-api.datocms.com/docs/account-api-hyperschema.json
@@ -7232,9 +7245,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 05 Dec 2018 09:25:25 GMT
+      - Fri, 07 Dec 2018 07:14:07 GMT
       Last-Modified:
-      - Wed, 05 Dec 2018 08:48:40 GMT
+      - Thu, 06 Dec 2018 22:18:35 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -9326,5 +9339,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 05 Dec 2018 09:25:25 GMT
+  recorded_at: Fri, 07 Dec 2018 07:14:07 GMT
 recorded_with: VCR 4.0.0

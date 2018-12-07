@@ -1,3 +1,7 @@
+# 0.6.12
+
+* Allow empty responses from server
+
 # 0.6.10
 
 * Introduced `.meta` on `Dato::Local::Item` to fetch all meta information about the records

@@ -234,6 +234,24 @@ module Dato
         end
       end
 
+      describe 'Deployment environments' do
+        it 'create, trigger' do
+          env = client.deployment_environments.create(
+            access_policy: nil,
+            deploy_adapter: 'custom',
+            spider_enabled: false,
+            build_on_scheduled_publications: false,
+            deploy_settings: { trigger_url: 'https://www.google.com' },
+            frontend_url: nil,
+            name: 'Foo',
+          )
+
+          expect(client.deployment_environments.all.size).to eq 1
+
+          client.deployment_environments.trigger(env[:id])
+        end
+      end
+
       describe 'Users' do
         it 'fetch, create and destroy' do
           role = client.roles.all.first
