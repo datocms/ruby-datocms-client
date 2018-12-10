@@ -42,7 +42,7 @@ module Dato
           expect(article_file.front_matter['title']).to eq 'First post'
           expect(article_file.front_matter['slug']).to eq 'first-post'
           expect(article_file.front_matter['image']['format']).to eq 'png'
-          expect(article_file.front_matter['image']['size']).to eq 22_304
+          expect(article_file.front_matter['image']['size']).to eq 21_395
           expect(article_file.front_matter['image']['height']).to eq 398
           expect(article_file.front_matter['image']['width']).to eq 650
           expect(article_file.front_matter['image']['url']).to be_present

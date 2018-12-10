@@ -23,13 +23,13 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 07 Dec 2018 07:14:06 GMT
+      - Mon, 10 Dec 2018 12:00:31 GMT
       Last-Modified:
-      - Thu, 06 Dec 2018 22:18:32 GMT
+      - Mon, 10 Dec 2018 11:30:38 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '221568'
+      - '223610'
       Via:
       - 1.1 vegur
     body:
@@ -280,6 +280,28 @@ http_interactions:
                                     "$ref": "#/definitions/item_type/definitions/data"
                                   }
                                 }
+                              },
+                              "creator": {
+                                "type": "object",
+                                "required": [
+                                  "data"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                  "data": {
+                                    "anyOf": [
+                                      {
+                                        "$ref": "#/definitions/account/definitions/data"
+                                      },
+                                      {
+                                        "$ref": "#/definitions/access_token/definitions/data"
+                                      },
+                                      {
+                                        "$ref": "#/definitions/user/definitions/data"
+                                      }
+                                    ]
+                                  }
+                                }
                               }
                             }
                           }
@@ -312,7 +334,7 @@ http_interactions:
                   "rel": "validate_new",
                   "private": true,
                   "title": "Validate new record",
-                  "description": "Validates a record fields",
+                  "description": "Validates a record field",
                   "href": "/items/validate",
                   "schema": {
                     "type": "object",
@@ -523,6 +545,34 @@ http_interactions:
                           },
                           "attributes": {
                             "$ref": "#/definitions/item/properties/attributes"
+                          },
+                          "relationships": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "creator": {
+                                "type": "object",
+                                "required": [
+                                  "data"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                  "data": {
+                                    "anyOf": [
+                                      {
+                                        "$ref": "#/definitions/account/definitions/data"
+                                      },
+                                      {
+                                        "$ref": "#/definitions/access_token/definitions/data"
+                                      },
+                                      {
+                                        "$ref": "#/definitions/user/definitions/data"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -868,8 +918,7 @@ http_interactions:
                   "description": "JSON API links",
                   "type": "object",
                   "required": [
-                    "item_type",
-                    "creator"
+                    "item_type"
                   ],
                   "additionalProperties": false,
                   "properties": {
@@ -4250,7 +4299,8 @@ http_interactions:
                               "update",
                               "create",
                               "delete",
-                              "publish"
+                              "publish",
+                              "edit_creator"
                             ],
                             "description": "Permitted action",
                             "example": "all"
@@ -4304,7 +4354,8 @@ http_interactions:
                               "update",
                               "create",
                               "delete",
-                              "publish"
+                              "publish",
+                              "edit_creator"
                             ],
                             "description": "Permitted action",
                             "example": "all"
@@ -7221,7 +7272,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 07 Dec 2018 07:14:06 GMT
+  recorded_at: Mon, 10 Dec 2018 12:00:31 GMT
 - request:
     method: get
     uri: https://account-api.datocms.com/docs/account-api-hyperschema.json
@@ -7245,9 +7296,9 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 07 Dec 2018 07:14:07 GMT
+      - Mon, 10 Dec 2018 12:00:31 GMT
       Last-Modified:
-      - Thu, 06 Dec 2018 22:18:35 GMT
+      - Mon, 10 Dec 2018 11:30:41 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -9339,5 +9390,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 07 Dec 2018 07:14:07 GMT
+  recorded_at: Mon, 10 Dec 2018 12:00:31 GMT
 recorded_with: VCR 4.0.0

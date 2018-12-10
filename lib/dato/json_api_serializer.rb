@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'dato/json_schema_relationships'
 
 module Dato
   class JsonApiSerializer
@@ -51,16 +52,31 @@ module Dato
           value = resource[relationship]
 
           data = if value
-                   if meta[:collection]
-                     value.map do |id|
-                       { type: meta[:type], id: id.to_s }
+                   if meta[:types].length > 1
+                     if meta[:collection]
+                       value.map(&:symbolize_keys)
+                     else
+                       value.symbolize_keys
                      end
                    else
-                     { type: meta[:type], id: value.to_s }
+                     type = meta[:types].first
+                     if meta[:collection]
+                       value.map do |id|
+                         {
+                           type: type,
+                           id: id.to_s
+                         }
+                       end
+                     else
+                       {
+                         type: type,
+                         id: value.to_s
+                       }
+                     end
                    end
                  end
-          result[relationship] = { data: data }
 
+          result[relationship] = { data: data }
         elsif required_relationships.include?(relationship)
           throw "Required attribute: #{relationship}"
         end
@@ -76,6 +92,7 @@ module Dato
           id
           created_at
           updated_at
+          creator
         ]
       end
 
@@ -89,42 +106,10 @@ module Dato
     end
 
     def relationships
-      if type == 'item'
-        if link.rel == :create
-          return { item_type: { collection: false, type: 'item_type' } }
-        else
-          {}
-        end
-      end
-
-      return {} unless link_relationships
-
-      link_relationships.properties.each_with_object({}) do |(relationship, schema), acc|
-        is_collection = schema.properties['data'].type.first == 'array'
-
-        definition = if is_collection
-                       schema.properties['data'].items
-                     elsif schema.properties['data'].type.first == 'object'
-                       schema.properties['data']
-                     else
-                       schema.properties['data'].any_of.find do |option|
-                         option.type.first == 'object'
-                       end
-                     end
-
-        type = definition.properties['type']
-                         .pattern.source.gsub(/(^\^|\$$)/, '')
-
-        acc[relationship.to_sym] = {
-          collection: is_collection,
-          type: type
-        }
-      end
+      @relationships ||= JsonSchemaRelationships.new(link_relationships).relationships
     end
 
     def required_relationships
-      return %i[item_type] if type == 'item'
-
       (link_relationships.required || []).map(&:to_sym)
     end
 

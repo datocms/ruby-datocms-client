@@ -224,7 +224,7 @@ module Dato
 
           client.items.update(
             new_item[:id],
-            new_item.except(:creator).merge(title: 'Welcome!')
+            new_item.merge(title: 'Welcome!')
           )
 
           expect(client.items.find(new_item[:id])[:title]).to eq 'Welcome!'

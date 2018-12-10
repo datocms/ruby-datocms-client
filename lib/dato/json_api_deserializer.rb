@@ -1,7 +1,14 @@
 # frozen_string_literal: true
+require 'dato/json_schema_relationships'
 
 module Dato
   class JsonApiDeserializer
+    attr_reader :link
+
+    def initialize(link)
+      @link = link
+    end
+
     def deserialize(data)
       return nil unless data
 
@@ -20,21 +27,37 @@ module Dato
       result[:meta] = data[:meta] if data[:meta]
       result.merge!(data[:attributes]) if data[:attributes]
 
-      relationships = data.delete(:relationships)
+      if data[:relationships]
+        relationships.each do |relationship, meta|
+          if data[:relationships][relationship]
+            rel_data = data[:relationships][relationship][:data]
 
-      if relationships
-        relationships.each do |key, handle|
-          handle_data = handle['data']
-          value = if handle_data.is_a? Array
-                    handle_data.map { |ref| ref['id'] }
-                  elsif handle_data.is_a? Hash
-                    handle_data[:id]
-                  end
-          result[key] = value
+            result[relationship] = if meta[:types].length > 1
+                                     rel_data
+                                   else
+                                     if !rel_data
+                                       nil
+                                     elsif meta[:collection]
+                                       rel_data.map { |ref| ref[:id] }
+                                     else
+                                       rel_data[:id]
+                                     end
+                                   end
+          end
         end
       end
 
       result.with_indifferent_access
+    end
+
+    def relationships
+      @relationships ||= JsonSchemaRelationships.new(link_relationships).relationships
+    end
+
+    def link_relationships
+      if link.target_schema
+        link.target_schema.properties['data'].properties['relationships']
+      end
     end
   end
 end

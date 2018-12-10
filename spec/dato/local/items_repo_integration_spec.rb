@@ -29,7 +29,7 @@ module Dato
           expect(serialized_article[:title]).to eq 'First post'
           expect(serialized_article[:slug]).to eq 'first-post'
           expect(serialized_article[:image][:format]).to eq 'png'
-          expect(serialized_article[:image][:size]).to eq 22_304
+          expect(serialized_article[:image][:size]).to eq 21_395
           expect(serialized_article[:image][:height]).to eq 398
           expect(serialized_article[:image][:width]).to eq 650
           expect(serialized_article[:image][:url]).to be_present

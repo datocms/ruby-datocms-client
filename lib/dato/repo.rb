@@ -95,7 +95,7 @@ module Dato
                 end
 
       if options.fetch(:deserialize_response, true)
-        JsonApiDeserializer.new.deserialize(response)
+        JsonApiDeserializer.new(link).deserialize(response)
       else
         response
       end
