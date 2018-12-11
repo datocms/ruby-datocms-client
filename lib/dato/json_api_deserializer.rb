@@ -51,13 +51,7 @@ module Dato
     end
 
     def relationships
-      @relationships ||= JsonSchemaRelationships.new(link_relationships).relationships
-    end
-
-    def link_relationships
-      if link.target_schema
-        link.target_schema.properties['data'].properties['relationships']
-      end
+      @relationships ||= JsonSchemaRelationships.new(link.target_schema).relationships
     end
   end
 end

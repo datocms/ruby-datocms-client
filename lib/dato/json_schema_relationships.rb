@@ -1,15 +1,19 @@
 module Dato
   class JsonSchemaRelationships
-    attr_reader :link
+    attr_reader :schema
 
-    def initialize(link)
-      @link = link
+    def initialize(schema)
+      @schema = schema
     end
 
     def relationships
-      return {} unless link
+      if !schema || !schema.properties['data'] || !schema.properties['data'].properties['relationships']
+        return {}
+      end
 
-      link.properties.each_with_object({}) do |(relationship, schema), acc|
+      relationships = schema.properties['data'].properties['relationships'].properties
+
+      relationships.each_with_object({}) do |(relationship, schema), acc|
         is_collection = schema.properties['data'].type.first == 'array'
 
         types = if is_collection

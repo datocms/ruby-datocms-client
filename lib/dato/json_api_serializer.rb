@@ -106,7 +106,7 @@ module Dato
     end
 
     def relationships
-      @relationships ||= JsonSchemaRelationships.new(link_relationships).relationships
+      @relationships ||= JsonSchemaRelationships.new(link.schema).relationships
     end
 
     def required_relationships
