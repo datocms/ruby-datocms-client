@@ -229,6 +229,13 @@ module Dato
 
           expect(client.items.find(new_item[:id])[:title]).to eq 'Welcome!'
 
+          client.items.update(
+            new_item[:id],
+            title: 'Welcome 2!'
+          )
+
+          expect(client.items.find(new_item[:id])[:title]).to eq 'Welcome 2!'
+
           client.items.destroy(new_item[:id])
           expect(client.items.all('filter[type]' => item_type[:id]).size).to eq 0
         end
