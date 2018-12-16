@@ -1,3 +1,7 @@
+# 0.6.15
+
+* Handle `429 Too Many Requests` responses from API
+
 # 0.6.12
 
 * Allow empty responses from server
