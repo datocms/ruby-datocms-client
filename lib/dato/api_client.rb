@@ -72,14 +72,42 @@ module Dato
       puts e.message
       raise e
     rescue Faraday::ClientError => e
-      error = ApiError.new(e)
-      puts '===='
-      puts error.message
-      puts '===='
-      raise error
+      if e.response[:status] == 429
+        to_wait = e.response[:headers]['x-ratelimit-reset'].to_i
+        puts "Rate limit exceeded, waiting #{to_wait} seconds..."
+        sleep(to_wait + 1)
+        request(*args)
+      elsif e.response[:status] == 422 && batch_data_validation?(e.response)
+        puts "Validating items, waiting 1 second and retrying..."
+        sleep(1)
+        request(*args)
+      else
+        error = ApiError.new(e)
+        puts "===="
+        puts error.message
+        puts "===="
+        raise error
+      end
     end
 
     private
+
+    def batch_data_validation?(response)
+      body = begin
+               JSON.parse(response[:body])
+             rescue JSON::ParserError => e
+               nil
+             end
+
+      return false unless body
+      return false unless body["data"]
+
+      body["data"].any? do |e|
+        e["attributes"]["code"] == "BATCH_DATA_VALIDATION_IN_PROGRESS"
+      end
+    rescue
+      false
+    end
 
     def connection
       default_headers = {
