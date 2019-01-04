@@ -22,7 +22,7 @@ module Dato
         def item_image
           item && item.fields
                       .select { |field| field.field_type == 'file' }
-                      .map { |field| item.send(field.api_key) }
+                      .map { |field| item[field.api_key] }
                       .compact
                       .find do |image|
 

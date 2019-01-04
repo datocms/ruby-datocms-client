@@ -22,8 +22,8 @@ module Dato
                       item.fields.detect { |f| f.field_type == 'seo' }
 
           item_seo_value = seo_field &&
-                           item.send(seo_field.api_key) &&
-                           item.send(seo_field.api_key).send(attribute)
+                           item[seo_field.api_key] &&
+                           item[seo_field.api_key].send(attribute)
 
           fallback_seo_value = fallback_seo &&
                                fallback_seo.send(attribute)

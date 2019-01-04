@@ -38,7 +38,7 @@ module Dato
       alias inspect to_s
 
       def [](key)
-        attributes[key]
+        attributes[key.to_sym]
       end
 
       def respond_to_missing?(method, include_private = false)

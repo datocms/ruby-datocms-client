@@ -47,7 +47,7 @@ module Dato
         fields.each_with_object(
           ActiveSupport::HashWithIndifferentAccess.new
         ) do |field, acc|
-          acc[field.api_key.to_sym] = send(field.api_key)
+          acc[field.api_key.to_sym] = read_attribute(field.api_key, field)
         end
       end
 
@@ -76,6 +76,10 @@ module Dato
         "#<Item id=#{id} item_type=#{api_key} attributes=#{attributes}>"
       end
       alias inspect to_s
+
+      def [](key)
+        attributes[key.to_sym]
+      end
 
       def to_hash(max_depth = 3, current_depth = 0)
         return id if current_depth >= max_depth
@@ -121,10 +125,10 @@ module Dato
         type_klass = type_klass_name.safe_constantize
 
         value = if field.localized
-                  obj = entity.send(method) || {}
+                  obj = entity[method] || {}
                   Utils::LocaleValue.find(obj)
                 else
-                  entity.send(method)
+                  entity[method]
                 end
 
         if type_klass

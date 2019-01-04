@@ -23,7 +23,7 @@ module Dato
         def item_title
           @item_title ||= seo_field_with_fallback(
             :title,
-            title_field && item.send(title_field.api_key)
+            title_field && item[title_field.api_key]
           )
         end
 

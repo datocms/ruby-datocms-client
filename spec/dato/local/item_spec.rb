@@ -5,52 +5,96 @@ require 'spec_helper'
 module Dato
   module Local
     RSpec.describe Item do
-      subject(:item) { described_class.new(entity, repo) }
+      subject(:item) do
+        ItemsRepo.new(entities_repo).work_items.first
+      end
+
       let(:entity) do
-        double(
-          'Dato::Local::JsonApiEntity(Item)',
-          id: '14',
-          item_type: item_type,
-          title: 'My titlè with àccents',
+        entities_repo.find_entities_of_type('item').first
+      end
+
+      let(:entities_repo) do
+        EntitiesRepo.new(entities)
+      end
+
+      let(:repo) do
+        ItemsRepo.new(entities_repo)
+      end
+
+      let(:entities) do
+        {
+          data: [
+            {
+              id: 'item',
+              type: 'item',
+              attributes: item_attributes,
+              meta: {
+                updated_at: '2010-01-01T00:00'
+              },
+              relationships: {
+                item_type: {
+                  data: {
+                    id: 'item-type',
+                    type: 'item_type'
+                  }
+                }
+              }
+            },
+            {
+              id: 'item-type',
+              type: 'item_type',
+              attributes: {
+                singleton: is_singleton,
+                modular_block: false,
+                sortable: true,
+                api_key: 'work_item',
+              },
+              relationships: {
+                fields: {
+                  data: [
+                    { id: 'title', type: 'field' },
+                    { id: 'body', type: 'field' },
+                  ]
+                }
+              }
+            },
+            {
+              id: 'title',
+              type: 'field',
+              attributes: {
+                position: 1,
+                api_key: title_api_key,
+                localized: title_localized,
+                field_type: title_field_type,
+                appeareance: { type: 'title' }
+              }
+            },
+            {
+              id: 'body',
+              type: 'field',
+              attributes: {
+                position: 2,
+                api_key: 'body',
+                localized: false,
+                field_type: 'text',
+                appeareance: { type: 'plain' }
+              }
+            }
+          ]
+        }
+      end
+
+      let(:is_singleton) { false }
+      let(:title_localized) { false }
+      let(:title_field_type) { 'string' }
+      let(:title_api_key) { 'title' }
+
+      let(:item_attributes) do
+        {
+          title_api_key.to_sym => 'My titlè with àccents',
           body: 'Hi there',
           position: 2,
-          meta: double(
-            'Dato::Local::JsonApiMeta',
-            updated_at: '2010-01-01T00:00'
-          )
-        )
-      end
-      let(:repo) do
-        instance_double('Dato::Local::ItemsRepo')
-      end
-      let(:item_type) do
-        double(
-          'Dato::Local::JsonApiEntity(Content Type)',
-          singleton: is_singleton,
-          api_key: 'work_item',
-          fields: fields
-        )
-      end
-      let(:is_singleton) { false }
-      let(:fields) do
-        [
-          double(
-            'Dato::Local::JsonApiEntity(Field)',
-            position: 1,
-            api_key: 'title',
-            localized: false,
-            field_type: 'string',
-            appeareance: { type: 'title' }
-          ),
-          double(
-            'Dato::Local::JsonApiEntity(Field)',
-            position: 1,
-            api_key: 'body',
-            localized: false,
-            field_type: 'text',
-            appeareance: { type: 'plain' }
-          )
-        ]
+        }
       end
 
       describe '#attributes' do
@@ -80,30 +124,16 @@ module Dato
           it 'returns the field value' do
             expect(item.respond_to?(:body)).to be_truthy
             expect(item.body).to eq 'Hi there'
+            expect(item[:body]).to eq 'Hi there'
+            expect(item["body"]).to eq 'Hi there'
           end
 
           context 'localized field' do
-            let(:entity) do
-              double(
-                'Dato::Local::JsonApiEntity(Item)',
-                id: '14',
-                item_type: item_type,
-                title: { it: 'Foo', en: 'Bar' }
-              )
+            let(:item_attributes) do
+              super().merge(title: { it: 'Foo', en: 'Bar' })
             end
 
-            let(:fields) do
-              [
-                double(
-                  'Dato::Local::JsonApiEntity(Field)',
-                  position: 1,
-                  api_key: 'title',
-                  localized: true,
-                  field_type: 'string',
-                  appeareance: { type: 'plain' }
-                )
-              ]
-            end
+            let(:title_localized) { true }
 
             it 'returns the value for the current locale' do
               I18n.with_locale(:it) do
@@ -120,13 +150,8 @@ module Dato
             end
 
             context 'fallbacks' do
-              let(:entity) do
-                double(
-                  'Dato::Local::JsonApiEntity(Item)',
-                  id: '14',
-                  item_type: item_type,
-                  title: { ru: nil, "es-ES": 'Bar' }
-                )
+              let(:item_attributes) do
+                super().merge(title: { ru: nil, "es-ES": 'Bar' })
               end
 
               it 'uses them' do
@@ -146,21 +171,27 @@ module Dato
         end
 
         context 'non existing field type' do
-          let(:fields) do
-            [
-              double(
-                'Dato::Local::JsonApiEntity(Field)',
-                position: 1,
-                api_key: 'title',
-                localized: false,
-                field_type: 'rotfl'
-              )
-            ]
-          end
+          let(:title_field_type) { 'rotfl' }
 
           it 'returns the raw item value' do
             expect(item.title).to eq 'My titlè with àccents'
           end
+        end
+
+        context 'field with api_key = meta' do
+          let(:title_api_key) { 'meta' }
+
+          it '.meta returns the meta info' do
+            expect(item.meta).to be_a JsonApiMeta
+            expect(item["meta"]).to eq 'My titlè with àccents'
+            expect(item[:meta]).to eq 'My titlè with àccents'
+          end
+        end
+      end
+
+      context 'meta' do
+        it 'returns raw info' do
+          expect(item.meta.updated_at).to eq '2010-01-01T00:00'
         end
       end
 

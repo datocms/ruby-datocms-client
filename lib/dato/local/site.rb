@@ -60,11 +60,11 @@ module Dato
 
       def read_attribute(method, type_klass, localized)
         value = if localized
-                  obj = entity.send(method) || {}
+                  obj = entity[method] || {}
 
                   Utils::LocaleValue.find(obj)
                 else
-                  entity.send(method)
+                  entity[method]
                 end
 
         type_klass.parse(value, @items_repo)

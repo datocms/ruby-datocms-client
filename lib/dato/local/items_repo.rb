@@ -137,7 +137,7 @@ module Dato
             @collections_by_type[method].sort_by!(&:position)
           elsif item_type.ordering_field
             @collections_by_type[method].sort_by! do |item|
-              item.send(item_type.ordering_field.api_key)
+              item[item_type.ordering_field.api_key]
             end
             if item_type.ordering_direction == 'desc'
               @collections_by_type[method].reverse!
