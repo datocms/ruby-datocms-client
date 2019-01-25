@@ -182,6 +182,51 @@ module Dato
           it 'sorts items by position' do
             expect(repo.posts).to eq [item_2, item]
           end
+
+          context 'nil value' do
+            let(:item) do
+              instance_double('Dato::Local::Item', id: '14', position: nil)
+            end
+            let(:item_2) do
+              instance_double('Dato::Local::Item', id: '15', position: 1)
+            end
+
+            it 'sorts items by position' do
+              expect(repo.posts).to eq [item_2, item]
+            end
+          end
+        end
+
+        describe 'sortable collection by field' do
+          let(:item_type) do
+            double(
+              'Dato::Local::JsonApiEntity',
+              api_key: 'post',
+              singleton: false,
+              modular_block: false,
+              sortable: false,
+              ordering_field: field,
+              ordering_direction: 'asc'
+            )
+          end
+          let(:field) do
+            double('Dato::Local::JsonApiEntity', api_key: 'date')
+          end
+          let(:item) do
+            double('Dato::Local::Item', id: '14')
+          end
+          let(:item_2) do
+            double('Dato::Local::Item', id: '15')
+          end
+
+          before do
+            allow(item).to receive(:[]).with('date') { nil }
+            allow(item_2).to receive(:[]).with('date') { Time.now }
+          end
+
+          it 'sorts items by ordering field' do
+            expect(repo.posts).to eq [item_2, item]
+          end
         end
       end
 
