@@ -7,11 +7,21 @@ module Dato
     end
 
     def relationships
-      if !schema || !schema.properties['data'] || !schema.properties['data'].properties['relationships']
+      if !schema || !schema.properties['data']
         return {}
       end
 
-      relationships = schema.properties['data'].properties['relationships'].properties
+      entity = if schema.properties['data'].type.first == 'array'
+                 schema.properties['data'].items
+               else
+                 schema.properties['data']
+               end
+
+      if !entity || !entity.properties['relationships'] || !entity.properties['relationships']
+        return {}
+      end
+
+      relationships = entity.properties['relationships'].properties
 
       relationships.each_with_object({}) do |(relationship, schema), acc|
         is_collection = schema.properties['data'].type.first == 'array'

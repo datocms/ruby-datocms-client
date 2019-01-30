@@ -1,3 +1,7 @@
+# 0.6.18
+
+* Fixed regression where you could no longer access items' item type
+
 # 0.6.15
 
 * Handle `429 Too Many Requests` responses from API

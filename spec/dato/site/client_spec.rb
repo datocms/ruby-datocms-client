@@ -220,7 +220,12 @@ module Dato
             file: client.upload_file('./spec/fixtures/file.txt')
           )
 
-          expect(client.items.all('filter[type]' => item_type[:id]).size).to eq 1
+          expect(new_item[:item_type]).not_to be_nil
+
+          all_items = client.items.all('filter[type]' => item_type[:id])
+
+          expect(all_items.size).to eq 1
+          expect(all_items.first[:item_type]).not_to be_nil
 
           client.items.update(
             new_item[:id],
