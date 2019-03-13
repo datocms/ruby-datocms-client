@@ -18,8 +18,11 @@ module Dato
       def connect(&block)
         return if connected?
 
-        @socket = PusherClient::Socket.new(PUSHER_API_KEY, secure: true)
-        @socket.subscribe("site-#{site_id}")
+        @socket = PusherClient::Socket.new(PUSHER_API_KEY,
+                                           secure: true,
+                                           ws_host: 'ws-eu.pusher.com',
+                                           auth_method: auth_method)
+        @socket.subscribe("private-site-#{site_id}")
         @socket.bind('site:change', &block)
         @socket.connect(true)
 
@@ -32,6 +35,15 @@ module Dato
 
       def disconnect!
         connected? && @socket.disconnect
+      end
+
+      private
+
+      def auth_method
+        proc do |socket_id, channel|
+          client = Dato::Site::Client.new(ENV['DATO_API_TOKEN'])
+          client.pusher_token(socket_id, channel.name)['auth']
+        end
       end
     end
   end

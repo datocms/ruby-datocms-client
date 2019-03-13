@@ -26,25 +26,28 @@ module Dato
           'X-SSG' => Dump::SsgDetector.new(Dir.pwd).detect
         }
       )
+      loader = Dato::Local::Loader.new(client, preview_mode)
+      print 'Fetching content from DatoCMS... '
+      loader.load
 
       if watch_mode
         site_id = client.request(:get, '/site')['data']['id']
 
         semaphore = Mutex.new
 
-        thread_safe_dump(semaphore, config_file, client, preview_mode)
+        thread_safe_dump(semaphore, config_file, client, preview_mode, loader)
 
-        Dato::Watch::SiteChangeWatcher.new(site_id).connect do
-          thread_safe_dump(semaphore, config_file, client, preview_mode)
+        loader.watch(site_id) do
+          thread_safe_dump(semaphore, config_file, client, preview_mode, loader)
         end
 
         watch_config_file(config_file) do
-          thread_safe_dump(semaphore, config_file, client, preview_mode)
+          thread_safe_dump(semaphore, config_file, client, preview_mode, loader)
         end
 
         sleep
       else
-        Dump::Runner.new(config_file, client, preview_mode).run
+        Dump::Runner.new(config_file, client, preview_mode, loader).run
       end
     end
 
@@ -78,9 +81,9 @@ module Dato
         ).start
       end
 
-      def thread_safe_dump(semaphore, config_file, client, preview_mode)
+      def thread_safe_dump(semaphore, config_file, client, preview_mode, loader)
         semaphore.synchronize do
-          Dump::Runner.new(config_file, client, preview_mode).run
+          Dump::Runner.new(config_file, client, preview_mode, loader).run
         end
       end
     end

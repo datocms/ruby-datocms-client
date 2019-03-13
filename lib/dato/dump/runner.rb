@@ -8,20 +8,17 @@ require 'dato/local/loader'
 module Dato
   module Dump
     class Runner
-      attr_reader :config_path, :client, :destination_path, :preview_mode
+      attr_reader :config_path, :client, :destination_path, :preview_mode, :loader
 
-      def initialize(config_path, client, preview_mode, destination_path = Dir.pwd)
+      def initialize(config_path, client, preview_mode, loader, destination_path = Dir.pwd)
         @config_path = config_path
         @preview_mode = preview_mode
         @client = client
         @destination_path = destination_path
+        @loader = loader
       end
 
       def run
-        print 'Fetching content from DatoCMS... '
-
-        loader.load
-
         I18n.available_locales = loader.items_repo.available_locales
         I18n.locale = I18n.available_locales.first
 
@@ -38,10 +35,6 @@ module Dato
 
       def operation
         @operation ||= Operation::Root.new(destination_path)
-      end
-
-      def loader
-        @loader ||= Dato::Local::Loader.new(client, preview_mode)
       end
     end
   end
