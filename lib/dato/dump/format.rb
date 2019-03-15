@@ -2,6 +2,7 @@
 
 require 'dato/dump/format/toml'
 require 'dato/dump/format/yaml'
+require 'dato/dump/format/json'
 
 module Dato
   module Dump

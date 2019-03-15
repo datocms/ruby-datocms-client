@@ -64,7 +64,7 @@ module Dato
           payload = client.items.all({
                                        'filter[ids]' => item_ids.join(','),
                                        version: preview_mode ? 'latest' : 'published'
-                                     }, deserialize_response: false)
+                                     }, {deserialize_response: false, all_pages: true})
           @entities_repo.upsert_entities(payload)
           update_items_repo
           yield
@@ -82,7 +82,7 @@ module Dato
       def bind_on_upload_upsert
         pusher.bind('upload:upsert') do |data|
           id << JSON.parse(data)['id']
-          payload = client.items.find(id, {}, deserialize_response: false)
+          payload = client.uploads.find(id, {}, deserialize_response: false)
           @entities_repo.upsert_entities(payload)
           update_items_repo
           yield
@@ -144,7 +144,6 @@ module Dato
 
       def all_uploads
         client.uploads.all(
-          { 'filter[type]' => 'used' },
           deserialize_response: false,
           all_pages: true
         )
