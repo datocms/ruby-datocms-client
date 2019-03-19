@@ -5,7 +5,7 @@ http_interactions:
     uri: http://account-api.lvh.me:3001/account
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"account","attributes":{"email":"QGKPZSHA@example.com","name":"Test","company":"DatoCMS","password":"test123"}}}'
+      string: '{"data":{"type":"account","attributes":{"email":"BPIRDONB@example.com","name":"Test","company":"DatoCMS","password":"veryst_9rong_passowrd4_"}}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
       Authorization:
       - Bearer
       User-Agent:
-      - ruby-client v0.6.12
+      - ruby-client v0.6.18
       X-Api-Version:
       - '2'
       Accept-Encoding:
@@ -28,29 +28,46 @@ http_interactions:
       - application/json; charset=utf-8
       Vary:
       - Accept-Encoding
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '28'
       Etag:
-      - W/"6aaced57d4de196750cb8c758c2e763b"
+      - W/"5e62068fc4abd3ca4e60799b78fe601a"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 141328af-4a11-45ee-a9af-6a89f7848614
+      - ed26609e-e9e8-41e4-81ec-4f074b86f21a
       X-Runtime:
-      - '0.070848'
+      - '0.466556'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-site-domain, x-api-version, user-agent
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
+      Access-Control-Max-Age:
+      - '1728000'
+      Access-Control-Allow-Origin:
+      - "*"
       Transfer-Encoding:
       - chunked
     body:
       encoding: ASCII-8BIT
       base64_string: |
         eyJkYXRhIjp7ImlkIjoiZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6
-        STFOaUo5LmV5SmhZMk52ZFc1MFgybGtJam8xT0RFemZRLkZyaDJPajFHV3ZN
-        TFVUcmdpcUhfMEpEMTVFbnl6MmpucFhQOXp4dlJHYnciLCJ0eXBlIjoic2Vz
-        c2lvbiIsInJlbGF0aW9uc2hpcHMiOnsiYWNjb3VudCI6eyJkYXRhIjp7Imlk
-        IjoiNTgxMyIsInR5cGUiOiJhY2NvdW50In19fX0sImluY2x1ZGVkIjpbeyJp
-        ZCI6IjU4MTMiLCJ0eXBlIjoiYWNjb3VudCIsImF0dHJpYnV0ZXMiOnsiZW1h
-        aWwiOiJRR0tQWlNIQUBleGFtcGxlLmNvbSIsIm5hbWUiOiJUZXN0IiwiY29t
-        cGFueSI6IkRhdG9DTVMifX1dfQ==
+        STFOaUo5LmV5SmhZMk52ZFc1MFgybGtJam8zTURBM0xDSm5aVzVsY21GMFpX
+        UmZZWFFpT2lJeU1ERTVMVEF6TFRFNVZERXhPakF5T2pVMExqa3hNaXN3TVRv
+        d01DSjkuNVNQZUlNUm5KTGhZbEl4aWJOOUhnLWVjaExZS193VnZwRGdGa09j
+        QXF6OCIsInR5cGUiOiJzZXNzaW9uIiwicmVsYXRpb25zaGlwcyI6eyJhY2Nv
+        dW50Ijp7ImRhdGEiOnsiaWQiOiI3MDA3IiwidHlwZSI6ImFjY291bnQifX19
+        fSwiaW5jbHVkZWQiOlt7ImlkIjoiNzAwNyIsInR5cGUiOiJhY2NvdW50Iiwi
+        YXR0cmlidXRlcyI6eyJlbWFpbCI6IkJQSVJET05CQGV4YW1wbGUuY29tIiwi
+        bmFtZSI6IlRlc3QiLCJjb21wYW55IjoiRGF0b0NNUyJ9fV19
     http_version: 
-  recorded_at: Mon, 10 Dec 2018 12:00:32 GMT
+  recorded_at: Tue, 19 Mar 2019 10:02:54 GMT
 - request:
     method: get
     uri: http://account-api.lvh.me:3001/sites/9999
@@ -63,9 +80,9 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjo1ODEzfQ.Frh2Oj1GWvMLUTrgiqH_0JD15Enyz2jnpXP9zxvRGbw
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjo3MDA3LCJnZW5lcmF0ZWRfYXQiOiIyMDE5LTAzLTE5VDExOjAyOjU0LjkxMiswMTowMCJ9.5SPeIMRnJLhYlIxibN9Hg-echLYK_wVvpDgFkOcAqz8
       User-Agent:
-      - ruby-client v0.6.12
+      - ruby-client v0.6.18
       X-Api-Version:
       - '2'
       Accept-Encoding:
@@ -79,12 +96,28 @@ http_interactions:
       - application/json; charset=utf-8
       Vary:
       - Accept-Encoding
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '27'
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - af0255e7-bccb-475a-a4d5-5a3fcec20100
+      - b0f2d455-b9cb-487d-9dac-7c9bb8af3d24
       X-Runtime:
-      - '0.014317'
+      - '0.028853'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-site-domain, x-api-version, user-agent
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
+      Access-Control-Max-Age:
+      - '1728000'
+      Access-Control-Allow-Origin:
+      - "*"
       Transfer-Encoding:
       - chunked
     body:
@@ -95,5 +128,5 @@ http_interactions:
         c3NhZ2UiOiJDb3VsZG4ndCBmaW5kIFNpdGUgd2l0aCAnaWQnPTk5OTkgW1dI
         RVJFIFwic2l0ZXNcIi5cImFjY291bnRfaWRcIiA9ICQxXSJ9fX1dfQ==
     http_version: 
-  recorded_at: Mon, 10 Dec 2018 12:00:32 GMT
+  recorded_at: Tue, 19 Mar 2019 10:02:54 GMT
 recorded_with: VCR 4.0.0

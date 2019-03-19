@@ -64,7 +64,7 @@ module Dato
           payload = client.items.all({
                                        'filter[ids]' => item_ids.join(','),
                                        version: preview_mode ? 'latest' : 'published'
-                                     }, {deserialize_response: false, all_pages: true})
+                                     }, deserialize_response: false, all_pages: true)
           @entities_repo.upsert_entities(payload)
           update_items_repo
           yield
@@ -143,10 +143,9 @@ module Dato
       end
 
       def all_uploads
-        client.uploads.all(
-          deserialize_response: false,
-          all_pages: true
-        )
+        client.uploads.all({},
+                           deserialize_response: false,
+                           all_pages: true)
       end
 
       def pusher_auth_method

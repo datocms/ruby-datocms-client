@@ -11,7 +11,7 @@ module AccountClientProvider
 
     account = anonymous_client.account.create(
       email: "#{random_string}@example.com",
-      password: 'test123',
+      password: 'veryst_9rong_passowrd4_',
       name: 'Test',
       company: 'DatoCMS'
     )

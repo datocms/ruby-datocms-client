@@ -216,7 +216,7 @@ module Dato
           new_item = client.items.create(
             item_type: item_type[:id],
             title: 'First post',
-            image: client.upload_image('https://www.datocms.com/static/2-00c287793580e47fbe1222a1d44a6e25-95c66.png'),
+            image: client.upload_image('https://www.datocms-assets.com/205/1549027974-logo.png'),
             file: client.upload_file('./spec/fixtures/file.txt')
           )
 
@@ -249,13 +249,12 @@ module Dato
       describe 'Deployment environments' do
         it 'create, trigger' do
           env = client.deployment_environments.create(
-            access_policy: nil,
             deploy_adapter: 'custom',
             spider_enabled: false,
             build_on_scheduled_publications: false,
             deploy_settings: { trigger_url: 'https://www.google.com' },
             frontend_url: nil,
-            name: 'Foo',
+            name: 'Foo'
           )
 
           expect(client.deployment_environments.all.size).to eq 1
