@@ -20,6 +20,14 @@ module Dato
         file = Upload::Image.new(self, path_or_url)
         file.upload
       end
+
+      def pusher_token(socket_id, channel)
+        request(
+          :post,
+          "/pusher/authenticate",
+          { socket_id: socket_id, channel_name: channel}
+        )
+      end
     end
   end
 end

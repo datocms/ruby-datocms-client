@@ -1,3 +1,7 @@
+# 0.7.0
+
+* Real-time events are now much more granular and the gem avoids downloading all the content every time a change occurs
+
 # 0.6.18
 
 * Fixed regression where you could no longer access items' item type

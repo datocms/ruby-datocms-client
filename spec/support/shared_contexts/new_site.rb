@@ -104,7 +104,7 @@ RSpec.shared_context 'with a new site' do
         it: 'Primo post'
       },
       slug: 'first-post',
-      image: client.upload_image('https://www.datocms.com/static/2-00c287793580e47fbe1222a1d44a6e25-95c66.png'),
+      image: client.upload_image('https://www.datocms-assets.com/205/1549027974-logo.png'),
       file: client.upload_file('./spec/fixtures/file.txt')
     )
   end
