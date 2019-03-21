@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'downloadr'
+require 'open-uri'
 require 'tempfile'
 require 'addressable'
 require 'net/http'
@@ -22,9 +22,10 @@ module Dato
         @file ||= if http_source?
                     uri = Addressable::URI.parse(source)
                     ext = ::File.extname(uri.path)
-                    Tempfile.new(['file', ext]).tap do |file|
-                      Downloadr::HTTP.new(source, file).download
-                    end
+                    tempfile = Tempfile.new(['file', ext])
+                    tempfile.binmode
+                    tempfile.write(open(source).read)
+                    tempfile
                   else
                     ::File.new(::File.expand_path(source))
                   end
