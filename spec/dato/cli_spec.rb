@@ -32,17 +32,12 @@ module Dato
     let(:site_data) { { 'data' => { 'id' => 'id' } } }
     let(:runner) { instance_double(Dato::Dump::Runner, run: nil) }
 
-    let(:watcher) do
-      instance_double(Dato::Watch::SiteChangeWatcher, connect: nil)
-    end
-
     before do
       allow(Dato::Site::Client).to receive(:new) { client }
       allow(client).to receive_message_chain(:items, :all).and_return({})
       allow(client).to receive_message_chain(:uploads, :all).and_return({})
       allow(Dato::Dump::Runner)
         .to receive(:new).with(anything, anything, anything, anything) { runner }
-      allow(Dato::Watch::SiteChangeWatcher).to receive(:new) { watcher }
       allow(subject).to receive(:sleep)
     end
 
