@@ -21,7 +21,7 @@ module Dato
       def file
         @file ||= if http_source?
                     uri = Addressable::URI.parse(source)
-                    ext = ::File.extname(uri.path)
+                    ext = ::File.extname(uri.path).downcase
                     tempfile = Tempfile.new(['file', ext])
                     tempfile.binmode
                     tempfile.write(open(source).read)
@@ -69,7 +69,7 @@ module Dato
       end
 
       def format_resource(upload_request)
-        extension = ::File.extname(::File.basename(file.path)).delete('.')
+        extension = ::File.extname(::File.basename(file.path)).delete('.').downcase
 
         base_format = {
           path: upload_request[:id],
