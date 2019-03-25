@@ -45,6 +45,7 @@ module Dato
 
         pusher.subscribe("private-site-#{site_id}")
 
+        bind_on_site_upsert(&block)
         bind_on_item_destroy(&block)
         bind_on_item_upsert(&block)
         bind_on_item_type_upsert(&block)
@@ -60,6 +61,22 @@ module Dato
       end
 
       private
+
+      def bind_on_site_upsert(&block)
+        bind_on("site:upsert", block) do |data|
+          threads = [
+            Thread.new { Thread.current[:output] = site },
+            Thread.new { Thread.current[:output] = all_items }
+          ]
+
+          results = threads.map do |t|
+            t.join
+            t[:output]
+          end
+
+          @entities_repo = EntitiesRepo.new(*results)
+        end
+      end
 
       def bind_on_item_upsert(&block)
         event_type = preview_mode ? 'preview_mode' : 'published_mode'
