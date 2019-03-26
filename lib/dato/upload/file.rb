@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'open-uri'
 require 'tempfile'
 require 'addressable'
 require 'net/http'
@@ -24,7 +23,7 @@ module Dato
                     ext = ::File.extname(uri.path).downcase
                     tempfile = Tempfile.new(['file', ext])
                     tempfile.binmode
-                    tempfile.write(open(source).read)
+                    tempfile.write(download_file(source))
                     tempfile
                   else
                     ::File.new(::File.expand_path(source))
@@ -66,6 +65,19 @@ module Dato
         )
 
         uploads['id']
+      end
+
+      def download_file(url)
+        connection = Faraday.new do |c|
+          c.response :raise_error
+          c.use FaradayMiddleware::FollowRedirects
+          c.adapter :net_http
+        end
+        connection.get(url).body
+
+      rescue Faraday::Error => e
+        puts "Error during uploading #{url}"
+        raise e
       end
 
       def format_resource(upload_request)

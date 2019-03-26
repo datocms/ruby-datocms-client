@@ -32,6 +32,13 @@ module Dato
         it 'downloads locally and then uploads the file' do
           expect(command.upload).not_to be_nil
         end
+        context 'with a 404 url' do
+          let(:source) { 'https://google.it/NonExistentImage.png' }
+  
+          it 'raise an exception' do
+            expect { command.upload }.to raise_error(Faraday::ResourceNotFound)
+          end
+        end
       end
 
       context 'with a local file' do
