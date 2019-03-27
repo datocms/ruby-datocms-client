@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'fastimage'
 require 'tempfile'
 require 'addressable'
 require 'net/http'
@@ -7,6 +8,7 @@ require 'net/http'
 module Dato
   module Upload
     class File
+      IMAGE_FORMATS = %w[png jpg jpeg gif].freeze
 
       attr_reader :client, :source
 
@@ -72,20 +74,31 @@ module Dato
           c.adapter :net_http
         end
         connection.get(url).body
-
       rescue Faraday::Error => e
         puts "Error during uploading #{url}"
         raise e
       end
 
       def format_resource(upload_request)
-        extension = ::File.extname(::File.basename(file.path)).delete('.').downcase
+        extension = FastImage.type(file.path).to_s
+        if extension.empty?
+          extension = ::File.extname(::File.basename(file.path)).delete('.').downcase
+        end
+
+        raise FastImage::UnknownImageType if extension.empty?
 
         base_format = {
           path: upload_request[:id],
           size: ::File.size(file.path),
           format: extension
         }
+        if IMAGE_FORMATS.include?(extension)
+          width, height = FastImage.size(file.path)
+          base_format = base_format.merge(
+            width: width,
+            height: height
+          )
+        end
         base_format
       end
     end
