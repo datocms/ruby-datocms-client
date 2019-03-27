@@ -58,6 +58,22 @@ module Dato
           end
         end
 
+        context 'gif image' do
+          let(:source) { './spec/fixtures/image.gif' }
+          it 'uploads the file' do
+            expect(upload).not_to be_nil
+            expect(site_client.uploads.find(upload)[:format]).to eq 'gif'
+          end
+        end
+
+        context 'png image' do
+          let(:source) { './spec/fixtures/image.png' }
+          it 'uploads the file' do
+            expect(upload).not_to be_nil
+            expect(site_client.uploads.find(upload)[:format]).to eq 'png'
+          end
+        end
+
         context 'no image file' do
           let(:source) { './spec/fixtures/file.txt' }
           it 'returns format error' do
