@@ -3,12 +3,10 @@
 require 'tempfile'
 require 'addressable'
 require 'net/http'
-require 'fastimage'
 
 module Dato
   module Upload
     class File
-      IMAGE_FORMATS = %w[png jpg jpeg gif].freeze
 
       attr_reader :client, :source
 
@@ -88,18 +86,7 @@ module Dato
           size: ::File.size(file.path),
           format: extension
         }
-
-        if IMAGE_FORMATS.include?(extension)
-          width, height = FastImage.size(file.path)
-
-          base_format.merge(
-            width: width,
-            height: height,
-            format: FastImage.type(file.path).to_s
-          )
-        else
-          base_format
-        end
+        base_format
       end
     end
   end
