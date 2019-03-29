@@ -24,6 +24,7 @@ module Dato
                     tempfile = Tempfile.new(['file', ext])
                     tempfile.binmode
                     tempfile.write(download_file(source))
+                    tempfile.rewind
                     tempfile
                   else
                     ::File.new(::File.expand_path(source))
