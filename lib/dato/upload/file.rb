@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-require 'downloadr'
+require 'fastimage'
 require 'tempfile'
 require 'addressable'
 require 'net/http'
-require 'fastimage'
 
 module Dato
   module Upload
@@ -21,10 +20,12 @@ module Dato
       def file
         @file ||= if http_source?
                     uri = Addressable::URI.parse(source)
-                    ext = ::File.extname(uri.path)
-                    Tempfile.new(['file', ext]).tap do |file|
-                      Downloadr::HTTP.new(source, file).download
-                    end
+                    ext = ::File.extname(uri.path).downcase
+                    tempfile = Tempfile.new(['file', ext])
+                    tempfile.binmode
+                    tempfile.write(download_file(source))
+                    tempfile.rewind
+                    tempfile
                   else
                     ::File.new(::File.expand_path(source))
                   end
@@ -67,26 +68,39 @@ module Dato
         uploads['id']
       end
 
+      def download_file(url)
+        connection = Faraday.new do |c|
+          c.response :raise_error
+          c.use FaradayMiddleware::FollowRedirects
+          c.adapter :net_http
+        end
+        connection.get(url).body
+      rescue Faraday::Error => e
+        puts "Error during uploading #{url}"
+        raise e
+      end
+
       def format_resource(upload_request)
-        extension = ::File.extname(::File.basename(file.path)).delete('.')
+        extension = FastImage.type(file.path).to_s
+        if extension.empty?
+          extension = ::File.extname(::File.basename(file.path)).delete('.').downcase
+        end
+
+        raise FastImage::UnknownImageType if extension.empty?
 
         base_format = {
           path: upload_request[:id],
           size: ::File.size(file.path),
           format: extension
         }
-
         if IMAGE_FORMATS.include?(extension)
           width, height = FastImage.size(file.path)
-
-          base_format.merge(
+          base_format = base_format.merge(
             width: width,
-            height: height,
-            format: FastImage.type(file.path).to_s
+            height: height
           )
-        else
-          base_format
         end
+        base_format
       end
     end
   end
