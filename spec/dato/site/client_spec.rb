@@ -263,23 +263,17 @@ module Dato
         end
       end
 
-      describe 'Users' do
+      describe 'Site invitations' do
         it 'fetch, create and destroy' do
           role = client.roles.all.first
 
-          user = client.users.create(
+          invitation = client.site_invitations.create(
             email: 'foo@bar.it',
-            first_name: 'Foo',
-            last_name: 'Bar',
             role: role[:id]
           )
 
-          expect(client.users.all.size).to eq 1
-
-          fetched_user = client.users.find(user[:id])
-          expect(fetched_user[:first_name]).to eq 'Foo'
-
-          client.users.destroy(user[:id])
+          expect(client.site_invitations.all.size).to eq 1
+          client.site_invitations.destroy(invitation[:id])
         end
       end
 

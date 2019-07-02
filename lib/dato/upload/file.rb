@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'fastimage'
 require 'tempfile'
 require 'addressable'
 require 'net/http'
@@ -50,10 +49,7 @@ module Dato
         upload_request = client.upload_request.create(filename: filename)
         uri = URI.parse(upload_request[:url])
 
-        request = Net::HTTP::Put.new(
-          uri,
-          'x-amz-acl' => 'public-read'
-        )
+        request = Net::HTTP::Put.new(uri)
         request.body = file.read
 
         http = Net::HTTP.new(uri.host, uri.port)
@@ -61,9 +57,7 @@ module Dato
 
         http.request(request)
 
-        uploads = client.uploads.create(
-          format_resource(upload_request)
-        )
+        uploads = client.uploads.create(path: upload_request[:id])
 
         uploads['id']
       end
@@ -78,29 +72,6 @@ module Dato
       rescue Faraday::Error => e
         puts "Error during uploading #{url}"
         raise e
-      end
-
-      def format_resource(upload_request)
-        extension = FastImage.type(file.path).to_s
-        if extension.empty?
-          extension = ::File.extname(::File.basename(file.path)).delete('.').downcase
-        end
-
-        raise FastImage::UnknownImageType if extension.empty?
-
-        base_format = {
-          path: upload_request[:id],
-          size: ::File.size(file.path),
-          format: extension
-        }
-        if IMAGE_FORMATS.include?(extension)
-          width, height = FastImage.size(file.path)
-          base_format = base_format.merge(
-            width: width,
-            height: height
-          )
-        end
-        base_format
       end
     end
   end

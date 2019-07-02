@@ -41,7 +41,6 @@ RSpec.shared_context 'with a new site' do
       field_type: 'string',
       label: 'Title',
       localized: true,
-      position: 99,
       hint: '',
       validators: { required: {} }
     )
@@ -54,7 +53,6 @@ RSpec.shared_context 'with a new site' do
       field_type: 'slug',
       label: 'Slug',
       localized: false,
-      position: 99,
       hint: '',
       validators: {
         required: {},
@@ -72,7 +70,6 @@ RSpec.shared_context 'with a new site' do
       field_type: 'file',
       label: 'Image',
       localized: false,
-      position: 99,
       hint: '',
       validators: {
         required: {},
@@ -90,7 +87,6 @@ RSpec.shared_context 'with a new site' do
       field_type: 'file',
       label: 'File',
       localized: false,
-      position: 99,
       hint: '',
       validators: { required: {} }
     )
