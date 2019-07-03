@@ -78,10 +78,7 @@ module Dato
                      .symbolize_keys
                      .fetch(:all_pages, false)
 
-                   is_paginated_endpoint = link.schema &&
-                     link.schema.properties.key?('page[limit]')
-
-                   if is_paginated_endpoint && all_pages
+                   if all_pages
                      Paginator.new(client, url, query_string).response
                    else
                      client.request(:get, url, query_string)
