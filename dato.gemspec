@@ -44,4 +44,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'pusher-client'
   spec.add_runtime_dependency 'listen'
   spec.add_runtime_dependency 'json_schema'
+  spec.add_runtime_dependency 'mime-types'
 end

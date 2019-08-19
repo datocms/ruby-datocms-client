@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'mime/types'
 require 'tempfile'
 require 'addressable'
 require 'net/http'
@@ -49,7 +50,12 @@ module Dato
         upload_request = client.upload_request.create(filename: filename)
         uri = URI.parse(upload_request[:url])
 
+        mime_type = MIME::Types.of(filename).first
+
         request = Net::HTTP::Put.new(uri)
+        if mime_type
+          request.add_field("Content-Type", mime_type.to_s)
+        end
         request.body = file.read
 
         http = Net::HTTP.new(uri.host, uri.port)
