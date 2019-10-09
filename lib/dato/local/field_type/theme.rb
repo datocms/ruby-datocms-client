@@ -27,7 +27,7 @@ module Dato
         end
 
         def logo
-          @logo && File.parse(@logo, @repo)
+          @logo && UploadId.parse(@logo, @repo)
         end
 
         def to_hash(*args)

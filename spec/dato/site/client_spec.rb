@@ -155,94 +155,165 @@ module Dato
       end
 
       describe 'Items' do
-        let(:item_type) do
-          client.item_types.create(
-            name: 'Article',
-            singleton: false,
-            modular_block: false,
-            sortable: false,
-            tree: false,
-            draft_mode_active: false,
-            api_key: 'article',
-            ordering_direction: nil,
-            ordering_field: nil,
-            all_locales_required: true,
-            title_field: nil
-          )
-        end
+        describe 'fetch, create, update and destroy' do
+          let(:item_type) do
+            client.item_types.create(
+              name: 'Article',
+              singleton: false,
+              modular_block: false,
+              sortable: false,
+              tree: false,
+              draft_mode_active: false,
+              api_key: 'article',
+              ordering_direction: nil,
+              ordering_field: nil,
+              all_locales_required: true,
+              title_field: nil
+            )
+          end
 
-        let(:text_field) do
-          client.fields.create(
-            item_type[:id],
-            api_key: 'title',
-            field_type: 'string',
-            label: 'Title',
-            validators: { required: {} }
-          )
-        end
+          let(:text_field) do
+            client.fields.create(
+              item_type[:id],
+              api_key: 'title',
+              field_type: 'string',
+              label: 'Title',
+              validators: { required: {} }
+            )
+          end
 
-        let(:image_field) do
-          client.fields.create(
-            item_type[:id],
-            api_key: 'image',
-            field_type: 'file',
-            label: 'Image',
-            validators: {
-              required: {},
-              extension: {
-                predefined_list: 'image'
+          let(:image_field) do
+            client.fields.create(
+              item_type[:id],
+              api_key: 'image',
+              field_type: 'file',
+              label: 'Image',
+              validators: {
+                required: {},
+                extension: {
+                  predefined_list: 'image'
+                }
               }
-            }
-          )
+            )
+          end
+
+          let(:file_field) do
+            client.fields.create(
+              item_type[:id],
+              api_key: 'file',
+              field_type: 'file',
+              label: 'File',
+              validators: { required: {} }
+            )
+          end
+
+          before do
+            text_field
+            image_field
+            file_field
+          end
+
+          it 'works' do
+            new_item = client.items.create(
+              item_type: item_type[:id],
+              title: 'First post',
+              image: {
+                upload_id: client.upload_image('https://www.datocms-assets.com/205/1549027974-logo.png'),
+                alt: "My first post",
+                title: "My first post",
+                custom_data: {}
+              },
+              file: {
+                upload_id: client.upload_file('./spec/fixtures/file.txt'),
+                alt: nil,
+                title: nil,
+                custom_data: {}
+              },
+            )
+
+            expect(new_item[:item_type]).not_to be_nil
+
+            all_items = client.items.all('filter[type]' => item_type[:id])
+
+            expect(all_items.size).to eq 1
+            expect(all_items.first[:item_type]).not_to be_nil
+
+            client.items.update(
+              new_item[:id],
+              new_item.merge(title: 'Welcome!')
+            )
+
+            expect(client.items.find(new_item[:id])[:title]).to eq 'Welcome!'
+
+            client.items.update(
+              new_item[:id],
+              title: 'Welcome 2!'
+            )
+
+            expect(client.items.find(new_item[:id])[:title]).to eq 'Welcome 2!'
+
+            client.items.destroy(new_item[:id])
+            expect(client.items.all('filter[type]' => item_type[:id]).size).to eq 0
+          end
         end
 
-        let(:file_field) do
-          client.fields.create(
-            item_type[:id],
-            api_key: 'file',
-            field_type: 'file',
-            label: 'File',
-            validators: { required: {} }
-          )
-        end
+        describe 'batch actions' do
+          let(:item_type) do
+            client.item_types.create(
+              name: 'Tag',
+              singleton: false,
+              modular_block: false,
+              sortable: false,
+              tree: false,
+              draft_mode_active: true,
+              api_key: 'article',
+              ordering_direction: nil,
+              ordering_field: nil,
+              all_locales_required: true,
+              title_field: nil
+            )
+          end
 
-        before do
-          text_field
-          image_field
-          file_field
-        end
+          let(:text_field) do
+            client.fields.create(
+              item_type[:id],
+              api_key: 'title',
+              field_type: 'string',
+              label: 'Title',
+              validators: { required: {} }
+            )
+          end
 
-        it 'fetch, create, update and destroy' do
-          new_item = client.items.create(
-            item_type: item_type[:id],
-            title: 'First post',
-            image: client.upload_image('https://www.datocms-assets.com/205/1549027974-logo.png'),
-            file: client.upload_file('./spec/fixtures/file.txt')
-          )
+          let(:tag) do
+            client.items.create(
+              item_type: item_type[:id],
+              title: 'Cats'
+            )
+          end
 
-          expect(new_item[:item_type]).not_to be_nil
+          let(:tag2) do
+            client.items.create(
+              item_type: item_type[:id],
+              title: 'Dogs'
+            )
+          end
 
-          all_items = client.items.all('filter[type]' => item_type[:id])
+          before do
+            text_field
+            tag
+            tag2
+          end
 
-          expect(all_items.size).to eq 1
-          expect(all_items.first[:item_type]).not_to be_nil
+          it 'works' do
+            client.items.batch_publish({ "filter[ids]" => tag[:id] })
 
-          client.items.update(
-            new_item[:id],
-            new_item.merge(title: 'Welcome!')
-          )
+            expect(client.items.find(tag[:id])[:meta][:status]).to eq "published"
+            expect(client.items.find(tag2[:id])[:meta][:status]).to eq "draft"
 
-          expect(client.items.find(new_item[:id])[:title]).to eq 'Welcome!'
+            client.items.batch_destroy('filter[ids]' => "#{tag[:id]},#{tag2[:id]}")
 
-          client.items.update(
-            new_item[:id],
-            title: 'Welcome 2!'
-          )
-
-          expect(client.items.find(new_item[:id])[:title]).to eq 'Welcome 2!'
-
-          client.items.destroy(new_item[:id])
-          expect(client.items.all('filter[type]' => item_type[:id]).size).to eq 0
+            expect(client.items.all('filter[type]' => item_type[:id]).size).to eq 0
+          end
         end
       end
 

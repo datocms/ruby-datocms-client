@@ -54,47 +54,79 @@ module Dato
         placeholder
       end
 
+      body = nil
+      query_string = nil
+
+      if %i[post put].include?(link.method)
+        body = link.schema ? args.shift : {}
+        query_string = args.shift || {}
+
+      elsif link.method == :delete
+        query_string = args.shift || {}
+
+      elsif link.method == :get
+        query_string = args.shift || {}
+      end
+
+      options = args.any? ? args.shift.symbolize_keys : {}
+
+      if link.schema && %i[post put].include?(link.method) && options.fetch(:serialize_response, true)
+        body = JsonApiSerializer.new(type, link).serialize(
+          body,
+          link.method == :post ? nil : placeholders.last
+        )
+      end
+
       response = if %i[post put].include?(link.method)
-                   body = if link.schema
-                            unserialized_body = args.shift
-
-                            JsonApiSerializer.new(type, link).serialize(
-                              unserialized_body,
-                              link.method == :post ? nil : placeholders.last
-                            )
-                          else
-                            {}
-                          end
-
-                   client.request(link.method, url, body)
-
+                   client.send(link.method, url, body, query_string)
                  elsif link.method == :delete
-                   client.request(:delete, url)
-
+                   client.delete(url, query_string)
                  elsif link.method == :get
-                   query_string = args.shift
-
-                   all_pages = (args[0] || {})
-                     .symbolize_keys
-                     .fetch(:all_pages, false)
-
-                   if all_pages
+                   if options.fetch(:all_pages, false)
                      Paginator.new(client, url, query_string).response
                    else
-                     client.request(:get, url, query_string)
+                     client.get(url, query_string)
                    end
                  end
 
-      options = if args.any?
-                  args.shift.symbolize_keys
-                else
-                  {}
-                end
+      if response && response[:data] && response[:data].is_a?(Hash) && response[:data][:type] == "job"
+        job_result = nil
 
-      if options.fetch(:deserialize_response, true)
-        JsonApiDeserializer.new(link).deserialize(response)
+        while !job_result do
+          begin
+            sleep(1)
+            job_result = client.job_result.find(response[:data][:id])
+          rescue ApiError => error
+            if error.response[:status] != 404
+              raise error
+            end
+          end
+        end
+
+        if job_result[:status] < 200 || job_result[:status] >= 300
+          error = ApiError.new(
+            status: job_result[:status],
+            body: JSON.dump(job_result[:payload])
+          )
+
+          puts "===="
+          puts error.message
+          puts "===="
+
+          raise error
+        end
+
+        if options.fetch(:deserialize_response, true)
+          JsonApiDeserializer.new(link.job_schema).deserialize(job_result[:payload])
+        else
+          job_result.payload
+        end
       else
-        response
+        if options.fetch(:deserialize_response, true)
+          JsonApiDeserializer.new(link.target_schema).deserialize(response)
+        else
+          response
+        end
       end
     end
   end

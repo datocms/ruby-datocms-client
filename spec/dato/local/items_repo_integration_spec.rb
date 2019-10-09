@@ -22,13 +22,14 @@ module Dato
           expect(serialized_site[:locales]).to eq %w[en it]
 
           serialized_article = repo.items_of_type(repo.item_types.first).first.to_hash
-
           expect(serialized_article[:item_type]).to eq 'article'
           expect(serialized_article[:updated_at]).to be_present
           expect(serialized_article[:created_at]).to be_present
           expect(serialized_article[:title]).to eq 'First post'
           expect(serialized_article[:slug]).to eq 'first-post'
           expect(serialized_article[:image][:format]).to eq 'png'
+          expect(serialized_article[:image][:alt]).to eq 'My first post'
+          expect(serialized_article[:image][:title]).to eq 'First post'
           expect(serialized_article[:image][:size]).to eq 119_271
           expect(serialized_article[:image][:height]).to eq 621
           expect(serialized_article[:image][:width]).to eq 2553

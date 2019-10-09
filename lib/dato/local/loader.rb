@@ -39,7 +39,7 @@ module Dato
       end
 
       def watch(&block)
-        site_id = client.request(:get, '/site')['data']['id']
+        site_id = client.get('/site')['data']['id']
 
         return if pusher && pusher.connected
 
@@ -172,8 +172,7 @@ module Dato
       end
 
       def site
-        include = ['item_types', 'item_types.fields']
-        client.request(:get, '/site', include: include)
+        client.get('/site', include: ['item_types', 'item_types.fields'])
       end
 
       def all_items

@@ -52,6 +52,7 @@ module Dato
 
         context 'jpg without extension' do
           let(:source) { './spec/fixtures/image' }
+
           it 'uploads the file' do
             expect(upload).not_to be_nil
             expect(site_client.uploads.find(upload)[:format]).to eq 'jpeg'
