@@ -56,8 +56,31 @@ module Dato
       end
     end
 
+    def put(absolute_path, body = {}, params = {})
+      request(:put, absolute_path, body, params)
+    end
+
+    def post(absolute_path, body = {}, params = {})
+      request(:post, absolute_path, body, params)
+    end
+
+    def get(absolute_path, params = {})
+      request(:get, absolute_path, nil, params)
+    end
+
+    def delete(absolute_path, params = {})
+      request(:delete, absolute_path, nil, params)
+    end
+
     def request(*args)
-      response = connection.send(*args)
+      method, absolute_path, body, params = args
+
+      response = connection.send(method, absolute_path, body) do |c|
+        if params
+          c.params = params
+        end
+      end
+
       if response.body.is_a?(Hash)
         response.body.with_indifferent_access
       else
@@ -82,7 +105,7 @@ module Dato
         sleep(1)
         request(*args)
       else
-        error = ApiError.new(e)
+        error = ApiError.new(e.response)
         puts "===="
         puts error.message
         puts "===="
@@ -115,12 +138,12 @@ module Dato
         'Content-Type' => 'application/json',
         'Authorization' => "Bearer #{@token}",
         'User-Agent' => "ruby-client v#{Dato::VERSION}",
-        'X-Api-Version' => '2'
+        'X-Api-Version' => '3'
       }
 
       options = {
         url: base_url,
-        headers: default_headers.merge(extra_headers)
+        headers: default_headers.merge(extra_headers),
       }
 
       @connection ||= Faraday.new(options) do |c|

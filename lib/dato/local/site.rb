@@ -28,7 +28,7 @@ module Dato
       end
 
       def favicon
-        read_attribute(:favicon, FieldType::File, false)
+        read_attribute(:favicon, FieldType::UploadId, false)
       end
 
       def to_s

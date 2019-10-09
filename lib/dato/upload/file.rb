@@ -63,9 +63,14 @@ module Dato
 
         http.request(request)
 
-        uploads = client.uploads.create(path: upload_request[:id])
+        upload = client.uploads.create(path: upload_request[:id])
 
-        uploads['id']
+        {
+          upload_id: upload['id'],
+          alt: nil,
+          title: nil,
+          custom_data: {},
+        }
       end
 
       def download_file(url)

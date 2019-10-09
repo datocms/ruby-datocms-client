@@ -16,7 +16,18 @@ RSpec.shared_context 'items repo' do
             title: item_title,
             another_string: 'Foo bar',
             seo_settings: seo,
-            image: item_image
+            image: (
+              if item_image
+                {
+                  upload_id: item_image,
+                  alt: nil,
+                  title: nil,
+                  custom_data: {}
+                }
+              else
+                nil
+              end
+            )
           },
           meta: {
             updated_at: '2016-12-07T09:14:22.046Z'
@@ -39,8 +50,13 @@ RSpec.shared_context 'items repo' do
             height: 500,
             format: 'png',
             size: 572_451,
-            alt: 'an alt',
-            title: 'a title'
+            default_field_metadata: {
+              en: {
+                alt: 'an alt',
+                title: 'a title',
+                custom_data: {}
+              }
+            }
           }
         },
         {
@@ -52,8 +68,13 @@ RSpec.shared_context 'items repo' do
             height: 500,
             format: 'png',
             size: 543_210,
-            alt: 'another alt',
-            title: 'another title'
+            default_field_metadata: {
+              en: {
+                alt: 'another alt',
+                title: 'another title',
+                custom_data: {}
+              }
+            }
           }
         },
         {
@@ -65,8 +86,13 @@ RSpec.shared_context 'items repo' do
             height: 500,
             format: 'png',
             size: 543_210,
-            alt: 'image alt',
-            title: 'image title'
+            default_field_metadata: {
+              en: {
+                alt: 'image alt',
+                title: 'image title',
+                custom_data: {}
+              }
+            }
           }
         },
         {

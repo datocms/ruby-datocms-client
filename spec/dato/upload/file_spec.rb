@@ -31,7 +31,7 @@ module Dato
 
         it 'downloads locally and then uploads the file' do
           expect(upload).not_to be_nil
-          expect(site_client.uploads.find(upload)[:format]).to eq 'jpeg'
+          expect(site_client.uploads.find(upload[:upload_id])[:format]).to eq 'jpeg'
         end
         context 'with a 404 url' do
           let(:source) { 'https://google.it/NonExistentImage.png' }
@@ -47,14 +47,15 @@ module Dato
 
         it 'uploads the file' do
           expect(upload).not_to be_nil
-          expect(site_client.uploads.find(upload)[:format]).to eq 'jpeg'
+          expect(site_client.uploads.find(upload[:upload_id])[:format]).to eq 'jpeg'
         end
 
         context 'jpg without extension' do
           let(:source) { './spec/fixtures/image' }
+
           it 'uploads the file' do
             expect(upload).not_to be_nil
-            expect(site_client.uploads.find(upload)[:format]).to eq 'jpeg'
+            expect(site_client.uploads.find(upload[:upload_id])[:format]).to eq 'jpeg'
           end
         end
 
@@ -62,7 +63,7 @@ module Dato
           let(:source) { './spec/fixtures/image.gif' }
           it 'uploads the file' do
             expect(upload).not_to be_nil
-            expect(site_client.uploads.find(upload)[:format]).to eq 'gif'
+            expect(site_client.uploads.find(upload[:upload_id])[:format]).to eq 'gif'
           end
         end
 
@@ -70,7 +71,7 @@ module Dato
           let(:source) { './spec/fixtures/image.png' }
           it 'uploads the file' do
             expect(upload).not_to be_nil
-            expect(site_client.uploads.find(upload)[:format]).to eq 'png'
+            expect(site_client.uploads.find(upload[:upload_id])[:format]).to eq 'png'
           end
         end
 
@@ -78,7 +79,7 @@ module Dato
           let(:source) { './spec/fixtures/file.txt' }
           it 'returns format error' do
             expect(upload).not_to be_nil
-            expect(site_client.uploads.find(upload)[:format]).to eq 'txt'
+            expect(site_client.uploads.find(upload[:upload_id])[:format]).to eq 'txt'
           end
         end
       end

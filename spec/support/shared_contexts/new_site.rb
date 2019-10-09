@@ -92,6 +92,9 @@ RSpec.shared_context 'with a new site' do
     )
   end
 
+  let(:imageId) { client.upload_image('https://www.datocms-assets.com/205/1549027974-logo.png')[:upload_id] }
+  let(:fileId) { client.upload_file('./spec/fixtures/file.txt')[:upload_id] }
+
   let(:item) do
     client.items.create(
       item_type: item_type[:id],
@@ -100,8 +103,18 @@ RSpec.shared_context 'with a new site' do
         it: 'Primo post'
       },
       slug: 'first-post',
-      image: client.upload_image('https://www.datocms-assets.com/205/1549027974-logo.png'),
-      file: client.upload_file('./spec/fixtures/file.txt')
+      image: {
+        upload_id: imageId,
+        alt: 'My first post',
+        title: 'First post',
+        custom_data: {}
+      },
+      file: {
+        upload_id: fileId,
+        alt: 'My first file',
+        title: 'My first file',
+        custom_data: {}
+      }
     )
   end
 
@@ -112,7 +125,7 @@ RSpec.shared_context 'with a new site' do
       client.site.find.merge(
         locales: %w[en it],
         theme: {
-          logo: client.upload_image('./spec/fixtures/dato-logo.jpg'),
+          logo: client.upload_image('./spec/fixtures/dato-logo.jpg')[:upload_id],
           primary_color: {
             red: 63,
             green: 63,

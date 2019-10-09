@@ -3,10 +3,10 @@ require 'dato/json_schema_relationships'
 
 module Dato
   class JsonApiDeserializer
-    attr_reader :link
+    attr_reader :schema
 
-    def initialize(link)
-      @link = link
+    def initialize(schema)
+      @schema = schema
     end
 
     def deserialize(data)
@@ -23,7 +23,6 @@ module Dato
 
     def deserialize_resource(data)
       result = { id: data[:id] }
-
       result[:meta] = data[:meta] if data[:meta]
       result.merge!(data[:attributes]) if data[:attributes]
 
@@ -51,7 +50,7 @@ module Dato
     end
 
     def relationships
-      @relationships ||= JsonSchemaRelationships.new(link.target_schema).relationships
+      @relationships ||= JsonSchemaRelationships.new(schema).relationships
     end
   end
 end

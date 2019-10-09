@@ -6,21 +6,18 @@ module Dato
   module Local
     module FieldType
       class File
-        attr_reader :path, :format, :size, :width, :height, :title, :alt
+        def self.parse(value, repo)
+          if value
+            v = value.with_indifferent_access
 
-        def self.parse(upload_id, repo)
-          if upload_id
-            upload = repo.entities_repo.find_entity('upload', upload_id)
+            upload = repo.entities_repo.find_entity('upload', v[:upload_id])
 
             if upload
               new(
-                upload.path,
-                upload.format,
-                upload.size,
-                upload.width,
-                upload.height,
-                upload.alt,
-                upload.title,
+                upload,
+                v[:alt],
+                v[:title],
+                v[:custom_data],
                 repo.site.entity.imgix_host
               )
             end
@@ -28,23 +25,64 @@ module Dato
         end
 
         def initialize(
-          path,
-          format,
-          size,
-          width,
-          height,
+          upload,
           alt,
           title,
+          custom_data,
           imgix_host
         )
-          @path = path
-          @format = format
-          @size = size
-          @imgix_host = imgix_host
-          @width = width
-          @height = height
+          @upload = upload
           @alt = alt
           @title = title
+          @custom_data = custom_data
+          @imgix_host = imgix_host
+        end
+
+        def path
+          @upload.path
+        end
+
+        def format
+          @upload.format
+        end
+
+        def size
+          @upload.size
+        end
+
+        def width
+          @upload.width
+        end
+
+        def height
+          @upload.height
+        end
+
+        def author
+          @upload.author
+        end
+
+        def notes
+          @upload.notes
+        end
+
+        def copyright
+          @upload.copyright
+        end
+
+        def alt
+          default_metadata = @upload.default_field_metadata.deep_stringify_keys.fetch(I18n.locale.to_s, {})
+          @alt || default_metadata["alt"]
+        end
+
+        def title
+          default_metadata = @upload.default_field_metadata.deep_stringify_keys.fetch(I18n.locale.to_s, {})
+          @title || default_metadata["title"]
+        end
+
+        def custom_data
+          default_metadata = @upload.default_field_metadata.deep_stringify_keys.fetch(I18n.locale.to_s, {})
+          @custom_data.merge(default_metadata.fetch("custom_data", {}))
         end
 
         def file
@@ -67,6 +105,7 @@ module Dato
             height: height,
             alt: alt,
             title: title,
+            custom_data: custom_data,
             url: url
           }
         end
