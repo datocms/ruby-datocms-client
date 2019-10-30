@@ -38,6 +38,10 @@ module Dato
           @imgix_host = imgix_host
         end
 
+        def id
+          @upload.id
+        end
+
         def path
           @upload.path
         end
@@ -99,6 +103,7 @@ module Dato
 
         def to_hash(*_args)
           {
+            id: id,
             format: format,
             size: size,
             width: width,
