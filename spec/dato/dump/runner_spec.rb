@@ -35,10 +35,11 @@ module Dato
           expect(yaml_file['locales']).to eq %w[en it]
 
           loader = FrontMatterParser::Loader::Yaml.new(whitelist_classes: [Time])
+
           article_file = FrontMatterParser::Parser.new(:md, loader: loader).call(
             File.read(File.join(destination_path, 'posts', 'first-post.md'))
           )
-
+          puts article_file.front_matter['image']
           expect(article_file.front_matter['item_type']).to eq 'article'
           expect(article_file.front_matter['updated_at']).to be_present
           expect(article_file.front_matter['created_at']).to be_present
@@ -49,6 +50,10 @@ module Dato
           expect(article_file.front_matter['image']['height']).to eq 621
           expect(article_file.front_matter['image']['width']).to eq 2553
           expect(article_file.front_matter['image']['url']).to be_present
+          expect(article_file.front_matter['image']['colors']).to be_present
+          expect(article_file.front_matter['image']['tags']).to eq []
+          expect(article_file.front_matter['image']['smart_tags']).to eq []
+          expect(article_file.front_matter['image']['blurhash']).to be_present
           expect(article_file.front_matter['file']['format']).to eq 'txt'
           expect(article_file.front_matter['file']['size']).to eq 10
           expect(article_file.front_matter['file']['url']).to be_present

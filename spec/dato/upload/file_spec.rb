@@ -31,7 +31,7 @@ module Dato
 
         it 'downloads locally and then uploads the file' do
           expect(upload).not_to be_nil
-          expect(site_client.uploads.find(upload[:upload_id])[:format]).to eq 'jpeg'
+          expect(site_client.uploads.find(upload[:upload_id])[:format]).to eq 'jpg'
         end
         context 'with a 404 url' do
           let(:source) { 'https://google.it/NonExistentImage.png' }
@@ -47,7 +47,7 @@ module Dato
 
         it 'uploads the file' do
           expect(upload).not_to be_nil
-          expect(site_client.uploads.find(upload[:upload_id])[:format]).to eq 'jpeg'
+          expect(site_client.uploads.find(upload[:upload_id])[:format]).to eq 'jpg'
         end
 
         context 'jpg without extension' do

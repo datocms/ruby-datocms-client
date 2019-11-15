@@ -34,9 +34,11 @@ module Dato
           expect(serialized_article[:image][:height]).to eq 621
           expect(serialized_article[:image][:width]).to eq 2553
           expect(serialized_article[:image][:url]).to be_present
+          expect(serialized_article[:image][:video]).to be_nil
           expect(serialized_article[:file][:format]).to eq 'txt'
           expect(serialized_article[:file][:size]).to eq 10
           expect(serialized_article[:file][:url]).to be_present
+          expect(serialized_article[:file][:video]).to be_nil
         end
       end
 

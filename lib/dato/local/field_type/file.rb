@@ -74,19 +74,91 @@ module Dato
           @upload.copyright
         end
 
+        def filename
+          @upload.filename
+        end
+
+        def basename
+          @upload.basename
+        end
+
         def alt
-          default_metadata = @upload.default_field_metadata.deep_stringify_keys.fetch(I18n.locale.to_s, {})
-          @alt || default_metadata["alt"]
+          default_metadata = @upload.default_field_metadata.deep_stringify_keys
+                                    .fetch(I18n.locale.to_s, {})
+          @alt || default_metadata['alt']
         end
 
         def title
-          default_metadata = @upload.default_field_metadata.deep_stringify_keys.fetch(I18n.locale.to_s, {})
-          @title || default_metadata["title"]
+          default_metadata = @upload.default_field_metadata.deep_stringify_keys
+                                    .fetch(I18n.locale.to_s, {})
+          @title || default_metadata['title']
         end
 
         def custom_data
-          default_metadata = @upload.default_field_metadata.deep_stringify_keys.fetch(I18n.locale.to_s, {})
-          @custom_data.merge(default_metadata.fetch("custom_data", {}))
+          default_metadata = @upload.default_field_metadata.deep_stringify_keys
+                                    .fetch(I18n.locale.to_s, {})
+          @custom_data.merge(default_metadata.fetch('custom_data', {}))
+        end
+
+        def tags
+          @upload.tags
+        end
+
+        def smart_tags
+          @upload.smart_tags
+        end
+
+        def is_image
+          @upload.is_image
+        end
+
+        def exif_info
+          @upload.exif_info
+        end
+
+        def mime_type
+          @upload.mime_type
+        end
+
+        def colors
+          @upload.colors.map do |hex|
+            r, g, b = (hex[0] == '#' ? hex[1..7] : hex).scan(/../).map do |v|
+              begin
+                Integer(v, 16)
+              rescue StandardError
+                raise 'Invalid hexcolor.'
+              end
+            end
+            Color.new(r, g, b, 255)
+          end
+        end
+
+        def blurhash
+          @upload.blurhash
+        end
+
+        def mux_resolutions
+          # mux_mp4_highest_res
+          resolutions = %w[low medium high]
+          max = resolutions.index(@upload.mux_mp4_highest_res)
+          resolutions[0..max].each_with_object({}) do |res, acc|
+            acc["mp4_#{res}_res_url"] =
+              "https://stream.mux.com/#{@upload.mux_playback_id}/#{res}.mp4"
+          end
+        end
+
+        def video
+          if @upload.mux_playback_id
+            {
+              mux_playback_id: @upload.mux_playback_id,
+              mux_asset_status: @upload.mux_asset_status,
+              framerate: @upload.frame_rate,
+              duration: @upload.duration,
+              gif_url: "https://image.mux.com/#{@upload.mux_playback_id}/animated.gif",
+              hls_url: "https://stream.mux.com/#{@upload.mux_playback_id}.m3u8",
+              thumbnail_url: "https://image.mux.com/#{@upload.mux_playback_id}/thumbnail.jpg"
+            }.merge(mux_resolutions).with_indifferent_access
+          end
         end
 
         def file
@@ -111,7 +183,18 @@ module Dato
             alt: alt,
             title: title,
             custom_data: custom_data,
-            url: url
+            url: url,
+            copyright: copyright,
+            tags: tags,
+            smart_tags: smart_tags,
+            filename: filename,
+            basename: basename,
+            is_image: is_image,
+            exif_info: exif_info,
+            mime_type: mime_type,
+            colors: colors.map(&:to_hash),
+            blurhash: blurhash,
+            video: video
           }
         end
       end

@@ -5,7 +5,7 @@ http_interactions:
     uri: http://account-api.lvh.me:3001/account
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"account","attributes":{"email":"IMLAHNPT@example.com","company":"DatoCMS","password":"veryst_9rong_passowrd4_"}}}'
+      string: '{"data":{"type":"account","attributes":{"email":"ANWFHRDU@example.com","company":"DatoCMS","password":"veryst_9rong_passowrd4_"}}}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
       Authorization:
       - Bearer
       User-Agent:
-      - ruby-client v0.7.6
+      - ruby-client v0.7.7
       X-Api-Version:
       - '3'
       Accept-Encoding:
@@ -22,7 +22,7 @@ http_interactions:
   response:
     status:
       code: 201
-      message: Created
+      message: 'Created '
     headers:
       Content-Type:
       - application/json; charset=utf-8
@@ -31,15 +31,15 @@ http_interactions:
       X-Ratelimit-Limit:
       - '30'
       X-Ratelimit-Remaining:
-      - '25'
+      - '29'
       Etag:
-      - W/"f344f8277ffd38de2103ea9a63c93e5b"
+      - W/"fae4fd76688dfb341dcfab6f989cee6b"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ff5d9f2b-7dfc-4d88-a810-0c0ae318a427
+      - f62e094c-3f5a-4c88-b4d5-62261f768578
       X-Runtime:
-      - '0.247895'
+      - '0.239752'
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -52,25 +52,31 @@ http_interactions:
       - '1728000'
       Access-Control-Allow-Origin:
       - "*"
-      Transfer-Encoding:
-      - chunked
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.1/2018-03-29)
+      Date:
+      - Mon, 18 Nov 2019 08:58:49 GMT
+      Content-Length:
+      - '389'
+      Connection:
+      - Keep-Alive
     body:
       encoding: ASCII-8BIT
       base64_string: |
         eyJkYXRhIjp7ImlkIjoiZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKMklqb3hM
-        Q0pwSWpveE1UVTVOU3dpWnlJNklqSXdNVGt0TVRBdE1UUlVNVEk2TkRjNk1q
-        a3VOamMyS3pBeU9qQXdJbjAuT21pYzE3ZVFYbXV0T2FJTi1ralp4WGxaWi1o
-        MWlPNGk5Vkg4MkRUc0ROOCIsInR5cGUiOiJzZXNzaW9uIiwicmVsYXRpb25z
-        aGlwcyI6eyJhY2NvdW50Ijp7ImRhdGEiOnsiaWQiOiIxMTU5NSIsInR5cGUi
-        OiJhY2NvdW50In19fX0sImluY2x1ZGVkIjpbeyJpZCI6IjExNTk1IiwidHlw
-        ZSI6ImFjY291bnQiLCJhdHRyaWJ1dGVzIjp7ImVtYWlsIjoiSU1MQUhOUFRA
+        Q0pwSWpveE1UazNPU3dpWnlJNklqSXdNVGt0TVRFdE1UaFVNRGs2TlRnNk5E
+        a3VPRGszS3pBeE9qQXdJbjAuajQ2dmRXMVY1Q3oxY1J4STlWSVZsWWp6NThz
+        R25mVDJXQThJMkkzRkx4VSIsInR5cGUiOiJzZXNzaW9uIiwicmVsYXRpb25z
+        aGlwcyI6eyJhY2NvdW50Ijp7ImRhdGEiOnsiaWQiOiIxMTk3OSIsInR5cGUi
+        OiJhY2NvdW50In19fX0sImluY2x1ZGVkIjpbeyJpZCI6IjExOTc5IiwidHlw
+        ZSI6ImFjY291bnQiLCJhdHRyaWJ1dGVzIjp7ImVtYWlsIjoiQU5XRkhSRFVA
         ZXhhbXBsZS5jb20iLCJmaXJzdF9uYW1lIjpudWxsLCJsYXN0X25hbWUiOm51
         bGwsImNvbXBhbnkiOiJEYXRvQ01TIiwicHJvdmlzaW9uaW5nXzJmYV91cmki
-        OiJvdHBhdXRoOi8vdG90cC9EYXRvQ01TOklNTEFITlBUQGV4YW1wbGUuY29t
-        P3NlY3JldD01QTNZWEZZWFY2VVYyRlVITVM3REE2TDNLN0RVSFVGRCZpc3N1
+        OiJvdHBhdXRoOi8vdG90cC9EYXRvQ01TOkFOV0ZIUkRVQGV4YW1wbGUuY29t
+        P3NlY3JldD1TUlNCRDY2QzdRTVFQUktUWDRIUUtRRkxLTUU2VEpFRCZpc3N1
         ZXI9RGF0b0NNUyIsImlzXzJmYV9hY3RpdmUiOmZhbHNlfX1dfQ==
     http_version: 
-  recorded_at: Mon, 14 Oct 2019 10:47:29 GMT
+  recorded_at: Mon, 18 Nov 2019 08:58:49 GMT
 - request:
     method: post
     uri: http://account-api.lvh.me:3001/sites
@@ -83,9 +89,9 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer eyJhbGciOiJIUzI1NiJ9.eyJ2IjoxLCJpIjoxMTU5NSwiZyI6IjIwMTktMTAtMTRUMTI6NDc6MjkuNjc2KzAyOjAwIn0.Omic17eQXmutOaIN-kjZxXlZZ-h1iO4i9VH82DTsDN8
+      - Bearer eyJhbGciOiJIUzI1NiJ9.eyJ2IjoxLCJpIjoxMTk3OSwiZyI6IjIwMTktMTEtMThUMDk6NTg6NDkuODk3KzAxOjAwIn0.j46vdW1V5Cz1cRxI9VIVlYjz58sGnfT2WA8I2I3FLxU
       User-Agent:
-      - ruby-client v0.7.6
+      - ruby-client v0.7.7
       X-Api-Version:
       - '3'
       Accept-Encoding:
@@ -93,7 +99,7 @@ http_interactions:
   response:
     status:
       code: 201
-      message: Created
+      message: 'Created '
     headers:
       Content-Type:
       - application/json; charset=utf-8
@@ -102,15 +108,15 @@ http_interactions:
       X-Ratelimit-Limit:
       - '30'
       X-Ratelimit-Remaining:
-      - '24'
+      - '28'
       Etag:
-      - W/"f5835e41d690056bf02a7296421357b7"
+      - W/"1dc432e32c61586d736020f4f70ad578"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - af8b4f79-42b0-44f7-a2e4-b3a9a19419e0
+      - 6608f21b-3250-4f03-95a0-863dd700ea73
       X-Runtime:
-      - '0.391664'
+      - '0.257181'
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -123,33 +129,39 @@ http_interactions:
       - '1728000'
       Access-Control-Allow-Origin:
       - "*"
-      Transfer-Encoding:
-      - chunked
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.1/2018-03-29)
+      Date:
+      - Mon, 18 Nov 2019 08:58:50 GMT
+      Content-Length:
+      - '515'
+      Connection:
+      - Keep-Alive
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiMTcwMTciLCJ0eXBlIjoic2l0ZSIsImF0dHJpYnV0
+        eyJkYXRhIjp7ImlkIjoiMTc3MzIiLCJ0eXBlIjoic2l0ZSIsImF0dHJpYnV0
         ZXMiOnsibmFtZSI6IlRlc3Qgc2l0ZSIsImRvbWFpbiI6bnVsbCwiaW50ZXJu
-        YWxfc3ViZG9tYWluIjoidGVzdC1zaXRlLTIwOCIsImxhc3RfZGF0YV9jaGFu
-        Z2VfYXQiOiIyMDE5LTEwLTE0VDEwOjQ3OjMwLjA1OFoiLCJub3RlcyI6bnVs
-        bCwiYWNjZXNzX3Rva2VuIjoiZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKMklq
-        b3hMQ0p6SWpveE56QXhOeXdpYVNJNk1URTFPVFVzSW5RaU9pSmhJaXdpWnlJ
-        NklqSXdNVGt0TVRBdE1UUlVNVEk2TkRjNk16QXVNRFl4S3pBeU9qQXdJbjAu
-        czFaLV9QdjEwdTh5T3hZQlVlbUd6dER6X2xmOFQ4NG9XTWNHUDdxOEtLOCIs
-        ImludGVybmFsX2RvbWFpbiI6InRlc3Qtc2l0ZS0yMDguYWRtaW4uZGF0b2Nt
-        cy5jb20iLCJjcmVhdGVkX2F0IjoiMjAxOS0xMC0xNFQxMDo0NzozMC4wMjFa
-        IiwicmVhZHdyaXRlX3Rva2VuIjoiNDU1MjRkNjRkODUzYTRlNzU1ZGJkYzFk
-        MTgwYjQ0IiwicmVhZG9ubHlfdG9rZW4iOiI3MGNiNzEwODBjYTQ3ZTM0ZWU1
-        MWU2NzRhZTY1ZDQiLCJkZWFjdGl2YXRlZCI6ZmFsc2V9LCJyZWxhdGlvbnNo
-        aXBzIjp7ImFjdGl2ZV9zdWJzY3JpcHRpb24iOnsiZGF0YSI6eyJpZCI6IjE4
-        Nzk2IiwidHlwZSI6InN1YnNjcmlwdGlvbiJ9fSwiYWN0aXZlX3BsYW4iOnsi
-        ZGF0YSI6eyJpZCI6IjEiLCJ0eXBlIjoicGxhbiJ9fSwidXNhZ2UiOnsiZGF0
-        YSI6eyJpZCI6IjEtMC0wLTAtMC0wLTAtMTcwMTciLCJ0eXBlIjoic3Vic2Ny
+        YWxfc3ViZG9tYWluIjoidGVzdC1zaXRlLTgxIiwibGFzdF9kYXRhX2NoYW5n
+        ZV9hdCI6IjIwMTktMTEtMThUMDg6NTg6NTAuMTQ3WiIsIm5vdGVzIjpudWxs
+        LCJhY2Nlc3NfdG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlKOS5leUoySWpv
+        eExDSnpJam94Tnpjek1pd2lhU0k2TVRFNU56a3NJblFpT2lKaElpd2laeUk2
+        SWpJd01Ua3RNVEV0TVRoVU1EazZOVGc2TlRBdU1UVXdLekF4T2pBd0luMC5E
+        NUU4VlpTeHU3TGlDdFU4QzFzNkVULTV2UGJsQkhqU2RMZU1PNGVhSl9NIiwi
+        aW50ZXJuYWxfZG9tYWluIjoidGVzdC1zaXRlLTgxLmFkbWluLmRhdG9jbXMu
+        Y29tIiwiY3JlYXRlZF9hdCI6IjIwMTktMTEtMThUMDg6NTg6NTAuMTEzWiIs
+        InJlYWR3cml0ZV90b2tlbiI6IjNlOTIzYWIwNDcxOWExZDM5MmJmNjMzODM4
+        NWE4NyIsInJlYWRvbmx5X3Rva2VuIjoiMWI4MDQ0YzY2ZDIyMTJkN2QwZmEz
+        ZDlhMGNjZjc5IiwiZGVhY3RpdmF0ZWQiOmZhbHNlfSwicmVsYXRpb25zaGlw
+        cyI6eyJhY3RpdmVfc3Vic2NyaXB0aW9uIjp7ImRhdGEiOnsiaWQiOiIxOTYz
+        NyIsInR5cGUiOiJzdWJzY3JpcHRpb24ifX0sImFjdGl2ZV9wbGFuIjp7ImRh
+        dGEiOnsiaWQiOiIxIiwidHlwZSI6InBsYW4ifX0sInVzYWdlIjp7ImRhdGEi
+        OnsiaWQiOiIxLTAtMC0wLTAtMC0wLTAtMTc3MzIiLCJ0eXBlIjoic3Vic2Ny
         aXB0aW9uX2NvbXBhdGliaWxpdHkifX0sInRyYW5zZmVyIjp7ImRhdGEiOm51
-        bGx9LCJvd25lciI6eyJkYXRhIjp7ImlkIjoiMTE1OTUiLCJ0eXBlIjoiYWNj
+        bGx9LCJvd25lciI6eyJkYXRhIjp7ImlkIjoiMTE5NzkiLCJ0eXBlIjoiYWNj
         b3VudCJ9fX19fQ==
     http_version: 
-  recorded_at: Mon, 14 Oct 2019 10:47:30 GMT
+  recorded_at: Mon, 18 Nov 2019 08:58:50 GMT
 - request:
     method: post
     uri: http://site-api.lvh.me:3001/upload-requests
@@ -162,9 +174,9 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 45524d64d853a4e755dbdc1d180b44
+      - Bearer 3e923ab04719a1d392bf6338385a87
       User-Agent:
-      - ruby-client v0.7.6
+      - ruby-client v0.7.7
       X-Api-Version:
       - '3'
       Accept-Encoding:
@@ -172,7 +184,7 @@ http_interactions:
   response:
     status:
       code: 201
-      message: Created
+      message: 'Created '
     headers:
       X-Api-Version:
       - '3'
@@ -183,15 +195,15 @@ http_interactions:
       X-Ratelimit-Limit:
       - '30'
       X-Ratelimit-Remaining:
-      - '29'
+      - '28'
       Etag:
-      - W/"7b7cbb60c5665321d64e74d89563ff19"
+      - W/"4ff75c7d46d3e8e4926a14658138d248"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 43b05d2c-d804-4b49-9e95-90c54012204e
+      - b1629885-c37b-48b7-9c90-55eb85fb3791
       X-Runtime:
-      - '0.049770'
+      - '0.043357'
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -204,26 +216,32 @@ http_interactions:
       - '1728000'
       Access-Control-Allow-Origin:
       - "*"
-      Transfer-Encoding:
-      - chunked
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.1/2018-03-29)
+      Date:
+      - Mon, 18 Nov 2019 08:58:50 GMT
+      Content-Length:
+      - '341'
+      Connection:
+      - Keep-Alive
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiLzE3MDE3LzE1NzEwNTAwNTAtaW1hZ2UuIiwidHlw
+        eyJkYXRhIjp7ImlkIjoiLzE3NzMyLzE1NzQwNjc1MzAtaW1hZ2UuIiwidHlw
         ZSI6InVwbG9hZF9yZXF1ZXN0IiwiYXR0cmlidXRlcyI6eyJ1cmwiOiJodHRw
         czovL2RhdG8taW1hZ2VzLnMzLmV1LXdlc3QtMS5hbWF6b25hd3MuY29tLzE3
-        MDE3LzE1NzEwNTAwNTAtaW1hZ2UuP3gtYW16LWFjbD1wdWJsaWMtcmVhZCZY
+        NzMyLzE1NzQwNjc1MzAtaW1hZ2UuP3gtYW16LWFjbD1wdWJsaWMtcmVhZCZY
         LUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50
-        aWFsPUFLSUFJTlhRWDJaTlhORUJDVkpBJTJGMjAxOTEwMTQlMkZldS13ZXN0
-        LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMTkxMDE0VDEw
-        NDczMFomWC1BbXotRXhwaXJlcz05MDAmWC1BbXotU2lnbmVkSGVhZGVycz1o
-        b3N0JlgtQW16LVNpZ25hdHVyZT1iMzJlNjY0MzRlYmE4YzMxNmY1OGYyZjg1
-        YTIyZWZiY2VjNzhjMjk1NzNlMDYxMjU4NGUyMmY2MjM2NWZiNDc1In19fQ==
+        aWFsPUFLSUFJTlhRWDJaTlhORUJDVkpBJTJGMjAxOTExMTglMkZldS13ZXN0
+        LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMTkxMTE4VDA4
+        NTg1MFomWC1BbXotRXhwaXJlcz05MDAmWC1BbXotU2lnbmVkSGVhZGVycz1o
+        b3N0JlgtQW16LVNpZ25hdHVyZT0yNWNhMmY3ZmM4MDAyNzQ1ZjIwNGQzOGU5
+        NTQwMGMxN2FkODI3YjRlN2I5ZWMzYzI5OWJjNmMxNDZiMjY3YTE1In19fQ==
     http_version: 
-  recorded_at: Mon, 14 Oct 2019 10:47:30 GMT
+  recorded_at: Mon, 18 Nov 2019 08:58:50 GMT
 - request:
     method: put
-    uri: https://dato-images.s3.eu-west-1.amazonaws.com/17017/1571050050-image.?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAINXQX2ZNXNEBCVJA/20191014/eu-west-1/s3/aws4_request&X-Amz-Date=20191014T104730Z&X-Amz-Expires=900&X-Amz-Signature=b32e66434eba8c316f58f2f85a22efbcec78c29573e0612584e22f62365fb475&X-Amz-SignedHeaders=host&x-amz-acl=public-read
+    uri: https://dato-images.s3.eu-west-1.amazonaws.com/17732/1574067530-image.?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAINXQX2ZNXNEBCVJA/20191118/eu-west-1/s3/aws4_request&X-Amz-Date=20191118T085850Z&X-Amz-Expires=900&X-Amz-Signature=25ca2f7fc8002745f204d38e95400c17ad827b4e7b9ec3c299bc6c146b267a15&X-Amz-SignedHeaders=host&x-amz-acl=public-read
     body:
       encoding: UTF-8
       base64_string: |
@@ -351,11 +369,11 @@ http_interactions:
       message: OK
     headers:
       X-Amz-Id-2:
-      - gZr6SnC7hrMW2embl6+M3VKD5Pe+AfirXSZaevGLukITnqjlkmE2se0/sboSvlyW4Y6MHc95Gk8=
+      - KygTiN01FceoSoZ/cgpXlF6zml02qgNU9p09zx1tnLi3AJqaOq+ymlK0FHnHdCmGLt7mPF5sfjQ=
       X-Amz-Request-Id:
-      - C42CE0A0564313D6
+      - C748A2D5C49616C4
       Date:
-      - Mon, 14 Oct 2019 10:47:31 GMT
+      - Mon, 18 Nov 2019 08:58:51 GMT
       Etag:
       - '"40f2b5d001bde5573864d620b133b43b"'
       Content-Length:
@@ -366,22 +384,22 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Mon, 14 Oct 2019 10:47:30 GMT
+  recorded_at: Mon, 18 Nov 2019 08:58:50 GMT
 - request:
     method: post
     uri: http://site-api.lvh.me:3001/uploads
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"upload","attributes":{"path":"/17017/1571050050-image."}}}'
+      string: '{"data":{"type":"upload","attributes":{"path":"/17732/1574067530-image."}}}'
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 45524d64d853a4e755dbdc1d180b44
+      - Bearer 3e923ab04719a1d392bf6338385a87
       User-Agent:
-      - ruby-client v0.7.6
+      - ruby-client v0.7.7
       X-Api-Version:
       - '3'
       Accept-Encoding:
@@ -389,68 +407,7 @@ http_interactions:
   response:
     status:
       code: 202
-      message: Accepted
-    headers:
-      X-Api-Version:
-      - '3'
-      Content-Type:
-      - application/json; charset=utf-8
-      Vary:
-      - Accept-Encoding
-      X-Ratelimit-Limit:
-      - '30'
-      X-Ratelimit-Remaining:
-      - '28'
-      Cache-Control:
-      - no-cache
-      X-Request-Id:
-      - a2ee0253-9695-4056-a1ee-22507eae384f
-      X-Runtime:
-      - '0.214621'
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Headers:
-      - authorization, content-type, x-site-domain, x-api-version, user-agent, x-session-id
-      Access-Control-Allow-Methods:
-      - GET, POST, PUT, OPTIONS, DELETE
-      Access-Control-Expose-Headers:
-      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
-      Access-Control-Max-Age:
-      - '1728000'
-      Access-Control-Allow-Origin:
-      - "*"
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      base64_string: |
-        eyJkYXRhIjp7ImlkIjoiYWE5MTIzOWFlOWU4YzUyODQyZmNjOTEyIiwidHlw
-        ZSI6ImpvYiJ9fQ==
-    http_version: 
-  recorded_at: Mon, 14 Oct 2019 10:47:30 GMT
-- request:
-    method: get
-    uri: http://site-api.lvh.me:3001/job-results/aa91239ae9e8c52842fcc912
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer 45524d64d853a4e755dbdc1d180b44
-      User-Agent:
-      - ruby-client v0.7.6
-      X-Api-Version:
-      - '3'
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
+      message: 'Accepted '
     headers:
       X-Api-Version:
       - '3'
@@ -462,14 +419,12 @@ http_interactions:
       - '30'
       X-Ratelimit-Remaining:
       - '27'
-      Etag:
-      - W/"ab7c431519794a1f51306c5f063a5f0e"
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       X-Request-Id:
-      - b82187da-b3f1-4c53-8aa9-f0c0d19f454a
+      - ed7740db-c915-43c0-a44b-29217ff61e13
       X-Runtime:
-      - '0.030078'
+      - '2.248171'
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -482,28 +437,24 @@ http_interactions:
       - '1728000'
       Access-Control-Allow-Origin:
       - "*"
-      Transfer-Encoding:
-      - chunked
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.1/2018-03-29)
+      Date:
+      - Mon, 18 Nov 2019 08:58:52 GMT
+      Content-Length:
+      - '80'
+      Connection:
+      - Keep-Alive
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiYWE5MTIzOWFlOWU4YzUyODQyZmNjOTEyIiwidHlw
-        ZSI6ImpvYl9yZXN1bHQiLCJhdHRyaWJ1dGVzIjp7InN0YXR1cyI6MjAwLCJw
-        YXlsb2FkIjp7ImRhdGEiOnsiaWQiOiI5MDkzNzUiLCJ0eXBlIjoidXBsb2Fk
-        IiwiYXR0cmlidXRlcyI6eyJzaXplIjo0ODY1LCJ3aWR0aCI6MjUxLCJoZWln
-        aHQiOjI1MSwicGF0aCI6Ii8xNzAxNy8xNTcxMDUwMDUwLWltYWdlLi5qcGci
-        LCJmb3JtYXQiOiJqcGVnIiwiYXV0aG9yIjpudWxsLCJub3RlcyI6bnVsbCwi
-        Y29weXJpZ2h0IjpudWxsLCJkZWZhdWx0X2ZpZWxkX21ldGFkYXRhIjp7ImVu
-        Ijp7ImFsdCI6bnVsbCwidGl0bGUiOm51bGwsImN1c3RvbV9kYXRhIjp7fX19
-        LCJpc19pbWFnZSI6dHJ1ZSwiY3JlYXRlZF9hdCI6IjIwMTktMTAtMTRUMTA6
-        NDc6MzAuNjM4WiIsInVybCI6Imh0dHBzOi8vd3d3LmRhdG9jbXMtYXNzZXRz
-        LmNvbS8xNzAxNy8xNTcxMDUwMDUwLWltYWdlLi5qcGciLCJ0YWdzIjpbXSwi
-        YmFzZW5hbWUiOiJpbWFnZS4ifX19fX19
+        eyJkYXRhIjp7ImlkIjoiZDRhMGM4M2VlZTE3ODQ1MGI3OWZjZWViIiwidHlw
+        ZSI6ImpvYiJ9fQ==
     http_version: 
-  recorded_at: Mon, 14 Oct 2019 10:47:31 GMT
+  recorded_at: Mon, 18 Nov 2019 08:58:52 GMT
 - request:
     method: get
-    uri: http://site-api.lvh.me:3001/uploads/909375
+    uri: http://site-api.lvh.me:3001/job-results/d4a0c83eee178450b79fceeb
     body:
       encoding: US-ASCII
       string: ''
@@ -513,9 +464,9 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 45524d64d853a4e755dbdc1d180b44
+      - Bearer 3e923ab04719a1d392bf6338385a87
       User-Agent:
-      - ruby-client v0.7.6
+      - ruby-client v0.7.7
       X-Api-Version:
       - '3'
       Accept-Encoding:
@@ -523,7 +474,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: OK
+      message: 'OK '
     headers:
       X-Api-Version:
       - '3'
@@ -534,15 +485,15 @@ http_interactions:
       X-Ratelimit-Limit:
       - '30'
       X-Ratelimit-Remaining:
-      - '26'
+      - '29'
       Etag:
-      - W/"8185316671b288c6999274a33e633b72"
+      - W/"b1b9d48d5d17b3948c6b12ba168963c8"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d19d322e-e4ce-46ef-9142-1635572e5acf
+      - 9b3da80b-2c28-4953-860d-09a368c18f2e
       X-Runtime:
-      - '0.027744'
+      - '0.026682'
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -555,21 +506,120 @@ http_interactions:
       - '1728000'
       Access-Control-Allow-Origin:
       - "*"
-      Transfer-Encoding:
-      - chunked
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.1/2018-03-29)
+      Date:
+      - Mon, 18 Nov 2019 08:58:53 GMT
+      Content-Length:
+      - '495'
+      Connection:
+      - Keep-Alive
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiOTA5Mzc1IiwidHlwZSI6InVwbG9hZCIsImF0dHJp
-        YnV0ZXMiOnsic2l6ZSI6NDg2NSwid2lkdGgiOjI1MSwiaGVpZ2h0IjoyNTEs
-        InBhdGgiOiIvMTcwMTcvMTU3MTA1MDA1MC1pbWFnZS4uanBnIiwiZm9ybWF0
-        IjoianBlZyIsImF1dGhvciI6bnVsbCwibm90ZXMiOm51bGwsImNvcHlyaWdo
-        dCI6bnVsbCwiZGVmYXVsdF9maWVsZF9tZXRhZGF0YSI6eyJlbiI6eyJhbHQi
-        Om51bGwsInRpdGxlIjpudWxsLCJjdXN0b21fZGF0YSI6e319fSwiaXNfaW1h
-        Z2UiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDE5LTEwLTE0VDEwOjQ3OjMwLjYz
-        OFoiLCJ1cmwiOiJodHRwczovL3d3dy5kYXRvY21zLWFzc2V0cy5jb20vMTcw
-        MTcvMTU3MTA1MDA1MC1pbWFnZS4uanBnIiwidGFncyI6W10sImJhc2VuYW1l
-        IjoiaW1hZ2UuIn19fQ==
+        eyJkYXRhIjp7ImlkIjoiZDRhMGM4M2VlZTE3ODQ1MGI3OWZjZWViIiwidHlw
+        ZSI6ImpvYl9yZXN1bHQiLCJhdHRyaWJ1dGVzIjp7InN0YXR1cyI6MjAwLCJw
+        YXlsb2FkIjp7ImRhdGEiOnsiaWQiOiI5OTY2NjIiLCJ0eXBlIjoidXBsb2Fk
+        IiwiYXR0cmlidXRlcyI6eyJzaXplIjo0ODY1LCJ3aWR0aCI6MjUxLCJoZWln
+        aHQiOjI1MSwicGF0aCI6Ii8xNzczMi8xNTc0MDY3NTMwLWltYWdlLi5qcGVn
+        IiwiZm9ybWF0IjoianBlZyIsImF1dGhvciI6bnVsbCwibm90ZXMiOm51bGws
+        ImNvcHlyaWdodCI6bnVsbCwiZGVmYXVsdF9maWVsZF9tZXRhZGF0YSI6eyJl
+        biI6eyJhbHQiOm51bGwsInRpdGxlIjpudWxsLCJjdXN0b21fZGF0YSI6e319
+        fSwiaXNfaW1hZ2UiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDE5LTExLTE4VDA4
+        OjU4OjUyLjg1MVoiLCJ1cGRhdGVkX2F0IjoiMjAxOS0xMS0xOFQwODo1ODo1
+        My4yMjNaIiwidXJsIjoiaHR0cHM6Ly93d3cuZGF0b2Ntcy1hc3NldHMuY29t
+        LzE3NzMyLzE1NzQwNjc1MzAtaW1hZ2UuLmpwZWciLCJ0YWdzIjpbXSwiZmls
+        ZW5hbWUiOiJpbWFnZS4uanBlZyIsImJhc2VuYW1lIjoiaW1hZ2UuIiwiZXhp
+        Zl9pbmZvIjp7fSwibWltZV90eXBlIjoiaW1hZ2UvanBlZyIsImNvbG9ycyI6
+        WyIjYWM2NmVkIiwiIzk3NzJiZSIsIiM4NDYwOWUiLCIjNDcxZTZmIiwiI2Fj
+        NjZlZCIsIiM0MjMxNTgiXSwic21hcnRfdGFncyI6W10sImR1cmF0aW9uIjpu
+        dWxsLCJmcmFtZV9yYXRlIjpudWxsLCJtdXhfcGxheWJhY2tfaWQiOm51bGws
+        ImJsdXJoYXNoIjoiTFFHN0ViV20tSHhLcz1he2pdanUtSGp1YXhvTiIsIm11
+        eF9tcDRfaGlnaGVzdF9yZXMiOm51bGx9fX19fX0=
     http_version: 
-  recorded_at: Mon, 14 Oct 2019 10:47:31 GMT
+  recorded_at: Mon, 18 Nov 2019 08:58:53 GMT
+- request:
+    method: get
+    uri: http://site-api.lvh.me:3001/uploads/996662
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 3e923ab04719a1d392bf6338385a87
+      User-Agent:
+      - ruby-client v0.7.7
+      X-Api-Version:
+      - '3'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Api-Version:
+      - '3'
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '28'
+      Etag:
+      - W/"0f6196115e1c2b67202a7ad8242322d7"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8bd68576-1ebd-4eac-8f08-54c96d5f336c
+      X-Runtime:
+      - '0.026918'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-site-domain, x-api-version, user-agent, x-session-id
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
+      Access-Control-Max-Age:
+      - '1728000'
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.5.1/2018-03-29)
+      Date:
+      - Mon, 18 Nov 2019 08:58:53 GMT
+      Content-Length:
+      - '451'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        eyJkYXRhIjp7ImlkIjoiOTk2NjYyIiwidHlwZSI6InVwbG9hZCIsImF0dHJp
+        YnV0ZXMiOnsic2l6ZSI6NDg2NSwid2lkdGgiOjI1MSwiaGVpZ2h0IjoyNTEs
+        InBhdGgiOiIvMTc3MzIvMTU3NDA2NzUzMC1pbWFnZS4uanBlZyIsImZvcm1h
+        dCI6ImpwZWciLCJhdXRob3IiOm51bGwsIm5vdGVzIjpudWxsLCJjb3B5cmln
+        aHQiOm51bGwsImRlZmF1bHRfZmllbGRfbWV0YWRhdGEiOnsiZW4iOnsiYWx0
+        IjpudWxsLCJ0aXRsZSI6bnVsbCwiY3VzdG9tX2RhdGEiOnt9fX0sImlzX2lt
+        YWdlIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAxOS0xMS0xOFQwODo1ODo1Mi44
+        NTFaIiwidXBkYXRlZF9hdCI6IjIwMTktMTEtMThUMDg6NTg6NTMuMjIzWiIs
+        InVybCI6Imh0dHBzOi8vd3d3LmRhdG9jbXMtYXNzZXRzLmNvbS8xNzczMi8x
+        NTc0MDY3NTMwLWltYWdlLi5qcGVnIiwidGFncyI6W10sImZpbGVuYW1lIjoi
+        aW1hZ2UuLmpwZWciLCJiYXNlbmFtZSI6ImltYWdlLiIsImV4aWZfaW5mbyI6
+        e30sIm1pbWVfdHlwZSI6ImltYWdlL2pwZWciLCJjb2xvcnMiOlsiI2FjNjZl
+        ZCIsIiM5NzcyYmUiLCIjODQ2MDllIiwiIzQ3MWU2ZiIsIiNhYzY2ZWQiLCIj
+        NDIzMTU4Il0sInNtYXJ0X3RhZ3MiOltdLCJkdXJhdGlvbiI6bnVsbCwiZnJh
+        bWVfcmF0ZSI6bnVsbCwibXV4X3BsYXliYWNrX2lkIjpudWxsLCJibHVyaGFz
+        aCI6IkxRRzdFYldtLUh4S3M9YXtqXWp1LUhqdWF4b04iLCJtdXhfbXA0X2hp
+        Z2hlc3RfcmVzIjpudWxsfX19
+    http_version: 
+  recorded_at: Mon, 18 Nov 2019 08:58:53 GMT
 recorded_with: VCR 5.0.0
