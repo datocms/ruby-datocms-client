@@ -52,7 +52,7 @@ module Dato
           expect(article_file.front_matter['image']['url']).to be_present
           expect(article_file.front_matter['image']['colors']).to be_present
           expect(article_file.front_matter['image']['tags']).to eq []
-          expect(article_file.front_matter['image']['smart_tags']).to eq []
+          expect(article_file.front_matter['image']['smart_tags']).to eq ["text", "trademark", "logo", "symbol"]
           expect(article_file.front_matter['image']['blurhash']).to be_present
           expect(article_file.front_matter['file']['format']).to eq 'txt'
           expect(article_file.front_matter['file']['size']).to eq 10

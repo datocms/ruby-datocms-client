@@ -30,7 +30,6 @@ module Dato
               path: '/foo.mp4',
               format: 'mp4',
               mux_playback_id: '444',
-              mux_asset_status: 'ready',
               duration: 300,
               frame_rate: 50,
               mux_mp4_highest_res: 'medium'
@@ -38,23 +37,14 @@ module Dato
           end
 
           it 'responds outputs video info' do
-            expect(file).to match an_object_having_attributes(
-              path: '/foo.mp4',
-              format: 'mp4',
-              video: a_hash_including(
-                duration: 300,
-                framerate: 50,
-                mux_playback_id: '444',
-                mux_asset_status: 'ready',
-                gif_url: 'https://image.mux.com/444/animated.gif',
-                hls_url: 'https://stream.mux.com/444.m3u8',
-                thumbnail_url: 'https://image.mux.com/444/thumbnail.jpg',
-                mp4_low_res_url: 'https://stream.mux.com/444/low.mp4',
-                mp4_medium_res_url: 'https://stream.mux.com/444/medium.mp4'
-              )
-            )
-
-            expect(file.video).to match hash_not_including(:mp4_high_res_url)
+            expect(file.video.duration).to eq(300)
+            expect(file.video.frame_rate).to eq(50)
+            expect(file.video.mux_playback_id).to eq('444')
+            expect(file.video.gif_url).to eq('https://image.mux.com/444/animated.gif')
+            expect(file.video.hls_url).to eq('https://stream.mux.com/444.m3u8')
+            expect(file.video.thumbnail_url).to eq('https://image.mux.com/444/thumbnail.jpg')
+            expect(file.video.mp4_low_res_url).to eq('https://stream.mux.com/444/low.mp4')
+            expect(file.video.mp4_medium_res_url).to eq('https://stream.mux.com/444/medium.mp4')
           end
         end
 

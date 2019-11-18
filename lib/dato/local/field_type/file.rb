@@ -137,27 +137,71 @@ module Dato
           @upload.blurhash
         end
 
-        def mux_resolutions
-          # mux_mp4_highest_res
-          resolutions = %w[low medium high]
-          max = resolutions.index(@upload.mux_mp4_highest_res)
-          resolutions[0..max].each_with_object({}) do |res, acc|
-            acc["mp4_#{res}_res_url"] =
-              "https://stream.mux.com/#{@upload.mux_playback_id}/#{res}.mp4"
+        class VideoAttributes
+          def initialize(upload)
+            @upload = upload
+          end
+
+          def mux_playback_id
+            @upload.mux_playback_id
+          end
+
+          def frame_rate
+            @upload.frame_rate
+          end
+
+          def duration
+            @upload.duration
+          end
+
+          def gif_url
+            "https://image.mux.com/#{@upload.mux_playback_id}/animated.gif"
+          end
+
+          def hls_url
+            "https://stream.mux.com/#{@upload.mux_playback_id}.m3u8"
+          end
+
+          def thumbnail_url(format = :jpg)
+            "https://image.mux.com/#{@upload.mux_playback_id}/thumbnail.#{format}"
+          end
+
+          def mp4_low_res_url
+            if @upload.mux_mp4_highest_res
+              "https://stream.mux.com/#{@upload.mux_playback_id}/low.mp4"
+            end
+          end
+
+          def mp4_medium_res_url
+            if ["medium", "low"].include?(@upload.mux_mp4_highest_res)
+              "https://stream.mux.com/#{@upload.mux_playback_id}/medium.mp4"
+            end
+          end
+
+          def mp4_high_res_url
+            if @upload.mux_mp4_highest_res == "high"
+              "https://stream.mux.com/#{@upload.mux_playback_id}/high.mp4"
+            end
+          end
+
+          def to_hash
+            {
+              mux_playback_id: mux_playback_id,
+              frame_rate: frame_rate,
+              duration: duration,
+              gif_url: gif_url,
+              hls_url: hls_url,
+              thumbnail_url: thumbnail_url,
+              mp4_low_res_url: mp4_low_res_url,
+              mp4_medium_res_url: mp4_medium_res_url,
+              mp4_high_res_url: mp4_high_res_url
+            }
           end
         end
 
         def video
           if @upload.mux_playback_id
-            {
-              mux_playback_id: @upload.mux_playback_id,
-              mux_asset_status: @upload.mux_asset_status,
-              framerate: @upload.frame_rate,
-              duration: @upload.duration,
-              gif_url: "https://image.mux.com/#{@upload.mux_playback_id}/animated.gif",
-              hls_url: "https://stream.mux.com/#{@upload.mux_playback_id}.m3u8",
-              thumbnail_url: "https://image.mux.com/#{@upload.mux_playback_id}/thumbnail.jpg"
-            }.merge(mux_resolutions).with_indifferent_access
+            VideoAttributes.new(@upload)
           end
         end
 
@@ -194,7 +238,7 @@ module Dato
             mime_type: mime_type,
             colors: colors.map(&:to_hash),
             blurhash: blurhash,
-            video: video
+            video: video && video.to_hash
           }
         end
       end
