@@ -154,33 +154,42 @@ module Dato
             @upload.duration
           end
 
-          def gif_url
-            "https://image.mux.com/#{@upload.mux_playback_id}/animated.gif"
-          end
-
-          def hls_url
+          def streaming_url
             "https://stream.mux.com/#{@upload.mux_playback_id}.m3u8"
           end
 
           def thumbnail_url(format = :jpg)
-            "https://image.mux.com/#{@upload.mux_playback_id}/thumbnail.#{format}"
-          end
-
-          def mp4_low_res_url
-            if @upload.mux_mp4_highest_res
-              "https://stream.mux.com/#{@upload.mux_playback_id}/low.mp4"
+            if format == :gif
+              "https://image.mux.com/#{@upload.mux_playback_id}/animated.gif"
+            else
+              "https://image.mux.com/#{@upload.mux_playback_id}/thumbnail.#{format}"
             end
           end
 
-          def mp4_medium_res_url
-            if ["medium", "low"].include?(@upload.mux_mp4_highest_res)
-              "https://stream.mux.com/#{@upload.mux_playback_id}/medium.mp4"
-            end
-          end
+          def mp4_url(options = nil)
+            @upload.mux_mp4_highest_res or
+              return nil
 
-          def mp4_high_res_url
-            if @upload.mux_mp4_highest_res == "high"
-              "https://stream.mux.com/#{@upload.mux_playback_id}/high.mp4"
+            if options && options[:exact_res]
+              if options[:exact_res] == :low
+                raw_mp4_url("low")
+              elsif options[:exact_res] == :medium
+                if %w[medium high].include?(@upload.mux_mp4_highest_res)
+                  raw_mp4_url("medium")
+                end
+              elsif @upload.mux_mp4_highest_res == :high
+                raw_mp4_url("high")
+              end
+            elsif options && options[:res] == :low
+              raw_mp4_url("low")
+            elsif options && options[:res] == :medium
+              if %w[low medium].include?(@upload.mux_mp4_highest_res)
+                raw_mp4_url(@upload.mux_mp4_highest_res)
+              else
+                raw_mp4_url("medium")
+              end
+            else
+              raw_mp4_url(@upload.mux_mp4_highest_res)
             end
           end
 
@@ -189,13 +198,16 @@ module Dato
               mux_playback_id: mux_playback_id,
               frame_rate: frame_rate,
               duration: duration,
-              gif_url: gif_url,
-              hls_url: hls_url,
+              streaming_url: streaming_url,
               thumbnail_url: thumbnail_url,
-              mp4_low_res_url: mp4_low_res_url,
-              mp4_medium_res_url: mp4_medium_res_url,
-              mp4_high_res_url: mp4_high_res_url
+              mp4_url: mp4_url,
             }
+          end
+
+          private
+
+          def raw_mp4_url(res)
+            "https://stream.mux.com/#{@upload.mux_playback_id}/#{res}.mp4"
           end
         end
 

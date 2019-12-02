@@ -40,11 +40,12 @@ module Dato
             expect(file.video.duration).to eq(300)
             expect(file.video.frame_rate).to eq(50)
             expect(file.video.mux_playback_id).to eq('444')
-            expect(file.video.gif_url).to eq('https://image.mux.com/444/animated.gif')
-            expect(file.video.hls_url).to eq('https://stream.mux.com/444.m3u8')
+            expect(file.video.thumbnail_url(:gif)).to eq('https://image.mux.com/444/animated.gif')
+            expect(file.video.streaming_url).to eq('https://stream.mux.com/444.m3u8')
             expect(file.video.thumbnail_url).to eq('https://image.mux.com/444/thumbnail.jpg')
-            expect(file.video.mp4_low_res_url).to eq('https://stream.mux.com/444/low.mp4')
-            expect(file.video.mp4_medium_res_url).to eq('https://stream.mux.com/444/medium.mp4')
+            expect(file.video.mp4_url).to eq('https://stream.mux.com/444/medium.mp4')
+            expect(file.video.mp4_url(exact_res: :high)).to be_nil
+            expect(file.video.mp4_url(exact_res: :low)).to eq('https://stream.mux.com/444/low.mp4')
           end
         end
 
