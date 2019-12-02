@@ -68,7 +68,7 @@ module Dato
               width: 20,
               height: 20,
               tags: ['ciao'],
-              colors: ['#ffffff'],
+              colors: [{ red: 255, green: 255, blue: 255, alpha: 255 }],
               video: nil,
               default_field_metadata: {
                 en: {

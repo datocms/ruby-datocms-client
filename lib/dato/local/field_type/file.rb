@@ -121,16 +121,7 @@ module Dato
         end
 
         def colors
-          @upload.colors.map do |hex|
-            r, g, b = (hex[0] == '#' ? hex[1..7] : hex).scan(/../).map do |v|
-              begin
-                Integer(v, 16)
-              rescue StandardError
-                raise 'Invalid hexcolor.'
-              end
-            end
-            Color.new(r, g, b, 255)
-          end
+          @upload.colors.map { |color| Color.parse(color, nil) }
         end
 
         def blurhash

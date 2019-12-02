@@ -39,7 +39,6 @@ module Dato
           article_file = FrontMatterParser::Parser.new(:md, loader: loader).call(
             File.read(File.join(destination_path, 'posts', 'first-post.md'))
           )
-          puts article_file.front_matter['image']
           expect(article_file.front_matter['item_type']).to eq 'article'
           expect(article_file.front_matter['updated_at']).to be_present
           expect(article_file.front_matter['created_at']).to be_present
@@ -52,7 +51,7 @@ module Dato
           expect(article_file.front_matter['image']['url']).to be_present
           expect(article_file.front_matter['image']['colors']).to be_present
           expect(article_file.front_matter['image']['tags']).to eq []
-          expect(article_file.front_matter['image']['smart_tags']).to eq ["text", "trademark", "logo", "symbol"]
+          expect(article_file.front_matter['image']['smart_tags']).to include("logo")
           expect(article_file.front_matter['image']['blurhash']).to be_present
           expect(article_file.front_matter['file']['format']).to eq 'txt'
           expect(article_file.front_matter['file']['size']).to eq 10
