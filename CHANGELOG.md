@@ -1,3 +1,7 @@
+# 0.7.9
+
+* Added new attributes to uploads
+
 # 0.7.0
 
 * Real-time events are now much more granular and the gem avoids downloading all the content every time a change occurs
