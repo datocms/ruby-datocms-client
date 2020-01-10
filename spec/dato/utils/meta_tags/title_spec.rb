@@ -150,6 +150,30 @@ module Dato
                   end
                 end
               end
+
+              context 'with blank title' do
+                let(:item_title) { '' }
+
+                context 'no SEO' do
+                  it 'returns fallback title' do
+                    expect(title_tag).to eq('Default title')
+                    expect(og_value).to eq('Default title')
+                    expect(card_value).to eq('Default title')
+                  end
+                end
+
+                context 'with SEO' do
+                  let(:seo) do
+                    { title: 'SEO title' }
+                  end
+
+                  it 'returns SEO title' do
+                    expect(title_tag).to eq('SEO title')
+                    expect(og_value).to eq('SEO title')
+                    expect(card_value).to eq('SEO title')
+                  end
+                end
+              end
             end
           end
         end
