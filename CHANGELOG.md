@@ -1,3 +1,7 @@
+# 0.7.10
+
+* Fixed SEO title retrieval. Now it fallbacks to default SEO title is item title is blank
+
 # 0.7.9
 
 * Added new attributes to uploads
