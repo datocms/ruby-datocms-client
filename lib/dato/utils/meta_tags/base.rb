@@ -28,7 +28,7 @@ module Dato
           fallback_seo_value = fallback_seo &&
                                fallback_seo.send(attribute)
 
-          item_seo_value || alternative || fallback_seo_value
+          item_seo_value.presence || alternative.presence || fallback_seo_value
         end
 
         def tag(tag_name, attributes)
