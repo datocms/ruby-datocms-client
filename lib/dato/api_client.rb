@@ -32,24 +32,24 @@ module Dato
           @extra_headers = options[:extra_headers] || {}
         end
 
+        # FOR DEV
+        # "http://#{subdomain}.lvh.me:3001/docs/#{subdomain}-hyperschema.json"
         response = Faraday.get(
-          # FOR DEV
-          # "http://#{subdomain}.lvh.me:3001/docs/#{subdomain}-hyperschema.json"
           "https://#{subdomain}.datocms.com/docs/#{subdomain}-hyperschema.json"
         )
 
         schema = JsonSchema.parse!(JSON.parse(response.body))
         schema.expand_references!
 
-        schema.definitions.each do |type, schema|
-          is_collection = schema.links.select { |x| x.rel === 'instances' }.any?
+        schema.definitions.each do |type, obj|
+          is_collection = obj.links.select { |x| x.rel == 'instances' }.any?
           namespace = is_collection ? type.pluralize : type
 
           define_method(namespace) do
             instance_variable_set(
               "@#{namespace}",
               instance_variable_get("@#{namespace}") ||
-              Dato::Repo.new(self, type, schema)
+              Dato::Repo.new(self, type, obj)
             )
           end
         end
@@ -76,16 +76,10 @@ module Dato
       method, absolute_path, body, params = args
 
       response = connection.send(method, absolute_path, body) do |c|
-        if params
-          c.params = params
-        end
+        c.params = params if params
       end
 
-      if response.body.is_a?(Hash)
-        response.body.with_indifferent_access
-      else
-        nil
-      end
+      response.body.with_indifferent_access if response.body.is_a?(Hash)
     rescue Faraday::SSLError => e
       raise e if ENV['SSL_CERT_FILE'] == Cacert.pem
 
@@ -101,14 +95,14 @@ module Dato
         sleep(to_wait + 1)
         request(*args)
       elsif e.response[:status] == 422 && batch_data_validation?(e.response)
-        puts "Validating items, waiting 1 second and retrying..."
+        puts 'Validating items, waiting 1 second and retrying...'
         sleep(1)
         request(*args)
       else
         error = ApiError.new(e.response)
-        puts "===="
+        puts '===='
         puts error.message
-        puts "===="
+        puts '===='
         raise error
       end
     end
@@ -123,12 +117,12 @@ module Dato
              end
 
       return false unless body
-      return false unless body["data"]
+      return false unless body['data']
 
-      body["data"].any? do |e|
-        e["attributes"]["code"] == "BATCH_DATA_VALIDATION_IN_PROGRESS"
+      body['data'].any? do |e|
+        e['attributes']['code'] == 'BATCH_DATA_VALIDATION_IN_PROGRESS'
       end
-    rescue
+    rescue StandardError
       false
     end
 
@@ -143,7 +137,7 @@ module Dato
 
       options = {
         url: base_url,
-        headers: default_headers.merge(extra_headers),
+        headers: default_headers.merge(extra_headers)
       }
 
       @connection ||= Faraday.new(options) do |c|

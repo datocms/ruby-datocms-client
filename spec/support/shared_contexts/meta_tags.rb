@@ -24,8 +24,6 @@ RSpec.shared_context 'items repo' do
                   title: nil,
                   custom_data: {}
                 }
-              else
-                nil
               end
             )
           },
@@ -187,7 +185,7 @@ RSpec.shared_context 'items repo' do
             localized: false,
             validators: {},
             position: 1,
-            appeareance: {
+            appearance: {
               editor: 'file',
               parameters: {}
             }
@@ -214,7 +212,7 @@ RSpec.shared_context 'items repo' do
               required: {}
             },
             position: 2,
-            appeareance: {
+            appearance: {
               editor: 'single_line',
               parameters: { heading: true }
             }
@@ -239,7 +237,7 @@ RSpec.shared_context 'items repo' do
             localized: false,
             validators: {},
             position: 3,
-            appeareance: {
+            appearance: {
               editor: 'single_line',
               parameters: { heading: false }
             }
@@ -264,7 +262,7 @@ RSpec.shared_context 'items repo' do
             localized: false,
             validators: {},
             position: 4,
-            appeareance: {
+            appearance: {
               editor: 'seo',
               parameters: {}
             }

@@ -143,7 +143,7 @@ module Dato
             new_field[:id],
             new_field.merge(
               label: 'Article title',
-              appeareance: new_field[:appeareance].except(:type)
+              appearance: new_field[:appearance].except(:type)
             )
           )
 
@@ -218,7 +218,7 @@ module Dato
               item_type: item_type[:id],
               title: 'First post',
               image: client.upload_image('https://www.datocms-assets.com/205/1549027974-logo.png'),
-              file: client.upload_file('./spec/fixtures/file.txt'),
+              file: client.upload_file('./spec/fixtures/file.txt')
             )
 
             expect(new_item[:item_type]).not_to be_nil
@@ -295,10 +295,10 @@ module Dato
           end
 
           it 'works' do
-            client.items.batch_publish({ "filter[ids]" => tag[:id] })
+            client.items.batch_publish('filter[ids]' => tag[:id])
 
-            expect(client.items.find(tag[:id])[:meta][:status]).to eq "published"
-            expect(client.items.find(tag2[:id])[:meta][:status]).to eq "draft"
+            expect(client.items.find(tag[:id])[:meta][:status]).to eq 'published'
+            expect(client.items.find(tag2[:id])[:meta][:status]).to eq 'draft'
 
             client.items.batch_destroy('filter[ids]' => "#{tag[:id]},#{tag2[:id]}")
 

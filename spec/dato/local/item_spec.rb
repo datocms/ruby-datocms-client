@@ -47,13 +47,13 @@ module Dato
                 singleton: is_singleton,
                 modular_block: false,
                 sortable: true,
-                api_key: 'work_item',
+                api_key: 'work_item'
               },
               relationships: {
                 fields: {
                   data: [
                     { id: 'title', type: 'field' },
-                    { id: 'body', type: 'field' },
+                    { id: 'body', type: 'field' }
                   ]
                 }
               }
@@ -66,7 +66,11 @@ module Dato
                 api_key: title_api_key,
                 localized: title_localized,
                 field_type: title_field_type,
-                appeareance: { type: 'title' }
+                appearance: {
+                  addons: [],
+                  editor: 'single_line',
+                  parameters: { heading: true }
+                }
               }
             },
             {
@@ -77,7 +81,11 @@ module Dato
                 api_key: 'body',
                 localized: false,
                 field_type: 'text',
-                appeareance: { type: 'plain' }
+                appearance: {
+                  addons: [],
+                  editor: 'markdown',
+                  parameters: { toolbar: ['bold'] }
+                }
               }
             }
           ]
@@ -93,7 +101,7 @@ module Dato
         {
           title_api_key.to_sym => 'My titlè with àccents',
           body: 'Hi there',
-          position: 2,
+          position: 2
         }
       end
 
@@ -125,7 +133,7 @@ module Dato
             expect(item.respond_to?(:body)).to be_truthy
             expect(item.body).to eq 'Hi there'
             expect(item[:body]).to eq 'Hi there'
-            expect(item["body"]).to eq 'Hi there'
+            expect(item['body']).to eq 'Hi there'
           end
 
           context 'localized field' do
@@ -183,7 +191,7 @@ module Dato
 
           it '.meta returns the meta info' do
             expect(item.meta).to be_a JsonApiMeta
-            expect(item["meta"]).to eq 'My titlè with àccents'
+            expect(item['meta']).to eq 'My titlè with àccents'
             expect(item[:meta]).to eq 'My titlè with àccents'
           end
         end
