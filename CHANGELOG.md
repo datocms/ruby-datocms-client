@@ -1,3 +1,28 @@
+# 0.7.12
+
+Introduces `Dato::Utils::BuildModularBlock` class to help creating modular blocks.
+
+An example usage can be:
+
+```
+description = [
+  Dato::Utils::BuildModularBlock.build(
+    item_type: "1235",
+    name: "Best dog in the world",
+    year: "2020",
+    picture: picture
+  )
+]
+
+record = client.items.create(
+  item_type: "1234", # model ID
+  name: "Gigio",
+  description: description
+)
+```
+
+Find more info [on the documentation](https://www.datocms.com/docs/content-management-api/resources/item/create).
+
 # 0.7.10
 
 * Fixed SEO title retrieval. Now it fallbacks to default SEO title is item title is blank
