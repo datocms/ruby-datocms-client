@@ -43,7 +43,13 @@ module Dato
 
         return if pusher && pusher.connected
 
-        pusher.subscribe("private-site-#{site_id}")
+        channel_name = if client.environment
+                         "private-site-#{site_id}-environment-#{environment}"
+                       else
+                         "private-site-#{site_id}"
+                       end
+
+        pusher.subscribe(channel_name)
 
         bind_on_site_upsert(&block)
         bind_on_item_destroy(&block)
