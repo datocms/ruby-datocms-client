@@ -1,4 +1,4 @@
-# 0.7.12
+# 0.7.12 (not yet released)
 
 Introduces `Dato::Utils::BuildModularBlock` class to help creating modular blocks.
 
@@ -22,6 +22,11 @@ record = client.items.create(
 ```
 
 Find more info [on the documentation](https://www.datocms.com/docs/content-management-api/resources/item/create).
+
+# 0.7.11 (not released)
+
+* Updated specs cassettes after `appeareance -> appearance` typo fix
+* Some style changes
 
 # 0.7.10
 
