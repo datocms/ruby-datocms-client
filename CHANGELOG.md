@@ -1,10 +1,19 @@
-# 0.7.12 (not yet released)
+# 0.7.13
+
+Add option to pass a project's environment:
+
+```ruby
+require "dato"
+client = Dato::Site::Client.new("YOUR-API-KEY", environment: 'sandbox-foobar')
+```
+
+# 0.7.12
 
 Introduces `Dato::Utils::BuildModularBlock` class to help creating modular blocks.
 
 An example usage can be:
 
-```
+```ruby
 description = [
   Dato::Utils::BuildModularBlock.build(
     item_type: "1235",

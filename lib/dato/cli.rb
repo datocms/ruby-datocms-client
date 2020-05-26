@@ -11,8 +11,10 @@ module Dato
     desc 'dump', 'dumps DatoCMS content into local files'
     option :config, default: 'dato.config.rb'
     option :token, default: ENV['DATO_API_TOKEN'], required: true
+    option :environment, type: :string, required: false
     option :preview, default: false, type: :boolean
     option :watch, default: false, type: :boolean
+
     def dump
       config_file = File.expand_path(options[:config])
       watch_mode = options[:watch]
@@ -20,6 +22,7 @@ module Dato
 
       client = Dato::Site::Client.new(
         options[:token],
+        environment: options[:environment],
         extra_headers: {
           'X-Reason' => 'dump',
           'X-SSG' => Dump::SsgDetector.new(Dir.pwd).detect

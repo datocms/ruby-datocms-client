@@ -20,7 +20,7 @@ module Dato
       base.extend ClassMethods
 
       base.class_eval do
-        attr_reader :token, :base_url, :schema, :extra_headers
+        attr_reader :token, :environment, :base_url, :schema, :extra_headers
       end
     end
 
@@ -29,6 +29,7 @@ module Dato
         define_method(:initialize) do |token, options = {}|
           @token = token
           @base_url = options[:base_url] || "https://#{subdomain}.datocms.com"
+          @environment = options[:environment]
           @extra_headers = options[:extra_headers] || {}
         end
 
@@ -134,6 +135,10 @@ module Dato
         'User-Agent' => "ruby-client v#{Dato::VERSION}",
         'X-Api-Version' => '3'
       }
+
+      if environment
+        default_headers.merge!('X-Environment' => environment)
+      end
 
       options = {
         url: base_url,
