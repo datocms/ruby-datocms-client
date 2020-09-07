@@ -43,7 +43,7 @@ module Dato
 
         def file
           Imgix::Client.new(
-            host: @imgix_host,
+            domain: @imgix_host,
             secure: true,
             include_library_param: false
           ).path(path)

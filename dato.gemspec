@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'activesupport', ['>= 4.2.7']
   spec.add_runtime_dependency 'addressable'
   spec.add_runtime_dependency 'thor'
-  spec.add_runtime_dependency 'imgix', ['>= 0.3.1']
+  spec.add_runtime_dependency 'imgix', ['~> 4']
   spec.add_runtime_dependency 'toml'
   spec.add_runtime_dependency 'cacert'
   spec.add_runtime_dependency 'dotenv'
