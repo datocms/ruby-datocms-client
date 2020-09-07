@@ -220,6 +220,17 @@ module Dato
           file.to_url(opts)
         end
 
+        def lqip_data_url(opts = {})
+          @imgix_host != "www.datocms-assets.com" and
+            raise "#lqip_data_url can only be used with www.datocms-assets.com domain"
+
+          response = Faraday.get(file.to_url(opts.merge(lqip: "blurhash")))
+
+          if response.status == 200
+            "data:image/jpeg;base64,#{Base64.strict_encode64(response.body)}"
+          end
+        end
+
         def to_hash(*_args)
           {
             id: id,

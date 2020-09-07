@@ -106,6 +106,48 @@ module Dato
           it 'responds to url method' do
             expect(file.url(w: 300)).to eq 'https://foobar.com/foo.png?w=300'
           end
+
+          describe "#lqip_data_url" do
+            context "host != www.datocms-assets.com" do
+              it "raises an error" do
+                expect { file.lqip_data_url }.to raise_error(RuntimeError)
+              end
+            end
+
+            context "www.datocms-assets.com" do
+              let(:site_entity) { double('Dato::Local::JsonApiEntity', imgix_host: 'www.datocms-assets.com') }
+
+              before do
+                VCR.turn_off!
+              end
+
+              after do
+                VCR.turn_on!
+              end
+
+              context "status = 200" do
+                before do
+                  stub_request(:get, "https://www.datocms-assets.com/foo.png?lqip=blurhash&w=300")
+                    .to_return(body: ::File.new("./spec/fixtures/blurhash.jpg"))
+                end
+
+                it 'returns base64-encoded url' do
+                  expect(file.lqip_data_url(w: 300)).to eq 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgXFQoLDhUSDhUXDh0eDRUVGRYZGBYTFhUaIi0jGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQHDsoIig7Lzs7Ozs7Ozs7LzsvLy8vLy8vLzsvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAEAAwEAAAAAAAAAAAAAAAAAAwQFAv/EABwQAAAHAQEAAAAAAAAAAAAAAAABAgMEBRESQf/EABUBAQEAAAAAAAAAAAAAAAAAAAMB/8QAHREAAQMFAQAAAAAAAAAAAAAAAQAREgITITFCA//aAAwDAQACEQMRAD8AqPMJiF1o6jvlILkhlWU11aMMTU6j50UPHKcCmTJa1aXEnvoBdy3GmTNPgAwfTkpbNJ2F/9k='
+                end
+              end
+
+              context "status != 200" do
+                before do
+                  stub_request(:get, "https://www.datocms-assets.com/foo.png?lqip=blurhash&w=300")
+                    .to_return(status: 422)
+                end
+
+                it 'returns nil' do
+                  expect(file.lqip_data_url(w: 300)).to be_nil
+                end
+              end
+            end
+          end
         end
 
         context 'with no alt title' do

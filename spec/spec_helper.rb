@@ -18,6 +18,7 @@ require 'pry'
 require 'vcr'
 require 'i18n'
 require 'i18n/backend/fallbacks'
+require 'webmock/rspec'
 
 I18n.enforce_available_locales = false
 I18n.available_locales = %i[it en ru]
