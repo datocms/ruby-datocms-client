@@ -23,8 +23,10 @@ module Dato
       data[:type] = type
       data[:attributes] = serialized_attributes(resource)
 
-      if relationships.any?
-        data[:relationships] = serialized_relationships(resource)
+      serialized_relationships = serialized_relationships(resource)
+
+      if serialized_relationships
+        data[:relationships] = serialized_relationships
       end
 
       { data: data }
@@ -82,7 +84,7 @@ module Dato
         end
       end
 
-      result
+      result.empty? ? nil : result
     end
 
     def attributes(resource)
@@ -110,7 +112,11 @@ module Dato
     end
 
     def required_relationships
-      (link_relationships.required || []).map(&:to_sym)
+      if link.schema.properties['data'].required.include?("relationships")
+        (link_relationships.required || []).map(&:to_sym)
+      else
+        []
+      end
     end
 
     def link_attributes
