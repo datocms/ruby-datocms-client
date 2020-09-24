@@ -18,6 +18,7 @@ module Dato
                 v[:alt],
                 v[:title],
                 v[:custom_data],
+                v[:focal_point],
                 repo.site.entity.imgix_host
               )
             end
@@ -29,12 +30,14 @@ module Dato
           alt,
           title,
           custom_data,
+          focal_point,
           imgix_host
         )
           @upload = upload
           @alt = alt
           @title = title
           @custom_data = custom_data
+          @focal_point = focal_point
           @imgix_host = imgix_host
         end
 
@@ -98,6 +101,12 @@ module Dato
           default_metadata = @upload.default_field_metadata.deep_stringify_keys
                                     .fetch(I18n.locale.to_s, {})
           @custom_data.merge(default_metadata.fetch('custom_data', {}))
+        end
+
+        def focal_point
+          default_metadata = @upload.default_field_metadata.deep_stringify_keys
+                                    .fetch(I18n.locale.to_s, {})
+          @focal_point || default_metadata['focal_point']
         end
 
         def tags
@@ -216,8 +225,25 @@ module Dato
           ).path(path)
         end
 
-        def url(opts = {})
-          file.to_url(opts)
+        def url(query = {})
+          query.deep_stringify_keys!
+
+          if focal_point &&
+            query["fit"] == "crop" &&
+            (query["h"] || query["height"]) &&
+            (query["w"] || query["width"]) &&
+            [nil, "focalpoint"].include?(query["crop"]) &&
+            query["fp-x"].nil? &&
+            query["fp-y"].nil?
+
+            query.merge!(
+              "crop" => "focalpoint",
+              "fp-x" => focal_point[:x],
+              "fp-y" => focal_point[:y],
+            )
+          end
+
+          file.to_url(query)
         end
 
         def lqip_data_url(opts = {})
@@ -241,6 +267,7 @@ module Dato
             alt: alt,
             title: title,
             custom_data: custom_data,
+            focal_point: focal_point,
             url: url,
             copyright: copyright,
             tags: tags,

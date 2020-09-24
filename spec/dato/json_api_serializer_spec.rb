@@ -31,8 +31,7 @@ module Dato
             attributes: {
               label: 'Ciao',
               position: 1
-            },
-            relationships: {}
+            }
           }
         )
       end

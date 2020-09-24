@@ -53,6 +53,7 @@ module Dato
           expect(article_file.front_matter['image']['tags']).to eq []
           expect(article_file.front_matter['image']['smart_tags']).to include('logo')
           expect(article_file.front_matter['image']['blurhash']).to be_present
+          expect(article_file.front_matter['image']['focal_point']).to eq('x' => 0.1, 'y' => 0.1)
           expect(article_file.front_matter['file']['format']).to eq 'txt'
           expect(article_file.front_matter['file']['size']).to eq 10
           expect(article_file.front_matter['file']['url']).to be_present
