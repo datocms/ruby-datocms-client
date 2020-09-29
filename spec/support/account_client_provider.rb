@@ -6,11 +6,11 @@ module AccountClientProvider
 
     anonymous_client = Dato::Account::Client.new(
       nil,
-      base_url: 'http://account-api.lvh.me:3001'
+      base_url: ENV.fetch("ACCOUNT_API_BASE_URL")
     )
 
     account = anonymous_client.account.create(
-      email: "#{random_string}@example.com",
+      email: "#{random_string}@delete-this-at-midnight-utc.tk",
       password: 'veryst_9rong_passowrd4_',
       name: 'Test',
       company: 'DatoCMS'
@@ -19,7 +19,7 @@ module AccountClientProvider
     Dato::Account::Client.new(
       account[:id],
       options.merge(
-        base_url: 'http://account-api.lvh.me:3001'
+        base_url: ENV.fetch("ACCOUNT_API_BASE_URL")
       )
     )
   end

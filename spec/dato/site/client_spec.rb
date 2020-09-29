@@ -16,7 +16,7 @@ module Dato
       subject(:client) do
         Dato::Site::Client.new(
           site[:readwrite_token],
-          base_url: 'http://site-api.lvh.me:3001'
+          base_url: ENV.fetch("SITE_API_BASE_URL")
         )
       end
 

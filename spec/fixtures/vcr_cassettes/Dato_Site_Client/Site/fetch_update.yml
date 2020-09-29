@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: http://account-api.lvh.me:3001/account
+    uri: https://account-api.datocms.com/account
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"account","attributes":{"email":"ZCLVJRXR@example.com","company":"DatoCMS","password":"veryst_9rong_passowrd4_"}}}'
+      string: '{"data":{"type":"account","attributes":{"email":"NKZBKBOL@delete-this-at-midnight-utc.tk","company":"DatoCMS","password":"veryst_9rong_passowrd4_"}}}'
     headers:
       Accept:
       - application/json
@@ -24,6 +24,12 @@ http_interactions:
       code: 201
       message: Created
     headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 29 Sep 2020 13:13:08 GMT
+      Connection:
+      - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Vary:
@@ -31,15 +37,17 @@ http_interactions:
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
-      - '57'
+      - '59'
       Etag:
-      - W/"12082e5a32b3b9455d765b654afc3a8c"
+      - W/"31f11c8fbaccd726aa1ea0c87c8f0a7b"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 9de7f8bc-afdf-4275-b9fb-962719e22cf7
+      - b87c3e47-f678-48d7-a032-45be59b89c55
       X-Runtime:
-      - '0.239997'
+      - '0.320227'
+      X-Queue-Time:
+      - 4ms
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -55,27 +63,31 @@ http_interactions:
       - "*"
       Transfer-Encoding:
       - chunked
+      Via:
+      - 1.1 vegur
     body:
       encoding: ASCII-8BIT
       base64_string: |
         eyJkYXRhIjp7ImlkIjoiZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKMklqb3hM
-        Q0pwSWpveU16SXpNaXdpWnlJNklqSXdNakF0TURrdE1qUlVNVEk2TVRrNk5U
-        Z3VORFV3S3pBeU9qQXdJbjAuVFNkdXdBSGF6Z2VlZmdZRVdsOGhHQlRzN2hp
-        X08xVE10VmVJZ2NYczZYbyIsInR5cGUiOiJzZXNzaW9uIiwicmVsYXRpb25z
-        aGlwcyI6eyJhY2NvdW50Ijp7ImRhdGEiOnsiaWQiOiIyMzIzMiIsInR5cGUi
-        OiJhY2NvdW50In19fX0sImluY2x1ZGVkIjpbeyJpZCI6IjIzMjMyIiwidHlw
-        ZSI6ImFjY291bnQiLCJhdHRyaWJ1dGVzIjp7ImVtYWlsIjoiWkNMVkpSWFJA
-        ZXhhbXBsZS5jb20iLCJmaXJzdF9uYW1lIjpudWxsLCJsYXN0X25hbWUiOm51
-        bGwsImNvbXBhbnkiOiJEYXRvQ01TIiwicHJvdmlzaW9uaW5nXzJmYV91cmki
-        OiJvdHBhdXRoOi8vdG90cC9EYXRvQ01TOlpDTFZKUlhSQGV4YW1wbGUuY29t
-        P3NlY3JldD1NQ0JUWFJCQVRaRzc2N0lVSzRNNFRWUDJZWjNYTlI3MiZpc3N1
-        ZXI9RGF0b0NNUyIsImlzXzJmYV9hY3RpdmUiOmZhbHNlfSwicmVsYXRpb25z
-        aGlwcyI6eyJhY3RpdmVfc3Vic2NyaXB0aW9uIjp7ImRhdGEiOm51bGx9LCJi
-        aWxsaW5nX3Byb2ZpbGUiOnsiZGF0YSI6bnVsbH19fV19
-  recorded_at: Thu, 24 Sep 2020 10:19:58 GMT
+        Q0pwSWpveU5qQTVOeXdpWnlJNklqSXdNakF0TURrdE1qbFVNVE02TVRNNk1E
+        a3VNemt4S3pBd09qQXdJbjAuZkhBOWUzQnpiRDZjTllVY2xjSGxiaGh4NUFE
+        alNlU0tmRjdzX3BNdUtIcyIsInR5cGUiOiJzZXNzaW9uIiwicmVsYXRpb25z
+        aGlwcyI6eyJhY2NvdW50Ijp7ImRhdGEiOnsiaWQiOiIyNjA5NyIsInR5cGUi
+        OiJhY2NvdW50In19fX0sImluY2x1ZGVkIjpbeyJpZCI6IjI2MDk3IiwidHlw
+        ZSI6ImFjY291bnQiLCJhdHRyaWJ1dGVzIjp7ImVtYWlsIjoiTktaQktCT0xA
+        ZGVsZXRlLXRoaXMtYXQtbWlkbmlnaHQtdXRjLnRrIiwiZmlyc3RfbmFtZSI6
+        bnVsbCwibGFzdF9uYW1lIjpudWxsLCJjb21wYW55IjoiRGF0b0NNUyIsInBy
+        b3Zpc2lvbmluZ18yZmFfdXJpIjoib3RwYXV0aDovL3RvdHAvRGF0b0NNUzpO
+        S1pCS0JPTEBkZWxldGUtdGhpcy1hdC1taWRuaWdodC11dGMudGs/c2VjcmV0
+        PTRXU0tKMjZJNlg0M0I1RjVVRUdWNFFDTFBFQ1pDUUNWJmlzc3Vlcj1EYXRv
+        Q01TIiwiaXNfMmZhX2FjdGl2ZSI6ZmFsc2V9LCJyZWxhdGlvbnNoaXBzIjp7
+        ImFjdGl2ZV9zdWJzY3JpcHRpb24iOnsiZGF0YSI6eyJpZCI6IjE3OTQiLCJ0
+        eXBlIjoiYWNjb3VudF9zdWJzY3JpcHRpb24ifX0sImJpbGxpbmdfcHJvZmls
+        ZSI6eyJkYXRhIjpudWxsfX19XX0=
+  recorded_at: Tue, 29 Sep 2020 13:13:09 GMT
 - request:
     method: post
-    uri: http://account-api.lvh.me:3001/sites
+    uri: https://account-api.datocms.com/sites
     body:
       encoding: UTF-8
       string: '{"data":{"type":"site","attributes":{"name":"Test site"}}}'
@@ -85,7 +97,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer eyJhbGciOiJIUzI1NiJ9.eyJ2IjoxLCJpIjoyMzIzMiwiZyI6IjIwMjAtMDktMjRUMTI6MTk6NTguNDUwKzAyOjAwIn0.TSduwAHazgeefgYEWl8hGBTs7hi_O1TMtVeIgcXs6Xo
+      - Bearer eyJhbGciOiJIUzI1NiJ9.eyJ2IjoxLCJpIjoyNjA5NywiZyI6IjIwMjAtMDktMjlUMTM6MTM6MDkuMzkxKzAwOjAwIn0.fHA9e3BzbD6cNYUclcHlbhhx5ADjSeSKfF7s_pMuKHs
       User-Agent:
       - ruby-client v0.7.14
       X-Api-Version:
@@ -99,6 +111,12 @@ http_interactions:
       code: 201
       message: Created
     headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 29 Sep 2020 13:13:09 GMT
+      Connection:
+      - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Vary:
@@ -108,13 +126,15 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '59'
       Etag:
-      - W/"affcb7d57cdf7db1396402d32ddbae0f"
+      - W/"0f26f09b4e9c3c88f675d5c29c7d12f9"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 4949671a-aff5-4e07-913c-f391e50207e9
+      - dbecbc31-322b-4fb5-98e5-d7831c237b64
       X-Runtime:
-      - '0.073962'
+      - '0.300384'
+      X-Queue-Time:
+      - 1ms
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -130,32 +150,33 @@ http_interactions:
       - "*"
       Transfer-Encoding:
       - chunked
+      Via:
+      - 1.1 vegur
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiMzE2OTciLCJ0eXBlIjoic2l0ZSIsImF0dHJpYnV0
+        eyJkYXRhIjp7ImlkIjoiMzUyNDQiLCJ0eXBlIjoic2l0ZSIsImF0dHJpYnV0
         ZXMiOnsibmFtZSI6IlRlc3Qgc2l0ZSIsImRvbWFpbiI6bnVsbCwiaW50ZXJu
-        YWxfc3ViZG9tYWluIjoidGVzdC1zaXRlLTYyMTciLCJvd25lcl9lbWFpbCI6
-        IlpDTFZKUlhSQGV4YW1wbGUuY29tIiwibGFzdF9kYXRhX2NoYW5nZV9hdCI6
-        IjIwMjAtMDktMjRUMTA6MTk6NTguNTA1WiIsImFjY2Vzc190b2tlbiI6ImV5
-        SmhiR2NpT2lKSVV6STFOaUo5LmV5SjJJam94TENKeklqb3pNVFk1Tnl3aWFT
-        STZNak15TXpJc0luUWlPaUpoSWl3aVp5STZJakl3TWpBdE1Ea3RNalJVTVRJ
-        Nk1UazZOVGd1TlRNMEt6QXlPakF3SW4wLnBtME9FTzBwbWZuaEhqem1XZmJi
-        TG12LUZCZ2dXNENhNGxFZVpDTUF0TWsiLCJpbnRlcm5hbF9kb21haW4iOiJ0
-        ZXN0LXNpdGUtNjIxNy5hZG1pbi5kYXRvY21zLmNvbSIsImNyZWF0ZWRfYXQi
-        OiIyMDIwLTA5LTI0VDEwOjE5OjU4LjUwNFoiLCJyZWFkd3JpdGVfdG9rZW4i
-        OiI2OTQ3MTlkNmQzZmQ2MTZiNzEzNDg0ZWM5Mzc3MGYiLCJyZWFkb25seV90
-        b2tlbiI6ImFhNGU3YTk0YTg0YWQ1NDI4Nzk1ODUyNmQwMmVjYSIsImRlYWN0
-        aXZhdGVkIjpmYWxzZSwic3RhdHVzIjoicmVhZHkifSwicmVsYXRpb25zaGlw
-        cyI6eyJhY3RpdmVfc3Vic2NyaXB0aW9uIjp7ImRhdGEiOnsiaWQiOiIzNTE5
-        MCIsInR5cGUiOiJzaXRlX3N1YnNjcmlwdGlvbiJ9fSwiYWN0aXZlX3BsYW4i
-        OnsiZGF0YSI6eyJpZCI6IjI1MCIsInR5cGUiOiJzaXRlX3BsYW4ifX0sInRy
+        YWxfc3ViZG9tYWluIjoidGVzdC1zaXRlLTM5OTYiLCJvd25lcl9lbWFpbCI6
+        Ik5LWkJLQk9MQGRlbGV0ZS10aGlzLWF0LW1pZG5pZ2h0LXV0Yy50ayIsImxh
+        c3RfZGF0YV9jaGFuZ2VfYXQiOiIyMDIwLTA5LTI5VDEzOjEzOjA5Ljc0OVoi
+        LCJhY2Nlc3NfdG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlKOS5leUoySWpv
+        eExDSnpJam96TlRJME5Dd2lhU0k2TWpZd09UY3NJblFpT2lKaElpd2laeUk2
+        SWpJd01qQXRNRGt0TWpsVU1UTTZNVE02TVRBdU1ERXlLekF3T2pBd0luMC5C
+        RGhwY25ZamNlYjhXelQ1MlVfUEhnWENManVqNjI2bEtRVXNGRVNQV2xNIiwi
+        aW50ZXJuYWxfZG9tYWluIjoidGVzdC1zaXRlLTM5OTYuYWRtaW4uZGF0b2Nt
+        cy5jb20iLCJjcmVhdGVkX2F0IjoiMjAyMC0wOS0yOVQxMzoxMzowOS43NDVa
+        IiwicmVhZHdyaXRlX3Rva2VuIjoiNDJmYTI0ODJiMDRhMjdkN2EyM2EwMTFh
+        ZDU1YjQ2IiwicmVhZG9ubHlfdG9rZW4iOiIyZjU0NGFhOTYwMTVlYzJlOWJm
+        MmM0YjgwNGFmMTciLCJkZWFjdGl2YXRlZCI6ZmFsc2UsInN0YXR1cyI6InJl
+        YWR5In0sInJlbGF0aW9uc2hpcHMiOnsiYWN0aXZlX3N1YnNjcmlwdGlvbiI6
+        eyJkYXRhIjpudWxsfSwiYWN0aXZlX3BsYW4iOnsiZGF0YSI6bnVsbH0sInRy
         YW5zZmVyIjp7ImRhdGEiOm51bGx9LCJvd25lciI6eyJkYXRhIjp7ImlkIjoi
-        MjMyMzIiLCJ0eXBlIjoiYWNjb3VudCJ9fX19fQ==
-  recorded_at: Thu, 24 Sep 2020 10:19:58 GMT
+        MjYwOTciLCJ0eXBlIjoiYWNjb3VudCJ9fX19fQ==
+  recorded_at: Tue, 29 Sep 2020 13:13:10 GMT
 - request:
     method: get
-    uri: http://site-api.lvh.me:3001/site
+    uri: https://site-api.datocms.com/site
     body:
       encoding: US-ASCII
       string: ''
@@ -165,7 +186,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 694719d6d3fd616b713484ec93770f
+      - Bearer 42fa2482b04a27d7a23a011ad55b46
       User-Agent:
       - ruby-client v0.7.14
       X-Api-Version:
@@ -177,48 +198,31 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      X-Api-Version:
-      - '3'
-      X-Environment:
-      - main
-      X-Site-Id:
-      - '31697'
-      X-User:
-      - AccessToken:63253
+      Date:
+      - Tue, 29 Sep 2020 13:13:10 GMT
       Content-Type:
       - application/json; charset=utf-8
-      X-Bullet-Console-Text:
-      - '["user: stefanoverna\nAVOID eager loading detected\n  Role => [:build_trigger_permissions,
-        :item_type_permissions]\n  Remove from your finder: :includes => [:build_trigger_permissions,
-        :item_type_permissions]\nCall stack\n  /Users/stefanoverna/dato/api/lib/middleware/catch_json_parse_errors.rb:24:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/fix_cache_control_header.rb:9:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/scim_logger.rb:9:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/maintenance_mode.rb:36:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/expose_queue_time.rb:19:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/fast_cors.rb:31:in
-        `call''\n\n","user: stefanoverna\nAVOID eager loading detected\n  RoleItemTypePermission
-        => [:environment]\n  Remove from your finder: :includes => [:environment]\nCall
-        stack\n  /Users/stefanoverna/dato/api/lib/middleware/catch_json_parse_errors.rb:24:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/fix_cache_control_header.rb:9:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/scim_logger.rb:9:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/maintenance_mode.rb:36:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/expose_queue_time.rb:19:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/fast_cors.rb:31:in
-        `call''\n\n"]'
-      Vary:
-      - Accept-Encoding
-      X-Ratelimit-Limit:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '59'
-      Etag:
-      - W/"ce62c6f854d905c376516ae866318825"
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d385b6b77150be33ff91a202b0e270f231601385190; expires=Thu, 29-Oct-20
+        13:13:10 GMT; path=/; domain=.datocms.com; HttpOnly; SameSite=Lax; Secure
+      Cf-Ray:
+      - 5da5f5befe530026-LHR
+      Access-Control-Allow-Origin:
+      - "*"
       Cache-Control:
       - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 9db1fbff-aca9-4b57-a7a4-1b72935972aa
-      X-Runtime:
-      - '0.049528'
+      Etag:
+      - W/"d12c966d11b0f7c6e8f283cc6eda04ab"
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Cf-Cache-Status:
+      - DYNAMIC
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -230,14 +234,30 @@ http_interactions:
       - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
       Access-Control-Max-Age:
       - '1728000'
-      Access-Control-Allow-Origin:
-      - "*"
-      Transfer-Encoding:
-      - chunked
+      Cf-Request-Id:
+      - 057b97eb5b0000002684a2c200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Api-Version:
+      - '3'
+      X-Environment:
+      - main
+      X-Queue-Time:
+      - 3ms
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '59'
+      X-Request-Id:
+      - cb9cb7f8-9af0-4a0c-b7d0-f5e787092c13
+      X-Runtime:
+      - '0.033973'
+      Server:
+      - cloudflare
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiMzE2OTciLCJ0eXBlIjoic2l0ZSIsImF0dHJpYnV0
+        eyJkYXRhIjp7ImlkIjoiMzUyNDQiLCJ0eXBlIjoic2l0ZSIsImF0dHJpYnV0
         ZXMiOnsibmFtZSI6IlRlc3Qgc2l0ZSIsInRoZW1lIjp7ImxvZ28iOm51bGws
         ImRhcmtfY29sb3IiOnsicmVkIjo4MCwiYmx1ZSI6ODMsImFscGhhIjoyNTUs
         ImdyZWVuIjo1MH0sImxpZ2h0X2NvbG9yIjp7InJlZCI6MjQ4LCJibHVlIjoy
@@ -246,26 +266,26 @@ http_interactions:
         cHJpbWFyeV9jb2xvciI6eyJyZWQiOjIyNiwiYmx1ZSI6ODcsImFscGhhIjoy
         NTUsImdyZWVuIjo4N319LCJpbWdpeF9ob3N0Ijoid3d3LmRhdG9jbXMtYXNz
         ZXRzLmNvbSIsImRvbWFpbiI6bnVsbCwiaW50ZXJuYWxfZG9tYWluIjoidGVz
-        dC1zaXRlLTYyMTcuYWRtaW4uZGF0b2Ntcy5jb20iLCJsb2NhbGVzIjpbImVu
-        Il0sImxhc3RfZGF0YV9jaGFuZ2VfYXQiOiIyMDIwLTA5LTI0VDEwOjE5OjU4
-        LjUwNVoiLCJnb29nbGVfbWFwc19hcGlfdG9rZW4iOiJBSXphU3lCaGNrQW0z
+        dC1zaXRlLTM5OTYuYWRtaW4uZGF0b2Ntcy5jb20iLCJsb2NhbGVzIjpbImVu
+        Il0sImxhc3RfZGF0YV9jaGFuZ2VfYXQiOiIyMDIwLTA5LTI5VDEzOjEzOjA5
+        Ljc0OVoiLCJnb29nbGVfbWFwc19hcGlfdG9rZW4iOiJBSXphU3lCaGNrQW0z
         UmhKcTBnRXdmVzNWYTQyRjNSeWRqd3IyREEiLCJnbG9iYWxfc2VvIjpudWxs
         LCJmYXZpY29uIjpudWxsLCJub19pbmRleCI6ZmFsc2UsImZyb250ZW5kX3Vy
         bCI6bnVsbCwidGltZXpvbmUiOiJFdXJvcGUvTG9uZG9uIiwicmVxdWlyZV8y
         ZmEiOmZhbHNlLCJpdGVtc19jb3VudCI6MH0sInJlbGF0aW9uc2hpcHMiOnsi
-        YWNjb3VudCI6eyJkYXRhIjp7ImlkIjoiMjMyMzIiLCJ0eXBlIjoiYWNjb3Vu
+        YWNjb3VudCI6eyJkYXRhIjp7ImlkIjoiMjYwOTciLCJ0eXBlIjoiYWNjb3Vu
         dCJ9fSwidXNlcnMiOnsiZGF0YSI6W119LCJzc29fdXNlcnMiOnsiZGF0YSI6
         W119LCJtZW51X2l0ZW1zIjp7ImRhdGEiOltdfSwiaXRlbV90eXBlcyI6eyJk
-        YXRhIjpbXX0sInJvbGVzIjp7ImRhdGEiOlt7ImlkIjoiNjI0MTQiLCJ0eXBl
-        Ijoicm9sZSJ9LHsiaWQiOiI2MjQxNSIsInR5cGUiOiJyb2xlIn1dfSwiYnVp
+        YXRhIjpbXX0sInJvbGVzIjp7ImRhdGEiOlt7ImlkIjoiNjk2NzkiLCJ0eXBl
+        Ijoicm9sZSJ9LHsiaWQiOiI2OTY4MCIsInR5cGUiOiJyb2xlIn1dfSwiYnVp
         bGRfdHJpZ2dlcnMiOnsiZGF0YSI6W119fX19
-  recorded_at: Thu, 24 Sep 2020 10:19:58 GMT
+  recorded_at: Tue, 29 Sep 2020 13:13:10 GMT
 - request:
     method: put
-    uri: http://site-api.lvh.me:3001/site
+    uri: https://site-api.datocms.com/site
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"31697","type":"site","attributes":{"no_index":false,"favicon":null,"global_seo":null,"name":"My
+      string: '{"data":{"id":"35244","type":"site","attributes":{"no_index":false,"favicon":null,"global_seo":null,"name":"My
         Blog","theme":{"logo":null,"dark_color":{"red":80,"blue":83,"alpha":255,"green":50},"light_color":{"red":248,"blue":250,"alpha":255,"green":243},"accent_color":{"red":167,"blue":179,"alpha":255,"green":75},"primary_color":{"red":226,"blue":87,"alpha":255,"green":87}},"locales":["en"],"timezone":"Europe/London","require_2fa":false}}}'
     headers:
       Accept:
@@ -273,7 +293,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 694719d6d3fd616b713484ec93770f
+      - Bearer 42fa2482b04a27d7a23a011ad55b46
       User-Agent:
       - ruby-client v0.7.14
       X-Api-Version:
@@ -285,52 +305,69 @@ http_interactions:
       code: 202
       message: Accepted
     headers:
+      Date:
+      - Tue, 29 Sep 2020 13:13:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d9ae47fd4f09da811b009e8a734381f8e1601385190; expires=Thu, 29-Oct-20
+        13:13:10 GMT; path=/; domain=.datocms.com; HttpOnly; SameSite=Lax; Secure
+      Cf-Ray:
+      - 5da5f5c14e88ce8f-LHR
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-environment, x-site-domain, x-api-version,
+        user-agent, x-session-id
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
+      Access-Control-Max-Age:
+      - '1728000'
+      Cf-Request-Id:
+      - 057b97ecd10000ce8ffe2d2200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       X-Api-Version:
       - '3'
       X-Environment:
       - main
-      X-Site-Id:
-      - '31697'
-      X-User:
-      - AccessToken:63253
-      Content-Type:
-      - application/json; charset=utf-8
-      Vary:
-      - Accept-Encoding
+      X-Queue-Time:
+      - 2ms
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
       - '58'
-      Cache-Control:
-      - no-cache
       X-Request-Id:
-      - dc269aa3-899f-4104-b691-6aaf4bfc0d06
+      - e4744890-8485-4116-a116-af769991dff3
       X-Runtime:
-      - '0.025784'
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Headers:
-      - authorization, content-type, x-environment, x-site-domain, x-api-version,
-        user-agent, x-session-id
-      Access-Control-Allow-Methods:
-      - GET, POST, PUT, OPTIONS, DELETE
-      Access-Control-Expose-Headers:
-      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
-      Access-Control-Max-Age:
-      - '1728000'
-      Access-Control-Allow-Origin:
-      - "*"
-      Transfer-Encoding:
-      - chunked
+      - '0.012104'
+      Server:
+      - cloudflare
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiZjE4N2M2MjFmZmEyNGY1MzQ0NmUzYTE5IiwidHlw
+        eyJkYXRhIjp7ImlkIjoiNDVlMDEzNzA3NjYzZDFjNzk0NjgyZTEyIiwidHlw
         ZSI6ImpvYiJ9fQ==
-  recorded_at: Thu, 24 Sep 2020 10:19:58 GMT
+  recorded_at: Tue, 29 Sep 2020 13:13:10 GMT
 - request:
     method: get
-    uri: http://site-api.lvh.me:3001/job-results/f187c621ffa24f53446e3a19
+    uri: https://site-api.datocms.com/job-results/45e013707663d1c794682e12
     body:
       encoding: US-ASCII
       string: ''
@@ -340,75 +377,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 694719d6d3fd616b713484ec93770f
-      User-Agent:
-      - ruby-client v0.7.14
-      X-Api-Version:
-      - '3'
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      X-Api-Version:
-      - '3'
-      X-Environment:
-      - main
-      X-Site-Id:
-      - '31697'
-      X-User:
-      - AccessToken:63253
-      Content-Type:
-      - application/json; charset=utf-8
-      Vary:
-      - Accept-Encoding
-      X-Ratelimit-Limit:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '57'
-      Cache-Control:
-      - no-cache
-      X-Request-Id:
-      - 4e7b089b-d95f-41df-ab2a-fca7d1929426
-      X-Runtime:
-      - '0.025893'
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Headers:
-      - authorization, content-type, x-environment, x-site-domain, x-api-version,
-        user-agent, x-session-id
-      Access-Control-Allow-Methods:
-      - GET, POST, PUT, OPTIONS, DELETE
-      Access-Control-Expose-Headers:
-      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
-      Access-Control-Max-Age:
-      - '1728000'
-      Access-Control-Allow-Origin:
-      - "*"
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      base64_string: |
-        eyJkYXRhIjpbeyJpZCI6IjIzMmI0OCIsInR5cGUiOiJhcGlfZXJyb3IiLCJh
-        dHRyaWJ1dGVzIjp7ImNvZGUiOiJOT1RfRk9VTkQiLCJkZXRhaWxzIjp7Im1l
-        c3NhZ2UiOiJBY3RpdmVSZWNvcmQ6OlJlY29yZE5vdEZvdW5kIn19fV19
-  recorded_at: Thu, 24 Sep 2020 10:19:59 GMT
-- request:
-    method: get
-    uri: http://site-api.lvh.me:3001/job-results/f187c621ffa24f53446e3a19
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer 694719d6d3fd616b713484ec93770f
+      - Bearer 42fa2482b04a27d7a23a011ad55b46
       User-Agent:
       - ruby-client v0.7.14
       X-Api-Version:
@@ -420,30 +389,31 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      X-Api-Version:
-      - '3'
-      X-Environment:
-      - main
-      X-Site-Id:
-      - '31697'
-      X-User:
-      - AccessToken:63253
+      Date:
+      - Tue, 29 Sep 2020 13:13:12 GMT
       Content-Type:
       - application/json; charset=utf-8
-      Vary:
-      - Accept-Encoding
-      X-Ratelimit-Limit:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '59'
-      Etag:
-      - W/"7cd4353857e08c88a8b6454bc2c91973"
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d91df83f7bf32414a7b64ff4fb96c2ef51601385191; expires=Thu, 29-Oct-20
+        13:13:11 GMT; path=/; domain=.datocms.com; HttpOnly; SameSite=Lax; Secure
+      Cf-Ray:
+      - 5da5f5c96cc60026-LHR
+      Access-Control-Allow-Origin:
+      - "*"
       Cache-Control:
       - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 42b2c36b-f462-4921-87f5-c81be3d2156d
-      X-Runtime:
-      - '0.031474'
+      Etag:
+      - W/"be9ae74a8ab0fd22cc07b6ba52a57de8"
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Cf-Cache-Status:
+      - DYNAMIC
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -455,17 +425,33 @@ http_interactions:
       - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
       Access-Control-Max-Age:
       - '1728000'
-      Access-Control-Allow-Origin:
-      - "*"
-      Transfer-Encoding:
-      - chunked
+      Cf-Request-Id:
+      - 057b97f1de00000026759e1200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Api-Version:
+      - '3'
+      X-Environment:
+      - main
+      X-Queue-Time:
+      - 1ms
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '57'
+      X-Request-Id:
+      - 5ab6f6ec-5d18-41ef-95c3-367829bb7de2
+      X-Runtime:
+      - '0.009566'
+      Server:
+      - cloudflare
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiZjE4N2M2MjFmZmEyNGY1MzQ0NmUzYTE5IiwidHlw
+        eyJkYXRhIjp7ImlkIjoiNDVlMDEzNzA3NjYzZDFjNzk0NjgyZTEyIiwidHlw
         ZSI6ImpvYl9yZXN1bHQiLCJhdHRyaWJ1dGVzIjp7InN0YXR1cyI6MjAwLCJz
-        dGF0dXNUZXh0IjoiT0siLCJwYXlsb2FkIjp7ImRhdGEiOnsiaWQiOiIzMTY5
-        NyIsInR5cGUiOiJzaXRlIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiTXkgQmxv
+        dGF0dXNUZXh0IjoiT0siLCJwYXlsb2FkIjp7ImRhdGEiOnsiaWQiOiIzNTI0
+        NCIsInR5cGUiOiJzaXRlIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiTXkgQmxv
         ZyIsInRoZW1lIjp7InByaW1hcnlfY29sb3IiOnsicmVkIjoyMjYsImdyZWVu
         Ijo4NywiYmx1ZSI6ODcsImFscGhhIjoyNTV9LCJhY2NlbnRfY29sb3IiOnsi
         cmVkIjoxNjcsImdyZWVuIjo3NSwiYmx1ZSI6MTc5LCJhbHBoYSI6MjU1fSwi
@@ -473,24 +459,24 @@ http_interactions:
         MCwiYWxwaGEiOjI1NX0sImRhcmtfY29sb3IiOnsicmVkIjo4MCwiZ3JlZW4i
         OjUwLCJibHVlIjo4MywiYWxwaGEiOjI1NX0sImxvZ28iOm51bGx9LCJpbWdp
         eF9ob3N0Ijoid3d3LmRhdG9jbXMtYXNzZXRzLmNvbSIsImRvbWFpbiI6bnVs
-        bCwiaW50ZXJuYWxfZG9tYWluIjoidGVzdC1zaXRlLTYyMTcuYWRtaW4uZGF0
+        bCwiaW50ZXJuYWxfZG9tYWluIjoidGVzdC1zaXRlLTM5OTYuYWRtaW4uZGF0
         b2Ntcy5jb20iLCJsb2NhbGVzIjpbImVuIl0sImxhc3RfZGF0YV9jaGFuZ2Vf
-        YXQiOiIyMDIwLTA5LTI0VDEwOjE5OjU5LjgzN1oiLCJnb29nbGVfbWFwc19h
+        YXQiOiIyMDIwLTA5LTI5VDEzOjEzOjEwLjc0MVoiLCJnb29nbGVfbWFwc19h
         cGlfdG9rZW4iOiJBSXphU3lCaGNrQW0zUmhKcTBnRXdmVzNWYTQyRjNSeWRq
         d3IyREEiLCJnbG9iYWxfc2VvIjpudWxsLCJmYXZpY29uIjpudWxsLCJub19p
         bmRleCI6ZmFsc2UsImZyb250ZW5kX3VybCI6bnVsbCwidGltZXpvbmUiOiJF
         dXJvcGUvTG9uZG9uIiwicmVxdWlyZV8yZmEiOmZhbHNlLCJpdGVtc19jb3Vu
         dCI6MH0sInJlbGF0aW9uc2hpcHMiOnsiYWNjb3VudCI6eyJkYXRhIjp7Imlk
-        IjoiMjMyMzIiLCJ0eXBlIjoiYWNjb3VudCJ9fSwidXNlcnMiOnsiZGF0YSI6
+        IjoiMjYwOTciLCJ0eXBlIjoiYWNjb3VudCJ9fSwidXNlcnMiOnsiZGF0YSI6
         W119LCJzc29fdXNlcnMiOnsiZGF0YSI6W119LCJtZW51X2l0ZW1zIjp7ImRh
         dGEiOltdfSwiaXRlbV90eXBlcyI6eyJkYXRhIjpbXX0sInJvbGVzIjp7ImRh
-        dGEiOlt7ImlkIjoiNjI0MTQiLCJ0eXBlIjoicm9sZSJ9LHsiaWQiOiI2MjQx
-        NSIsInR5cGUiOiJyb2xlIn1dfSwiYnVpbGRfdHJpZ2dlcnMiOnsiZGF0YSI6
+        dGEiOlt7ImlkIjoiNjk2NzkiLCJ0eXBlIjoicm9sZSJ9LHsiaWQiOiI2OTY4
+        MCIsInR5cGUiOiJyb2xlIn1dfSwiYnVpbGRfdHJpZ2dlcnMiOnsiZGF0YSI6
         W119fX19fX19
-  recorded_at: Thu, 24 Sep 2020 10:20:00 GMT
+  recorded_at: Tue, 29 Sep 2020 13:13:12 GMT
 - request:
     method: get
-    uri: http://site-api.lvh.me:3001/site
+    uri: https://site-api.datocms.com/site
     body:
       encoding: US-ASCII
       string: ''
@@ -500,7 +486,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 694719d6d3fd616b713484ec93770f
+      - Bearer 42fa2482b04a27d7a23a011ad55b46
       User-Agent:
       - ruby-client v0.7.14
       X-Api-Version:
@@ -512,48 +498,31 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      X-Api-Version:
-      - '3'
-      X-Environment:
-      - main
-      X-Site-Id:
-      - '31697'
-      X-User:
-      - AccessToken:63253
+      Date:
+      - Tue, 29 Sep 2020 13:13:12 GMT
       Content-Type:
       - application/json; charset=utf-8
-      X-Bullet-Console-Text:
-      - '["user: stefanoverna\nAVOID eager loading detected\n  Role => [:build_trigger_permissions,
-        :item_type_permissions]\n  Remove from your finder: :includes => [:build_trigger_permissions,
-        :item_type_permissions]\nCall stack\n  /Users/stefanoverna/dato/api/lib/middleware/catch_json_parse_errors.rb:24:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/fix_cache_control_header.rb:9:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/scim_logger.rb:9:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/maintenance_mode.rb:36:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/expose_queue_time.rb:19:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/fast_cors.rb:31:in
-        `call''\n\n","user: stefanoverna\nAVOID eager loading detected\n  RoleItemTypePermission
-        => [:environment]\n  Remove from your finder: :includes => [:environment]\nCall
-        stack\n  /Users/stefanoverna/dato/api/lib/middleware/catch_json_parse_errors.rb:24:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/fix_cache_control_header.rb:9:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/scim_logger.rb:9:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/maintenance_mode.rb:36:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/expose_queue_time.rb:19:in
-        `call''\n  /Users/stefanoverna/dato/api/lib/middleware/fast_cors.rb:31:in
-        `call''\n\n"]'
-      Vary:
-      - Accept-Encoding
-      X-Ratelimit-Limit:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '58'
-      Etag:
-      - W/"1b982764bb6231f970ca9af88f6d71f4"
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d822d7493c319ee9d05fcf90e6b31a5041601385192; expires=Thu, 29-Oct-20
+        13:13:12 GMT; path=/; domain=.datocms.com; HttpOnly; SameSite=Lax; Secure
+      Cf-Ray:
+      - 5da5f5cb4cdfdbef-LHR
+      Access-Control-Allow-Origin:
+      - "*"
       Cache-Control:
       - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - '09a7e182-f2e0-4bd7-ad3b-4084a515375e'
-      X-Runtime:
-      - '0.040549'
+      Etag:
+      - W/"7a9d98841b188bd9df88dfe2abfc946a"
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Cf-Cache-Status:
+      - DYNAMIC
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -565,14 +534,30 @@ http_interactions:
       - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
       Access-Control-Max-Age:
       - '1728000'
-      Access-Control-Allow-Origin:
-      - "*"
-      Transfer-Encoding:
-      - chunked
+      Cf-Request-Id:
+      - 057b97f30e0000dbef8835d200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Api-Version:
+      - '3'
+      X-Environment:
+      - main
+      X-Queue-Time:
+      - 2ms
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '59'
+      X-Request-Id:
+      - 3d4621f5-8269-4c6d-bf73-c15ade7fa5f5
+      X-Runtime:
+      - '0.041194'
+      Server:
+      - cloudflare
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiMzE2OTciLCJ0eXBlIjoic2l0ZSIsImF0dHJpYnV0
+        eyJkYXRhIjp7ImlkIjoiMzUyNDQiLCJ0eXBlIjoic2l0ZSIsImF0dHJpYnV0
         ZXMiOnsibmFtZSI6Ik15IEJsb2ciLCJ0aGVtZSI6eyJsb2dvIjpudWxsLCJk
         YXJrX2NvbG9yIjp7InJlZCI6ODAsImJsdWUiOjgzLCJhbHBoYSI6MjU1LCJn
         cmVlbiI6NTB9LCJsaWdodF9jb2xvciI6eyJyZWQiOjI0OCwiYmx1ZSI6MjUw
@@ -581,18 +566,18 @@ http_interactions:
         aW1hcnlfY29sb3IiOnsicmVkIjoyMjYsImJsdWUiOjg3LCJhbHBoYSI6MjU1
         LCJncmVlbiI6ODd9fSwiaW1naXhfaG9zdCI6Ind3dy5kYXRvY21zLWFzc2V0
         cy5jb20iLCJkb21haW4iOm51bGwsImludGVybmFsX2RvbWFpbiI6InRlc3Qt
-        c2l0ZS02MjE3LmFkbWluLmRhdG9jbXMuY29tIiwibG9jYWxlcyI6WyJlbiJd
-        LCJsYXN0X2RhdGFfY2hhbmdlX2F0IjoiMjAyMC0wOS0yNFQxMDoxOTo1OS44
-        MzdaIiwiZ29vZ2xlX21hcHNfYXBpX3Rva2VuIjoiQUl6YVN5Qmhja0FtM1Jo
+        c2l0ZS0zOTk2LmFkbWluLmRhdG9jbXMuY29tIiwibG9jYWxlcyI6WyJlbiJd
+        LCJsYXN0X2RhdGFfY2hhbmdlX2F0IjoiMjAyMC0wOS0yOVQxMzoxMzoxMC43
+        NDFaIiwiZ29vZ2xlX21hcHNfYXBpX3Rva2VuIjoiQUl6YVN5Qmhja0FtM1Jo
         SnEwZ0V3ZlczVmE0MkYzUnlkandyMkRBIiwiZ2xvYmFsX3NlbyI6bnVsbCwi
         ZmF2aWNvbiI6bnVsbCwibm9faW5kZXgiOmZhbHNlLCJmcm9udGVuZF91cmwi
         Om51bGwsInRpbWV6b25lIjoiRXVyb3BlL0xvbmRvbiIsInJlcXVpcmVfMmZh
         IjpmYWxzZSwiaXRlbXNfY291bnQiOjB9LCJyZWxhdGlvbnNoaXBzIjp7ImFj
-        Y291bnQiOnsiZGF0YSI6eyJpZCI6IjIzMjMyIiwidHlwZSI6ImFjY291bnQi
+        Y291bnQiOnsiZGF0YSI6eyJpZCI6IjI2MDk3IiwidHlwZSI6ImFjY291bnQi
         fX0sInVzZXJzIjp7ImRhdGEiOltdfSwic3NvX3VzZXJzIjp7ImRhdGEiOltd
         fSwibWVudV9pdGVtcyI6eyJkYXRhIjpbXX0sIml0ZW1fdHlwZXMiOnsiZGF0
-        YSI6W119LCJyb2xlcyI6eyJkYXRhIjpbeyJpZCI6IjYyNDE0IiwidHlwZSI6
-        InJvbGUifSx7ImlkIjoiNjI0MTUiLCJ0eXBlIjoicm9sZSJ9XX0sImJ1aWxk
+        YSI6W119LCJyb2xlcyI6eyJkYXRhIjpbeyJpZCI6IjY5Njc5IiwidHlwZSI6
+        InJvbGUifSx7ImlkIjoiNjk2ODAiLCJ0eXBlIjoicm9sZSJ9XX0sImJ1aWxk
         X3RyaWdnZXJzIjp7ImRhdGEiOltdfX19fQ==
-  recorded_at: Thu, 24 Sep 2020 10:20:00 GMT
+  recorded_at: Tue, 29 Sep 2020 13:13:12 GMT
 recorded_with: VCR 6.0.0

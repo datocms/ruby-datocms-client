@@ -3,6 +3,9 @@
 require 'simplecov'
 require 'coveralls'
 
+ENV["SITE_API_BASE_URL"] ||= "https://site-api.datocms.com"
+ENV["ACCOUNT_API_BASE_URL"] ||= "https://account-api.datocms.com"
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
                                                                  SimpleCov::Formatter::HTMLFormatter,
                                                                  Coveralls::SimpleCov::Formatter

@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: http://account-api.lvh.me:3001/account
+    uri: https://account-api.datocms.com/account
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"account","attributes":{"email":"HEDYKQEA@example.com","company":"DatoCMS","password":"veryst_9rong_passowrd4_"}}}'
+      string: '{"data":{"type":"account","attributes":{"email":"NNPZPQYG@delete-this-at-midnight-utc.tk","company":"DatoCMS","password":"veryst_9rong_passowrd4_"}}}'
     headers:
       Accept:
       - application/json
@@ -24,6 +24,12 @@ http_interactions:
       code: 201
       message: Created
     headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 29 Sep 2020 13:13:24 GMT
+      Connection:
+      - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Vary:
@@ -33,13 +39,15 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '59'
       Etag:
-      - W/"8815cbb53972bb9342b5e1978f0b23db"
+      - W/"30afedcf593eb181feecf4592bc58a88"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a26f8a2c-9788-4e1d-bf8e-08a0647538ce
+      - b381b82c-a164-4c61-a57d-faf2218e425c
       X-Runtime:
-      - '0.249427'
+      - '0.400348'
+      X-Queue-Time:
+      - 5ms
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -55,27 +63,31 @@ http_interactions:
       - "*"
       Transfer-Encoding:
       - chunked
+      Via:
+      - 1.1 vegur
     body:
       encoding: ASCII-8BIT
       base64_string: |
         eyJkYXRhIjp7ImlkIjoiZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKMklqb3hM
-        Q0pwSWpveU16SXpOQ3dpWnlJNklqSXdNakF0TURrdE1qUlVNVEk2TWpBNk1U
-        RXVNalF3S3pBeU9qQXdJbjAuRXgyRGhscmN4MlRRdEhZV2RMNmxNbFdka01n
-        OFN6NVpYNDl3ckdMbkdpQSIsInR5cGUiOiJzZXNzaW9uIiwicmVsYXRpb25z
-        aGlwcyI6eyJhY2NvdW50Ijp7ImRhdGEiOnsiaWQiOiIyMzIzNCIsInR5cGUi
-        OiJhY2NvdW50In19fX0sImluY2x1ZGVkIjpbeyJpZCI6IjIzMjM0IiwidHlw
-        ZSI6ImFjY291bnQiLCJhdHRyaWJ1dGVzIjp7ImVtYWlsIjoiSEVEWUtRRUFA
-        ZXhhbXBsZS5jb20iLCJmaXJzdF9uYW1lIjpudWxsLCJsYXN0X25hbWUiOm51
-        bGwsImNvbXBhbnkiOiJEYXRvQ01TIiwicHJvdmlzaW9uaW5nXzJmYV91cmki
-        OiJvdHBhdXRoOi8vdG90cC9EYXRvQ01TOkhFRFlLUUVBQGV4YW1wbGUuY29t
-        P3NlY3JldD1STjdPQTZFQjVXVjdFWFFaUk40N09USUFSVkZPTlQ2TCZpc3N1
-        ZXI9RGF0b0NNUyIsImlzXzJmYV9hY3RpdmUiOmZhbHNlfSwicmVsYXRpb25z
-        aGlwcyI6eyJhY3RpdmVfc3Vic2NyaXB0aW9uIjp7ImRhdGEiOm51bGx9LCJi
-        aWxsaW5nX3Byb2ZpbGUiOnsiZGF0YSI6bnVsbH19fV19
-  recorded_at: Thu, 24 Sep 2020 10:20:11 GMT
+        Q0pwSWpveU5qQTVPU3dpWnlJNklqSXdNakF0TURrdE1qbFVNVE02TVRNNk1q
+        VXVNek15S3pBd09qQXdJbjAuZ2ZicGlzVktGOHMxZ0g1cGVPb3hWVy1sUk4y
+        QTgyS3czek5PcERQVi1fNCIsInR5cGUiOiJzZXNzaW9uIiwicmVsYXRpb25z
+        aGlwcyI6eyJhY2NvdW50Ijp7ImRhdGEiOnsiaWQiOiIyNjA5OSIsInR5cGUi
+        OiJhY2NvdW50In19fX0sImluY2x1ZGVkIjpbeyJpZCI6IjI2MDk5IiwidHlw
+        ZSI6ImFjY291bnQiLCJhdHRyaWJ1dGVzIjp7ImVtYWlsIjoiTk5QWlBRWUdA
+        ZGVsZXRlLXRoaXMtYXQtbWlkbmlnaHQtdXRjLnRrIiwiZmlyc3RfbmFtZSI6
+        bnVsbCwibGFzdF9uYW1lIjpudWxsLCJjb21wYW55IjoiRGF0b0NNUyIsInBy
+        b3Zpc2lvbmluZ18yZmFfdXJpIjoib3RwYXV0aDovL3RvdHAvRGF0b0NNUzpO
+        TlBaUFFZR0BkZWxldGUtdGhpcy1hdC1taWRuaWdodC11dGMudGs/c2VjcmV0
+        PTJWM1JHVlVGRkU3Rk1UNk4zT0kzSDZQTUhZR1pLRE5XJmlzc3Vlcj1EYXRv
+        Q01TIiwiaXNfMmZhX2FjdGl2ZSI6ZmFsc2V9LCJyZWxhdGlvbnNoaXBzIjp7
+        ImFjdGl2ZV9zdWJzY3JpcHRpb24iOnsiZGF0YSI6eyJpZCI6IjE3OTYiLCJ0
+        eXBlIjoiYWNjb3VudF9zdWJzY3JpcHRpb24ifX0sImJpbGxpbmdfcHJvZmls
+        ZSI6eyJkYXRhIjpudWxsfX19XX0=
+  recorded_at: Tue, 29 Sep 2020 13:13:25 GMT
 - request:
     method: post
-    uri: http://account-api.lvh.me:3001/sites
+    uri: https://account-api.datocms.com/sites
     body:
       encoding: UTF-8
       string: '{"data":{"type":"site","attributes":{"name":"Test site"}}}'
@@ -85,7 +97,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer eyJhbGciOiJIUzI1NiJ9.eyJ2IjoxLCJpIjoyMzIzNCwiZyI6IjIwMjAtMDktMjRUMTI6MjA6MTEuMjQwKzAyOjAwIn0.Ex2Dhlrcx2TQtHYWdL6lMlWdkMg8Sz5ZX49wrGLnGiA
+      - Bearer eyJhbGciOiJIUzI1NiJ9.eyJ2IjoxLCJpIjoyNjA5OSwiZyI6IjIwMjAtMDktMjlUMTM6MTM6MjUuMzMyKzAwOjAwIn0.gfbpisVKF8s1gH5peOoxVW-lRN2A82Kw3zNOpDPV-_4
       User-Agent:
       - ruby-client v0.7.14
       X-Api-Version:
@@ -97,6 +109,12 @@ http_interactions:
       code: 201
       message: Created
     headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 29 Sep 2020 13:13:25 GMT
+      Connection:
+      - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Vary:
@@ -106,13 +124,15 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '59'
       Etag:
-      - W/"ae62874d63f3771441d1c53be7c05d5f"
+      - W/"1dee63ce9418171cdd64e3f4e5142c5e"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - cf199573-61ab-4926-a383-98b3f3f068e4
+      - efe0d351-a69a-4a68-ab2c-7b4f2e0ef973
       X-Runtime:
-      - '0.067357'
+      - '0.350680'
+      X-Queue-Time:
+      - 0ms
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -128,32 +148,33 @@ http_interactions:
       - "*"
       Transfer-Encoding:
       - chunked
+      Via:
+      - 1.1 vegur
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiMzE2OTkiLCJ0eXBlIjoic2l0ZSIsImF0dHJpYnV0
+        eyJkYXRhIjp7ImlkIjoiMzUyNDYiLCJ0eXBlIjoic2l0ZSIsImF0dHJpYnV0
         ZXMiOnsibmFtZSI6IlRlc3Qgc2l0ZSIsImRvbWFpbiI6bnVsbCwiaW50ZXJu
-        YWxfc3ViZG9tYWluIjoidGVzdC1zaXRlLTM2NzMiLCJvd25lcl9lbWFpbCI6
-        IkhFRFlLUUVBQGV4YW1wbGUuY29tIiwibGFzdF9kYXRhX2NoYW5nZV9hdCI6
-        IjIwMjAtMDktMjRUMTA6MjA6MTEuMjg4WiIsImFjY2Vzc190b2tlbiI6ImV5
-        SmhiR2NpT2lKSVV6STFOaUo5LmV5SjJJam94TENKeklqb3pNVFk1T1N3aWFT
-        STZNak15TXpRc0luUWlPaUpoSWl3aVp5STZJakl3TWpBdE1Ea3RNalJVTVRJ
-        Nk1qQTZNVEV1TXpFNEt6QXlPakF3SW4wLkEyTWlDRFpFaVRqclRUWFdqWXh6
-        Z05weWc3RS1waTlSd084NHFJcTV2bkEiLCJpbnRlcm5hbF9kb21haW4iOiJ0
-        ZXN0LXNpdGUtMzY3My5hZG1pbi5kYXRvY21zLmNvbSIsImNyZWF0ZWRfYXQi
-        OiIyMDIwLTA5LTI0VDEwOjIwOjExLjI4NloiLCJyZWFkd3JpdGVfdG9rZW4i
-        OiJhYWQ4YTk1NDIwNzEyNDI4ZWE3NDYwNzIwY2MyOTMiLCJyZWFkb25seV90
-        b2tlbiI6ImY1NWVkMTViMGE3ZjZlMTFiY2QzZDFjM2E4MzQ5MSIsImRlYWN0
-        aXZhdGVkIjpmYWxzZSwic3RhdHVzIjoicmVhZHkifSwicmVsYXRpb25zaGlw
-        cyI6eyJhY3RpdmVfc3Vic2NyaXB0aW9uIjp7ImRhdGEiOnsiaWQiOiIzNTE5
-        MiIsInR5cGUiOiJzaXRlX3N1YnNjcmlwdGlvbiJ9fSwiYWN0aXZlX3BsYW4i
-        OnsiZGF0YSI6eyJpZCI6IjI1MCIsInR5cGUiOiJzaXRlX3BsYW4ifX0sInRy
+        YWxfc3ViZG9tYWluIjoidGVzdC1zaXRlLTU2MzAiLCJvd25lcl9lbWFpbCI6
+        Ik5OUFpQUVlHQGRlbGV0ZS10aGlzLWF0LW1pZG5pZ2h0LXV0Yy50ayIsImxh
+        c3RfZGF0YV9jaGFuZ2VfYXQiOiIyMDIwLTA5LTI5VDEzOjEzOjI1LjY2OFoi
+        LCJhY2Nlc3NfdG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlKOS5leUoySWpv
+        eExDSnpJam96TlRJME5pd2lhU0k2TWpZd09Ua3NJblFpT2lKaElpd2laeUk2
+        SWpJd01qQXRNRGt0TWpsVU1UTTZNVE02TWpVdU9UWTNLekF3T2pBd0luMC4z
+        OFZkbnF3UVpfeThTYlhMN0hjZnNMRFZuQ2tpTVphcG14SlVPTDloTWhZIiwi
+        aW50ZXJuYWxfZG9tYWluIjoidGVzdC1zaXRlLTU2MzAuYWRtaW4uZGF0b2Nt
+        cy5jb20iLCJjcmVhdGVkX2F0IjoiMjAyMC0wOS0yOVQxMzoxMzoyNS42NjVa
+        IiwicmVhZHdyaXRlX3Rva2VuIjoiZjI3YzJmNmM2ZmM2YzIzOTJhZDc4ODQ3
+        MzZiMTZhIiwicmVhZG9ubHlfdG9rZW4iOiIzYTgyNWNhZWIzNTZlYTMxNTI2
+        MThiNjI3ZjEwN2YiLCJkZWFjdGl2YXRlZCI6ZmFsc2UsInN0YXR1cyI6InJl
+        YWR5In0sInJlbGF0aW9uc2hpcHMiOnsiYWN0aXZlX3N1YnNjcmlwdGlvbiI6
+        eyJkYXRhIjpudWxsfSwiYWN0aXZlX3BsYW4iOnsiZGF0YSI6bnVsbH0sInRy
         YW5zZmVyIjp7ImRhdGEiOm51bGx9LCJvd25lciI6eyJkYXRhIjp7ImlkIjoi
-        MjMyMzQiLCJ0eXBlIjoiYWNjb3VudCJ9fX19fQ==
-  recorded_at: Thu, 24 Sep 2020 10:20:11 GMT
+        MjYwOTkiLCJ0eXBlIjoiYWNjb3VudCJ9fX19fQ==
+  recorded_at: Tue, 29 Sep 2020 13:13:26 GMT
 - request:
     method: post
-    uri: http://site-api.lvh.me:3001/upload-requests
+    uri: https://site-api.datocms.com/upload-requests
     body:
       encoding: UTF-8
       string: '{"data":{"type":"upload_request","attributes":{"filename":"NonExistentImage.png"}}}'
@@ -163,7 +184,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer aad8a95420712428ea7460720cc293
+      - Bearer f27c2f6c6fc6c2392ad7884736b16a
       User-Agent:
       - ruby-client v0.7.14
       X-Api-Version:
@@ -175,30 +196,31 @@ http_interactions:
       code: 201
       message: Created
     headers:
-      X-Api-Version:
-      - '3'
-      X-Environment:
-      - main
-      X-Site-Id:
-      - '31699'
-      X-User:
-      - AccessToken:63257
+      Date:
+      - Tue, 29 Sep 2020 13:13:26 GMT
       Content-Type:
       - application/json; charset=utf-8
-      Vary:
-      - Accept-Encoding
-      X-Ratelimit-Limit:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '59'
-      Etag:
-      - W/"ee5429dbfeae9679671d58455f448b56"
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d46683f275af318b109b0166d87e588181601385206; expires=Thu, 29-Oct-20
+        13:13:26 GMT; path=/; domain=.datocms.com; HttpOnly; SameSite=Lax; Secure
+      Cf-Ray:
+      - 5da5f6237a50e60c-LHR
+      Access-Control-Allow-Origin:
+      - "*"
       Cache-Control:
       - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 2986a6d7-c38f-4edf-8bef-166038701dda
-      X-Runtime:
-      - '0.041797'
+      Etag:
+      - W/"8c0a864d92ad8d00a4d7ffe3735a5f5f"
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Cf-Cache-Status:
+      - DYNAMIC
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -210,25 +232,41 @@ http_interactions:
       - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
       Access-Control-Max-Age:
       - '1728000'
-      Access-Control-Allow-Origin:
-      - "*"
-      Transfer-Encoding:
-      - chunked
+      Cf-Request-Id:
+      - 057b982a2b0000e60cb0379200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      X-Api-Version:
+      - '3'
+      X-Environment:
+      - main
+      X-Queue-Time:
+      - 1ms
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '59'
+      X-Request-Id:
+      - fc6f8f43-af8c-4a86-9c67-1aa32e3d44bf
+      X-Runtime:
+      - '0.028931'
+      Server:
+      - cloudflare
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjp7ImlkIjoiLzMxNjk5LzE2MDA5NDI4MTEtbm9uZXhpc3RlbnRp
+        eyJkYXRhIjp7ImlkIjoiLzM1MjQ2LzE2MDEzODUyMDYtbm9uZXhpc3RlbnRp
         bWFnZS5wbmciLCJ0eXBlIjoidXBsb2FkX3JlcXVlc3QiLCJhdHRyaWJ1dGVz
         Ijp7InVybCI6Imh0dHBzOi8vZGF0b3NybC1pbWFnZXMuczMuZXUtd2VzdC0x
-        LmFtYXpvbmF3cy5jb20vMzE2OTkvMTYwMDk0MjgxMS1ub25leGlzdGVudGlt
+        LmFtYXpvbmF3cy5jb20vMzUyNDYvMTYwMTM4NTIwNi1ub25leGlzdGVudGlt
         YWdlLnBuZz94LWFtei1hY2w9cHVibGljLXJlYWQmWC1BbXotQWxnb3JpdGht
         PUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBMldFUDJG
-        WjRJWjVTMjJPSCUyRjIwMjAwOTI0JTJGZXUtd2VzdC0xJTJGczMlMkZhd3M0
-        X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDIwMDkyNFQxMDIwMTFaJlgtQW16LUV4
+        WjRJWjVTMjJPSCUyRjIwMjAwOTI5JTJGZXUtd2VzdC0xJTJGczMlMkZhd3M0
+        X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDIwMDkyOVQxMzEzMjZaJlgtQW16LUV4
         cGlyZXM9OTAwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZYLUFtei1TaWdu
-        YXR1cmU9MWRkMjg4NWQxODU2OWJjMTEyMzdkYTY5M2Q3NDgxY2QxNzZjMzZi
-        NmJjYTA4MWY2MTY2N2ZhNGYzNGQ5OWViMyJ9fX0=
-  recorded_at: Thu, 24 Sep 2020 10:20:11 GMT
+        YXR1cmU9MmEzNzY5MmI2Mzk4NTYzMDU0ZTM4NmNmNWRiOWFkZjBiMTY3YTVh
+        Yjc2NDU4YzIzMDk3Y2IwZDNlMDkxNTEwYiJ9fX0=
+  recorded_at: Tue, 29 Sep 2020 13:13:26 GMT
 - request:
     method: get
     uri: https://google.it/NonExistentImage.png
@@ -254,7 +292,7 @@ http_interactions:
       Content-Length:
       - '1581'
       Date:
-      - Thu, 24 Sep 2020 10:20:11 GMT
+      - Tue, 29 Sep 2020 13:13:26 GMT
       Alt-Svc:
       - h3-Q050=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-27=":443"; ma=2592000,h3-T051=":443";
         ma=2592000,h3-T050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443";
@@ -298,5 +336,5 @@ http_interactions:
         ZGU+L05vbkV4aXN0ZW50SW1hZ2UucG5nPC9jb2RlPiB3YXMgbm90IGZvdW5k
         IG9uIHRoaXMgc2VydmVyLiAgPGlucz5UaGF04oCZcyBhbGwgd2Uga25vdy48
         L2lucz4K
-  recorded_at: Thu, 24 Sep 2020 10:20:11 GMT
+  recorded_at: Tue, 29 Sep 2020 13:13:26 GMT
 recorded_with: VCR 6.0.0
