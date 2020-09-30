@@ -44,7 +44,7 @@ module Dato
         return if pusher && pusher.connected
 
         channel_name = if client.environment
-                         "private-site-#{site_id}-environment-#{environment}"
+                         "private-site-#{site_id}-environment-#{client.environment}"
                        else
                          "private-site-#{site_id}"
                        end
