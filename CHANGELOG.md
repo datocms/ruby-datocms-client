@@ -1,3 +1,7 @@
+# 0.7.16
+
+Fixes bug when launching `dato dump --watch` together with the `environment` option.
+
 # 0.7.13
 
 Add option to pass a project's environment:
