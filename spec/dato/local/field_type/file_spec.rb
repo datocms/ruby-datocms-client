@@ -32,7 +32,7 @@ module Dato
               mux_playback_id: '444',
               duration: 300,
               frame_rate: 50,
-              mux_mp4_highest_res: 'medium'
+              mux_mp4_highest_res: 'medium',
             }
           end
 
@@ -55,7 +55,8 @@ module Dato
               upload_id: upload_entity.id,
               alt: 'an alt',
               title: nil,
-              custom_data: { hello: 'world' }
+              custom_data: { hello: 'world' },
+              focal_point: { x: 0.3, y: 0.4 },
             }
           end
 
@@ -74,8 +75,9 @@ module Dato
                 en: {
                   alt: nil,
                   title: 'a title',
-                  custom_data: {}
-                }
+                  custom_data: {},
+                  focal_point: { x: 0.3, y: 0.4 },
+                },
               }
             }
           end
@@ -105,6 +107,11 @@ module Dato
 
           it 'responds to url method' do
             expect(file.url(w: 300)).to eq 'https://foobar.com/foo.png?w=300'
+          end
+
+          it 'returns focal point' do
+            expect(file.url(w: 300, h: 300, fit: "crop")).to eq 'https://foobar.com/foo.png?w=300&h=300&fit=crop&crop=focalpoint&fp-x=0.3&fp-y=0.4'
+            expect(file.url(w: 300, h: 300, fit: "crop")).to eq 'https://foobar.com/foo.png?w=300&h=300&fit=crop&crop=focalpoint&fp-x=0.3&fp-y=0.4'
           end
 
           describe "#lqip_data_url" do
@@ -156,7 +163,8 @@ module Dato
               upload_id: upload_entity.id,
               alt: nil,
               title: nil,
-              custom_data: {}
+              custom_data: {},
+              focal_point: nil
             }
           end
 
@@ -175,7 +183,8 @@ module Dato
                 en: {
                   alt: 'Default alt',
                   title: 'Default title',
-                  custom_data: { hello: 'world' }
+                  custom_data: { hello: 'world' },
+                  focal_point: { x: 0.1, y: 0.2 },
                 }
               }
             }
@@ -188,6 +197,7 @@ module Dato
             expect(file.alt).to eq 'Default alt'
             expect(file.title).to eq 'Default title'
             expect(file.custom_data).to eq ({ 'hello' => 'world' })
+            expect(file.focal_point).to eq ({ 'x' => 0.1, 'y' => 0.2 })
           end
         end
 
