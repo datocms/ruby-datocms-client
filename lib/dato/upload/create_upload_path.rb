@@ -72,7 +72,7 @@ module Dato
         end
         connection.get(url).body
       rescue Faraday::Error => e
-        puts "Error during uploading #{url}"
+        puts "Error during upload of #{url}: #{e.message}"
         raise e
       end
     end

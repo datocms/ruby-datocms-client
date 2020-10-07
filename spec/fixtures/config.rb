@@ -12,7 +12,7 @@ dato.available_locales.each do |_locale|
 
     dato.articles.each do |post|
       create_post "#{post.slug}.md" do
-        frontmatter :yaml, post.to_hash
+        frontmatter :yaml, post.to_hash.merge!(image_url_with_focal_point: post.image.url(w: 150, h: 50, fit: :crop))
         content post.title
       end
     end

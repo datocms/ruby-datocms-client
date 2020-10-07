@@ -14,7 +14,7 @@ RSpec.shared_context 'with a new site' do
   let(:client) do
     Dato::Site::Client.new(
       site[:readwrite_token],
-      base_url: 'http://site-api.lvh.me:3001'
+      base_url: ENV.fetch("SITE_API_BASE_URL")
     )
   end
 
@@ -107,7 +107,11 @@ RSpec.shared_context 'with a new site' do
         upload_id: imageId,
         alt: 'My first post',
         title: 'First post',
-        custom_data: {}
+        custom_data: {},
+        focal_point: {
+          x: 0.1,
+          y: 0.1,
+        }
       },
       file: {
         upload_id: fileId,

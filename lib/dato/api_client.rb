@@ -100,10 +100,11 @@ module Dato
         sleep(1)
         request(*args)
       else
+        # puts body.inspect
+        # puts '===='
+        # puts error.message
+        # puts '===='
         error = ApiError.new(e.response)
-        puts '===='
-        puts error.message
-        puts '===='
         raise error
       end
     end

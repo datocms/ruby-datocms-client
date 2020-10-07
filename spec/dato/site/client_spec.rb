@@ -16,7 +16,7 @@ module Dato
       subject(:client) do
         Dato::Site::Client.new(
           site[:readwrite_token],
-          base_url: 'http://site-api.lvh.me:3001'
+          base_url: ENV.fetch("SITE_API_BASE_URL")
         )
       end
 
@@ -103,7 +103,7 @@ module Dato
             new_item_type[:id]
           )
 
-          expect(client.item_types.find(duplicate[:id])[:api_key]).to eq 'post_copy_1'
+          expect(client.item_types.find(duplicate[:id])[:api_key]).to eq 'post_copy1'
 
           client.item_types.destroy(new_item_type[:id])
 
@@ -307,20 +307,20 @@ module Dato
         end
       end
 
-      describe 'Deployment environments' do
+      describe 'Build triggers' do
         it 'create, trigger' do
-          env = client.deployment_environments.create(
-            deploy_adapter: 'custom',
-            spider_enabled: false,
-            build_on_scheduled_publications: false,
-            deploy_settings: { trigger_url: 'https://www.google.com' },
+          env = client.build_triggers.create(
+            adapter: 'custom',
+            indexing_enabled: false,
+            autotrigger_on_scheduled_publications: false,
+            adapter_settings: { trigger_url: 'https://www.google.com' },
             frontend_url: nil,
             name: 'Foo'
           )
 
-          expect(client.deployment_environments.all.size).to eq 1
+          expect(client.build_triggers.all.size).to eq 1
 
-          client.deployment_environments.trigger(env[:id])
+          client.build_triggers.trigger(env[:id])
         end
       end
 
