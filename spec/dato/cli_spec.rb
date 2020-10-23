@@ -4,7 +4,7 @@ require 'spec_helper'
 
 module Dato
   describe Cli do
-    let(:client) { instance_double(Dato::Site::Client, get: site_data) }
+    let(:client) { double('Dato::Site::Client', get: site_data) }
     let(:site_data) { { 'data' => { 'id' => 'id' } } }
     let(:runner) { instance_double(Dato::Dump::Runner, run: nil) }
 

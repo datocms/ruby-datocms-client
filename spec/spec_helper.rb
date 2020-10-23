@@ -54,6 +54,4 @@ VCR.configure do |config|
   }
 end
 
-VCR.use_cassette('json_schema', record: :new_episodes) do
-  require 'dato'
-end
+require 'dato'

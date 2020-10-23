@@ -33,27 +33,54 @@ module Dato
           @extra_headers = options[:extra_headers] || {}
         end
 
-        # FOR DEV
-        # "http://#{subdomain}.lvh.me:3001/docs/#{subdomain}-hyperschema.json"
+        define_singleton_method(:subdomain) do
+          subdomain
+        end
+      end
+    end
+
+    def respond_to_missing?(method, include_private = false)
+      json_schema.definitions.each do |type, obj|
+        is_collection = obj.links.select { |x| x.rel == 'instances' }.any?
+        namespace = is_collection ? type.pluralize : type
+        if method.to_s === namespace
+          return true
+        end
+      end
+
+      super
+    end
+
+    def method_missing(method, *args, &block)
+      json_schema.definitions.each do |type, obj|
+        is_collection = obj.links.select { |x| x.rel == 'instances' }.any?
+        namespace = is_collection ? type.pluralize : type
+
+        if method.to_s === namespace
+          instance_variable_set(
+            "@#{namespace}",
+            instance_variable_get("@#{namespace}") ||
+            Dato::Repo.new(self, type, obj)
+          )
+
+          return instance_variable_get("@#{namespace}")
+        end
+      end
+
+      super
+    end
+
+    def json_schema
+      @json_schema ||= begin
         response = Faraday.get(
-          "https://#{subdomain}.datocms.com/docs/#{subdomain}-hyperschema.json"
+          # "http://#{subdomain}.lvh.me:3001/docs/#{subdomain}-hyperschema.json"
+          "#{base_url}/docs/#{self.class.subdomain}-hyperschema.json"
         )
 
         schema = JsonSchema.parse!(JSON.parse(response.body))
         schema.expand_references!
 
-        schema.definitions.each do |type, obj|
-          is_collection = obj.links.select { |x| x.rel == 'instances' }.any?
-          namespace = is_collection ? type.pluralize : type
-
-          define_method(namespace) do
-            instance_variable_set(
-              "@#{namespace}",
-              instance_variable_get("@#{namespace}") ||
-              Dato::Repo.new(self, type, obj)
-            )
-          end
-        end
+        schema
       end
     end
 
