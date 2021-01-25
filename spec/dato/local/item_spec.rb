@@ -149,6 +149,12 @@ module Dato
               end
             end
 
+            it 'returns the value for the selected locale if present' do
+              I18n.with_locale(:en) do
+                expect(item.title).to eq 'Bar'
+              end
+            end
+
             context 'non existing value' do
               it 'raises nil' do
                 I18n.with_locale(:ru) do
@@ -157,14 +163,32 @@ module Dato
               end
             end
 
-            context 'fallbacks' do
-              let(:item_attributes) do
-                super().merge(title: { ru: nil, "es-ES": 'Bar' })
+            context 'when fallbacks are set' do
+              before do
+                I18n.fallbacks[:ru] = [:it]
               end
 
-              it 'uses them' do
-                I18n.with_locale(:ru) do
-                  expect(item.title).to eq 'Bar'
+              context 'and missing main language' do
+                let(:item_attributes) do
+                  super().merge(title: { it: nil, en: 'Bar', ru: 'Foo' })
+                end
+
+                it 'does not fallback' do
+                  I18n.with_locale(:it) do
+                    expect(item.title).to eq nil
+                  end
+                end
+              end
+
+              context 'missing fallback locale' do
+                let(:item_attributes) do
+                  super().merge(title: { it: 'Foo', en: nil, ru: nil })
+                end
+
+                it 'fallbacks' do
+                  I18n.with_locale(:ru) do
+                    expect(item.title).to eq 'Foo'
+                  end
                 end
               end
             end
