@@ -89,13 +89,15 @@ module Dato
 
     def attributes(resource)
       if type == 'item'
-        return resource.keys.map(&:to_sym) - %i[
-          item_type
-          id
-          created_at
-          updated_at
-          creator
-        ]
+        return resource.keys.reject do |key|
+          %i[
+            item_type
+            id
+            created_at
+            updated_at
+            creator
+          ].include?(key.to_sym)
+        end
       end
 
       link_attributes['properties'].keys.map(&:to_sym)

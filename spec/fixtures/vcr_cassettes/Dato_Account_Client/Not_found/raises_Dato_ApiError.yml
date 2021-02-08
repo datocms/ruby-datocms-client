@@ -21,15 +21,15 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 23 Oct 2020 13:03:30 GMT
+      - Mon, 08 Feb 2021 12:50:43 GMT
       Connection:
       - keep-alive
       Last-Modified:
-      - Thu, 22 Oct 2020 09:51:03 GMT
+      - Mon, 08 Feb 2021 11:57:02 GMT
       Content-Type:
       - application/json
       X-Queue-Time:
-      - "-3ms"
+      - 2ms
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -44,7 +44,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Content-Length:
-      - '177846'
+      - '178147'
       Via:
       - 1.1 vegur
     body:
@@ -4154,7 +4154,8 @@ http_interactions:
                     "defaulting",
                     "credits",
                     "cf_cod_fiscale",
-                    "unbilled_charges"
+                    "unbilled_charges",
+                    "discount_percentage"
                   ],
                   "properties": {
                     "first_name": {
@@ -4241,6 +4242,10 @@ http_interactions:
                     "unbilled_charges": {
                       "type": "integer",
                       "example": 2700
+                    },
+                    "discount_percentage": {
+                      "type": "number",
+                      "example": 0.5
                     }
                   }
                 }
@@ -4973,6 +4978,10 @@ http_interactions:
                                 ],
                                 "format": "date-time",
                                 "example": "2016-09-20T18:50:24.914Z"
+                              },
+                              "discount_percentage": {
+                                "type": "number",
+                                "example": 0.1
                               },
                               "tax_label": {
                                 "type": [
@@ -5819,13 +5828,13 @@ http_interactions:
             }
           }
         }
-  recorded_at: Fri, 23 Oct 2020 13:03:31 GMT
+  recorded_at: Mon, 08 Feb 2021 12:50:44 GMT
 - request:
     method: post
     uri: https://account-api.datocms.com/account
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"account","attributes":{"email":"VQLCCNIQ@delete-this-at-midnight-utc.tk","company":"DatoCMS","password":"veryst_9rong_passowrd4_"}}}'
+      string: '{"data":{"type":"account","attributes":{"email":"KHHUPRWJ@delete-this-at-midnight-utc.tk","company":"DatoCMS","password":"veryst_9rong_passowrd4_"}}}'
     headers:
       Accept:
       - application/json
@@ -5834,7 +5843,7 @@ http_interactions:
       Authorization:
       - Bearer
       User-Agent:
-      - ruby-client v0.7.17
+      - ruby-client v0.7.18
       X-Api-Version:
       - '3'
       Accept-Encoding:
@@ -5847,7 +5856,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 23 Oct 2020 13:03:31 GMT
+      - Mon, 08 Feb 2021 12:50:45 GMT
       Connection:
       - keep-alive
       Content-Type:
@@ -5859,15 +5868,15 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '59'
       Etag:
-      - W/"63df96be20c3be0970477406eeb670f0"
+      - W/"9abd7cd5eee651670b2d938921e30096"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5b50d8bd-4f90-4f77-b0b9-08a3aa58a64a
+      - 7c175cb3-2c5c-4310-a120-fedf1caa668a
       X-Runtime:
-      - '0.338504'
+      - '0.730619'
       X-Queue-Time:
-      - 0ms
+      - 4ms
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -5889,22 +5898,22 @@ http_interactions:
       encoding: ASCII-8BIT
       base64_string: |
         eyJkYXRhIjp7ImlkIjoiZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKMklqb3hM
-        Q0pwSWpveU56RXpNQ3dpWnlJNklqSXdNakF0TVRBdE1qTlVNVE02TURNNk16
-        SXVNakF4S3pBd09qQXdJbjAuWHpEZzhpbG9PdWpMVW83SUNPb3dfZ25WdkVr
-        TTItMTgxb0h4Q253YWR4byIsInR5cGUiOiJzZXNzaW9uIiwicmVsYXRpb25z
-        aGlwcyI6eyJhY2NvdW50Ijp7ImRhdGEiOnsiaWQiOiIyNzEzMCIsInR5cGUi
-        OiJhY2NvdW50In19fX0sImluY2x1ZGVkIjpbeyJpZCI6IjI3MTMwIiwidHlw
-        ZSI6ImFjY291bnQiLCJhdHRyaWJ1dGVzIjp7ImVtYWlsIjoiVlFMQ0NOSVFA
+        Q0pwSWpvek1Ua3pOaXdpWnlJNklqSXdNakV0TURJdE1EaFVNVEk2TlRBNk5E
+        VXVNak14S3pBd09qQXdJbjAuTnpHWGFqMUlHVjhsVVlEaEd3Y3p1Y29SR1dv
+        TDFraElCT2xVejY1ai1ZRSIsInR5cGUiOiJzZXNzaW9uIiwicmVsYXRpb25z
+        aGlwcyI6eyJhY2NvdW50Ijp7ImRhdGEiOnsiaWQiOiIzMTkzNiIsInR5cGUi
+        OiJhY2NvdW50In19fX0sImluY2x1ZGVkIjpbeyJpZCI6IjMxOTM2IiwidHlw
+        ZSI6ImFjY291bnQiLCJhdHRyaWJ1dGVzIjp7ImVtYWlsIjoiS0hIVVBSV0pA
         ZGVsZXRlLXRoaXMtYXQtbWlkbmlnaHQtdXRjLnRrIiwiZmlyc3RfbmFtZSI6
         bnVsbCwibGFzdF9uYW1lIjpudWxsLCJjb21wYW55IjoiRGF0b0NNUyIsInBy
-        b3Zpc2lvbmluZ18yZmFfdXJpIjoib3RwYXV0aDovL3RvdHAvRGF0b0NNUzpW
-        UUxDQ05JUUBkZWxldGUtdGhpcy1hdC1taWRuaWdodC11dGMudGs/c2VjcmV0
-        PVg3NlNJVFEySlhMQjZYTVNCQklGVE1TQ0tITEJJRkFEJmlzc3Vlcj1EYXRv
+        b3Zpc2lvbmluZ18yZmFfdXJpIjoib3RwYXV0aDovL3RvdHAvRGF0b0NNUzpL
+        SEhVUFJXSkBkZWxldGUtdGhpcy1hdC1taWRuaWdodC11dGMudGs/c2VjcmV0
+        PU5MQkFOUkdGUjNBUUo0VFZVVDVQMzdSWUNQRlRETjVUJmlzc3Vlcj1EYXRv
         Q01TIiwiaXNfMmZhX2FjdGl2ZSI6ZmFsc2V9LCJyZWxhdGlvbnNoaXBzIjp7
-        ImFjdGl2ZV9zdWJzY3JpcHRpb24iOnsiZGF0YSI6eyJpZCI6IjI4NDciLCJ0
+        ImFjdGl2ZV9zdWJzY3JpcHRpb24iOnsiZGF0YSI6eyJpZCI6Ijc3OTEiLCJ0
         eXBlIjoiYWNjb3VudF9zdWJzY3JpcHRpb24ifX0sImJpbGxpbmdfcHJvZmls
         ZSI6eyJkYXRhIjpudWxsfX19XX0=
-  recorded_at: Fri, 23 Oct 2020 13:03:32 GMT
+  recorded_at: Mon, 08 Feb 2021 12:50:45 GMT
 - request:
     method: get
     uri: https://account-api.datocms.com/docs/account-api-hyperschema.json
@@ -5926,15 +5935,15 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 23 Oct 2020 13:03:32 GMT
+      - Mon, 08 Feb 2021 12:50:44 GMT
       Connection:
       - keep-alive
       Last-Modified:
-      - Thu, 22 Oct 2020 09:51:03 GMT
+      - Mon, 08 Feb 2021 11:57:02 GMT
       Content-Type:
       - application/json
       X-Queue-Time:
-      - "-6ms"
+      - 1ms
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -5949,7 +5958,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Content-Length:
-      - '177846'
+      - '178147'
       Via:
       - 1.1 vegur
     body:
@@ -10059,7 +10068,8 @@ http_interactions:
                     "defaulting",
                     "credits",
                     "cf_cod_fiscale",
-                    "unbilled_charges"
+                    "unbilled_charges",
+                    "discount_percentage"
                   ],
                   "properties": {
                     "first_name": {
@@ -10146,6 +10156,10 @@ http_interactions:
                     "unbilled_charges": {
                       "type": "integer",
                       "example": 2700
+                    },
+                    "discount_percentage": {
+                      "type": "number",
+                      "example": 0.5
                     }
                   }
                 }
@@ -10878,6 +10892,10 @@ http_interactions:
                                 ],
                                 "format": "date-time",
                                 "example": "2016-09-20T18:50:24.914Z"
+                              },
+                              "discount_percentage": {
+                                "type": "number",
+                                "example": 0.1
                               },
                               "tax_label": {
                                 "type": [
@@ -11724,7 +11742,7 @@ http_interactions:
             }
           }
         }
-  recorded_at: Fri, 23 Oct 2020 13:03:32 GMT
+  recorded_at: Mon, 08 Feb 2021 12:50:45 GMT
 - request:
     method: get
     uri: https://account-api.datocms.com/sites/9999
@@ -11737,9 +11755,9 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer eyJhbGciOiJIUzI1NiJ9.eyJ2IjoxLCJpIjoyNzEzMCwiZyI6IjIwMjAtMTAtMjNUMTM6MDM6MzIuMjAxKzAwOjAwIn0.XzDg8iloOujLUo7ICOow_gnVvEkM2-181oHxCnwadxo
+      - Bearer eyJhbGciOiJIUzI1NiJ9.eyJ2IjoxLCJpIjozMTkzNiwiZyI6IjIwMjEtMDItMDhUMTI6NTA6NDUuMjMxKzAwOjAwIn0.NzGXaj1IGV8lUYDhGwczucoRGWoL1khIBOlUz65j-YE
       User-Agent:
-      - ruby-client v0.7.17
+      - ruby-client v0.7.18
       X-Api-Version:
       - '3'
       Accept-Encoding:
@@ -11752,7 +11770,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 23 Oct 2020 13:03:32 GMT
+      - Mon, 08 Feb 2021 12:50:45 GMT
       Connection:
       - keep-alive
       Content-Type:
@@ -11766,11 +11784,11 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 02500be8-3bc5-4f51-8813-30e168874801
+      - 531f08ae-2124-4770-a6fa-267a95ceba19
       X-Runtime:
-      - '0.010522'
+      - '0.015173'
       X-Queue-Time:
-      - 2ms
+      - 4ms
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
@@ -11791,13 +11809,13 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        eyJkYXRhIjpbeyJpZCI6ImM4ZWQyNSIsInR5cGUiOiJhcGlfZXJyb3IiLCJh
+        eyJkYXRhIjpbeyJpZCI6IjkxODMxMyIsInR5cGUiOiJhcGlfZXJyb3IiLCJh
         dHRyaWJ1dGVzIjp7ImNvZGUiOiJOT1RfRk9VTkQiLCJkZXRhaWxzIjp7Im1l
         c3NhZ2UiOiJDb3VsZG4ndCBmaW5kIFNpdGUgd2l0aCAnaWQnPTk5OTkgW1dI
         RVJFIChcbiAgICAgIHNpdGVzLmlkIElOIChcbiAgICAgICAgU0VMRUNUIHNp
         dGVzLmlkXG4gICAgICAgIEZST00gc2l0ZXNcbiAgICAgICAgTEVGVCBPVVRF
         UiBKT0lOIHVzZXJzIE9OIHVzZXJzLnNpdGVfaWQgPSBzaXRlcy5pZFxuICAg
-        ICAgICBXSEVSRSB1c2Vycy5hY2NvdW50X2lkID0gMjcxMzAgT1Igc2l0ZXMu
-        YWNjb3VudF9pZCA9IDI3MTMwXG4gICAgICApXG4gICAgKV0ifX19XX0=
-  recorded_at: Fri, 23 Oct 2020 13:03:33 GMT
+        ICAgICBXSEVSRSB1c2Vycy5hY2NvdW50X2lkID0gMzE5MzYgT1Igc2l0ZXMu
+        YWNjb3VudF9pZCA9IDMxOTM2XG4gICAgICApXG4gICAgKV0ifX19XX0=
+  recorded_at: Mon, 08 Feb 2021 12:50:46 GMT
 recorded_with: VCR 6.0.0

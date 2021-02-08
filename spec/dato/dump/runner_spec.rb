@@ -57,6 +57,9 @@ module Dato
           expect(article_file.front_matter['file']['format']).to eq 'txt'
           expect(article_file.front_matter['file']['size']).to eq 10
           expect(article_file.front_matter['file']['url']).to be_present
+          expect(article_file.front_matter['content']['value']).to be_an(Hash)
+          expect(article_file.front_matter['content']['blocks'].first['title']).to eq 'Foo'
+          expect(article_file.front_matter['content']['links'].first['name']).to eq 'Mark Smith'
 
           expect(article_file.content).to eq 'First post'
         end

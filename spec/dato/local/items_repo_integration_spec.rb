@@ -21,7 +21,8 @@ module Dato
           expect(serialized_site[:name]).to eq 'Integration new test site'
           expect(serialized_site[:locales]).to eq %w[en it]
 
-          serialized_article = repo.items_of_type(repo.item_types.first).first.to_hash
+          article_type = repo.item_types.find { |it| it[:api_key] == 'article' }
+          serialized_article = repo.items_of_type(article_type).first.to_hash
           expect(serialized_article[:item_type]).to eq 'article'
           expect(serialized_article[:updated_at]).to be_present
           expect(serialized_article[:created_at]).to be_present
@@ -39,6 +40,9 @@ module Dato
           expect(serialized_article[:file][:size]).to eq 10
           expect(serialized_article[:file][:url]).to be_present
           expect(serialized_article[:file][:video]).to be_nil
+          expect(serialized_article[:content][:value]).to be_an(Hash)
+          expect(serialized_article[:content][:blocks].first[:title]).to eq 'Foo'
+          expect(serialized_article[:content][:links].first[:name]).to eq 'Mark Smith'
         end
       end
 
