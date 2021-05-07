@@ -3,8 +3,8 @@
 require 'simplecov'
 require 'coveralls'
 
-ENV["SITE_API_BASE_URL"] ||= "https://site-api.datocms.com"
-ENV["ACCOUNT_API_BASE_URL"] ||= "https://account-api.datocms.com"
+ENV['SITE_API_BASE_URL'] ||= 'https://site-api.datocms.com'
+ENV['ACCOUNT_API_BASE_URL'] ||= 'https://account-api.datocms.com'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
                                                                  SimpleCov::Formatter::HTMLFormatter,
@@ -25,8 +25,7 @@ require 'webmock/rspec'
 
 I18n.enforce_available_locales = false
 I18n.available_locales = %i[it en ru]
-I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
-I18n.fallbacks[:ru] = [:"es-ES"]
+I18n::Backend::Simple.include I18n::Backend::Fallbacks
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
