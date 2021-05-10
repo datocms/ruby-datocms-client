@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'dato/json_schema_relationships'
 
 module Dato
@@ -16,12 +17,17 @@ module Dato
 
       data[:id] = id || resource[:id] if id || resource[:id]
 
-      if resource.has_key?(:meta)
-        resource.delete(:meta)
-      end
+      resource.delete(:meta) if resource.key?(:meta)
 
       data[:type] = type
-      data[:attributes] = serialized_attributes(resource)
+
+      if link.schema &&
+         link.schema.properties['data'] &&
+         link.schema.properties['data'].properties.keys.include?('attributes')
+
+        serialized_resource_attributes = serialized_attributes(resource)
+        data[:attributes] = serialized_resource_attributes
+      end
 
       serialized_relationships = serialized_relationships(resource)
 
@@ -114,7 +120,7 @@ module Dato
     end
 
     def required_relationships
-      if link.schema.properties['data'].required.include?("relationships")
+      if link.schema.properties['data'].required.include?('relationships')
         (link_relationships.required || []).map(&:to_sym)
       else
         []
