@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 require 'dato/json_schema_relationships'
+require 'dato/json_schema_type'
 
 module Dato
   class JsonApiSerializer
     attr_reader :link, :type
 
-    def initialize(type, link)
+    def initialize(type: nil, link: nil)
       @link = link
-      @type = type
+      @type = type || type_from_schema
     end
 
     def serialize(resource, id = nil)
@@ -67,17 +68,17 @@ module Dato
                        value.symbolize_keys
                      end
                    else
-                     type = meta[:types].first
+                     meta_type = meta[:types].first
                      if meta[:collection]
                        value.map do |id|
                          {
-                           type: type,
+                           type: meta_type,
                            id: id.to_s
                          }
                        end
                      else
                        {
-                         type: type,
+                         type: meta_type,
                          id: value.to_s
                        }
                      end
@@ -133,6 +134,10 @@ module Dato
 
     def link_relationships
       link.schema.properties['data'].properties['relationships']
+    end
+
+    def type_from_schema
+      Dato::JsonSchemaType.new(link.schema).call
     end
   end
 end

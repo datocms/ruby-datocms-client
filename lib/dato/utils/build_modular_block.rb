@@ -6,7 +6,7 @@ module Dato
   module Utils
     module BuildModularBlock
       def self.build(unserialized_body)
-        json_api_serializer = JsonApiSerializer.new('item', nil)
+        json_api_serializer = JsonApiSerializer.new(type: 'item')
         attributes = json_api_serializer.serialized_attributes(unserialized_body)
 
         payload = {
@@ -16,10 +16,10 @@ module Dato
             item_type: {
               data: {
                 id: unserialized_body[:item_type],
-                type: 'item_type',
-              },
-            },
-          },
+                type: 'item_type'
+              }
+            }
+          }
         }
 
         payload[:id] = unserialized_body[:id] if unserialized_body[:id]

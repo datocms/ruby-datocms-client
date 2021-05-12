@@ -8,7 +8,7 @@ module Dato
   class Repo
     attr_reader :client, :type, :schema
 
-    IDENTITY_REGEXP = /\{\(.*?definitions%2F(.*?)%2Fdefinitions%2Fidentity\)}/
+    IDENTITY_REGEXP = /\{\(.*?definitions%2F(.*?)%2Fdefinitions%2Fidentity\)}/.freeze
 
     METHOD_NAMES = {
       'instances' => :all,
@@ -36,15 +36,15 @@ module Dato
         METHOD_NAMES.fetch(link.rel, link.rel).to_sym == method.to_sym
       end
 
-      return super if !link
+      return super unless link
 
       min_arguments_count = [
         link.href.scan(IDENTITY_REGEXP).size,
         link.schema && link.method != :get ? 1 : 0
       ].reduce(0, :+)
 
-      (args.size >= min_arguments_count) or
-        raise ArgumentError, "wrong number of arguments (given #{args.size}, expected #{min_arguments_count})"
+      (args.size >= min_arguments_count) ||
+        raise(ArgumentError, "wrong number of arguments (given #{args.size}, expected #{min_arguments_count})")
 
       placeholders = []
 
@@ -71,7 +71,7 @@ module Dato
       options = args.any? ? args.shift.symbolize_keys : {}
 
       if link.schema && %i[post put].include?(link.method) && options.fetch(:serialize_response, true)
-        body = JsonApiSerializer.new(type, link).serialize(
+        body = JsonApiSerializer.new(link: link).serialize(
           body,
           link.method == :post ? nil : placeholders.last
         )
@@ -89,17 +89,15 @@ module Dato
                    end
                  end
 
-      if response && response[:data] && response[:data].is_a?(Hash) && response[:data][:type] == "job"
+      if response && response[:data] && response[:data].is_a?(Hash) && response[:data][:type] == 'job'
         job_result = nil
 
-        while !job_result do
+        until job_result
           begin
             sleep(1)
             job_result = client.job_result.find(response[:data][:id])
-          rescue ApiError => error
-            if error.response[:status] != 404
-              raise error
-            end
+          rescue ApiError => e
+            raise e if e.response[:status] != 404
           end
         end
 
@@ -109,9 +107,9 @@ module Dato
             body: JSON.dump(job_result[:payload])
           )
 
-          puts "===="
+          puts '===='
           puts error.message
-          puts "===="
+          puts '===='
 
           raise error
         end
