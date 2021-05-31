@@ -26,7 +26,7 @@ module Dato
           {
             title: title,
             description: description,
-            image: image && image.to_hash(*args)
+            image: image && image.to_hash(*args),
           }
         end
       end

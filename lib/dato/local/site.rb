@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'forwardable'
-require 'active_support/inflector/transliterate'
-require 'active_support/hash_with_indifferent_access'
-require 'dato/utils/locale_value'
+require "forwardable"
+require "active_support/inflector/transliterate"
+require "active_support/hash_with_indifferent_access"
+require "dato/utils/locale_value"
 
 module Dato
   module Local
@@ -11,6 +11,7 @@ module Dato
       extend Forwardable
 
       attr_reader :entity
+
       def_delegators :entity, :id, :name, :locales, :domain,
                      :internal_domain, :no_index, :frontend_url
 

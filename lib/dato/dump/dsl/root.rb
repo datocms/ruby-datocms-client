@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'dato/dump/dsl/directory'
-require 'dato/dump/dsl/create_post'
-require 'dato/dump/dsl/create_data_file'
-require 'dato/dump/dsl/add_to_data_file'
+require "dato/dump/dsl/directory"
+require "dato/dump/dsl/create_post"
+require "dato/dump/dsl/create_data_file"
+require "dato/dump/dsl/add_to_data_file"
 
-require 'dato/dump/operation/directory'
+require "dato/dump/operation/directory"
 
 module Dato
   module Dump
@@ -21,9 +21,9 @@ module Dato
           @dato = dato
           @operations = operations
 
-          # rubocop:disable Lint/Eval
+          # rubocop:disable Security/Eval
           eval(config_code)
-          # rubocop:enable Lint/Eval
+          # rubocop:enable Security/Eval
         end
 
         def directory(path, &block)

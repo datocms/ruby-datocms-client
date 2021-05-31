@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'dato/dump/dsl/root'
-require 'dato/dump/operation/root'
-require 'dato/dump/ssg_detector'
-require 'dato/local/loader'
+require "dato/dump/dsl/root"
+require "dato/dump/operation/root"
+require "dato/dump/ssg_detector"
+require "dato/local/loader"
 
 module Dato
   module Dump
@@ -25,7 +25,7 @@ module Dato
         Dsl::Root.new(
           File.read(config_path),
           loader.items_repo,
-          operation
+          operation,
         )
 
         operation.perform

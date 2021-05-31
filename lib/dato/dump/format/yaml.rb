@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'active_support/core_ext/hash/keys'
-require 'yaml'
+require "active_support/core_ext/hash/keys"
+require "yaml"
 
 class Array
   def deep_stringify_keys
@@ -22,7 +22,7 @@ module Dato
     module Format
       module Yaml
         def self.dump(value)
-          YAML.dump(value.deep_stringify_keys).chomp.gsub(/^\-+\n/, '')
+          YAML.dump(value.deep_stringify_keys).chomp.gsub(/^-+\n/, "")
         end
 
         def self.frontmatter_dump(value)

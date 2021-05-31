@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'mime/types'
-require 'tempfile'
-require 'addressable'
-require 'net/http'
+require "mime/types"
+require "tempfile"
+require "addressable"
+require "net/http"
 
 module Dato
   module Upload
@@ -19,7 +19,7 @@ module Dato
         @file ||= if http_source?
                     uri = Addressable::URI.parse(source)
                     ext = ::File.extname(uri.path).downcase
-                    tempfile = Tempfile.new(['file', ext])
+                    tempfile = Tempfile.new(["file", ext])
                     tempfile.binmode
                     tempfile.write(download_file(source))
                     tempfile.rewind
@@ -31,7 +31,7 @@ module Dato
 
       def http_source?
         uri = Addressable::URI.parse(source)
-        uri.scheme == 'http' || uri.scheme == 'https'
+        uri.scheme == "http" || uri.scheme == "https"
       rescue Addressable::URI::InvalidURIError
         false
       end
@@ -51,9 +51,7 @@ module Dato
         mime_type = MIME::Types.of(filename).first
 
         request = Net::HTTP::Put.new(uri)
-        if mime_type
-          request.add_field("Content-Type", mime_type.to_s)
-        end
+        request.add_field("Content-Type", mime_type.to_s) if mime_type
         request.body = file.read
 
         http = Net::HTTP.new(uri.host, uri.port)
@@ -78,4 +76,3 @@ module Dato
     end
   end
 end
-

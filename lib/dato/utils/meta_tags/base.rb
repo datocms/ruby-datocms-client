@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'forwardable'
-require 'dato/local/field_type/seo'
-require 'active_support/core_ext/object/blank'
+require "forwardable"
+require "dato/local/field_type/seo"
+require "active_support/core_ext/object/blank"
 
 module Dato
   module Utils
@@ -19,7 +19,7 @@ module Dato
           fallback_seo = site.global_seo && site.global_seo.fallback_seo
 
           seo_field = item &&
-                      item.fields.detect { |f| f.field_type == 'seo' }
+                      item.fields.detect { |f| f.field_type == "seo" }
 
           item_seo_value = seo_field &&
                            item[seo_field.api_key] &&
@@ -36,11 +36,11 @@ module Dato
         end
 
         def meta_tag(name, content)
-          tag('meta', name: name, content: content)
+          tag("meta", name: name, content: content)
         end
 
         def og_tag(property, content)
-          tag('meta', property: property, content: content)
+          tag("meta", property: property, content: content)
         end
 
         def card_tag(name, content)

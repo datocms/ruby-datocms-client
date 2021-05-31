@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require 'dato/api_client'
-require 'dato/upload/file'
-require 'dato/upload/create_upload_path'
+require "dato/api_client"
+require "dato/upload/file"
+require "dato/upload/create_upload_path"
 
 module Dato
   module Site
     class Client
       include ApiClient
 
-      json_schema 'site-api'
+      json_schema "site-api"
 
       def create_upload_path(path_or_url)
         file = Upload::CreateUploadPath.new(self, path_or_url)
@@ -30,7 +30,7 @@ module Dato
         request(
           :post,
           "/pusher/authenticate",
-          { socket_id: socket_id, channel_name: channel}
+          { socket_id: socket_id, channel_name: channel },
         )
       end
     end

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'forwardable'
-require 'active_support/inflector/transliterate'
-require 'active_support/hash_with_indifferent_access'
-require 'dato/utils/locale_value'
+require "forwardable"
+require "active_support/inflector/transliterate"
+require "active_support/hash_with_indifferent_access"
+require "dato/utils/locale_value"
 
-Dir[File.dirname(__FILE__) + '/field_type/*.rb'].each do |file|
+Dir["#{File.dirname(__FILE__)}/field_type/*.rb"].sort.each do |file|
   require file
 end
 
@@ -15,6 +15,7 @@ module Dato
       extend Forwardable
 
       attr_reader :entity
+
       def_delegators :entity, :id, :meta
 
       def initialize(entity, items_repo)
@@ -45,7 +46,7 @@ module Dato
 
       def attributes
         fields.each_with_object(
-          ActiveSupport::HashWithIndifferentAccess.new
+          ActiveSupport::HashWithIndifferentAccess.new,
         ) do |field, acc|
           acc[field.api_key.to_sym] = read_attribute(field.api_key, field)
         end
@@ -88,7 +89,7 @@ module Dato
           id: id,
           item_type: item_type.api_key,
           updated_at: updated_at,
-          created_at: created_at
+          created_at: created_at,
         }
 
         base[:position] = position if item_type.sortable
@@ -98,7 +99,7 @@ module Dato
           base[:children] = children.map do |child|
             child.to_hash(
               max_depth,
-              current_depth + 1
+              current_depth + 1,
             )
           end
         end
@@ -109,7 +110,7 @@ module Dato
           result[field.api_key.to_sym] = if value.respond_to?(:to_hash)
                                            value.to_hash(
                                              max_depth,
-                                             current_depth + 1
+                                             current_depth + 1,
                                            )
                                          else
                                            value
@@ -138,9 +139,9 @@ module Dato
             "Warning: unrecognized field of type `#{field_type}`",
             "for item `#{item_type.api_key}` and",
             "field `#{method}`: returning a simple Hash instead.",
-            'Please upgrade to the latest version of the `dato` gem!'
+            "Please upgrade to the latest version of the `dato` gem!",
           ]
-          puts warning.join(' ')
+          puts warning.join(" ")
 
           value
         end
@@ -154,7 +155,7 @@ module Dato
           super
         end
       rescue NoMethodError => e
-        if e.name === method
+        if e.name == method
           message = []
           message << "Undefined method `#{method}`"
           message << "Available fields for a `#{item_type.api_key}` item:"

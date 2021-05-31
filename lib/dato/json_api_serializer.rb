@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'dato/json_schema_relationships'
-require 'dato/json_schema_type'
+require "dato/json_schema_relationships"
+require "dato/json_schema_type"
 
 module Dato
   class JsonApiSerializer
@@ -23,8 +23,8 @@ module Dato
       data[:type] = type
 
       if link.schema &&
-         link.schema.properties['data'] &&
-         link.schema.properties['data'].properties.keys.include?('attributes')
+         link.schema.properties["data"] &&
+         link.schema.properties["data"].properties.keys.include?("attributes")
 
         serialized_resource_attributes = serialized_attributes(resource)
         data[:attributes] = serialized_resource_attributes
@@ -32,9 +32,7 @@ module Dato
 
       serialized_relationships = serialized_relationships(resource)
 
-      if serialized_relationships
-        data[:relationships] = serialized_relationships
-      end
+      data[:relationships] = serialized_relationships if serialized_relationships
 
       { data: data }
     end
@@ -73,13 +71,13 @@ module Dato
                        value.map do |id|
                          {
                            type: meta_type,
-                           id: id.to_s
+                           id: id.to_s,
                          }
                        end
                      else
                        {
                          type: meta_type,
-                         id: value.to_s
+                         id: value.to_s,
                        }
                      end
                    end
@@ -95,7 +93,7 @@ module Dato
     end
 
     def attributes(resource)
-      if type == 'item'
+      if type == "item"
         return resource.keys.reject do |key|
           %i[
             item_type
@@ -107,11 +105,11 @@ module Dato
         end
       end
 
-      link_attributes['properties'].keys.map(&:to_sym)
+      link_attributes["properties"].keys.map(&:to_sym)
     end
 
     def required_attributes
-      return [] if type == 'item'
+      return [] if type == "item"
 
       (link_attributes.required || []).map(&:to_sym)
     end
@@ -121,7 +119,7 @@ module Dato
     end
 
     def required_relationships
-      if link.schema.properties['data'].required.include?('relationships')
+      if link.schema.properties["data"].required.include?("relationships")
         (link_relationships.required || []).map(&:to_sym)
       else
         []
@@ -129,11 +127,11 @@ module Dato
     end
 
     def link_attributes
-      link.schema.properties['data'].properties['attributes']
+      link.schema.properties["data"].properties["attributes"]
     end
 
     def link_relationships
-      link.schema.properties['data'].properties['relationships']
+      link.schema.properties["data"].properties["relationships"]
     end
 
     def type_from_schema

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require 'dato/json_schema_relationships'
+
+require "dato/json_schema_relationships"
 
 module Dato
   class JsonApiDeserializer
@@ -28,21 +29,19 @@ module Dato
 
       if data[:relationships]
         relationships.each do |relationship, meta|
-          if data[:relationships][relationship]
-            rel_data = data[:relationships][relationship][:data]
+          next unless data[:relationships][relationship]
 
-            result[relationship] = if meta[:types].length > 1
-                                     rel_data
-                                   else
-                                     if !rel_data
-                                       nil
-                                     elsif meta[:collection]
-                                       rel_data.map { |ref| ref[:id] }
-                                     else
-                                       rel_data[:id]
-                                     end
-                                   end
-          end
+          rel_data = data[:relationships][relationship][:data]
+
+          result[relationship] = if meta[:types].length > 1
+                                   rel_data
+                                 elsif !rel_data
+                                   nil
+                                 elsif meta[:collection]
+                                   rel_data.map { |ref| ref[:id] }
+                                 else
+                                   rel_data[:id]
+                                 end
         end
       end
 

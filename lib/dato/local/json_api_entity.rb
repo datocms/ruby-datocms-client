@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'dato/local/json_api_meta'
+require "dato/local/json_api_meta"
 
 module Dato
   module Local
@@ -60,11 +60,12 @@ module Dato
       end
 
       def dereference_linkage(linkage)
-        if linkage.is_a? Array
+        case linkage
+        when Array
           linkage.map do |item|
             data_source.find_entity(item[:type], item[:id])
           end
-        elsif linkage.is_a? Hash
+        when Hash
           data_source.find_entity(linkage[:type], linkage[:id])
         end
       end

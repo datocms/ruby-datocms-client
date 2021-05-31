@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'active_support/core_ext/string'
-require 'dato/local/item'
-require 'dato/local/site'
+require "active_support/core_ext/string"
+require "dato/local/item"
+require "dato/local/site"
 
 module Dato
   module Local
@@ -37,8 +37,8 @@ module Dato
 
       def site
         Site.new(
-          entities_repo.find_entities_of_type('site').first,
-          self
+          entities_repo.find_entities_of_type("site").first,
+          self,
         )
       end
 
@@ -47,7 +47,7 @@ module Dato
       end
 
       def item_types
-        entities_repo.find_entities_of_type('item_type')
+        entities_repo.find_entities_of_type("item_type")
       end
 
       def single_instance_item_types
@@ -97,7 +97,7 @@ module Dato
                    end
 
           if clashing_keys.include?(pluralized_api_key)
-            suffix = item_type.singleton ? 'instance' : 'collection'
+            suffix = item_type.singleton ? "instance" : "collection"
             method = "#{method}_#{suffix}"
           end
 
@@ -119,9 +119,7 @@ module Dato
           item = Item.new(item_entity, self)
           method = item_type_methods[item_entity.item_type]
 
-          unless item_entity.item_type.singleton
-            @collections_by_type[method].push item
-          end
+          @collections_by_type[method].push item unless item_entity.item_type.singleton
 
           @items_by_id[item.id] = item
 
@@ -144,9 +142,7 @@ module Dato
               item[field].nil?
             end
             @collections_by_type[method] = valid_items.sort_by { |item| item[field] } + nil_items
-            if item_type.ordering_direction == 'desc'
-              @collections_by_type[method].reverse!
-            end
+            @collections_by_type[method].reverse! if item_type.ordering_direction == "desc"
           end
         end
       end
@@ -156,16 +152,14 @@ module Dato
           method = item_type_methods[item_type]
           next unless item_type.singleton
 
-          item = if item_type.singleton_item
-                   @items_by_id[item_type.singleton_item.id]
-                 end
+          item = (@items_by_id[item_type.singleton_item.id] if item_type.singleton_item)
 
           @collections_by_type[method] = item
         end
       end
 
       def item_entities
-        entities_repo.find_entities_of_type('item')
+        entities_repo.find_entities_of_type("item")
       end
 
       def method_missing(method, *arguments, &block)
@@ -177,7 +171,7 @@ module Dato
       rescue NoMethodError
         message = []
         message << "Undefined method `#{method}`"
-        message << 'Available DatoCMS collections/items:'
+        message << "Available DatoCMS collections/items:"
         message += collections_by_type.map do |key, _value|
           "* .#{key}"
         end

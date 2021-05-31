@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'dato/utils/meta_tags/base'
+require "dato/utils/meta_tags/base"
 
 module Dato
   module Utils
@@ -8,9 +8,9 @@ module Dato
       class OgType < Base
         def build
           if !item || item.singleton?
-            og_tag('og:type', 'website')
+            og_tag("og:type", "website")
           else
-            og_tag('og:type', 'article')
+            og_tag("og:type", "article")
           end
         end
       end

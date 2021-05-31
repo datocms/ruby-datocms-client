@@ -13,9 +13,7 @@ module Dato
           @repo = repo
         end
 
-        def value
-          @value
-        end
+        attr_reader :value
 
         def blocks
           find_all_nodes("block").map do |node|
@@ -24,23 +22,19 @@ module Dato
         end
 
         def links
-          find_all_nodes(["inlineItem", "itemLink"]).map do |node|
+          find_all_nodes(%w[inlineItem itemLink]).map do |node|
             @repo.find(node["item"])
           end.uniq
         end
 
         def find_all_nodes(types)
-          if value.nil?
-            return []
-          end
+          return [] if value.nil?
 
           types = Array(types)
           result = []
 
           visit(value["document"]) do |node|
-            if node.is_a?(Hash) && types.include?(node["type"])
-              result << node
-            end
+            result << node if node.is_a?(Hash) && types.include?(node["type"])
           end
 
           result

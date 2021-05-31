@@ -13,7 +13,7 @@ module Dato
             value[:dark_color],
             value[:light_color],
             value[:accent_color],
-            repo
+            repo,
           )
         end
 
@@ -36,7 +36,7 @@ module Dato
             dark_color: dark_color,
             light_color: light_color,
             accent_color: accent_color,
-            logo: logo && logo.to_hash(*args)
+            logo: logo && logo.to_hash(*args),
           }
         end
       end

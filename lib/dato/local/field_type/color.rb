@@ -4,14 +4,14 @@ module Dato
   module Local
     module FieldType
       class Color
-        attr_reader :red, :green, :blue, :alpha
+        attr_reader :red, :green, :blue
 
         def self.parse(value, _repo)
           value && new(
             value[:red],
             value[:green],
             value[:blue],
-            value[:alpha]
+            value[:alpha],
           )
         end
 
@@ -19,15 +19,19 @@ module Dato
           @red = red
           @green = green
           @blue = blue
-          @alpha = alpha / 255.0
+          @alpha = alpha
         end
 
         def rgb
-          if alpha == 1.0
+          if @alpha == 255
             "rgb(#{red}, #{green}, #{blue})"
           else
             "rgba(#{red}, #{green}, #{blue}, #{alpha})"
           end
+        end
+
+        def alpha
+          @alpha / 255.0
         end
 
         def hex
@@ -41,9 +45,9 @@ module Dato
           b = "0#{b}" if b.length == 1
           a = "0#{a}" if a.length == 1
 
-          hex = '#' + r + g + b
+          hex = "##{r}#{g}#{b}"
 
-          hex += a if a != 'ff'
+          hex += a if a != "ff"
 
           hex
         end
@@ -54,7 +58,7 @@ module Dato
             green: green,
             blue: blue,
             rgb: rgb,
-            hex: hex
+            hex: hex,
           }
         end
       end

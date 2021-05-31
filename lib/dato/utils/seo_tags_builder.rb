@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require 'dato/utils/meta_tags/title'
-require 'dato/utils/meta_tags/description'
-require 'dato/utils/meta_tags/image'
-require 'dato/utils/meta_tags/robots'
-require 'dato/utils/meta_tags/og_locale'
-require 'dato/utils/meta_tags/og_type'
-require 'dato/utils/meta_tags/og_site_name'
-require 'dato/utils/meta_tags/article_modified_time'
-require 'dato/utils/meta_tags/article_publisher'
-require 'dato/utils/meta_tags/twitter_card'
-require 'dato/utils/meta_tags/twitter_site'
+require "dato/utils/meta_tags/title"
+require "dato/utils/meta_tags/description"
+require "dato/utils/meta_tags/image"
+require "dato/utils/meta_tags/robots"
+require "dato/utils/meta_tags/og_locale"
+require "dato/utils/meta_tags/og_type"
+require "dato/utils/meta_tags/og_site_name"
+require "dato/utils/meta_tags/article_modified_time"
+require "dato/utils/meta_tags/article_publisher"
+require "dato/utils/meta_tags/twitter_card"
+require "dato/utils/meta_tags/twitter_site"
 
 module Dato
   module Utils
@@ -26,7 +26,7 @@ module Dato
         MetaTags::ArticleModifiedTime,
         MetaTags::ArticlePublisher,
         MetaTags::TwitterCard,
-        MetaTags::TwitterSite
+        MetaTags::TwitterSite,
       ].freeze
 
       attr_reader :site, :item

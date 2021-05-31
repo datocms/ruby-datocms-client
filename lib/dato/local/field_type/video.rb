@@ -4,14 +4,7 @@ module Dato
   module Local
     module FieldType
       class Video
-        attr_reader :url
-        attr_reader :thumbnail_url
-        attr_reader :title
-        attr_reader :width
-        attr_reader :height
-        attr_reader :provider
-        attr_reader :provider_url
-        attr_reader :provider_uid
+        attr_reader :url, :thumbnail_url, :title, :width, :height, :provider, :provider_url, :provider_uid
 
         def self.parse(value, _repo)
           value && new(
@@ -22,7 +15,7 @@ module Dato
             value[:height],
             value[:provider],
             value[:provider_url],
-            value[:provider_uid]
+            value[:provider_uid],
           )
         end
 
@@ -47,15 +40,16 @@ module Dato
         end
 
         def iframe_embed(width = self.width, height = self.height)
-          # rubocop:disable Metrics/LineLength
-          if provider == 'youtube'
+          # rubocop:disable Layout/LineLength
+          case provider
+          when "youtube"
             %(<iframe width="#{width}" height="#{height}" src="//www.youtube.com/embed/#{provider_uid}?rel=0" frameborder="0" allowfullscreen></iframe>)
-          elsif provider == 'vimeo'
+          when "vimeo"
             %(<iframe src="//player.vimeo.com/video/#{provider_uid}?title=0&amp;byline=0&amp;portrait=0" width="#{width}" height="#{height}" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>)
-          elsif provider == 'facebook'
+          when "facebook"
             %(<iframe src="//www.facebook.com/plugins/video.php?href=#{url}&width=#{width}&show_text=false&height=#{height}" width="#{width}" height="#{height}" style="border:none;overflow:hidden;width:100%;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>)
           end
-          # rubocop:enable Metrics/LineLength
+          # rubocop:enable Layout/LineLength
         end
 
         def to_hash(*_args)
@@ -67,7 +61,7 @@ module Dato
             height: height,
             provider: provider,
             provider_url: provider_url,
-            provider_uid: provider_uid
+            provider_uid: provider_uid,
           }
         end
       end

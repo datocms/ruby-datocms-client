@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'dato/utils/meta_tags/base'
+require "dato/utils/meta_tags/base"
 
 module Dato
   module Utils
@@ -10,9 +10,9 @@ module Dato
           return unless item_title
 
           [
-            content_tag('title', item_title_with_suffix),
-            og_tag('og:title', item_title),
-            card_tag('twitter:title', item_title)
+            content_tag("title", item_title_with_suffix),
+            og_tag("og:title", item_title),
+            card_tag("twitter:title", item_title),
           ]
         end
 
@@ -23,12 +23,12 @@ module Dato
         def item_title
           @item_title ||= seo_field_with_fallback(
             :title,
-            title_field && item[title_field.api_key]
+            title_field && item[title_field.api_key],
           )
         end
 
         def suffix
-          (site.global_seo && site.global_seo.title_suffix) || ''
+          (site.global_seo && site.global_seo.title_suffix) || ""
         end
 
         def item_title_with_suffix

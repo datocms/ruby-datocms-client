@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'dato/utils/meta_tags/base'
+require "dato/utils/meta_tags/base"
 
 module Dato
   module Utils
@@ -10,9 +10,9 @@ module Dato
           return unless description.present?
 
           [
-            meta_tag('description', description),
-            og_tag('og:description', description),
-            card_tag('twitter:description', description)
+            meta_tag("description", description),
+            og_tag("og:description", description),
+            card_tag("twitter:description", description),
           ]
         end
 

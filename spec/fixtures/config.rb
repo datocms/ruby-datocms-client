@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 def helper_method_example
-  puts 'A helper method'
+  puts "A helper method"
 end
 
 dato.available_locales.each do |_locale|
-  create_data_file 'site.yml', :yml, dato.site.to_hash
+  create_data_file "site.yml", :yml, dato.site.to_hash
 
-  directory 'posts' do
+  directory "posts" do
     helper_method_example
 
     dato.articles.each do |post|
@@ -18,5 +18,5 @@ dato.available_locales.each do |_locale|
     end
   end
 
-  add_to_data_file 'foobar.toml', :toml, sitename: dato.site.name
+  add_to_data_file "foobar.toml", :toml, sitename: dato.site.name
 end

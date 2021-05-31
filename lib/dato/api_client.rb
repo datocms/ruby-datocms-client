@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-require 'faraday'
-require 'faraday_middleware'
-require 'json'
-require 'json_schema'
-require 'active_support/core_ext/hash/indifferent_access'
-require 'active_support/inflector'
+require "faraday"
+require "faraday_middleware"
+require "json"
+require "json_schema"
+require "active_support/core_ext/hash/indifferent_access"
+require "active_support/inflector"
 
-require 'dato/version'
-require 'dato/repo'
+require "dato/version"
+require "dato/repo"
 
-require 'dato/api_error'
+require "dato/api_error"
 
-require 'cacert'
+require "cacert"
 
 module Dato
   module ApiClient
@@ -41,11 +41,9 @@ module Dato
 
     def respond_to_missing?(method, include_private = false)
       json_schema.definitions.each do |type, obj|
-        is_collection = obj.links.select { |x| x.rel == 'instances' }.any?
+        is_collection = obj.links.select { |x| x.rel == "instances" }.any?
         namespace = is_collection ? type.pluralize : type
-        if method.to_s === namespace
-          return true
-        end
+        return true if method.to_s == namespace
       end
 
       super
@@ -53,18 +51,18 @@ module Dato
 
     def method_missing(method, *args, &block)
       json_schema.definitions.each do |type, obj|
-        is_collection = obj.links.select { |x| x.rel == 'instances' }.any?
+        is_collection = obj.links.select { |x| x.rel == "instances" }.any?
         namespace = is_collection ? type.pluralize : type
 
-        if method.to_s === namespace
-          instance_variable_set(
-            "@#{namespace}",
-            instance_variable_get("@#{namespace}") ||
-            Dato::Repo.new(self, type, obj)
-          )
+        next unless method.to_s == namespace
 
-          return instance_variable_get("@#{namespace}")
-        end
+        instance_variable_set(
+          "@#{namespace}",
+          instance_variable_get("@#{namespace}") ||
+          Dato::Repo.new(self, type, obj),
+        )
+
+        return instance_variable_get("@#{namespace}")
       end
 
       super
@@ -74,7 +72,7 @@ module Dato
       @json_schema ||= begin
         response = Faraday.get(
           # "http://#{subdomain}.lvh.me:3001/docs/#{subdomain}-hyperschema.json"
-          "#{base_url}/docs/#{self.class.subdomain}-hyperschema.json"
+          "#{base_url}/docs/#{self.class.subdomain}-hyperschema.json",
         )
 
         schema = JsonSchema.parse!(JSON.parse(response.body))
@@ -109,7 +107,7 @@ module Dato
 
       response.body.with_indifferent_access if response.body.is_a?(Hash)
     rescue Faraday::SSLError => e
-      raise e if ENV['SSL_CERT_FILE'] == Cacert.pem
+      raise e if ENV["SSL_CERT_FILE"] == Cacert.pem
 
       Cacert.set_in_env
       request(*args)
@@ -118,12 +116,12 @@ module Dato
       raise e
     rescue Faraday::ClientError => e
       if e.response[:status] == 429
-        to_wait = e.response[:headers]['x-ratelimit-reset'].to_i
+        to_wait = e.response[:headers]["x-ratelimit-reset"].to_i
         puts "Rate limit exceeded, waiting #{to_wait} seconds..."
         sleep(to_wait + 1)
         request(*args)
       elsif e.response[:status] == 422 && batch_data_validation?(e.response)
-        puts 'Validating items, waiting 1 second and retrying...'
+        puts "Validating items, waiting 1 second and retrying..."
         sleep(1)
         request(*args)
       else
@@ -140,16 +138,16 @@ module Dato
 
     def batch_data_validation?(response)
       body = begin
-               JSON.parse(response[:body])
-             rescue JSON::ParserError => e
-               nil
-             end
+        JSON.parse(response[:body])
+      rescue JSON::ParserError
+        nil
+      end
 
       return false unless body
-      return false unless body['data']
+      return false unless body["data"]
 
-      body['data'].any? do |e|
-        e['attributes']['code'] == 'BATCH_DATA_VALIDATION_IN_PROGRESS'
+      body["data"].any? do |e|
+        e["attributes"]["code"] == "BATCH_DATA_VALIDATION_IN_PROGRESS"
       end
     rescue StandardError
       false
@@ -157,20 +155,18 @@ module Dato
 
     def connection
       default_headers = {
-        'Accept' => 'application/json',
-        'Content-Type' => 'application/json',
-        'Authorization' => "Bearer #{@token}",
-        'User-Agent' => "ruby-client v#{Dato::VERSION}",
-        'X-Api-Version' => '3'
+        "Accept" => "application/json",
+        "Content-Type" => "application/json",
+        "Authorization" => "Bearer #{@token}",
+        "User-Agent" => "ruby-client v#{Dato::VERSION}",
+        "X-Api-Version" => "3",
       }
 
-      if environment
-        default_headers.merge!('X-Environment' => environment)
-      end
+      default_headers.merge!("X-Environment" => environment) if environment
 
       options = {
         url: base_url,
-        headers: default_headers.merge(extra_headers)
+        headers: default_headers.merge(extra_headers),
       }
 
       @connection ||= Faraday.new(options) do |c|

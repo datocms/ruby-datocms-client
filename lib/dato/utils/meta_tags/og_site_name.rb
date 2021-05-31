@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require 'dato/utils/meta_tags/base'
+require "dato/utils/meta_tags/base"
 
 module Dato
   module Utils
     module MetaTags
       class OgSiteName < Base
         def build
-          og_tag('og:site_name', site_name) if site_name
+          og_tag("og:site_name", site_name) if site_name
         end
 
         def site_name

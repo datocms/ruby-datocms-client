@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'dato/upload/create_upload_path'
+require "dato/upload/create_upload_path"
 
 module Dato
   module Upload
@@ -18,14 +18,14 @@ module Dato
         upload_path = CreateUploadPath.new(client, source).upload_path
 
         upload = client.uploads.create(
-          upload_attributes.merge(path: upload_path)
+          upload_attributes.merge(path: upload_path),
         )
 
         {
           alt: nil,
           title: nil,
           custom_data: {},
-        }.merge(field_attributes).merge(upload_id: upload['id'])
+        }.merge(field_attributes).merge(upload_id: upload["id"])
       end
     end
   end

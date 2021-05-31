@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'fileutils'
-require 'dato/dump/format'
+require "fileutils"
+require "dato/dump/format"
 
 module Dato
   module Dump
@@ -19,7 +19,7 @@ module Dato
         def perform
           FileUtils.mkdir_p(File.dirname(path))
 
-          File.open(File.join(context.path, path), 'w') do |file|
+          File.open(File.join(context.path, path), "w") do |file|
             file.write Format.dump(format, value)
           end
         end

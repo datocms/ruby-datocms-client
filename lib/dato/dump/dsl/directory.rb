@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'dato/dump/dsl/create_post'
-require 'dato/dump/dsl/create_data_file'
-require 'dato/dump/dsl/add_to_data_file'
+require "dato/dump/dsl/create_post"
+require "dato/dump/dsl/create_data_file"
+require "dato/dump/dsl/add_to_data_file"
 
 module Dato
   module Dump
@@ -17,7 +17,7 @@ module Dato
         def initialize(dato, operations, &block)
           @dato = dato
           @operations = operations
-          @self_before_instance_eval = eval 'self', block.binding
+          @self_before_instance_eval = eval "self", block.binding
 
           instance_eval(&block)
         end

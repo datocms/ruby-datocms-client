@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'i18n/backend/fallbacks'
+require "i18n/backend/fallbacks"
 
 module Dato
   module Utils

@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-require 'active_support/core_ext/hash/keys'
-require 'toml'
+require "active_support/core_ext/hash/keys"
+require "toml"
 
 class Time
-  def to_toml(_path = '')
-    utc.strftime('%Y-%m-%dT%H:%M:%SZ')
+  def to_toml(_path = "")
+    utc.strftime("%Y-%m-%dT%H:%M:%SZ")
   end
 end
 
 class Date
-  def to_toml(_path = '')
-    strftime('%Y-%m-%d')
+  def to_toml(_path = "")
+    strftime("%Y-%m-%d")
   end
 end
 

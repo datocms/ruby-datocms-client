@@ -3,6 +3,7 @@
 module Dato
   class JsonSchemaType
     attr_reader :schema
+
     def initialize(schema)
       @schema = schema
     end
@@ -12,7 +13,7 @@ module Dato
 
       return nil unless type_property
 
-      type_property.pattern.to_s.gsub(/(^(\(\?-mix:\^)|(\$\))$)/, '')
+      type_property.pattern.to_s.gsub(/(^(\(\?-mix:\^)|(\$\))$)/, "")
     end
 
     private
@@ -22,26 +23,22 @@ module Dato
 
       return nil unless entity
 
-      entity.properties['type']
+      entity.properties["type"]
     end
 
     def find_entity_in_data
-      return nil if !schema || !schema.properties['data']
+      return nil if !schema || !schema.properties["data"]
 
-      if schema.properties['data'].type.first == 'array'
-        if schema.properties['data'].items
-          return schema.properties['data'].items
-        end
+      if schema.properties["data"].type.first == "array"
+        return schema.properties["data"].items if schema.properties["data"].items
 
         return nil
       end
 
-      if schema.properties['data'].type.first == 'object'
-        return schema.properties['data']
-      end
+      return schema.properties["data"] if schema.properties["data"].type.first == "object"
 
-      if schema.properties['data'].any_of
-        return schema.properties['data'].any_of.reject { |x| x.definitions.type.example == 'job' }
+      if schema.properties["data"].any_of
+        return schema.properties["data"].any_of.reject { |x| x.definitions.type.example == "job" }
       end
 
       nil

@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require 'dato/utils/meta_tags/base'
+require "dato/utils/meta_tags/base"
 
 module Dato
   module Utils
     module MetaTags
       class TwitterSite < Base
         def build
-          card_tag('twitter:site', twitter_account) if twitter_account
+          card_tag("twitter:site", twitter_account) if twitter_account
         end
 
         def twitter_account

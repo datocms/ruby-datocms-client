@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'dato/dump/operation/add_to_data_file'
+require "dato/dump/operation/add_to_data_file"
 
 module Dato
   module Dump

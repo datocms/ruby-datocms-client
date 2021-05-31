@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'dato/upload/file'
+require "dato/upload/file"
 
 module Dato
   module Upload

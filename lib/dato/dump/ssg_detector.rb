@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'toml'
-require 'json'
-require 'yaml'
+require "toml"
+require "json"
+require "yaml"
 
 module Dato
   module Dump
@@ -18,17 +18,17 @@ module Dato
 
       HUGO = [
         {
-          file: 'config.toml',
-          loader: ->(content) { TOML::Parser.new(content).parsed }
+          file: "config.toml",
+          loader: ->(content) { TOML::Parser.new(content).parsed },
         },
         {
-          file: 'config.yaml',
-          loader: ->(content) { YAML.safe_load(content) }
+          file: "config.yaml",
+          loader: ->(content) { YAML.safe_load(content) },
         },
         {
-          file: 'config.json',
-          loader: ->(content) { JSON.parse(content) }
-        }
+          file: "config.json",
+          loader: ->(content) { JSON.parse(content) },
+        },
       ].freeze
 
       def initialize(path)
@@ -40,13 +40,13 @@ module Dato
           node_generator ||
           python_generator ||
           hugo ||
-          'unknown'
+          "unknown"
       end
 
       private
 
       def ruby_generator
-        gemfile_path = File.join(path, 'Gemfile')
+        gemfile_path = File.join(path, "Gemfile")
         return unless File.exist?(gemfile_path)
 
         gemfile = File.read(gemfile_path)
@@ -57,13 +57,13 @@ module Dato
       end
 
       def node_generator
-        package_path = File.join(path, 'package.json')
+        package_path = File.join(path, "package.json")
         return unless File.exist?(package_path)
 
         package = JSON.parse(File.read(package_path))
 
-        deps = package.fetch('dependencies', {})
-        dev_deps = package.fetch('devDependencies', {})
+        deps = package.fetch("dependencies", {})
+        dev_deps = package.fetch("devDependencies", {})
         all_deps = deps.merge(dev_deps)
 
         NODE.find do |generator|
@@ -74,7 +74,7 @@ module Dato
       end
 
       def python_generator
-        requirements_path = File.join(path, 'requirements.txt')
+        requirements_path = File.join(path, "requirements.txt")
         return unless File.exist?(requirements_path)
 
         requirements = File.read(requirements_path)
@@ -89,12 +89,10 @@ module Dato
           config_path = File.join(path, option[:file])
           if File.exist?(config_path)
             config = option[:loader].call(File.read(config_path))
-            config.key? 'baseurl'
+            config.key? "baseurl"
           end
-        end && 'hugo'
+        end && "hugo"
       rescue JSON::ParserError
-        nil
-      rescue Psych::SyntaxError
         nil
       end
     end

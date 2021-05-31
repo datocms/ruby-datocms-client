@@ -1,6 +1,7 @@
 
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.4
+  NewCops: enable
 
   Exclude:
   - "dato.gemspec"
@@ -11,7 +12,25 @@ Style/SafeNavigation:
 Style/Documentation:
   Enabled: false
 
+Style/GuardClause:
+  Enabled: false
+
+Naming/PredicateName:
+  Enabled: false
+
+Style/MissingRespondToMissing:
+  Enabled: false
+
+Style/EvalWithLocation:
+  Enabled: false
+
+Metrics/BlockNesting:
+  Enabled: false
+
 Metrics/MethodLength:
+  Enabled: false
+
+Metrics/BlockLength:
   Enabled: false
 
 Metrics/ClassLength:
@@ -21,13 +40,13 @@ Metrics/ModuleLength:
   Enabled: false
 
 Metrics/CyclomaticComplexity:
-  Max: 8
+  Enabled: false
 
 Metrics/AbcSize:
-  Max: 30
+  Enabled: false
 
 Metrics/PerceivedComplexity:
-  Max: 8
+  Enabled: false
 
 Metrics/LineLength:
   Exclude:
@@ -40,3 +59,21 @@ Metrics/LineLength:
 Metrics/ParameterLists:
   Exclude:
   - "lib/dato/local/field_type/*"
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes

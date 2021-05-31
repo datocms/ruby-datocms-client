@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'imgix'
+require "imgix"
 
 module Dato
   module Local
@@ -10,7 +10,7 @@ module Dato
 
         def self.parse(upload_id, repo)
           if upload_id
-            upload = repo.entities_repo.find_entity('upload', upload_id)
+            upload = repo.entities_repo.find_entity("upload", upload_id)
 
             if upload
               new(
@@ -19,7 +19,7 @@ module Dato
                 upload.size,
                 upload.width,
                 upload.height,
-                repo.site.entity.imgix_host
+                repo.site.entity.imgix_host,
               )
             end
           end
@@ -45,7 +45,7 @@ module Dato
           Imgix::Client.new(
             domain: @imgix_host,
             secure: true,
-            include_library_param: false
+            include_library_param: false,
           ).path(path)
         end
 
@@ -59,7 +59,7 @@ module Dato
             size: size,
             width: width,
             height: height,
-            url: url
+            url: url,
           }
         end
       end

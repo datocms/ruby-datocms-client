@@ -2,25 +2,22 @@
 
 module Dato
   class ApiError < StandardError
-    attr_reader :response
+    attr_reader :response, :body
 
     def initialize(response)
-      @response = response
-    end
+      body = JSON.parse(response[:body]) if response[:body]
 
-    def message
-      [
-        'DatoCMS API Error',
+      message = [
+        "DatoCMS API Error",
         "Status: #{response[:status]}",
-        'Response:',
-        JSON.pretty_generate(body)
+        "Response:",
+        JSON.pretty_generate(body),
       ].join("\n")
-    end
 
-    def body
-      if response[:body]
-        JSON.parse(response[:body])
-      end
+      super(message)
+
+      @response = response
+      @body = body
     end
   end
 end

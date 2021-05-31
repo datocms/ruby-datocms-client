@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'imgix'
+require "imgix"
 
 module Dato
   module Local
@@ -10,7 +10,7 @@ module Dato
           if value
             v = value.with_indifferent_access
 
-            upload = repo.entities_repo.find_entity('upload', v[:upload_id])
+            upload = repo.entities_repo.find_entity("upload", v[:upload_id])
 
             if upload
               new(
@@ -19,7 +19,7 @@ module Dato
                 v[:title],
                 v[:custom_data],
                 v[:focal_point],
-                repo.site.entity.imgix_host
+                repo.site.entity.imgix_host,
               )
             end
           end
@@ -88,25 +88,25 @@ module Dato
         def alt
           default_metadata = @upload.default_field_metadata.deep_stringify_keys
                                     .fetch(I18n.locale.to_s, {})
-          @alt || default_metadata['alt']
+          @alt || default_metadata["alt"]
         end
 
         def title
           default_metadata = @upload.default_field_metadata.deep_stringify_keys
                                     .fetch(I18n.locale.to_s, {})
-          @title || default_metadata['title']
+          @title || default_metadata["title"]
         end
 
         def custom_data
           default_metadata = @upload.default_field_metadata.deep_stringify_keys
                                     .fetch(I18n.locale.to_s, {})
-          @custom_data.merge(default_metadata.fetch('custom_data', {}))
+          @custom_data.merge(default_metadata.fetch("custom_data", {}))
         end
 
         def focal_point
           default_metadata = @upload.default_field_metadata.deep_stringify_keys
                                     .fetch(I18n.locale.to_s, {})
-          @focal_point || default_metadata['focal_point']
+          @focal_point || default_metadata["focal_point"]
         end
 
         def tags
@@ -174,9 +174,7 @@ module Dato
               if options[:exact_res] == :low
                 raw_mp4_url("low")
               elsif options[:exact_res] == :medium
-                if %w[medium high].include?(@upload.mux_mp4_highest_res)
-                  raw_mp4_url("medium")
-                end
+                raw_mp4_url("medium") if %w[medium high].include?(@upload.mux_mp4_highest_res)
               elsif @upload.mux_mp4_highest_res == :high
                 raw_mp4_url("high")
               end
@@ -212,16 +210,14 @@ module Dato
         end
 
         def video
-          if @upload.mux_playback_id
-            VideoAttributes.new(@upload)
-          end
+          VideoAttributes.new(@upload) if @upload.mux_playback_id
         end
 
         def file
           Imgix::Client.new(
             domain: @imgix_host,
             secure: true,
-            include_library_param: false
+            include_library_param: false,
           ).path(path)
         end
 
@@ -229,12 +225,12 @@ module Dato
           query.deep_stringify_keys!
 
           if focal_point &&
-            query["fit"] == "crop" &&
-            (query["h"] || query["height"]) &&
-            (query["w"] || query["width"]) &&
-            [nil, "focalpoint"].include?(query["crop"]) &&
-            query["fp-x"].nil? &&
-            query["fp-y"].nil?
+             query["fit"] == "crop" &&
+             (query["h"] || query["height"]) &&
+             (query["w"] || query["width"]) &&
+             [nil, "focalpoint"].include?(query["crop"]) &&
+             query["fp-x"].nil? &&
+             query["fp-y"].nil?
 
             query.merge!(
               "crop" => "focalpoint",
@@ -252,9 +248,7 @@ module Dato
 
           response = Faraday.get(file.to_url(opts.merge(lqip: "blurhash")))
 
-          if response.status == 200
-            "data:image/jpeg;base64,#{Base64.strict_encode64(response.body)}"
-          end
+          "data:image/jpeg;base64,#{Base64.strict_encode64(response.body)}" if response.status == 200
         end
 
         def to_hash(*_args)
@@ -279,7 +273,7 @@ module Dato
             mime_type: mime_type,
             colors: colors.map(&:to_hash),
             blurhash: blurhash,
-            video: video && video.to_hash
+            video: video && video.to_hash,
           }
         end
       end

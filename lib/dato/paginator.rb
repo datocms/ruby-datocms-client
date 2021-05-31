@@ -12,7 +12,7 @@ module Dato
       items_per_page = 100
 
       base_response = @client.get(
-        @base_endpoint, @filters.dup.merge('page[limit]' => items_per_page)
+        @base_endpoint, @filters.dup.merge("page[limit]" => items_per_page)
       )
 
       extra_pages = (
@@ -23,9 +23,9 @@ module Dato
         base_response[:data] += @client.get(
           @base_endpoint,
           @filters.dup.merge(
-            'page[offset]' => items_per_page * (page + 1),
-            'page[limit]' => items_per_page
-          )
+            "page[offset]" => items_per_page * (page + 1),
+            "page[limit]" => items_per_page,
+          ),
         )[:data]
       end
 

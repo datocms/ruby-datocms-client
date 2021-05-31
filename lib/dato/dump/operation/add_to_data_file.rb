@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'dato/dump/format'
+require "dato/dump/format"
 
 module Dato
   module Dump
@@ -24,15 +24,15 @@ module Dato
           old_content = if File.exist? complete_path
                           ::File.read(complete_path)
                         else
-                          ''
+                          ""
                         end
 
           new_content = old_content.sub(
             /\n*(#\s*datocms:start.*#\s*datocms:end|\Z)/m,
-            "\n\n# datocms:start\n#{content_to_add}\n# datocms:end"
+            "\n\n# datocms:start\n#{content_to_add}\n# datocms:end",
           )
 
-          File.open(complete_path, 'w') do |f|
+          File.open(complete_path, "w") do |f|
             f.write new_content
           end
         end

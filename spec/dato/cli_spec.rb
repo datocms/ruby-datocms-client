@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 module Dato
   describe Cli do
-    let(:client) { double('Dato::Site::Client', get: site_data) }
-    let(:site_data) { { 'data' => { 'id' => 'id' } } }
+    let(:client) { double("Dato::Site::Client", get: site_data) }
+    let(:site_data) { { "data" => { "id" => "id" } } }
     let(:runner) { instance_double(Dato::Dump::Runner, run: nil) }
 
     before do
@@ -16,10 +16,10 @@ module Dato
         .to receive(:new).with(anything, anything, anything, anything) { runner }
     end
 
-    describe '#dump' do
-      context 'in watch mode' do
-        it 'dumps data' do
-          described_class.start(%w(dump --token sometoken))
+    describe "#dump" do
+      context "in watch mode" do
+        it "dumps data" do
+          described_class.start(%w[dump --token sometoken])
           expect(runner).to have_received(:run)
         end
       end

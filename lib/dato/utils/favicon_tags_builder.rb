@@ -20,7 +20,7 @@ module Dato
           build_apple_icon_tags,
           build_windows_tags,
           build_color_tags,
-          build_app_name_tag
+          build_app_name_tag,
         ].flatten.compact
       end
 
@@ -29,9 +29,9 @@ module Dato
 
         APPLE_TOUCH_ICON_SIZES.map do |size|
           link_tag(
-            'apple-touch-icon',
+            "apple-touch-icon",
             url(size),
-            sizes: "#{size}x#{size}"
+            sizes: "#{size}x#{size}",
           )
         end
       end
@@ -41,10 +41,10 @@ module Dato
 
         ICON_SIZES.map do |size|
           link_tag(
-            'icon',
+            "icon",
             url(size),
             sizes: "#{size}x#{size}",
-            type: "image/#{site.favicon.format}"
+            type: "image/#{site.favicon.format}",
           )
         end
       end
@@ -58,15 +58,15 @@ module Dato
       end
 
       def build_app_name_tag
-        meta_tag('application-name', site.name)
+        meta_tag("application-name", site.name)
       end
 
       def build_color_tags
         return unless theme_color
 
         [
-          meta_tag('theme-color', theme_color),
-          meta_tag('msapplication-TileColor', theme_color)
+          meta_tag("theme-color", theme_color),
+          meta_tag("msapplication-TileColor", theme_color),
         ]
       end
 
@@ -75,11 +75,11 @@ module Dato
       end
 
       def meta_tag(name, value)
-        { tag_name: 'meta', attributes: { name: name, content: value } }
+        { tag_name: "meta", attributes: { name: name, content: value } }
       end
 
       def link_tag(rel, href, attrs = {})
-        { tag_name: 'link', attributes: attrs.merge(rel: rel, href: href) }
+        { tag_name: "link", attributes: attrs.merge(rel: rel, href: href) }
       end
     end
   end

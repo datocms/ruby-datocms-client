@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 module Dato
   module Local
@@ -10,11 +10,11 @@ module Dato
         let(:attributes) do
           {
             latitude: 12,
-            longitude: 10
+            longitude: 10,
           }
         end
 
-        it 'responds to latitude and longitude methods' do
+        it "responds to latitude and longitude methods" do
           expect(latlon.latitude).to eq 12
           expect(latlon.longitude).to eq 10
         end

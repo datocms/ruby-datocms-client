@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'dato/local/json_api_entity'
+require "dato/local/json_api_entity"
 
 module Dato
   module Local
@@ -27,8 +27,8 @@ module Dato
       end
 
       def destroy_item_type(id)
-        entities.fetch('item', {}).delete_if { |_item_id, item| item.item_type.id == id }
-        entities.fetch('item_type', {}).delete(id)
+        entities.fetch("item", {}).delete_if { |_item_id, item| item.item_type.id == id }
+        entities.fetch("item_type", {}).delete(id)
       end
 
       def upsert_entities(*payloads)

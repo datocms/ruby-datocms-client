@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'dato/utils/meta_tags/base'
+require "dato/utils/meta_tags/base"
 
 module Dato
   module Utils
@@ -8,7 +8,7 @@ module Dato
       class OgLocale < Base
         def build
           locale = I18n.locale
-          og_tag('og:locale', "#{locale}_#{locale.upcase}")
+          og_tag("og:locale", "#{locale}_#{locale.upcase}")
         end
       end
     end

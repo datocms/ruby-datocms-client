@@ -1,15 +1,12 @@
 # frozen_string_literal: true
 
-require 'dato/local/field_type/seo'
+require "dato/local/field_type/seo"
 
 module Dato
   module Local
     module FieldType
       class GlobalSeo
-        attr_reader :site_name
-        attr_reader :title_suffix
-        attr_reader :twitter_account
-        attr_reader :facebook_page_url
+        attr_reader :site_name, :title_suffix, :twitter_account, :facebook_page_url
 
         def self.parse(value, repo)
           value && new(
@@ -18,7 +15,7 @@ module Dato
             value[:twitter_account],
             value[:facebook_page_url],
             value[:fallback_seo],
-            repo
+            repo,
           )
         end
 
@@ -48,7 +45,7 @@ module Dato
             title_suffix: title_suffix,
             twitter_account: twitter_account,
             facebook_page_url: facebook_page_url,
-            fallback_seo: fallback_seo && fallback_seo.to_hash(*args)
+            fallback_seo: fallback_seo && fallback_seo.to_hash(*args),
           }
         end
       end

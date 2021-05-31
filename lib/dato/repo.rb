@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'dato/json_api_serializer'
-require 'dato/json_api_deserializer'
-require 'dato/paginator'
+require "dato/json_api_serializer"
+require "dato/json_api_deserializer"
+require "dato/paginator"
 
 module Dato
   class Repo
@@ -11,8 +11,8 @@ module Dato
     IDENTITY_REGEXP = /\{\(.*?definitions%2F(.*?)%2Fdefinitions%2Fidentity\)}/.freeze
 
     METHOD_NAMES = {
-      'instances' => :all,
-      'self' => :find
+      "instances" => :all,
+      "self" => :find,
     }.freeze
 
     def initialize(client, type, schema)
@@ -32,15 +32,15 @@ module Dato
     private
 
     def method_missing(method, *args, &block)
-      link = schema.links.find do |link|
-        METHOD_NAMES.fetch(link.rel, link.rel).to_sym == method.to_sym
+      link = schema.links.find do |ilink|
+        METHOD_NAMES.fetch(ilink.rel, ilink.rel).to_sym == method.to_sym
       end
 
       return super unless link
 
       min_arguments_count = [
         link.href.scan(IDENTITY_REGEXP).size,
-        link.schema && link.method != :get ? 1 : 0
+        link.schema && link.method != :get ? 1 : 0,
       ].reduce(0, :+)
 
       (args.size >= min_arguments_count) ||
@@ -48,7 +48,7 @@ module Dato
 
       placeholders = []
 
-      url = link['href'].gsub(IDENTITY_REGEXP) do |_stuff|
+      url = link["href"].gsub(IDENTITY_REGEXP) do |_stuff|
         placeholder = args.shift.to_s
         placeholders << placeholder
         placeholder
@@ -61,10 +61,7 @@ module Dato
         body = link.schema ? args.shift : {}
         query_string = args.shift || {}
 
-      elsif link.method == :delete
-        query_string = args.shift || {}
-
-      elsif link.method == :get
+      elsif %i[get delete].include?(link.method)
         query_string = args.shift || {}
       end
 
@@ -73,7 +70,7 @@ module Dato
       if link.schema && %i[post put].include?(link.method) && options.fetch(:serialize_response, true)
         body = JsonApiSerializer.new(link: link).serialize(
           body,
-          link.method == :post ? nil : placeholders.last
+          link.method == :post ? nil : placeholders.last,
         )
       end
 
@@ -89,7 +86,7 @@ module Dato
                    end
                  end
 
-      if response && response[:data] && response[:data].is_a?(Hash) && response[:data][:type] == 'job'
+      if response && response[:data] && response[:data].is_a?(Hash) && response[:data][:type] == "job"
         job_result = nil
 
         until job_result
@@ -104,12 +101,12 @@ module Dato
         if job_result[:status] < 200 || job_result[:status] >= 300
           error = ApiError.new(
             status: job_result[:status],
-            body: JSON.dump(job_result[:payload])
+            body: JSON.dump(job_result[:payload]),
           )
 
-          puts '===='
+          puts "===="
           puts error.message
-          puts '===='
+          puts "===="
 
           raise error
         end
@@ -119,12 +116,10 @@ module Dato
         else
           job_result.payload
         end
+      elsif options.fetch(:deserialize_response, true)
+        JsonApiDeserializer.new(link.target_schema).deserialize(response)
       else
-        if options.fetch(:deserialize_response, true)
-          JsonApiDeserializer.new(link.target_schema).deserialize(response)
-        else
-          response
-        end
+        response
       end
     end
   end
