@@ -16,7 +16,7 @@ module Dato
       subject(:client) do
         Dato::Site::Client.new(
           site[:readwrite_token],
-          base_url: ENV.fetch("SITE_API_BASE_URL")
+          base_url: ENV.fetch('SITE_API_BASE_URL')
         )
       end
 
@@ -302,6 +302,67 @@ module Dato
 
             client.items.batch_destroy('filter[ids]' => "#{tag[:id]},#{tag2[:id]}")
 
+            expect(client.items.all('filter[type]' => item_type[:id]).size).to eq 0
+          end
+        end
+
+        describe 'bulk actions' do
+          let(:item_type) do
+            client.item_types.create(
+              name: 'Tag',
+              singleton: false,
+              modular_block: false,
+              sortable: false,
+              tree: false,
+              draft_mode_active: true,
+              api_key: 'article',
+              ordering_direction: nil,
+              ordering_field: nil,
+              all_locales_required: true,
+              title_field: nil
+            )
+          end
+
+          let(:text_field) do
+            client.fields.create(
+              item_type[:id],
+              api_key: 'title',
+              field_type: 'string',
+              label: 'Title',
+              validators: { required: {} }
+            )
+          end
+
+          let(:tag) do
+            client.items.create(
+              item_type: item_type[:id],
+              title: 'Cats'
+            )
+          end
+
+          let(:tag2) do
+            client.items.create(
+              item_type: item_type[:id],
+              title: 'Dogs'
+            )
+          end
+
+          before do
+            text_field
+            tag
+            tag2
+          end
+
+          it 'works' do
+            client.items.bulk_publish(items: [tag[:id], tag2[:id]])
+
+            expect(client.items.find(tag[:id])[:meta][:status]).to eq 'published'
+
+            client.items.bulk_unpublish(items: [tag[:id], tag2[:id]])
+
+            expect(client.items.find(tag2[:id])[:meta][:status]).to eq 'draft'
+
+            client.items.bulk_destroy(items: [tag[:id], tag2[:id]])
             expect(client.items.all('filter[type]' => item_type[:id]).size).to eq 0
           end
         end

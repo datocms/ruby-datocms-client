@@ -34,7 +34,7 @@ module Dato
           expect(yaml_file['name']).to eq 'Integration new test site'
           expect(yaml_file['locales']).to eq %w[en it]
 
-          loader = FrontMatterParser::Loader::Yaml.new(whitelist_classes: [Time])
+          loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Time])
 
           article_file = FrontMatterParser::Parser.new(:md, loader: loader).call(
             File.read(File.join(destination_path, 'posts', 'first-post.md'))

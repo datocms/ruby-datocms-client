@@ -5,7 +5,7 @@ require 'spec_helper'
 module Dato
   describe JsonApiSerializer do
     subject(:serializer) do
-      described_class.new('menu_item', link)
+      described_class.new(type: 'menu_item', link: link)
     end
 
     let(:link) do
