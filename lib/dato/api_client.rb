@@ -4,8 +4,6 @@ require "faraday"
 require "faraday_middleware"
 require "json"
 require "json_schema"
-require "active_support/core_ext/hash/indifferent_access"
-require "active_support/inflector"
 
 require "dato/version"
 require "dato/repo"

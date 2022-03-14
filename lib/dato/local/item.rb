@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require "forwardable"
-require "active_support/inflector/transliterate"
-require "active_support/hash_with_indifferent_access"
 require "dato/utils/locale_value"
 
 Dir["#{File.dirname(__FILE__)}/field_type/*.rb"].sort.each do |file|

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "active_support/core_ext/string"
 require "dato/local/item"
 require "dato/local/site"
 

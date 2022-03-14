@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "active_support/all"
+
 require "dato/version"
 
 require "dato/site/client"
