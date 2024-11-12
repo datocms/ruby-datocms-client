@@ -29,7 +29,7 @@ module Dato
         },
       )
       loader = Dato::Local::Loader.new(client, preview_mode)
-      print "Fetching content from DatoCMS... "
+      puts "Fetching content from DatoCMS..."
       loader.load
 
       if watch_mode
